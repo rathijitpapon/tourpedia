@@ -1,20 +1,11 @@
-version: "3"
-
+version: "2"
 services:
   tourpedia:
+    container_name: tourpedia
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000"
-    volumes:
-      - /app/node_modules
-      - .:/app
-  tests:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    volumes:
-      - /app/node_modules
-      - .:/app
-    command: ["npm", "run", "test"]
+      - 3000:80
+    environment:
+      NODE_ENV: production
