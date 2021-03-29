@@ -1,9 +1,10 @@
 import httpService from "./httpService";
+import config from "../config/config.json";
 
-const baseURL = "api";
+const baseURL = config.apiBaseURL;
 
 const getData = (campaignId) => {
-    const url = `${baseURL}/`;
+    const url = `${baseURL}/travelagency`;
 
     const response = httpService.get(url, {}).then(res => {
         return {
@@ -11,15 +12,15 @@ const getData = (campaignId) => {
             data: res.data,
         };
     }).catch(error => {
-        if(error.response.status >= 500) {
+        if(error.response && error.response.status <= 500) {
             return {
                 status: error.response.status,
-                message: "Unexpected server error.",
+                message: error.response.data.message,
             };
         }
         return {
-            status: error.response.status,
-            message: error.response.data.message,
+            status: 500,
+            message: "Unexpected server error.",
         };
     });
 
