@@ -45,8 +45,12 @@
 	
 ### 8. User
 	Route: /user/username
-	Content: User
+	Content: User, Saved Event, Saved Blog, Saved Pedia
 	
-### 9. Registration & Login
+### 9. Travel Agency
+	Route: /agency/agencyName
+	Content: Travel Agency, All Events, Event Filtering Option
+	
+### 10. Registration & Login
 	Route: /enter
 	Content: Registration, Login
