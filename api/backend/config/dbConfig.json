@@ -1,0 +1,5 @@
+{
+    "username": "tourpediaAdmin",
+    "password": "tourpedia-admin-agency-sdproejct",
+    "url": "mongodb+srv://tourpediaAdmin:tourpedia-admin-agency-sdproejct@tourpedia.es8il.mongodb.net/tourpedia?retryWrites=true&w=majority"
+}

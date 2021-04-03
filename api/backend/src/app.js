@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 
-// const initDB = require("./db/mongoose");
+const initDB = require("./db/mongoose");
 
 var corsOptions = {
     origin: "*",
@@ -13,7 +13,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// initDB();
+initDB();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));  
