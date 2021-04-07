@@ -14,12 +14,15 @@
 	
 ### Run Admin Frontend:
 	cd admin
+	npm install
 	npm run dev
 	
 ### Run Tour Pedia Frontend:
 	cd tourpedia
+	npm install
 	npm run dev
 	
 ### Run Travel Agency Frontend:
 	cd travelagency
+	npm install
 	npm run dev
