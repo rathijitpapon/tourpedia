@@ -74,7 +74,31 @@
 
 ---
 
-### **3. GET - '/auth'**
+### **3. GET - '/signout'**
+
+**Request**
+
+*Header*
+	
+	Authorization: BearerToken
+
+*Body*
+
+```JSON5
+    {
+    }
+```  
+
+**Response**
+
+```JSON5
+    {
+    }
+```
+
+---
+
+### **4. GET - '/auth'**
 
 **Request**
 
@@ -99,7 +123,7 @@
 
 ---
 
-### **4. GET - '/profile/:username'**
+### **5. GET - '/profile/:username'**
 
 **Request**
 
@@ -123,7 +147,7 @@
 
 ---
 
-### **5. GET - '/email'**
+### **6. GET - '/email'**
 
 **Request**
 
@@ -148,7 +172,7 @@
 
 ---
 
-### **6. POST - '/profile'**
+### **7. POST - '/profile'**
 
 **Request**
 
@@ -178,7 +202,7 @@
 
 ---
 
-### **7. POST - '/password'**
+### **8. POST - '/password'**
 
 **Request**
 
@@ -200,6 +224,26 @@
 ```JSON5
     {
         token: String,
+    }
+```
+
+---
+
+### **9. GET - '/forget'**
+
+**Request**
+
+*Body*
+
+```JSON5
+    {
+    }
+```  
+
+**Response**
+
+```JSON5
+    {
     }
 ```
 
@@ -234,7 +278,31 @@
 
 ---
 
-### **2. GET - '/auth'**
+### **2. GET - '/signout'**
+
+**Request**
+
+*Header*
+	
+	Authorization: BearerToken
+
+*Body*
+
+```JSON5
+    {
+    }
+```  
+
+**Response**
+
+```JSON5
+    {
+    }
+```
+
+---
+
+### **3. GET - '/auth'**
 
 **Request**
 
@@ -259,7 +327,7 @@
 
 ---
 
-### **3. Get - '/profile'**
+### **4. Get - '/profile'**
 
 **Request**
 
@@ -285,7 +353,7 @@
 
 ---
 
-### **4. POST - '/password'**
+### **5. POST - '/password'**
 
 **Request**
 
@@ -307,6 +375,26 @@
 ```JSON5
     {
         token: String,
+    }
+```
+
+---
+
+### **6. GET - '/forget'**
+
+**Request**
+
+*Body*
+
+```JSON5
+    {
+    }
+```  
+
+**Response**
+
+```JSON5
+    {
     }
 ```
 
