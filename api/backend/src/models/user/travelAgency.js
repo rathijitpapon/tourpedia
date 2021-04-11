@@ -117,8 +117,12 @@ travelAgencySchema.methods.toJSON = function () {
     const travelAgency = this;
     const travelAgencyObject = travelAgency.toObject();
 
+    delete travelAgencyObject.email;
     delete travelAgencyObject.password;
     delete travelAgencyObject.tokens;
+    delete travelAgencyObject.event;
+    delete travelAgencyObject.guide;
+    delete travelAgencyObject.category;
 
     return travelAgencyObject;
 };

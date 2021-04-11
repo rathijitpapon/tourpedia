@@ -140,9 +140,19 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.toJSON = function () {
     const user = this;
     const userObject = user.toObject();
-
+    
+    delete userObject.email;
     delete userObject.password;
     delete userObject.tokens;
+    delete userObject.savedPedia;
+    delete userObject.savedBlog;
+    delete userObject.upvotedBlog;
+    delete userObject.downvotedBlog;
+    delete userObject.savedEvent;
+    delete userObject.enrolledEvent;
+    delete userObject.forumPost;
+    delete userObject.upvotedPost;
+    delete userObject.downvotedPost;
 
     return userObject;
 };

@@ -114,8 +114,10 @@ guideSchema.methods.toJSON = function () {
     const guide = this;
     const guideObject = guide.toObject();
 
+    delete guideObject.email
     delete guideObject.password;
     delete guideObject.tokens;
+    delete guideObject.guidedEvent;
 
     return guideObject;
 };

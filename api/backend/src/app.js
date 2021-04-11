@@ -3,6 +3,8 @@ const cors = require("cors");
 
 const initDB = require("./db/mongoose");
 
+const user = require("./routers/user");
+
 var corsOptions = {
     origin: "*",
 };
@@ -19,22 +21,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));  
 app.use(cors(corsOptions));
 
-app.get("/admin", (req, res) => {
-    res.send({
-        data: "Data For Admin",
-    });
-});
-
-app.get("/travelagency", (req, res) => {
-    res.send({
-        data: "Data For Travel Agency",
-    });
-});
-
-app.get("/tourpedia", (req, res) => {
-    res.send({
-        data: "Data For Tour Pedia",
-    });
-});
+app.use("/user", user);
 
 module.exports = app;
