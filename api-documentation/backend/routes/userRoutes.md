@@ -14,7 +14,7 @@
 
 ### Base Route For User - '/general'
 ### Base Route For TravelAgency - '/travelagency'
-### Base Route For Guide - '/guide/'
+### Base Route For Guide - '/guide'
 
 ### **1. POST - '/signup'**
 
@@ -40,6 +40,10 @@
         about: String,
         profileImage: String,
         isBanned: Boolean,
+        travelAgency: { // Only For Guide
+        	username: String,
+        	fullname: String,
+        },
     	token: String,
     }
 ```
@@ -68,6 +72,10 @@
         about: String,
         profileImage: String,
         isBanned: Boolean,
+        travelAgency: { // Only For Guide
+        	username: String,
+        	fullname: String,
+        },
     	token: String,
     }
 ```
@@ -117,7 +125,6 @@
 
 ```JSON5
     {
-        isAuth: Boolean,
     }
 ```
 
@@ -142,6 +149,11 @@
         fullname: String,
         about: String,
         profileImage: String,
+        isBanned: Boolean,
+        travelAgency: { // Only For Guide
+        	username: String,
+        	fullname: String,
+        },
     }
 ```
 
@@ -237,6 +249,7 @@
 
 ```JSON5
     {
+    	email: String,
     }
 ```  
 
@@ -321,7 +334,6 @@
 
 ```JSON5
     {
-        isAuth: Boolean,
     }
 ```
 
@@ -375,26 +387,6 @@
 ```JSON5
     {
         token: String,
-    }
-```
-
----
-
-### **6. GET - '/forget'**
-
-**Request**
-
-*Body*
-
-```JSON5
-    {
-    }
-```  
-
-**Response**
-
-```JSON5
-    {
     }
 ```
 
