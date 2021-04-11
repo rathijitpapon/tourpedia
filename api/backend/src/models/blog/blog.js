@@ -18,16 +18,22 @@ const blogSchema = new mongoose.Schema(
             type: String,
         }],
         country: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Country",
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Country",
+            }
         }],
         place: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Place",
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Place"
+            }
         }],
         category: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Category",
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Category"
+            }
         }],
         upvote: {
             type: Number,

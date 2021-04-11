@@ -3,15 +3,19 @@ const uniqueValidator = require('mongoose-unique-validator');
 
 const pediaSchema = new mongoose.Schema(
     {
-        country: { 
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Country",
-            required: true
+        country: {
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Country",
+                required: true,
+            }
         },
         place: {
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Place",
-            required: true
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Place",
+                required: true,
+            }
         },
         imageURL: [{
             type: String,
@@ -20,20 +24,28 @@ const pediaSchema = new mongoose.Schema(
             type: String,
         }],
         category: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Category"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Category"
+            }
         }],
         area: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "AreaDescription"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Area"
+            }
         }],
         food: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "FoodDescription"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Food"
+            }
         }],
         tourPlan: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "TourPlan"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "TourPlan"
+            }
         }],
         rating: {
             type: Number,

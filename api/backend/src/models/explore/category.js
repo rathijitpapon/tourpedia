@@ -16,24 +16,34 @@ const categorySchema = new mongoose.Schema(
             type: String,
         }],
         travelAgency: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "TravelAgency"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "TravelAgency"
+            }
         }],
         place: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Place"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Place"
+            }
         }],
         blog: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Blog"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Blog"
+            }
         }],
         tourPlan: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "TourPlan"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "TourPlan"
+            }
         }],
         event: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Event"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Event"
+            }
         }],
     },
     {

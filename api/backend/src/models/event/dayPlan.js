@@ -8,17 +8,21 @@ const dayPlanSchema = new mongoose.Schema(
             required: true,
         },
         place: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Place",
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Place"
+            }
         }],
         description: {
             type: String,
             required: true,
         },
         event: {
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Event",
-            required: true,
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Event",
+                required: true,
+            }
         },
         hotel: {
             type: String,

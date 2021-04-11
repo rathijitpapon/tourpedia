@@ -21,34 +21,48 @@ const eventSchema = new mongoose.Schema(
             type: String,
         }],
         travelAgency: {
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "TravelAgency",
-            required: true,
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "TravelAgency",
+                required: true,
+            }
         },
-        country: { 
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Country",
-            required: true
+        country: {
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Country",
+                required: true,
+            }
         },
         place: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Place",
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Place"
+            }
         }],
         guide: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Guide",
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Guide"
+            }
         }],
         category: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Category"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Category"
+            }
         }],
         dayPlan: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "DayPlan"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "DayPlan"
+            }
         }],
         enrolledUser: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "User"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User"
+            }
         }],
         participantLimit: {
             type: Number,

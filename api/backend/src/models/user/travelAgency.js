@@ -62,16 +62,22 @@ const travelAgencySchema = new mongoose.Schema(
             required: true,
         },
         event: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Event"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Event"
+            }
         }],
         guide: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Guide"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Guide"
+            }
         }],
         category: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Category"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Category"
+            }
         }],
         tokens: [{
             token: {

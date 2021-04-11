@@ -3,15 +3,19 @@ const uniqueValidator = require('mongoose-unique-validator');
 
 const tourPlanSchema = new mongoose.Schema(
     {
-        country: { 
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Country",
-            required: true
+        country: {
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Country",
+                required: true
+            }
         },
         place: {
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Place",
-            required: true
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Place",
+                required: true
+            }
         },
         imageURL: [{
             type: String,
@@ -20,8 +24,10 @@ const tourPlanSchema = new mongoose.Schema(
             type: String,
         }],
         category: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Category"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Category"
+            }
         }],
         description: {
             type: String,

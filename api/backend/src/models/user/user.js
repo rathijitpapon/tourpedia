@@ -62,40 +62,58 @@ const userSchema = new mongoose.Schema(
             required: true,
         },
         savedPedia: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Pedia"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Pedia"
+            }
         }],
         savedBlog: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Blog"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Blog"
+            }
         }],
         upvotedBlog: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Blog"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Blog"
+            }
         }],
         downvotedBlog: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Blog"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Blog"
+            }
         }],
         savedEvent: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Event"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Event"
+            }
         }],
         enrolledEvent: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Event"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Event"
+            }
         }],
         forumPost: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Post"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Post"
+            }
         }],
         upvotedPost: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Post"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Post"
+            }
         }],
         downvotedPost: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Post"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Post"
+            }
         }],
         tokens: [{
             token: {

@@ -16,26 +16,36 @@ const placeSchema = new mongoose.Schema(
             type: String,
         }],
         country: {
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Country",
-            required: true,
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Country",
+                required: true,
+            }
         },
         pedia: {
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Pedia",
-            required: true,
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Pedia",
+                required: true,
+            }
         },
         blog: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Blog"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Blog"
+            }
         }],
         tourPlan: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "TourPlan"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "TourPlan"
+            }
         }],
         event: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Event"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Event"
+            }
         }],
     },
     {

@@ -62,13 +62,17 @@ const guideSchema = new mongoose.Schema(
             required: true,
         },
         guidedEvent: [{
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "Event"
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Event"
+            }
         }],
         travelAgency: {
-            _id: mongoose.Schema.Types.ObjectId,
-            ref: "TravelAgency",
-            required: true,
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "TravelAgency",
+                required: true,
+            }
         },
         tokens: [{
             token: {
