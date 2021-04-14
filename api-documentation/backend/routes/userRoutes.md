@@ -125,6 +125,15 @@
 
 ```JSON5
     {
+    	username: String,
+        fullname: String,
+        about: String,
+        profileImage: String,
+        isBanned: Boolean,
+        travelAgency: { // Only For Guide
+        	username: String,
+        	fullname: String,
+        },
     }
 ```
 
@@ -334,6 +343,8 @@
 
 ```JSON5
     {
+    	fullname: String,
+        email: String,
     }
 ```
 
