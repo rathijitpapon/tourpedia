@@ -7,7 +7,9 @@ const {
     Admin,
 } = require("../models/user");
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const schemaConfig = require("../../config/schemaConfig.json");
+
+const JWT_SECRET = schemaConfig.jwtSecret;
 
 const auth = async (req, res, next, UserType) => {
     try {

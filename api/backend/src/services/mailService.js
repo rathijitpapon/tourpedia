@@ -9,6 +9,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendWelcomeMail = async (email, fullname) => {
+    return;
     const mailOptions = {
         from: 'tourpediaorg@gmail.com',
         to: email,
@@ -30,6 +31,7 @@ const sendWelcomeMail = async (email, fullname) => {
 }
 
 const sendForgetPasswordMail = async (email, fullname, password) => {
+    return;
     const mailOptions = {
         from: 'tourpediaorg@gmail.com',
         to: email,

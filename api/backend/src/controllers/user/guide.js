@@ -7,7 +7,7 @@ const defaultProfileImage = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blan
 
 const checkValidBody = (body, fields) => {
     const isValid = fields.every((field) => {
-        return body.includes(field);
+        return field in body;
     });
 
     return isValid;
@@ -48,8 +48,10 @@ const signup = async (req, res) => {
             select: ["username", "fullname"],
         }]);
 
-        guide.token = token;
-        res.status(200).send(guide);
+        res.status(200).send({
+            guide,
+            token,
+        });
 
     } catch (error) {
         res.status(400).send({
@@ -79,8 +81,10 @@ const signin = async (req, res) => {
             select: ["username", "fullname"],
         }]);
 
-        guide.token = token;
-        res.status(200).send(guide);
+        res.status(200).send({
+            guide,
+            token,
+        });
 
     } catch (error) {
         res.status(400).send({

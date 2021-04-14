@@ -7,7 +7,7 @@ const defaultProfileImage = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blan
 
 const checkValidBody = (body, fields) => {
     const isValid = fields.every((field) => {
-        return body.includes(field);
+        return field in body;
     });
 
     return isValid;
@@ -42,8 +42,10 @@ const signup = async (req, res) => {
         const token = await user.generateAuthToken();
         await mailService.sendWelcomeMail(user.email, user.fullname);
 
-        user.token = token;
-        res.status(200).send(user);
+        res.status(200).send({
+            user,
+            token,
+        });
 
     } catch (error) {
         res.status(400).send({
@@ -68,8 +70,10 @@ const signin = async (req, res) => {
         );
         const token = await user.generateAuthToken();
 
-        user.token = token;
-        res.status(200).send(user);
+        res.status(200).send({
+            user,
+            token,
+        });
 
     } catch (error) {
         res.status(400).send({

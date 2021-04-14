@@ -5,7 +5,7 @@ const mailService = require('../../services/mailService');
 
 const checkValidBody = (body, fields) => {
     const isValid = fields.every((field) => {
-        return body.includes(field);
+        return field in body;
     });
 
     return isValid;
@@ -37,8 +37,10 @@ const signup = async (req, res) => {
         const token = await admin.generateAuthToken();
         await mailService.sendWelcomeMail(admin.email, admin.fullname);
 
-        admin.token = token;
-        res.status(200).send(admin);
+        res.status(200).send({
+            admin,
+            token,
+        });
 
     } catch (error) {
         res.status(400).send({
@@ -63,8 +65,10 @@ const signin = async (req, res) => {
         );
         const token = await admin.generateAuthToken();
 
-        admin.token = token;
-        res.status(200).send(admin);
+        res.status(200).send({
+            admin,
+            token,
+        });
 
     } catch (error) {
         res.status(400).send({
