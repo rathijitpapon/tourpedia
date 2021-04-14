@@ -95,7 +95,7 @@ const signout = async (req, res) => {
 
 const auth = async (req, res) => {
     try {
-        res.status(200).send();
+        res.status(200).send(req.user);
     } catch (error) {
         res.status(400).send({
             message: "Authentication Failed.",
