@@ -1,0 +1,105 @@
+import httpService from "./httpService";
+import authService from "./authService";
+
+import config from "../config/config.json";
+
+const baseURL = config.apiBaseURL + "/user/general";
+
+const getSavedAuthInfo = () => {
+    if (authService.getCurrentUser()) {
+        return authService.getUser();
+    }
+    return false;
+}
+
+const getAuth = () => {
+    const url = `${baseURL}/auth`;
+
+    httpService.setJWT(authService.getJWT());
+    const response = httpService.get(url, {}).then(res => {
+        return {
+            status: res.status,
+            user: res.data,
+        };
+    }).catch(error => {
+        if(error.response && error.response.status <= 500) {
+            return {
+                status: error.response.status,
+                message: 'Unauthorized',
+            };
+        }
+        return {
+            status: 500,
+            message: "Unexpected server error",
+        };
+    });
+
+    return response;
+};
+
+const signin = (email, password) => {
+    const url = `${baseURL}/signin`;
+
+    const response = httpService.post(url, {
+        email,
+        password,
+    }).then(res => {
+        authService.uiLogin(res.data.token, res.data.user.username);
+        return {
+            status: res.status,
+            user: res.data.user,
+        };
+    }).catch(error => {
+        if(error.response && error.response.status <= 500) {
+            return {
+                status: error.response.status,
+                message: 'Email or Password is incorrect',
+            };
+        }
+        return {
+            status: 500,
+            message: "Unexpected server error",
+        };
+    });
+
+    return response;
+};
+
+const signup = (username, email, password, fullname) => {
+    const url = `${baseURL}/signup`;
+
+    const response = httpService.post(url, {
+        username,
+        email,
+        password,
+        fullname,
+    }).then(res => {
+        authService.uiLogin(res.data.token, res.data.user.username);
+        return {
+            status: res.status,
+            user: res.data.user,
+        };
+    }).catch(error => {
+        if(error.response && error.response.status <= 500) {
+            return {
+                status: error.response.status,
+                message: 'Email or Username is already exist',
+            };
+        }
+        return {
+            status: 500,
+            message: "Unexpected server error",
+        };
+    });
+
+    return response;
+};
+
+const userAuthService = {
+    getSavedAuthInfo,
+    getAuth,
+    signin,
+    signup,
+};
+
+export default userAuthService;

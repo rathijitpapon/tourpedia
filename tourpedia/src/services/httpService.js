@@ -17,12 +17,17 @@ axios.interceptors.response.use(null, error => {
     return Promise.reject(error);
 });
 
+const setJWT = (jwt) => {
+  axios.defaults.headers.common["Authorization"] = jwt;
+}
+
 const httpService = {
     get: axios.get,
     post: axios.post,
     patch: axios.patch,
     delete: axios.delete,
     put: axios.put,
+    setJWT,
 };
 
 export default httpService;

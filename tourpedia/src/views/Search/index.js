@@ -3,7 +3,9 @@ import React, {useEffect} from 'react';
 import LayoutWrapper from "../../layouts/LayoutWrapper";
 import "./styles.css";
 
-const Home = () => {
+const Search = (props) => {
+
+    const searchKey = props.match.params.key;
 
     const fetchData = async () => {
     }
@@ -14,9 +16,10 @@ const Home = () => {
 
     return ( 
         <LayoutWrapper>
-            <h1>Home Page</h1>
+            <h1>Search Page</h1>
+            <h2>{searchKey}</h2>
         </LayoutWrapper>
      );
 }
  
-export default Home;
+export default Search;
