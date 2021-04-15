@@ -95,11 +95,36 @@ const signup = (username, email, password, fullname) => {
     return response;
 };
 
+const getProfile = (username) => {
+    const url = `${baseURL}/profile/${username}`;
+
+    const response = httpService.get(url, {}).then(res => {
+        return {
+            status: res.status,
+            user: res.data,
+        };
+    }).catch(error => {
+        if(error.response && error.response.status <= 500) {
+            return {
+                status: error.response.status,
+                message: "Username isn't found",
+            };
+        }
+        return {
+            status: 500,
+            message: "Unexpected server error",
+        };
+    });
+
+    return response;
+};
+
 const userAuthService = {
     getSavedAuthInfo,
     getAuth,
     signin,
     signup,
+    getProfile,
 };
 
 export default userAuthService;

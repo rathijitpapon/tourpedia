@@ -9,11 +9,13 @@ import Event from "../views/Event";
 import Forum from "../views/Forum";
 import Enter from "../views/Enter";
 import Search from "../views/Search";
+import Profile from "../views/Profile";
 
 const MainLayout = () => {
   return (
     <div>
       <Switch>
+        <Route exact path="/user/:username" component={Profile} />
         <Route exact path="/search/:key" component={Search} ></Route>
         <Route exact path="/event" component={Event} ></Route>
         <Route exact path="/blog" component={Blog} ></Route>
