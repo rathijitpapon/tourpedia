@@ -51,6 +51,10 @@
 	Route: /agency/agencyName
 	Content: Travel Agency, All Events, Event Filtering Option
 	
-### 10. Registration & Login
+### 10. Search
+	Route: /search/key
+	Content: All, Travel Agency, Event, Place, Blog, Search Filtering Option 
+	
+### 11. Registration & Login
 	Route: /enter
 	Content: Registration, Login
