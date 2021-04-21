@@ -9,7 +9,7 @@
 	Content: Profile
 	
 ### 3. Dashboard
-	Route: /dashboard
+	Route: /home
 	Content: Top Events, Dashboard, Cost Summary, Useful Graphs
 
 ### 4. Events
@@ -17,13 +17,17 @@
 	Content: Created Events
 	
 ### 5. Event Details
-	Route: /event/:eventName
+	Route: /event/eventName
 	Content: Event Details
 	
 ### 6. Add & Edit Event
-	Route: /event/edit
+	Route: /event/edit/eventId
 	Content: Add & Edit Event Option
 	
 ### 7. Guides
 	Route: /guide
-	Content: Added Guides, Add Guide Option
+	Content: All Added Guides
+	
+### 8. Add & Edit Guide
+	Route: /guide/edit/guideId
+	Content: Add & Edit Guide Option

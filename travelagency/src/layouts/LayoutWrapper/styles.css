@@ -1,0 +1,15 @@
+.layout-wrapper-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.layout-remaining-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #ffffff;
+}
+
+.layout-body-container {
+    display: block;
+}

@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import LayoutWrapper from "../../layouts/LayoutWrapper";
 import "./styles.css";
 
-const Home = () => {
+const Event = () => {
     const fetchData = async () => {
     }
 
@@ -13,9 +13,9 @@ const Home = () => {
 
     return ( 
         <LayoutWrapper>
-            <h1 style={{textAlign: 'center'}}>Home Page</h1>
+            <h1 style={{textAlign: 'center'}}>Event Page</h1>
         </LayoutWrapper>
      );
 }
  
-export default Home;
+export default Event;
