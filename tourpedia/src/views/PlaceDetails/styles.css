@@ -1,0 +1,48 @@
+.page-cover-wrap > h4 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 50px;
+  text-align: center;
+}
+
+.page-cover-wrap {
+  align-items: left;
+  padding: 2rem 4rem;
+}
+
+.page-cover {
+  max-height: 500px;
+  width: 100%;
+}
+
+.pedia-text-container {
+  padding: 2rem 4rem 1rem;
+}
+
+.pedia-text-container-a {
+  padding: 0rem 4rem 2rem;
+}
+
+.pedia-text-container > h4 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-style: inherit;
+  font-size: 40px;
+  text-align: left;
+  color: rgb(54, 12, 94);
+}
+
+.pedia-text-container-a > h4 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-style: inherit;
+  font-size: 30px;
+  text-align: left;
+  color: rgb(86, 83, 88);
+}
+
+.pedia-text-container > p {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 20px;
+}
