@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+.enter-main-container {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    overflow: scroll;
+    height: 100vh;
+    padding: 50px;
+}
+
+.enter-header-container {
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.enter-title-container {
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    color: #0e033b;
+    font-family: Ubuntu Mono;
+    margin-bottom: 20px;
+}
+
+.enter-content-container {
+    margin: 0 10%;
+    font-size: 20px;
+    color: #010738;
+    font-family: Ubuntu Mono;
+    text-align: center;
+}
+
+.enter-signup-container {
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    height: 80vh;
+    overflow: scroll;
+}
