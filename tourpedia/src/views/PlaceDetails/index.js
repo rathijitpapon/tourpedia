@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import Cards from '../../components/Cards';
+import TrendingCards from '../../components/TrendingCards';
 import LayoutWrapper from "../../layouts/LayoutWrapper";
-import {getTrendingBlogs} from '../../services/trendingBlogs';
-import {getPlaceInfo} from '../../services/placeInfoService';
-import {getTrendingEvents} from '../../services/trendingEvents';
+import {getTrendingBlogs} from '../../assets/trendingBlogs';
+import {getPlaceInfo} from '../../assets/placeInfoService';
+import {getTrendingEvents} from '../../assets/trendingEvents';
 import "./styles.css";
 
 function GenerateTextBox(title, text, type) {
@@ -69,8 +69,8 @@ const PlaceDetails = (props) => {
                     GenerateTextBox(item.title, item.description, "-a")
                 ))}
                 {GenerateTextBox("Travel Guide", placeInfo.travel_guide, "")}
-                <Cards title="Trending Blogs" cardData={blogs} />
-                <Cards title="Trending Events" cardData={events} />
+                <TrendingCards title="Trending Blogs" cardData={blogs} />
+                <TrendingCards title="Trending Events" cardData={events} />
             </>}
         </LayoutWrapper>
      );

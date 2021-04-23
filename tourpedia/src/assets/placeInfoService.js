@@ -1,6 +1,6 @@
 const placeInfo = {
     placeName: "Kasol",
-    cover_img: "/images/kasol-home.jpg",
+    cover_img: "https://lh3.googleusercontent.com/dqW4IRiffQNBeBBA0Z16mtipVkeaz8Z4b1rw8t0f507vSX358956b0q9LAVY_M0e1K2K4hL3=w1080-h608-p-no-v0",
     pedia: "Kasol is a hamlet in the district Kullu of the Indian state of Himachal Pradesh. It is situated in Parvati Valley, on the banks of the Parvati River, on the way between Bhuntar and Manikaran. It is located 30 km from Bhuntar and 3.5 km from Manikaran. Kasol is the Himalayan hotspot for backpackers and acts as a base for nearby treks to Malana and Kheerganga. It is called Mini Israel of India due to a high percentage of Israeli tourists here.",
     to_visit: {
         description: "Kasol is one of the most affordable tourist destinations in India. On a Trip to Kasol you will find a plethora of places to take your breath away. If you visit the places nearby on a bike or foot you will feel closer to nature. For the adventure enthusiasts Kasol has a lot to offer.",

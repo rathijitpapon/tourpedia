@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './styles.css'
 
-function Cards(props) {
+function TrendingCards(props) {
     return (
         <div className="cards">
             <h1>{props.title}</h1>
@@ -29,4 +29,4 @@ function Cards(props) {
     );
 }
 
-export default Cards;
+export default TrendingCards;
