@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+.category-details-title {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Ubuntu Mono;
+    text-align: center;
+    color: rgb(4, 4, 80);
+}
+
+.category-details-text {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.category-details-section-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.category-details-pagination {
+    display: flex;
+    justify-content: flex-end;
+}

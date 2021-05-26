@@ -57,7 +57,7 @@ const PlaceDetails = (props) => {
             {loaded && <>
                 <div className="page-cover-wrap">
                     <h4>{placeInfo.placeName}</h4>
-                    <img src={placeInfo.cover_img} alt="Cover Photo" className="page-cover"/>
+                    <img src={placeInfo.cover_img} alt="Cover Img" className="page-cover"/>
                 </div>
                 {GenerateTextBox("Pedia", placeInfo.pedia, "")}
                 {GenerateTextBox("Things to Explore at Kasol", placeInfo.to_visit.description, "")}
