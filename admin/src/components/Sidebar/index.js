@@ -153,7 +153,7 @@ const SideNavBar = (props) => {
                         )
                     }
                     <MenuItem 
-                        icon={<ImBlog className="sidebar-link-icon" />}>
+                        icon={<BsFillQuestionOctagonFill className="sidebar-link-icon" />}>
                         <Link 
                             className="sidebar-link-item" 
                             to="/pending/blog"
@@ -163,7 +163,7 @@ const SideNavBar = (props) => {
                     </MenuItem>
                     
                     <MenuItem 
-                        icon={<BsFillQuestionOctagonFill className="sidebar-link-icon" />}>
+                        icon={<ImBlog className="sidebar-link-icon" />}>
                         <Link 
                             className="sidebar-link-item" 
                             to="/blog"

@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+.explore-main-container {
+    padding: 3%
+}
+
+.explore-item-title-container {
+    font-size: 30px;
+    font-family: Ubuntu Mono;
+    font-weight: bold;
+    color: #0d0552;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.explore-item-section-container {
+    padding: auto 10px;
+}
+
+.explore-input-title-container {
+    font-weight: bold;
+}
+
+.explore-text-input-container {
+    border-radius: 5px;
+    height: 35px;
+    width: 300px;
+    margin-bottom: 10px;
+}
