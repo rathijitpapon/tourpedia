@@ -2,7 +2,7 @@
 
 ### 1. Home Page
 	Route: /
-	Content: Featured Banners, Featured Events, Featured Blogs, Featured Categories, Featured Places, Featured Countries
+	Content: Featured Banners, Event Search Option, Plan My Tour Option, Featured Events, Featured Categories, Featured Places, Featured Blogs
 	
 ### 2. Country
 	Route: /country
@@ -31,10 +31,10 @@
 	
 ### 6. Event
 	Route: /event
-	Content: Featured Banners, Event Division By Category, Event Finding Option
+	Content: Featured Banners, Plan My Tour Option, Event Filtering Options, Event List
 	
 	Route: /event/agencyName/eventName
-	Content: Event
+	Content: Event Details, Similar Events, Similar Places
 	
 ### 7. Forum
 	Route: /forum
@@ -45,7 +45,7 @@
 	
 ### 8. User
 	Route: /user/username
-	Content: User, Saved Event, Saved Blog, Saved Pedia
+	Content: User, Enrolled Events, Favorite Events, Favorite Blog, Favorite Pedia
 	
 ### 9. Travel Agency
 	Route: /agency/agencyName
@@ -53,7 +53,7 @@
 	
 ### 10. Search
 	Route: /search/key
-	Content: All, Travel Agency, Event, Place, Blog, Search Filtering Option 
+	Content: Travel Agency, Event, Place, Blog, Search Filtering Option 
 	
 ### 11. Registration & Login
 	Route: /enter
