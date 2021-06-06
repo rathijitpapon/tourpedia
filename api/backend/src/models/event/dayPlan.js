@@ -7,42 +7,46 @@ const dayPlanSchema = new mongoose.Schema(
             type: Date,
             required: true,
         },
+        description: {
+            type: String,
+            required: true,
+        },
+        imageURL: [{
+            type: String,
+        }],
+        accomodation: {
+            type: String,
+        },
+        accomodationQuantity: {
+            type: Number,
+        },
+        accomodationCost: {
+            type: Number,
+        },
+        transport: {
+            type: String,
+        },
+        transportCost: {
+            type: Number,
+        },
+        otherCost: {
+            type: Number,
+        },
+        activity: [{
+            type: String,
+        }],
         place: [{
             _id: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Place"
             }
         }],
-        description: {
-            type: String,
-            required: true,
-        },
         event: {
             _id: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Event",
                 required: true,
             }
-        },
-        hotel: {
-            type: String,
-            required: true,
-        },
-        hotelCost: {
-            type: Number,
-            required: true,
-        },
-        transport: {
-            type: String,
-            required: true,
-        },
-        transportCost: {
-            type: Number,
-            required: true,
-        },
-        otherCost: {
-            type: Number,
-            required: true,
         }
     },
     {

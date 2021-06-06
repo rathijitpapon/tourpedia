@@ -10,13 +10,13 @@ const tourPlanSchema = new mongoose.Schema(
                 required: true
             }
         },
-        place: {
+        place: [{
             _id: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Place",
                 required: true
             }
-        },
+        }],
         imageURL: [{
             type: String,
         }],
@@ -32,7 +32,33 @@ const tourPlanSchema = new mongoose.Schema(
         description: {
             type: String,
             required: true,
-        }
+        },
+        totalCost: {
+            type: Number,
+            required: true,
+        },
+        groupOption: {
+            type: String,
+            required: true,
+        },
+        duration: {
+            type: Number,
+            required: true,
+        },
+        minimuParticipantLimit: {
+            type: Number,
+            required: true,
+        },
+        accomodationOption: [{
+            type: String,
+            required: true,
+        }],
+        dayPlan: [{
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "DayPlan"
+            }
+        }]
     },
     {
         timestamps: true,
