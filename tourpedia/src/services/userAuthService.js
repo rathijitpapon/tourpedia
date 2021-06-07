@@ -95,6 +95,31 @@ const signup = (username, email, password, fullname) => {
     return response;
 };
 
+const signout = (username, email, password, fullname) => {
+    const url = `${baseURL}/signout`;
+
+    httpService.setJWT(authService.getJWT());
+    const response = httpService.get(url, {}).then(res => {
+        authService.uiLogout();
+        return {
+            status: res.status,
+        };
+    }).catch(error => {
+        if(error.response && error.response.status <= 500) {
+            return {
+                status: error.response.status,
+                message: 'Unauthorized',
+            };
+        }
+        return {
+            status: 500,
+            message: "Unexpected server error",
+        };
+    });
+
+    return response;
+};
+
 const getProfile = (username) => {
     const url = `${baseURL}/profile/${username}`;
 
@@ -124,6 +149,7 @@ const userAuthService = {
     getAuth,
     signin,
     signup,
+    signout,
     getProfile,
 };
 

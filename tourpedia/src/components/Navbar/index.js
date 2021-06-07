@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Image, Navbar, NavDropdown, Nav} from 'react-bootstrap';
 import {Link, useHistory} from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import userAuthService from '../../services/userAuthService.js';
 
@@ -41,6 +42,25 @@ const NavBar = (props) => {
     }
   }
 
+  const handleLogout = async () => {
+    const data = await userAuthService.signout();
+
+    if (data.status < 300) {
+      setIsAuthenticated(false);
+    }
+    else {
+      toast.error(data.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  }
+
   useEffect(() => {
     fetchData();
   }, [])
@@ -71,26 +91,28 @@ const NavBar = (props) => {
               <div className="btn btn-outline-secondary nav-search-button-container" onClick={handleSearch}>Search</div>
           </div>
 
-          <NavDropdown eventkey={1} href="/" className="nav-item-link-container" title="Explore By">
-            <NavDropdown.Item className="nav-dropdown-link" as={Link} to="/country">Country</NavDropdown.Item>
-            <NavDropdown.Item className="nav-dropdown-link" as={Link} to="/category">Category</NavDropdown.Item>
-          </NavDropdown>
-
           <Nav.Link className="nav-item-link-container" as={Link} to="/event">
-            Event
+            Destinations
           </Nav.Link>
           <Nav.Link className="nav-item-link-container" as={Link} to="/blog">
             Blog
           </Nav.Link>
+
+          <NavDropdown eventkey={0} className="nav-item-link-container" title="Explore">
+            <NavDropdown.Item className="nav-dropdown-link" as={Link} to="/country">Country</NavDropdown.Item>
+            <NavDropdown.Item className="nav-dropdown-link" as={Link} to="/category">Category</NavDropdown.Item>
+          </NavDropdown>
+
           {
             isAuthenticated ? (
               <React.Fragment>
-                <Nav.Link className="nav-item-link-container" as={Link} to="/forum">
+                {/* <Nav.Link className="nav-item-link-container" as={Link} to="/forum">
                   Forum
-                </Nav.Link>
-                <Nav.Link className="nav-item-link-container" as={Link} to={"/user/" + username} > 
-                  {username}
-                </Nav.Link>
+                </Nav.Link> */}
+                <NavDropdown eventkey={0} className="nav-item-link-container" title={username}>
+                  <NavDropdown.Item className="nav-dropdown-link" as={Link} to={"/user/" + username}>Profile</NavDropdown.Item>
+                  <NavDropdown.Item className="nav-dropdown-link" onClick={handleLogout}>Logout</NavDropdown.Item>
+                </NavDropdown>
               </React.Fragment>
             ) : (
               <Nav.Link className="nav-item-link-container" as={Link} to="/enter">
