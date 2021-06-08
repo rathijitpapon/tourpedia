@@ -1,0 +1,21 @@
+.event-filter-main {
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.event-filter-section-header {
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.event-filter-section-header-icon {
+    font-size: 28px;
+}

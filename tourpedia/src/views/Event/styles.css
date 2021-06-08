@@ -1,0 +1,28 @@
+.event-title {
+    font-family: Ubuntu Mono;
+    font-weight: bold;
+    text-align: center;
+    font-size: 35px;
+    color: rgb(1, 1, 73);
+}
+
+.enter-description {
+    font-family: Ubuntu Mono;
+    text-align: center;
+    font-size: 20px;
+    color: rgb(1, 1, 73);
+}
+
+.enter-sort-warpper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.enter-sort-container {
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    display: inline-block;
+}
