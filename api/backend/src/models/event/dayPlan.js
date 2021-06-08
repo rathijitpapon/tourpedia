@@ -17,7 +17,10 @@ const dayPlanSchema = new mongoose.Schema(
         accomodation: {
             type: String,
         },
-        accomodationQuantity: {
+        accomodationQuality: {
+            type: Number,
+        },
+        roomSize: {
             type: Number,
         },
         accomodationCost: {
