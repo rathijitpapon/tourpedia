@@ -29,6 +29,10 @@ const tourPlanSchema = new mongoose.Schema(
                 ref: "Category"
             }
         }],
+        banner: {
+            type: String,
+            required: true,
+        },
         description: {
             type: String,
             required: true,
