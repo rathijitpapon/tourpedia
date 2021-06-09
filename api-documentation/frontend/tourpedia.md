@@ -35,26 +35,30 @@
 	
 	Route: /event/agencyName/eventName
 	Content: Event Details, Similar Events, Similar Places
+
+### 7. TourPlan
+	Route: /tourplan/tourplanName
+	Content: TourPlan Details, Similar Events, Similar Places
 	
-### 7. Forum
+### 8. Forum
 	Route: /forum
 	Content: Sorted Posts, Post Finding Option
 	
 	Route: /forum/username/postTitle
 	Content: Post
 	
-### 8. User
+### 9. User
 	Route: /user/username
 	Content: User, Enrolled Events, Favorite Events, Favorite Blog, Favorite Pedia
 	
-### 9. Travel Agency
+### 10. Travel Agency
 	Route: /agency/agencyName
 	Content: Travel Agency, All Events, Event Filtering Option
 	
-### 10. Search
+### 11. Search
 	Route: /search/key
 	Content: Travel Agency, Event, Place, Blog, Search Filtering Option 
 	
-### 11. Registration & Login
+### 12. Registration & Login
 	Route: /enter
 	Content: Registration, Login
