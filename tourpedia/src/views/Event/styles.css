@@ -13,6 +13,28 @@
     color: rgb(1, 1, 73);
 }
 
+.event-plan-button {
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 55px;
+    font-size: 18px;
+    padding: 15px;
+}
+
+.event-plan-modal-body {
+    position: absolute;
+    top: 15%;
+    bottom: 15%;
+    left: 15%;
+    right: 15%;
+    background: rgb(248, 248, 250);
+    padding: 20px;
+    overflow: auto;
+    border-radius: 20px;
+}
+
 .enter-sort-warpper {
     display: flex;
     flex-direction: row;
@@ -25,4 +47,24 @@
     font-size: 16px;
     padding: 10px;
     display: inline-block;
+}
+
+.event-load-more {
+    width: 170px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 500px) {
+    .event-plan-modal-body {
+        top: 5%;
+        bottom: 5%;
+        left: 5%;
+        right: 5%;
+    }
 }

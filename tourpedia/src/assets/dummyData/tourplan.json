@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "name": "Golden Triangle",
+        "name": "Delhi Agra 3 Days Tour",
         "description": "Start and end in New Delhi! With the In-depth Cultural tour Golden Triangle, you have a 8 days tour package taking you through New Delhi, India and 3 other destinations in India. Golden Triangle includes accommodation in a hotel as well as an expert guide, transport and more.\n\nThis short but spicy Indian journey will introduce you to three very different northern cities and the colourful rural life of Rajasthan. From the hectic pace of Delhi with its bustling markets, magnificent monuments, and colonial past, travel by private transport to Agra and the mesmerizing beauty of the Taj Mahal — truly one of the wonders of the world. Discover why Jaipur is called the Pink City and get a taste of rural life at a Dhula village. Photographers and culture lovers won't be disappointed on this classic adventure.",
         "banner": "https://cdn.tourradar.com/s3/tour/1500x800/5505_5df9d27a9281a.jpg",
         "imageURL": [
@@ -13,18 +13,8 @@
         ],
         "videoURL": "https://youtu.be/0Kqd6agnKVk",
         "groupOption": "Group",
-        "duration": 5,
-        "inclusion": [
-            "Breakfast", 
-            "Meals", 
-            "Sightseeing", 
-            "Private Cabs"
-        ],
-        "minimumAge": 1,
-        "maximumAge": 60,
-        "childAllowed": true,
-        "physicalRating": "Easy",
-        "participantLimit": 20,
+        "duration": 3,
+        "minimuParticipantLimit": 20,
         "accomodationOption": [
             "Hotel",
             "Resort"
@@ -41,7 +31,6 @@
             }
         ],
         "totalCost": 300,
-        "possibleAdditionalCost": 50,
         "dayPlan": [
             {
                 "date": "2021-06-21",
@@ -114,60 +103,8 @@
                         "banner": "https://www.airvistara.com/content/dam/airvistara/global/english/plan-travel/destinations/images/delhi-30%20Apr.jpg"
                     }
                 ]
-            },
-            {
-                "date": "2021-06-24",
-                "description": "Arrive at any time. Arrival transfer is included through the G Adventures-supported Women With Wheels project.\n\nAccommodation:\n\t- Hotel Grand Park Inn (or similar).\n\nIncluded Activities:\n\t- Women With Wheels Transfer\n\t- Meet Your CEO and Group",
-                "imageURL": "https://cdn.tourradar.com/s3/tour/1500x800/5505_1595699d.jpg",
-                "accomodation": "Chadni Hotel",
-                "accomodationQuality": 1,
-                "roomSize": 4,
-                "accomodationCost": 10,
-                "transport": "Private Cab",
-                "transportCost": 10,
-                "otherCost": 10,
-                "activity": [
-                    "Sightseeing",
-                    "Paragliding",
-                    "Kayaking"
-                ],
-                "place": [
-                    {
-                        "name": "Delhi",
-                        "description": "Delhi, India’s capital territory, is a massive metropolitan area in the country’s north. In Old Delhi, a neighborhood dating to the 1600s, stands the imposing Mughal-era Red Fort, a symbol of India, and the sprawling Jama Masjid mosque, whose courtyard accommodates 25,000 people. Nearby is Chandni Chowk, a vibrant bazaar filled with food carts, sweets shops and spice stalls.",
-                        "banner": "https://www.airvistara.com/content/dam/airvistara/global/english/plan-travel/destinations/images/delhi-30%20Apr.jpg"
-                    }
-                ]
-            },
-            {
-                "date": "2021-06-25",
-                "description": "Arrive at any time. Arrival transfer is included through the G Adventures-supported Women With Wheels project.\n\nAccommodation:\n\t- Hotel Grand Park Inn (or similar).\n\nIncluded Activities:\n\t- Women With Wheels Transfer\n\t- Meet Your CEO and Group",
-                "imageURL": "https://cdn.tourradar.com/s3/tour/1500x800/5505_1595699d.jpg",
-                "accomodation": "Chadni Hotel",
-                "accomodationQuality": 1,
-                "roomSize": 4,
-                "accomodationCost": 10,
-                "transport": "Private Cab",
-                "transportCost": 10,
-                "otherCost": 10,
-                "activity": [
-                    "Sightseeing",
-                    "Paragliding",
-                    "Kayaking"
-                ],
-                "place": [
-                    {
-                        "name": "Delhi",
-                        "description": "Delhi, India’s capital territory, is a massive metropolitan area in the country’s north. In Old Delhi, a neighborhood dating to the 1600s, stands the imposing Mughal-era Red Fort, a symbol of India, and the sprawling Jama Masjid mosque, whose courtyard accommodates 25,000 people. Nearby is Chandni Chowk, a vibrant bazaar filled with food carts, sweets shops and spice stalls.",
-                        "banner": "https://www.airvistara.com/content/dam/airvistara/global/english/plan-travel/destinations/images/delhi-30%20Apr.jpg"
-                    }
-                ]
             }
         ],
-        "travelAgency": {
-            "username": "sitravels",
-            "fullname": "South India Travels"
-        },
         "country": {
             "name": "India",
             "description": "India, the world’s 7th biggest country by area, and one of the oldest civilizations in the world, has lots to offer to the travellers around the world. Explore the diversity of incredible India with our India tour packages that let you explore the magnificence of nature; thrill of adventure; rich heritage; soul-soothing spirituality and vibrant culture. Come and explore the best of India with our Indian holiday packages.",
@@ -184,17 +121,6 @@
                 "description": "Agra is a city on the banks of the Yamuna river in the Indian state of Uttar Pradesh, about 210 kilometres south of the national capital New Delhi. With a population of roughly 1.6 million, Agra is the fourth-most populous city in Uttar Pradesh and twenty-third most populous city in India.",
                 "banner": "https://images.moneycontrol.com/static-mcnews/2020/12/Taj-Mahal-2-770x433.jpg?impolicy=website&width=770&height=431"
             }
-        ],
-        "guide": [
-            {
-                "username": "rathijit",
-                "fullname": "Rathijit Paul"
-            },
-            {
-                "username": "mimsadi",
-                "fullname": "Mimsadi Islam"
-            }
-        ],
-        "enrolledUserCount": 10
+        ]
     }
 ]

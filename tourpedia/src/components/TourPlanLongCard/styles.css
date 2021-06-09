@@ -1,4 +1,4 @@
-.event-long-card-main {
+.tour-plan-long-card-main {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -8,29 +8,29 @@
     margin-bottom: 30px;
 }
 
-.event-long-card-main:hover {
+.tour-plan-long-card-main:hover {
     text-decoration: none;
 }
 
-.event-long-card-image {
-    width: 245px;
-    height: 245px;
+.tour-plan-long-card-image {
+    width: 215px;
+    height: 215px;
     margin-right: 20px;
 }
 
-.event-long-card-middle {
+.tour-plan-long-card-middle {
     margin-top: 10px;
     margin-right: 20px;
 }
 
-.event-long-card-title {
+.tour-plan-long-card-title {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
     color: rgb(1, 32, 78);
 }
 
-.event-long-card-description {
+.tour-plan-long-card-description {
     color: rgb(48, 8, 8);
     font-style: italic;
     font-size: 14px;
@@ -41,44 +41,45 @@
     margin-bottom: 10px;
 }
 
-.event-long-card-table {
+.tour-plan-long-card-table {
     font-size: 14px;
     color: black;
 }
 
-.event-long-card-table th {
+.tour-plan-long-card-table th {
     padding-right: 30px;
 }
 
-.event-long-card-side-main {
+.tour-plan-long-card-side-main {
     margin-top: 10px;
     margin-right: 10px;
 }
 
-.event-long-card-side-text {
+.tour-plan-long-card-side-text {
     font-size: 17px;
     margin-bottom: 3px;
     color: black;
 }
 
-.event-long-card-side-first {
+.tour-plan-long-card-side-first {
     margin-bottom: 15px;
 }
 
-.event-long-card-button {
-    width: 150px;
-    height: 40px;
+.tour-plan-long-card-button {
+    width: 200px;
+    height: 50px;
     font-size: 20px;
     font-weight: bold;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 
 @media (max-width: 1000px) {
-    .event-long-card-main {
+    .tour-plan-long-card-main {
         flex-direction: column;
     }
 
-    .event-long-card-image {
+    .tour-plan-long-card-image {
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -86,33 +87,33 @@
         height: 200px;
     }
 
-    .event-long-card-middle {
+    .tour-plan-long-card-middle {
         margin-left: 10px;
         margin-right: 10px;
     }
 
-    .event-long-card-side-main {
+    .tour-plan-long-card-side-main {
         margin-left: 10px;
         margin-right: 10px;
     }
 
-    .event-long-card-side-first {
+    .tour-plan-long-card-side-first {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
     }
 
-    .event-long-card-side-second {
+    .tour-plan-long-card-side-second {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
     }
 
-    .event-long-card-button {
+    .tour-plan-long-card-button {
         margin-right: 20px;
     }
 
-    .event-long-card-side-text {
+    .tour-plan-long-card-side-text {
         margin-right: 20px;
     }
 }

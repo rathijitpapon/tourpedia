@@ -1,12 +1,16 @@
 import React, {useState, useEffect} from 'react';
+// import {useHistory} from 'react-router-dom';
 import Select from 'react-select';
+import {Modal, Fade, Backdrop} from '@material-ui/core';
 
+import PlanMyHoliday from '../../components/PlanMyHoliday';
 import Filter from '../../components/EventFilter';
 import EventLongCard from '../../components/EventLongCard';
 import LayoutWrapper from "../../layouts/LayoutWrapper";
 import "./styles.css";
 
 import countryData from "../../assets/dummyData/country.json";
+import eventData from "../../assets/dummyData/event.json";
 
 const customStyles = {
     control: base => ({
@@ -20,6 +24,8 @@ const customStyles = {
 };
 
 const Event = () => {
+
+    // const history = useHistory();
 
     const options = [
         { value: 'Most Popular', label: 'Most Popular' },
@@ -35,6 +41,11 @@ const Event = () => {
     const [country, setCountry] = useState([]);
     const [place, setPlace] = useState([]);
     const [allCountryPlaceData, setAllCountryPlaceData] = useState([]);
+
+    const [events, setEvents] = useState([]);
+    const [hasMore, setHasMore] = useState(true);
+
+    const [openPlanModal, setOpenPlanModal] = useState(false);
 
     const handleSortOptionChange = (newValue, actionMeta) => {
         setSortOption(newValue);
@@ -63,7 +74,6 @@ const Event = () => {
     }
 
     const fetchData = async () => {
-        console.log("Ok");
         setAllCountryPlaceData(countryData);
 
         const placeOptions = [
@@ -80,6 +90,30 @@ const Event = () => {
 
         setPlace([{ value: 'All Place', label: 'All Place' }]);
         setPlaceOption({ value: 'All Place', label: 'All Place' });
+
+        const data = []
+        for (let i = 0; i < 10; i++) {
+            data.push(eventData[0]);
+        }
+        setEvents(data);
+    }
+
+    const handlePlanModal = (val) => {
+        setOpenPlanModal(val);
+    }
+
+    const applyFilter = async (filters) => {
+        console.log(filters);
+    }
+
+    const handleLoadMore = () => {
+        const data = [...events];
+        for (let i = 0; i < 5; i++) {
+            data.push(data[0]);
+        }
+
+        setEvents(data);
+        setHasMore(false);
     }
 
     useEffect(() => {
@@ -95,6 +129,36 @@ const Event = () => {
             <div className="enter-description">
                 The world is a book and those who do not travel read only one page. <br /> Explore the top tour events here & find your suitable one.
             </div>
+
+            <div className="container">
+                <button 
+                    className="btn btn-secondary event-plan-button"
+                    onClick={() => setOpenPlanModal(true)}
+                >
+                    Plan My Holiday
+                </button>
+            </div>
+
+            <Modal
+                open={openPlanModal}
+                onClose={() => setOpenPlanModal(false)}
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+            >
+                <Fade in={openPlanModal}>
+                    <div className="event-plan-modal-body">
+                        <PlanMyHoliday 
+                            handlePlanModal={handlePlanModal}
+                        />
+                    </div>
+                </Fade>
+            </Modal>
+
             <br />
             <div className="container">
                 <Select 
@@ -125,15 +189,33 @@ const Event = () => {
 
             <div className="row">
                 <div className="col-md-3 col-12">
-                    <Filter />
+                    <Filter 
+                        applyFilter={applyFilter}
+                    />
                 </div>
                 <div className="col-md-9 col-12">
-                    <EventLongCard />
-                    <EventLongCard />
-                    <EventLongCard />
-                    <EventLongCard />
+                    {
+                        events.map((event, index) => (
+                            <EventLongCard
+                                key={index}
+                                event={event}
+                            />
+                        ))
+                    }
+
+                    {
+                        hasMore ? (
+                            <button
+                                className="btn btn-primary event-load-more"
+                                onClick={handleLoadMore}
+                            >Load More...</button>
+                        ) : null
+                    }
                 </div>
             </div>
+
+            <br />
+            <br />
         </LayoutWrapper>
      );
 }

@@ -1,0 +1,40 @@
+{
+    "tourStyle": [
+        "Group",
+        "Honeymoon",
+        "Family",
+        "Solo"
+    ],
+    "inclusion": [
+        "Breakfast",
+        "Meals",
+        "Sightseeing",
+        "Private Cabs",
+        "Airport Pickup",
+        "Flights",
+        "Private Boats"
+    ],
+    "physicalRating": [
+        "Relaxing",
+        "Easy",
+        "Moderate",
+        "Serious",
+        "Heart Pumping"
+    ],
+    "accomodationOption": [
+        "Hotel",
+        "Motel",
+        "Resort",
+        "Hostel",
+        "Apartment",
+        "Home Stay",
+        "Camping",
+        "Sleeper Bus / Train / Boat"
+    ],
+    "accomodationQuality": [
+        "2",
+        "3",
+        "4",
+        "5"
+    ]
+}

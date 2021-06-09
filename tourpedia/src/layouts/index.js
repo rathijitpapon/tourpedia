@@ -17,11 +17,13 @@ import Event from "../views/Event";
 import EventDetails from "../views/EventDetails";
 import Forum from "../views/Forum";
 import Post from "../views/Post";
+import TourPlan from "../views/TourPlan";
 
 const MainLayout = () => {
   return (
     <div>
       <Switch>
+        <Route exact path="/tourplan/:tourplanName" component={TourPlan} ></Route>
         <Route exact path="/forum/:username/:postTitle" component={Post} ></Route>
         <Route exact path="/forum" component={Forum} ></Route>
         <Route exact path="/event/:agencyName/:eventName" component={EventDetails} ></Route>

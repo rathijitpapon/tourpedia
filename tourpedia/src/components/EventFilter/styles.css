@@ -19,3 +19,17 @@
 .event-filter-section-header-icon {
     font-size: 28px;
 }
+
+.event-filter-checkbox {
+    font-size: 17px;
+}
+
+.event-filter-checkbox input[type=checkbox]
+{
+    -ms-transform: scale(1.6);
+    -moz-transform: scale(1.6);
+    -webkit-transform: scale(1.6);
+    -o-transform: scale(1.6);
+    transform: scale(1.6);
+    margin: 10px;
+}
