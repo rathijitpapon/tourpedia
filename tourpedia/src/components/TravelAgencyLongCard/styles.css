@@ -1,0 +1,119 @@
+.travelagency-long-card-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* box-shadow: -10px 10px 10px -10px rgba(6, 2, 43, 0.2); */
+    box-sizing: border-box;
+    box-shadow: 0px 6px 8px 1px rgba(6,2,43,0.2);
+    margin-bottom: 30px;
+}
+
+.travelagency-long-card-main:hover {
+    text-decoration: none;
+}
+
+.travelagency-long-card-image {
+    width: 185px;
+    height: 185px;
+    margin-right: 20px;
+}
+
+.travelagency-long-card-middle {
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.travelagency-long-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: rgb(1, 32, 78);
+}
+
+.travelagency-long-card-description {
+    color: rgb(48, 8, 8);
+    font-style: italic;
+    font-size: 14px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    margin-bottom: 10px;
+}
+
+.travelagency-long-card-table {
+    font-size: 14px;
+    color: black;
+}
+
+.travelagency-long-card-table th {
+    padding-right: 30px;
+}
+
+.travelagency-long-card-side-main {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.travelagency-long-card-side-text {
+    font-size: 17px;
+    margin-bottom: 3px;
+    color: black;
+}
+
+.travelagency-long-card-side-first {
+    margin-bottom: 15px;
+}
+
+.travelagency-long-card-button {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1000px) {
+    .travelagency-long-card-main {
+        flex-direction: column;
+    }
+
+    .travelagency-long-card-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        height: 200px;
+    }
+
+    .travelagency-long-card-middle {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .travelagency-long-card-side-main {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .travelagency-long-card-side-first {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .travelagency-long-card-side-second {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .travelagency-long-card-button {
+        margin-right: 20px;
+    }
+
+    .travelagency-long-card-side-text {
+        margin-right: 20px;
+    }
+}

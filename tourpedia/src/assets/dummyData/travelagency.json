@@ -1,0 +1,50 @@
+[
+    {
+        "username": "sitravels",
+        "fullname": "South Indian Travels",
+        "about": "A internationally popular travel company",
+        "profileImage": "https://citiesandplaces.com/wp-content/uploads/2018/07/what-is-tourism-800x445.jpg",
+        "category": [
+            "Historical",
+            "Religious",
+            "Adventures",
+            "Trending and Hiking",
+            "Beach"
+        ]
+    },
+    {
+        "username": "coxking",
+        "fullname": "Cox and Kings",
+        "about": "Cox and Kings not only provides solutions for personal travels but also works on your professional travel needs. Whether it is a short trip or an office off-site that needs to be arranged.",
+        "profileImage": "https://s3.india.com/travel/wp-content/uploads/2015/08/cox-and-kings.jpg",
+        "category": [
+            "Historical",
+            "Religious",
+            "Adventures"
+        ]
+    },
+    {
+        "username": "sotc",
+        "fullname": "SOTC",
+        "about": "SOTC gives you the option of fully personalizing your trips and holidays. Keeping in mind your preferences and your tastes in accommodations and travel options, they give amazing suggestions to suit what you want.",
+        "profileImage": "https://s3.india.com/travel/wp-content/uploads/2015/08/thomas-cook.jpg",
+        "category": [
+            "Historical",
+            "Religious",
+            "Adventures"
+        ]
+    },
+    {
+        "username": "expedia",
+        "fullname": "Expedia",
+        "about": "This company works well for last-minute planning. From car rentals to cottages, weekend getaways and elaborate trips, Expedia has worked its way around it all.",
+        "profileImage": "https://s3.india.com/travel/wp-content/uploads/2015/08/exp.jpg",
+        "category": [
+            "Historical",
+            "Religious",
+            "Adventures",
+            "Trekking & Hiking",
+            "Beach"
+        ]
+    }
+]
