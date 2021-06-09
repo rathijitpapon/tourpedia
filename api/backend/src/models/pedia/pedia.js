@@ -20,9 +20,9 @@ const pediaSchema = new mongoose.Schema(
         imageURL: [{
             type: String,
         }],
-        videoURL: [{
+        videoURL: {
             type: String,
-        }],
+        },
         category: [{
             _id: {
                 type: mongoose.Schema.Types.ObjectId,

@@ -14,9 +14,9 @@ const blogSchema = new mongoose.Schema(
         imageURL: [{
             type: String,
         }],
-        videoURL: [{
+        videoURL: {
             type: String,
-        }],
+        },
         country: [{
             _id: {
                 type: mongoose.Schema.Types.ObjectId,

@@ -17,9 +17,9 @@ const areaSchema = new mongoose.Schema(
         imageURL: [{
             type: String,
         }],
-        videoURL: [{
+        videoURL: {
             type: String,
-        }],
+        },
         description: {
             type: String,
             required: true,

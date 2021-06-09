@@ -14,9 +14,9 @@ const postSchema = new mongoose.Schema(
         imageURL: [{
             type: String,
         }],
-        videoURL: [{
+        videoURL: {
             type: String,
-        }],
+        },
         comment: [{
             type: String,
         }],
