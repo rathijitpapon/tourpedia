@@ -1,0 +1,13 @@
+.country-title {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Ubuntu Mono;
+    text-align: center;
+    color: rgb(4, 4, 80);
+}
+
+.country-section-title {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(1, 1, 19);
+}

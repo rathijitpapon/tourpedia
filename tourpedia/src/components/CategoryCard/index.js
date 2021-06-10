@@ -4,7 +4,7 @@ import {Image} from 'react-bootstrap';
 
 import "./styles.css";
 
-const categoryCard = (props) => {
+const CategoryCard = (props) => {
     const category = props.category;
 
     return ( 
@@ -29,4 +29,4 @@ const categoryCard = (props) => {
      );
 }
  
-export default categoryCard;
+export default CategoryCard;

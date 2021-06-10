@@ -1,11 +1,23 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 
+import CountryCard from '../../components/CountryCard';
 import LayoutWrapper from "../../layouts/LayoutWrapper";
 import "./styles.css";
 
+import countryData from "../../assets/dummyData/country.json";
+
 const Country = () => {
 
+    const [categories, setCategories] = useState([]);
+
     const fetchData = async () => {
+        const data = [];
+        console.log("Pushed");
+
+        for (let i = 0; i < countryData.length; i++) {
+            data.push(countryData[i]);
+        }
+        setCategories(data);
     }
 
     useEffect(() => {
@@ -14,7 +26,30 @@ const Country = () => {
 
     return ( 
         <LayoutWrapper>
-            <h1>Country Page</h1>
+            <div className="country-title">
+                Countries To Visit
+            </div>
+
+            <br />
+
+            <div className="row">
+                {
+                    categories.map((country, index) => (
+                        <div
+                            key={index}
+                            className="col-md-4 col-12"
+                        >
+                            <CountryCard 
+                                country={country}
+                            />
+                            <br />
+                        </div>
+                    ))
+                }
+            </div>
+
+            <br />
+            
         </LayoutWrapper>
      );
 }
