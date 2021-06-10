@@ -12,7 +12,7 @@ const travelagencyLongCard = (props) => {
             className="travelagency-long-card-main"
         >
             <Link
-                to={"/travelagency/" + travelagency.username}
+                to={"/agency/" + travelagency.username}
             >
             <Image
                 className="travelagency-long-card-image"
@@ -22,7 +22,7 @@ const travelagencyLongCard = (props) => {
             </Link>
             <div className="travelagency-long-card-middle">
                 <Link
-                    to={"/travelagency/" + travelagency.username}
+                    to={"/agency/" + travelagency.username}
                 >
                     <div className="travelagency-long-card-title">
                         {travelagency.fullname}

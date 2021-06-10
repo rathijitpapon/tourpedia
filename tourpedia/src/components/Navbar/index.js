@@ -66,7 +66,7 @@ const NavBar = (props) => {
   }, [])
 
   return (
-    <Navbar expand="lg" className="navbar-container" sticky="top">
+    <Navbar expand="xl" className="navbar-container" sticky="top">
       <Navbar.Brand as={Link} to="/">
         <Image className="nav-logo" src={Logo} />
         <div className="nav-link-container">Tour Pedia</div>

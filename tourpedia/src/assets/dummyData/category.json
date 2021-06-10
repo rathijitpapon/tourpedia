@@ -1,92 +1,87 @@
 [
     {
         "name": "Historical",
-        "description": "",
-        "banner": ""
+        "description": "Historical or heritage tourism means traveling with the primary purpose of exploring the history and heritage of a place. It may mean simple sightseeing of renowned historical architecture, visiting local museums that document the past through artifacts, art, and literary remains, or even something as quaint as sampling authentic historical recipes in their place of origin.\n\nPeople often combine their love of history with other tourist delights like shopping, amusement park visits, and luxurious resort stays. So places that have a rich heritage and have, at the same time, designed a fine tourist infrastructure to cater to all categories of tourists get rated the highest in terms of popularity as tourist destinations.\n\nTake for an example Budapest – the city offers some marvelous delights including architectural grandeur and historical baths that take one back in time – and all this becomes all the more alluring when coupled with the fantastic nightlife, of which its trademark ruin pubs are a prominent part.",
+        "banner": "https://www.etravel.com/explore/data/uploads/2019/06/New-Jerusalem-Monastery-Moscow-e1561115458359.jpg"
     },
     {
         "name": "Discovery",
-        "description": "",
-        "banner": ""
+        "description": "Discovery Tours are perfect for anyone looking to travel and have an authentic adventure in a new destination. The delicacies that feel like a celebration on your tongue; the hidden spots waiting for you to discover them; the cultural quips and slang only locals know about. You’ll do much more than visit a new country. You’ll explore and understand what makes it different.\n\nDiscovery Tours are just what every curious traveler needs. You can expect to experience plenty of new sights that the average tourist wouldn’t get to see. You may only be visiting, but you’ll be so immersed in the culture that you may feel like you’ve found your second home!\n\nDiscovery Tours are for any explorers over 18 years old who want to journey abroad and find the secrets of the world, its people, and landscapes. If you want to travel safely with a group of people and don’t have much time, this is the perfect trip for you. Your expedition is action-packed and structured, so you and your group will have a full experience abroad.",
+        "banner": "https://rs.projects-abroad.net/v1/products/hikers-takes-photo-selfie-in-vinicunca-peru-with-background-of-rainbow-mountain-product-5e0ef57ec85df.[1090].jpeg"
     },
     {
         "name": "Food & Culture",
-        "description": "",
-        "banner": ""
+        "description": "Food, culture, and tourism appear to be strange bedfellows at its first glance, but on a closer look, their relationship is inseparable from each other. We argue that they are even indispensable of each other in today's tourism when increasingly more and more modern travelers seek not only the sun, sea, and sand but also an enriching, renovating, and educational cultural experience through their travels.",
+        "banner": "http://img2.chinadaily.com.cn/images/201903/08/5c82100ba3106c65fffe4325.jpeg"
     },
     {
         "name": "Adventure",
-        "description": "",
-        "banner": ""
+        "description": "Adventure tourism is defined as the movement of the people from one to another place outside their comfort zone for exploration or travel to remote areas, exotic and possibly hostile areas. Adventure tourism is a type of tourism in which tourist do some adventures activities like as skydiving, hill climbing, scuba diving.\n\nAdventure tourism is very popular among young age tourists. Adventure tourism gains much of its excitement by allowing the tourists to step outside their comfort zone. This may be from experiencing cultural shock or through the performance of acts, that required some degree of risk (real or perceived) and physical danger.\n\nAdventure travel is a leisure activity that takes place in an unusual, exotic, remote or wilderness destination. It tends to be associated with high levels of activity by the participant, most of it outdoors.  Adventure travelers expect to experience various level of risk, excitement, and tranquility and be personally tested. In particular, they are explorers of unspoiled, exotic parts of the planet and also seek personal challenges.",
+        "banner": "https://s3-us-west-2.amazonaws.com/public.travel2latam.com/imagenes/000/498/177/000498177.jpg"
     },
     {
         "name": "Trekking & Hiking",
-        "description": "",
-        "banner": ""
+        "description": "Trekking & Hiking are the long, vigorous walk, usually on trails or footpaths in the countryside. Walking for pleasure developed in Europe during the eighteenth century. Religious pilgrimages have existed much longer but they involve walking long distances for a spiritual purpose associated with specific religions.",
+        "banner": "https://www.welcomenepal.com/uploads/activity/trekking-banner.jpeg"
     },
     {
         "name": "Beach",
-        "description": "",
-        "banner": ""
+        "description": "Beach tourism is one of the earliest modern forms of tourism and a staple of the tourism. industry. This kind of tourism at coastal resorts is often considered to result from an inevitable. attraction to the beach, but the relationship is one in which tourism and leisure are an.",
+        "banner": "https://i.guim.co.uk/img/media/ca6bd7f2c99d70e8f612ed5a65d76f5ff79287b0/0_135_3865_2320/master/3865.jpg?width=620&quality=85&auto=format&fit=max&s=98f036424cbc752fbccc53dfc990911b"
     },
     {
         "name": "Wildlife & Safari",
-        "description": "",
-        "banner": ""
+        "description": "Wildlife tourism can be broadly defined as trips to destinations with the main purpose of visit being to observe the local fauna. This therefore implies that wildlife tourism includes other niche markets such as bird watching and the exploration of marine life (such as whale watching).\n\nAs bird watching has grown to be a significant niche market in its own right, the definition of wildlife tourism has been restricted to trips to destinations with the main purpose of visit being to observe local fauna, excluding birdlife.",
+        "banner": "https://static.dw.com/image/17820664_303.jpg"
     },
     {
         "name": "Sea Explore",
-        "description": "",
-        "banner": ""
+        "description": "Sea or Ocean tourism refers to pleasure travel in which the sea is the primary focus of activities. Ocean tourism comes in many forms including cruises, ecotourism, and fishing expeditions.",
+        "banner": "https://static1.bigstockphoto.com/1/2/2/large2/221378083.jpg"
     },
-    {
+    {   
         "name": "Sightseeing",
-        "description": "",
-        "banner": ""
+        "description": "Sightseeing is the activity of travelling around a city or region to see the interesting places that tourists usually visit. a two-week tour, allowing some time in all the major cities for sightseeing.",
+        "banner": "https://c.pxhere.com/photos/4a/66/reichstag_berlin_dome_germany_building_glass_dome_architecture_the_german_volke-459443.jpg!d"
     },
     {
         "name": "Religious",
-        "description": "",
-        "banner": ""
+        "description": "Religious tourism, spiritual tourism, sacred tourism, or faith tourism, is a type of tourism with two main subtypes: pilgrimage, meaning travel for religious or spiritual purposes, and the viewing of religious monuments and artefacts, a branch of sightseeing.",
+        "banner": "https://www.advantour.com/img/russia/tourism/novodevichy-convent2.jpg"
     },
     {
         "name": "Honeymoon",
-        "description": "",
-        "banner": ""
+        "description": "The term honeymoon tourism is defined as a holiday trip to either a domestic or an overseas destination that newlywed couples take after their wedding",
+        "banner": "https://lh6.googleusercontent.com/proxy/uPAUhaGBnhQkg5HEw9nQ50J--0QXWCS9PrzR8zwroSLIJXfVBoeRc1WojaMt-cRl_T9Zatl-1d5HyeDI-tWFTtO0nBFMus-DgQZJtGIga-joPIgMFOosDNc7ztyWie6vbodBMeKhndM3u1LaXRaM0ehPOxTg8FI7H9io57y0K11xgebt6hl3LkeVS9e-24yAX_Ytr0geOX2Jjpl67zu1aG3duVXgr_-AOLmUITdL8MYkwsefFevZJDqT4SV69scidCvYJHfSYfiYTBkA0b-ZyOUHWA37CnCZyogm7asV=w758-h375-p-k-no-nu"
     },
     {
         "name": "Winter",
-        "description": "",
-        "banner": ""
+        "description": "Winter Tourism defined as the coldest season of the year, between autumn and spring, astronomically from the December solstice to the March equinox in the N hemisphere and at the opposite time of year in the S hemisphere. Tourism has become a popular global leisure activity.",
+        "banner": "https://megabonus.com/en/blog/wp-content/uploads/2019/01/woman-2896389_1920.jpg"
     },
     {
         "name": "Summer",
-        "description": "",
-        "banner": ""
-    },
-    {
-        "name": "Halloween",
-        "description": "",
-        "banner": ""
+        "description": "It has  long been  recognized  that tourism  has  the  potential  to act  as  a force to  change  as well as  to be  changed.  The character  of  tourism is determined  by  the changes  in  objective  conditions  such  as  where we live and where we work. Tourism, as an industry, owes its origin to the pioneering industrialized countries of the north, where the sun is not so generous but the rain  and  cold are. In order  to recreate the decreased working appetite and productivity of the over-exhausted labors that had to  work  and  rest  almost  always  indoors,  the  generous  sun  of  the Mediterranean  countries  in  the  south  provided  the  best  remedy.  In short,  we  may  conclude  that  the  summer  tourism  is  a  gift  of  the climatic  conditions  of  industrialized  countries  such  as  England, Germany, etc.",
+        "banner": "https://i.pinimg.com/564x/73/70/00/737000df4b8e04719d38b1b4537ebad2.jpg"
     },
     {
         "name": "Yoga",
-        "description": "",
-        "banner": ""
+        "description": "Yoga tourism is travel with the specific purpose of experiencing some form of yoga, whether spiritual or postural. The former is a type of spiritual tourism.",
+        "banner": "https://bequestholidays.com/images/custom/photo-1544367567-0f2fcb009e0b.jpg"
     },
     {
         "name": "Educational",
-        "description": "",
-        "banner": ""
+        "description": "Educational tourism can be defined as tourism that pursues educational learning as a pretext for a trip, either learning knowledge (historical, cultural, social) or learning a language more and more practiced every day. Education has used tourism as a tool to complement learning, accumulating experiences from practice.",
+        "banner": "https://3.imimg.com/data3/RE/VO/MY-14273054/educational-tourism-services-500x500.jpg"
     },
     {
         "name": "Health & Wellness",
-        "description": "",
-        "banner": ""
+        "description": "Health & Wellness tourism is travel for the purpose of promoting health and well-being through physical, psychological, or spiritual activities. ",
+        "banner": "https://www.laingbuissonnews.com/wp-content/uploads/sites/3/2021/02/yoga-meditation-couple-relaz-696x392.jpg"
     },
     {
         "name": "Family",
-        "description": "",
-        "banner": ""
+        "description": "Family tourism involves the family unit and their participation in diverse forms of tourism activity. This includes visiting one's relatives and friends for interpersonal reasons. Many people in India travel for visiting their friends and relatives.",
+        "banner": "https://www.travelweek.ca/wp-content/uploads/2018/11/Family-travel-has-never-been-more-popular-on-track-to-increase-25-by-2022.jpg"
     }
 ]

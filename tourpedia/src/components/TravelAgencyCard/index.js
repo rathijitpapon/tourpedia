@@ -1,55 +1,31 @@
-import React, {useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import {
-    makeStyles,
-    Card,
-    CardActionArea,
-    CardContent,
-    CardMedia,
-    Typography,
-} from '@material-ui/core';
+import React from 'react';
+import {Link} from 'react-router-dom'
+import {Image} from 'react-bootstrap';
 
 import "./styles.css";
 
-const useStyles = makeStyles({
-    root: {
-        "&:hover": {
-            textDecoration: 'none',
-        }
-    },
-    media: {
-        height: 150,
-    },
-});
-
 const TravelAgencyCard = (props) => {
-    const classes = useStyles();
-
-    const {url, image, name} = props;
-    useEffect(() => {
-    }, []);
+    const travelagency = props.travelagency;
 
     return ( 
-        <div className="travel-agency-card-main">
-            <Card 
-                className={classes.root}
-                component={Link} 
-                to={'/agency/' + url}
-            >
-                <CardActionArea>
-                    <CardMedia
-                    className={classes.media}
-                        image={image}
-                        title=""
-                    />
-                    <CardContent>
-                    <Typography gutterBottom variant="body1" component="h1">
-                        {name}
-                    </Typography>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
-        </div>
+        <Link
+            to={"/agency/" + travelagency.username}
+            className="travelagency-card-main"
+        >
+            <Image
+                className="travelagency-card-image"
+                src={travelagency.profileImage}
+                alt="travelagency img"
+            />
+            <div className="travelagency-card-middle">
+                <div className="travelagency-card-title">
+                    {travelagency.fullname}
+                </div>
+                <div className="travelagency-card-description">
+                    {travelagency.about}
+                </div>
+            </div>
+        </Link>
      );
 }
  

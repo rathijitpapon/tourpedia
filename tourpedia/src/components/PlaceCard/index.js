@@ -1,55 +1,32 @@
-import React, {useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import {
-    makeStyles,
-    Card,
-    CardActionArea,
-    CardContent,
-    CardMedia,
-    Typography,
-} from '@material-ui/core';
+import React from 'react';
+import {Link} from 'react-router-dom'
+import {Image} from 'react-bootstrap';
 
 import "./styles.css";
 
-const useStyles = makeStyles({
-    root: {
-        "&:hover": {
-            textDecoration: 'none',
-        }
-    },
-    media: {
-        height: 150,
-    },
-});
-
-const PlaceCard = (props) => {
-    const classes = useStyles();
-
-    const {url, image, place, details} = props;
-    useEffect(() => {
-    }, []);
+const placeCard = (props) => {
+    const place = props.place;
 
     return ( 
-        <div className="place-card-main">
-            <Card className={classes.root} component={Link} to={'/place/' + url}>
-                <CardActionArea>
-                    <CardMedia
-                    className={classes.media}
-                        image={image}
-                        title=""
-                    />
-                    <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {place}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {details}
-                    </Typography>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
-        </div>
+        <Link
+            to={"/place/" + place.name}
+            className="place-card-main"
+        >
+            <Image
+                className="place-card-image"
+                src={place.banner}
+                alt="place img"
+            />
+            <div className="place-card-middle">
+               <div className="place-card-title">
+                    {place.name}
+                </div>
+                <div className="place-card-description">
+                    {place.description}
+                </div>
+            </div>
+        </Link>
      );
 }
  
-export default PlaceCard;
+export default placeCard;

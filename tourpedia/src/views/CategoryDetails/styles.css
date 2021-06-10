@@ -8,6 +8,15 @@
     color: rgb(4, 4, 80);
 }
 
+.category-details-banner-image {
+    width: 80%;
+    height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+}
+
 .category-details-text {
     font-size: 18px;
     line-height: 24px;
