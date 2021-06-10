@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+.country-details-title {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Ubuntu Mono;
+    text-align: center;
+    color: rgb(4, 4, 80);
+}
+
+.country-details-banner-image {
+    width: 80%;
+    height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+}
+
+.country-details-text {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.country-details-section-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.country-details-pagination {
+    display: flex;
+    justify-content: flex-end;
+}
