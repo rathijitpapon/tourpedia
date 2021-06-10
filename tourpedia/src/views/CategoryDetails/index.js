@@ -121,7 +121,7 @@ const CategoryDetails = (props) => {
                 <br />
 
                 <div className="category-details-section-title">
-                    Popular Places For Trekking
+                    Popular Places For {category ? category : ""}
                 </div>
                 <Carousel
                     responsive={responsive}
@@ -139,7 +139,7 @@ const CategoryDetails = (props) => {
                 <br />
 
                 <div className="category-details-section-title">
-                    Top Tour Events For Trekking
+                    Top Tour Events For {category ? category : ""}
                 </div>
                 <Carousel
                     responsive={responsive}
@@ -175,7 +175,7 @@ const CategoryDetails = (props) => {
                 <br />
 
                 <div className="category-details-section-title">
-                    Popular Blogs of Trekking
+                    Popular Blogs About {category ? category : ""}
                 </div>
                 <Carousel
                     responsive={responsive}
