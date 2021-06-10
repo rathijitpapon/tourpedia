@@ -4,7 +4,7 @@ import {Image} from 'react-bootstrap';
 
 import "./styles.css";
 
-const placeCard = (props) => {
+const PlaceCard = (props) => {
     const place = props.place;
 
     return ( 
@@ -29,4 +29,4 @@ const placeCard = (props) => {
      );
 }
  
-export default placeCard;
+export default PlaceCard;

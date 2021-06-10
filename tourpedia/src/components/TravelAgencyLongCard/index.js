@@ -4,7 +4,7 @@ import {Image} from 'react-bootstrap';
 
 import "./styles.css";
 
-const travelagencyLongCard = (props) => {
+const TravelAgencyLongCard = (props) => {
     const travelagency = props.travelagency;
 
     return ( 
@@ -64,4 +64,4 @@ const travelagencyLongCard = (props) => {
      );
 }
  
-export default travelagencyLongCard;
+export default TravelAgencyLongCard;

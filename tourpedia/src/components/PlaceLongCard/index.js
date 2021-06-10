@@ -4,7 +4,7 @@ import {Image} from 'react-bootstrap';
 
 import "./styles.css";
 
-const placeLongCard = (props) => {
+const PlaceLongCard = (props) => {
     const place = props.place;
 
     return ( 
@@ -64,4 +64,4 @@ const placeLongCard = (props) => {
      );
 }
  
-export default placeLongCard;
+export default PlaceLongCard;
