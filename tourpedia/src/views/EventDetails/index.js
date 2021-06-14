@@ -11,6 +11,7 @@ import {GiCancel} from 'react-icons/gi';
 import ReactPlayer from 'react-player';
 import {Modal, Fade, Backdrop} from '@material-ui/core';
 
+import DayPlanCard from '../../components/DayPlanCard'
 import PlanMyHoliday from '../../components/PlanMyHoliday';
 import PlaceCard from '../../components/PlaceCard';
 import LayoutWrapper from "../../layouts/LayoutWrapper";
@@ -353,6 +354,26 @@ const EventDetails = (props) => {
                                         controls
                                         url={event.videoURL}
                                     />
+
+                                    <br />
+                                    <br />
+
+                                    <div 
+                                        className="event-details-section-title"
+                                        style={{
+                                            marginBottom: "20px",
+                                        }}
+                                    >
+                                        Day Plan
+                                    </div>
+                                    {
+                                        event.dayPlan.map((plan, index) => (
+                                            <DayPlanCard
+                                                key={index}
+                                                dayPlan={plan}
+                                            />
+                                        ))
+                                    }
 
                                     <br />
                                     

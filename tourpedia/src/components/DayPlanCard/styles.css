@@ -1,0 +1,46 @@
+.day-plan-header-title {
+    margin: auto 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(20, 2, 83);
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.day-plan-header-icon {
+    font-size: 25px;
+}
+
+.day-plan-card-main {
+    margin: auto 20px;
+    margin-bottom: 30px;
+}
+
+.day-plan-card-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 200px;
+}
+
+.day-plan-card-middle {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.day-plan-card-description {
+    color: rgb(48, 8, 8);
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.day-plan-section-tilte {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
