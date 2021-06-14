@@ -1,0 +1,150 @@
+.event-details-not-found {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: Ubuntu Mono;
+    color: rgb(1, 1, 83);
+}
+
+.event-details-img-container {
+    width: 100%;
+    height: 350px;
+    cursor: pointer;
+}
+
+.event-details-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(1, 1, 83);
+    font-family: Ubuntu Mono;
+    margin-bottom: 1px;
+}
+
+.event-details-travelagency {
+    font-size: 18px;
+    color: #010768;
+    margin-bottom: 5px;
+}
+
+.event-details-date {
+    font-size: 18px;
+    color: #666869;
+    font-family: Ubuntu Mono;
+    margin-bottom: 10px;
+}
+
+.event-details-category {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(219, 211, 211);
+    font-size: 16px;
+    font-weight: bold;
+    color: #030242;
+}
+
+.event-details-category:hover {
+    text-decoration: none;
+}
+
+.event-details-side-items {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.event-details-cost {
+    font-size: 35px;
+}
+
+.event-details-section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.event-details-description {
+    font-size: 17px;
+}
+
+.event-details-inclusion {
+    font-size: 18px;
+    margin-bottom: 7px;
+}
+
+.event-details-bottom {
+    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-right: 50px;
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.event-details-plan-button-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.event-details-plan-button {
+    width: 300px;
+    height: 50px;
+    background-color: #6C757D;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.event-details-plan-button:hover {
+    opacity: 0.75;
+}
+
+.event-details-save-button {
+    width: 200px;
+    height: 50px;
+    background-color: rgb(237, 235, 241);
+    color: rgb(4, 16, 85);
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.event-details-save-button:hover {
+    opacity: 0.5;
+}
+
+.event-details-enroll-button {
+    width: 200px;
+    height: 50px;
+    background-color: rgb(22, 1, 80);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.event-details-enroll-button:hover {
+    opacity: 0.5;
+}
+
+@media (max-width: 500px) {
+    .event-details-img-container {
+        height: 300px;
+    }
+}
+
+@media (max-width: 800px) {
+    .event-details-bottom {
+        flex-direction: column;
+    }
+
+    .event-details-plan-button-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}
