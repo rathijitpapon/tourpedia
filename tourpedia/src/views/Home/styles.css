@@ -1,0 +1,110 @@
+.home-header-img {
+    height: 60vh;
+    width: 100%;
+}
+
+.home-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 18%;
+}
+
+.home-header-title {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Ubuntu Mono;
+    color: rgb(13, 1, 58);
+    position: absolute;
+    top: 18%;
+    left: 40%;
+    right: 40%;
+}
+
+.home-header-description {
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    top: 28%;
+    left: 25%;
+    right: 25%;
+}
+
+.home-header-search-options {
+    position: absolute;
+    top: 65%;
+    left: 20%;
+    right: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.home-header-plan-button {
+    position: absolute;
+    top: 55%;
+    left: 20%;
+    right: 24%;
+    width: 250px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-header-search-button {
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-section-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 1000px) {
+    .home-header-title {
+        left: 35%;
+        right: 35%;
+    }
+}
+
+@media (max-width: 765px) {
+    .home-header-search-options {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 670px) {
+    .home-header-title {
+        left: 30%;
+        right: 30%;
+    }
+}
+
+@media (max-width: 500px) {
+    .home-header-title {
+        left: 25%;
+        right: 25%;
+    }
+}
+
+@media (max-width: 410px) {
+    .home-header-title {
+        left: 20%;
+        right: 20%;
+    }
+}
