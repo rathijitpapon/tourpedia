@@ -3,6 +3,7 @@ import {Image} from 'react-bootstrap';
 import Select from 'react-select';
 import {Modal, Fade, Backdrop} from '@material-ui/core';
 import Carousel from "react-multi-carousel";
+import {useHistory} from 'react-router-dom';
 
 import PlaceCard from '../../components/PlaceCard';
 import CountryCard from '../../components/CountryCard';
@@ -57,6 +58,8 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 
 const Home = () => {
 
+    const history = useHistory();
+
     const dateRange = [];
     let timestamps = new Date();
     for (let i = 0; i < 24; i++) {
@@ -68,8 +71,8 @@ const Home = () => {
         timestamps.setMonth(timestamps.getMonth() + 1);
     }
 
-    const [placeOptions, setPlaceOptions] = useState([]);
-    const [placeOption, setPlaceOption] = useState("");
+    const [countryOptions, setCountryOptions] = useState([]);
+    const [countryOption, setCountryOption] = useState("");
     const months = dateRange;
     const [monthOption, setMonthOption] = useState(dateRange[0]);
 
@@ -87,7 +90,7 @@ const Home = () => {
     }
 
     const handlePlaceChange = (newValue, action) => {
-        setPlaceOption(newValue);
+        setCountryOption(newValue);
     }
 
     const hanldeMonthChange = async (newValue, actionMeta) => {
@@ -95,7 +98,13 @@ const Home = () => {
     }
 
     const handleSearch = () => {
-
+        history.push({
+            pathname: '/event',
+            state: {
+                minDate: monthOption.value,
+                country: countryOption.value, 
+            }
+        })
     }
 
     const backgroundImage = "https://www.planetware.com/wpimages/2019/12/nepal-in-pictures-beautiful-places-to-photograph-annapurna-range.jpg";
@@ -103,14 +112,14 @@ const Home = () => {
     const fetchData = async () => {
         let data = [];
 
-        for (let i = 0; i < placeData.length; i++) {
+        for (let i = 0; i < countryData.length; i++) {
             data.push({
-                value: placeData[i].name,
-                label: placeData[i].name,
+                value: countryData[i].name,
+                label: countryData[i].name,
             });
         }
-        setPlaceOptions(data);
-        setPlaceOption(data[0]);
+        setCountryOptions(data);
+        setCountryOption(data[0]);
 
         setPlaces(placeData);
         setCountries(countryData);
@@ -183,8 +192,8 @@ const Home = () => {
                             styles={customStyles}
                             className="col-md-4 col-12 enter-sort-container"
                             onChange={handlePlaceChange}
-                            options={placeOptions}
-                            value={placeOption}
+                            options={countryOptions}
+                            value={countryOption}
                         />
                         <Select 
                             styles={customStyles}
@@ -226,7 +235,7 @@ const Home = () => {
                 <br />
 
                 <div className="home-section-title">
-                    Top Places
+                    Places To Visit
                 </div>
                 <Carousel
                     responsive={responsive}
@@ -247,7 +256,7 @@ const Home = () => {
                 <br />
 
                 <div className="home-section-title">
-                    Top Categories
+                    Tour Categories
                 </div>
                 <Carousel
                     responsive={responsive}
@@ -268,7 +277,7 @@ const Home = () => {
                 <br />
 
                 <div className="home-section-title">
-                    Top Countries
+                    Countries To Visit
                 </div>
                 <Carousel
                     responsive={responsive}
@@ -289,7 +298,7 @@ const Home = () => {
                 <br />
 
                 <div className="home-section-title">
-                    Top Travel Agencies
+                    Well Known Travel Agencies
                 </div>
                 <Carousel
                     responsive={responsive}
@@ -310,7 +319,7 @@ const Home = () => {
                 <br />
 
                 <div className="home-section-title">
-                    Top Blogs
+                    Recent Tour Blogs
                 </div>
                 <Carousel
                     responsive={responsive}

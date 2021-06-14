@@ -32,6 +32,7 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 const EventFilter = (props) => {
 
     const applyFilter = props.applyFilter;
+    const currentDate = props.currentDate;
     const [isFilterOpen, setIsFilterOpen] = useState(true);
 
     const dateRange = [];
@@ -142,6 +143,8 @@ const EventFilter = (props) => {
     }
 
     const loadData = async () => {
+        handleMaxDate(currentDate);
+
         let data = [];
         for (const item of fixedFilters.tourStyle) {
             data.push({
@@ -199,7 +202,8 @@ const EventFilter = (props) => {
 
     useEffect(() => {
         loadData();
-    }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentDate]);
 
     const fetchData = async (dataType, inputData) => {
         const filters = {};

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-// import {useHistory} from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import Select from 'react-select';
 import {Modal, Fade, Backdrop} from '@material-ui/core';
 
@@ -23,9 +23,14 @@ const customStyles = {
     menu: provided => ({ ...provided, zIndex: 9999 })
 };
 
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
 const Event = () => {
 
-    // const history = useHistory();
+    const location = useLocation();
+    const [currentDate, setCurrentDate] = useState(new Date());
 
     const options = [
         { value: 'Most Popular', label: 'Most Popular' },
@@ -87,6 +92,14 @@ const Event = () => {
         }
         setCountry(placeOptions);
         setCountryOption(placeOptions[0]);
+
+        if (location.state) {
+            setCountryOption({
+                value: location.state.country,
+                label: location.state.country
+            });
+            setCurrentDate(new Date(location.state.minDate));
+        }
 
         setPlace([{ value: 'All Place', label: 'All Place' }]);
         setPlaceOption({ value: 'All Place', label: 'All Place' });
@@ -191,6 +204,10 @@ const Event = () => {
                 <div className="col-md-3 col-12">
                     <Filter 
                         applyFilter={applyFilter}
+                        currentDate={{
+                            value: currentDate.toISOString().split('T')[0],
+                            label: monthNames[currentDate.getMonth()] + ", " + currentDate.getFullYear(),
+                        }}
                     />
                 </div>
                 <div className="col-md-9 col-12">
