@@ -79,6 +79,9 @@ const getCategoryByName = async (req, res) => {
         const category = await Category.findOne({
             name: body.name
         });
+        if (!category) {
+            throw new Error("Category Not Found");
+        }
 
         res.status(200).send(category);
     } catch (error) {
