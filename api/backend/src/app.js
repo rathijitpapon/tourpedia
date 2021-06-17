@@ -4,6 +4,7 @@ const cors = require("cors");
 const initDB = require("./db/mongoose");
 
 const user = require("./routers/user");
+const explore = require("./routers/explore");
 
 var corsOptions = {
     origin: "*",
@@ -22,5 +23,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 
 app.use("/user", user);
+app.use("/explore", explore);
 
 module.exports = app;
