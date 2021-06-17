@@ -7,14 +7,16 @@ const categorySchema = new mongoose.Schema(
             type: String,
             required: true,
             trim: true,
+            unique: true,
         },
         description: {
             type: String,
             required: true,
         },
-        banner: [{
+        banner: {
             type: String,
-        }],
+            required: true,
+        },
         travelAgency: [{
             _id: {
                 type: mongoose.Schema.Types.ObjectId,
