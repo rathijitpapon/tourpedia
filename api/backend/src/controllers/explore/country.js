@@ -51,7 +51,7 @@ const updateCountry = async (req, res) => {
 
         const country = await Country.findOne({
             name: body.name
-        });
+        }).populate('place._id').exec();
 
         for (field of fields) {
             country[field] = body[field];
@@ -78,7 +78,7 @@ const getCountryByName = async (req, res) => {
 
         const country = await Country.findOne({
             name: body.name
-        });
+        }).populate('place._id').exec();
         if (!country) {
             throw new Error("Country Not Found");
         }
@@ -93,7 +93,7 @@ const getCountryByName = async (req, res) => {
 
 const getAllCountry = async (req, res) => {
     try {
-        const countries = await Country.find();
+        const countries = await Country.find().populate('place._id').exec();
 
         res.status(200).send(countries);
     } catch (error) {

@@ -51,7 +51,7 @@ const updateCategory = async (req, res) => {
 
         const category = await Category.findOne({
             name: body.name
-        });
+        }).populate('place._id').exec();
 
         for (field of fields) {
             category[field] = body[field];
@@ -78,7 +78,7 @@ const getCategoryByName = async (req, res) => {
 
         const category = await Category.findOne({
             name: body.name
-        });
+        }).populate('place._id').exec();
         if (!category) {
             throw new Error("Category Not Found");
         }
@@ -93,7 +93,7 @@ const getCategoryByName = async (req, res) => {
 
 const getAllCategory = async (req, res) => {
     try {
-        const categories = await Category.find();
+        const categories = await Category.find().populate('place._id').exec();
 
         res.status(200).send(categories);
     } catch (error) {
