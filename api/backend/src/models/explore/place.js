@@ -7,14 +7,16 @@ const placeSchema = new mongoose.Schema(
             type: String,
             required: true,
             trim: true,
+            unique: true,
         },
         description: {
             type: String,
             required: true,
         },
-        banner: [{
+        banner: {
             type: String,
-        }],
+            required: true,
+        },
         country: {
             _id: {
                 type: mongoose.Schema.Types.ObjectId,
@@ -26,7 +28,6 @@ const placeSchema = new mongoose.Schema(
             _id: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Pedia",
-                required: true,
             }
         },
         blog: [{
