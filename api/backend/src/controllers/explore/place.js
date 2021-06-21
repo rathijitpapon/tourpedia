@@ -93,9 +93,10 @@ const updatePlace = async (req, res) => {
         }
         const body = convertValidBody(req.body, fields);
 
-        const place = await Place.findOne({
-            name: body.name
-        }).populate('country._id').populate('category._id').exec();
+        const place = await Place.findById(req.query.id).populate('country._id').populate('category._id').exec();
+        if (!place) {
+            throw new Error("Place Not Found");
+        }
 
         if (!place) {
             throw new Error("Place Not Found");
