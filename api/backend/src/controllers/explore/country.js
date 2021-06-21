@@ -49,9 +49,10 @@ const updateCountry = async (req, res) => {
         }
         const body = convertValidBody(req.body, fields);
 
-        const country = await Country.findOne({
-            name: body.name
-        }).populate('place._id').exec();
+        const country = await Country.findById(req.query.id).populate('place._id').exec();
+        if (!country) {
+            throw new Error("Country Not Found");
+        }
 
         for (field of fields) {
             country[field] = body[field];

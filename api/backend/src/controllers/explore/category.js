@@ -49,9 +49,10 @@ const updateCategory = async (req, res) => {
         }
         const body = convertValidBody(req.body, fields);
 
-        const category = await Category.findOne({
-            name: body.name
-        }).populate('place._id').exec();
+        const category = await Category.findById(req.query.id).populate('place._id').exec();
+        if (!category) {
+            throw new Error("Category Not Found");
+        }
 
         for (field of fields) {
             category[field] = body[field];
