@@ -1,0 +1,77 @@
+.upload-explore-main {
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    left: 15%;
+    right: 15%;
+    background: rgb(248, 248, 250);
+    padding: 20px;
+    overflow: auto;
+}
+
+.upload-explore-title {
+    font-size: 25px;
+    font-family: Ubuntu Mono;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(3, 40, 95);
+}
+
+.upload-explore-select-container {
+    border-radius: 5px;
+    border: none;
+    font-size: 17px;
+    margin-bottom: 20px;
+    width: 350px;
+    display: block;
+}
+
+.upload-explore-section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.upload-explore-title-input {
+    border-radius: 5px;
+    font-size: 17px;
+    display: block;
+    margin-bottom: 20px;
+    width: 350px;
+    height: 40px;
+    padding: 5px;
+}
+
+.upload-explore-file {
+    color: blue;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.upload-explore-description {
+    border-radius: 5px;
+    font-size: 17px;
+    display: block;
+    margin-bottom: 20px;
+    width: 350px;
+    height: 150px;
+    resize: none;
+    padding: 10px;
+}
+
+.upload-explore-submit {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.upload-explore-url {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

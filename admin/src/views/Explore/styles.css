@@ -4,26 +4,46 @@
     padding: 3%
 }
 
-.explore-item-title-container {
-    font-size: 30px;
+.explore-section-title {
     font-family: Ubuntu Mono;
+    font-size: 30px;
     font-weight: bold;
-    color: #0d0552;
+    padding: 5px;
     text-align: center;
-    margin-bottom: 20px;
+    height: 55px;
+    cursor: pointer;
+    color: rgb(28, 5, 80);
+    background-color: rgb(193, 193, 202);
 }
 
-.explore-item-section-container {
-    padding: auto 10px;
+.explore-section-selected {
+    color: rgb(231, 226, 226);
+    background-color: rgb(2, 2, 109);
 }
 
-.explore-input-title-container {
+.explore-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
     font-weight: bold;
 }
 
-.explore-text-input-container {
-    border-radius: 5px;
-    height: 35px;
-    width: 300px;
-    margin-bottom: 10px;
+.explore-button:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(2, 17, 85);
+}
+
+.explore-modal-body {
+    position: absolute;
+    top: 15%;
+    bottom: 15%;
+    left: 15%;
+    right: 15%;
+    background: rgb(248, 248, 250);
+    padding: 20px;
+    overflow: auto;
+    border-radius: 20px;
 }
