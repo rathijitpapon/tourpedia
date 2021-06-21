@@ -30,6 +30,12 @@ const placeSchema = new mongoose.Schema(
                 ref: "Pedia",
             }
         },
+        category: [{
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Category"
+            }
+        }],
         blog: [{
             _id: {
                 type: mongoose.Schema.Types.ObjectId,

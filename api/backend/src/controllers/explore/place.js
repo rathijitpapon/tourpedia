@@ -31,6 +31,7 @@ const createPlace = async (req, res) => {
         const country = await Country.findOne({
             name: body.country
         });
+
         const category = [];
         for (const cat of body.category) {
             const curCat = await Category.findOne({
@@ -50,10 +51,17 @@ const createPlace = async (req, res) => {
         delete body.category;
         body.country = {};
         body.country._id = country._id;
+
+        body.category = [];
+        for (const cat of category) {
+            body.category.push({
+                _id: cat._id,
+            });
+        }
         
         let place = new Place(body);
         await place.save();
-        place = await Place.findById(place._id).populate('country._id').exec();
+        place = await Place.findById(place._id).populate('country._id').populate('category._id').exec();
 
         country.place.push({
             _id: place._id,
@@ -87,7 +95,7 @@ const updatePlace = async (req, res) => {
 
         const place = await Place.findOne({
             name: body.name
-        }).populate('country._id').exec();
+        }).populate('country._id').populate('category._id').exec();
 
         if (!place) {
             throw new Error("Place Not Found");
@@ -118,7 +126,7 @@ const getPlaceByName = async (req, res) => {
 
         const place = await Place.findOne({
             name: body.name
-        }).populate('country._id').exec();
+        }).populate('country._id').populate('category._id').exec();
         if (!place) {
             throw new Error("Place Not Found");
         }
@@ -133,7 +141,7 @@ const getPlaceByName = async (req, res) => {
 
 const getAllPlace = async (req, res) => {
     try {
-        const places = await Place.find().populate('country._id').exec();
+        const places = await Place.find().populate('country._id').populate('category._id').exec();
 
         res.status(200).send(places);
     } catch (error) {
