@@ -28,7 +28,7 @@ const MainLayout = () => {
         <Route exact path="/forum" component={Forum} ></Route>
         <Route exact path="/event/:agencyName/:eventName" component={EventDetails} ></Route>
         <Route exact path="/event" component={Event} ></Route>
-        <Route exact path="/blog/:username/:blogName" component={BlogDetails} ></Route>
+        <Route exact path="/blog/:blogName" component={BlogDetails} ></Route>
         <Route exact path="/blog" component={Blog} ></Route>
         <Route exact path="/category/:categoryName" component={CategoryDetails} ></Route>
         <Route exact path="/category" component={Category} ></Route>
