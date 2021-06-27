@@ -1,54 +1,31 @@
-import React, {useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import {
-    makeStyles,
-    Card,
-    CardActionArea,
-    CardContent,
-    CardMedia,
-    Typography,
-} from '@material-ui/core';
+import React from 'react';
+import {Link} from 'react-router-dom'
+import {Image} from 'react-bootstrap';
 
 import "./styles.css";
 
-const useStyles = makeStyles({
-    root: {
-        "&:hover": {
-            textDecoration: 'none',
-        }
-    },
-    media: {
-        height: 150,
-    },
-});
-
 const BlogCard = (props) => {
-    const classes = useStyles();
-
-    const {url, image, title, author} = props;
-    useEffect(() => {
-    }, []);
+    const blog = props.blog;
 
     return ( 
-        <div className="blog-card-main">
-            <Card className={classes.root} component={Link} to={'/blog/' + url}>
-                <CardActionArea>
-                    <CardMedia
-                    className={classes.media}
-                        image={image}
-                        title=""
-                    />
-                    <CardContent>
-                    <Typography gutterBottom variant="h6" component="h2">
-                        {title}
-                    </Typography>
-                    <Typography variant="body1" color="textPrimary" component="p">
-                        {author}
-                    </Typography>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
-        </div>
+        <Link
+            to={"/blog/" + blog.title + '-' + blog.id}
+            className="blog-card-main"
+        >
+            <Image
+                className="blog-card-image"
+                src={blog.imageURL[0]}
+                alt="blog img"
+            />
+            <div className="blog-card-middle">
+               <div className="blog-card-title">
+                    {blog.title}
+                </div>
+                <div className="blog-card-description">
+                    {blog.description}
+                </div>
+            </div>
+        </Link>
      );
 }
  
