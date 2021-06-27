@@ -4,11 +4,11 @@ import {Link} from 'react-router-dom';
 import {GrNext, GrPrevious} from 'react-icons/gr';
 import Select from 'react-select';
 
+import BlogCard from "../../components/BlogCard";
 import LayoutWrapper from "../../layouts/LayoutWrapper";
 import "./styles.css";
 
 import blogData from "../../assets/dummyData/blog.json";
-import BlogCard from "../../components/BlogCard";
 import countryData from "../../assets/dummyData/country.json";
 
 const customStyles = {

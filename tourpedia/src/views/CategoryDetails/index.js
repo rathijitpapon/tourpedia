@@ -15,6 +15,7 @@ import categoryData from "../../assets/dummyData/category.json";
 import placeData from "../../assets/dummyData/place.json";
 import eventData from "../../assets/dummyData/event.json";
 import travelAgencyData from "../../assets/dummyData/travelagency.json";
+import blogData from "../../assets/dummyData/blog.json";
 
 const responsive = {
     desktop: {
@@ -44,7 +45,7 @@ const CategoryDetails = (props) => {
     const [banner, setBanner] = useState("");
 
     const [places, setPlaces] = useState([]);
-    const [blogData, setBlogData] = useState([]);
+    const [blogs, setBlogs] = useState([]);
     const [events, setEvents] = useState([]);
     const [travelagencies, setTravelagencies] = useState([]);
 
@@ -72,15 +73,10 @@ const CategoryDetails = (props) => {
         setEvents(data);
 
         data = [];
-        for (let i = 0; i < 51; i++) {
-            data.push({
-                url: 'rathijit/rafting-at-kull-0103w8101',
-                image: 'https://i0.wp.com/glacierguides.com/wp-content/uploads/2019/09/IMG_1615.jpg?fit=3456%2C2304&ssl=1',
-                title: 'Rafting at Kullu',
-                author: 'Rathijit Paul',
-            });
+        for (let i = 0; i < 10; i++) {
+            data = [...data, ...blogData];
         }
-        setBlogData(data);
+        setBlogs(data);
     }
 
     useEffect(() => {
@@ -181,15 +177,12 @@ const CategoryDetails = (props) => {
                     responsive={responsive}
                 >
                 {
-                    blogData.map((data, index) => (
+                    blogs.map((blog, index) => (
                         <div
                             key={index}
                         >
                             <BlogCard 
-                                url={data.url}
-                                image={data.image}
-                                title={data.title}
-                                author={data.author}
+                                blog={blog}
                             />
                         </div>
                     ))
