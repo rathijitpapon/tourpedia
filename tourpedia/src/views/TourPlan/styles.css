@@ -1,0 +1,115 @@
+.tourplan-not-found {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: Ubuntu Mono;
+    color: rgb(1, 1, 83);
+}
+
+.tourplan-img-container {
+    width: 100%;
+    height: 350px;
+    cursor: pointer;
+}
+
+.tourplan-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(1, 1, 83);
+    font-family: Ubuntu Mono;
+    margin-bottom: 5px;
+}
+
+.tourplan-travelagency {
+    font-size: 18px;
+    color: #010768;
+    margin-bottom: 15px;
+}
+
+.tourplan-category {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(219, 211, 211);
+    font-size: 16px;
+    font-weight: bold;
+    color: #030242;
+}
+
+.tourplan-category:hover {
+    text-decoration: none;
+}
+
+.tourplan-side-items {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.tourplan-cost {
+    font-size: 35px;
+}
+
+.tourplan-section-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.tourplan-description {
+    font-size: 17px;
+}
+
+.tourplan-bottom {
+    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-right: 50px;
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.tourplan-save-button {
+    width: 200px;
+    height: 50px;
+    background-color: rgb(237, 235, 241);
+    color: rgb(4, 16, 85);
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.tourplan-save-button:hover {
+    opacity: 0.5;
+}
+
+.tourplan-enroll-button {
+    width: 200px;
+    height: 50px;
+    background-color: rgb(22, 1, 80);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.tourplan-enroll-button:hover {
+    opacity: 0.5;
+}
+
+@media (max-width: 500px) {
+    .tourplan-img-container {
+        height: 300px;
+    }
+}
+
+@media (max-width: 800px) {
+    .tourplan-save-button {
+        margin-bottom: 10px;}
+
+    .tourplan-bottom {
+        justify-content: space-between;
+    }
+}
