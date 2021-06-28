@@ -95,7 +95,7 @@ const signup = (username, email, password, fullname) => {
     return response;
 };
 
-const signout = (username, email, password, fullname) => {
+const signout = () => {
     const url = `${baseURL}/signout`;
 
     httpService.setJWT(authService.getJWT());
@@ -144,6 +144,35 @@ const getProfile = (username) => {
     return response;
 };
 
+const updateProfile = (fullname, about, profileImage) => {
+    const url = `${baseURL}/profile`;
+
+    httpService.setJWT(authService.getJWT());
+    const response = httpService.post(url, {
+        fullname,
+        about,
+        profileImage,
+    }).then(res => {
+        return {
+            status: res.status,
+            data: res.data,
+        };
+    }).catch(error => {
+        if(error.response && error.response.status <= 500) {
+            return {
+                status: error.response.status,
+                message: 'Unauthorized',
+            };
+        }
+        return {
+            status: 500,
+            message: "Unexpected server error",
+        };
+    });
+
+    return response;
+};
+
 const userAuthService = {
     getSavedAuthInfo,
     getAuth,
@@ -151,6 +180,7 @@ const userAuthService = {
     signup,
     signout,
     getProfile,
+    updateProfile,
 };
 
 export default userAuthService;
