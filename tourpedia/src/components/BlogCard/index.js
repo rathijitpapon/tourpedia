@@ -21,9 +21,6 @@ const BlogCard = (props) => {
                <div className="blog-card-title">
                     {blog.title}
                 </div>
-                <div className="blog-card-description">
-                    {blog.description}
-                </div>
             </div>
         </Link>
      );
