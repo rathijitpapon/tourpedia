@@ -1,8 +1,8 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "title": "Best 5 Treks to Do in Himachal Pradesh Between April and October",
-        "description": "If adventure and freedom run like a storm in your soul, then consider the evergreen state of Himachal Pradesh as your summer trekking destination in 2020. Mostly romanticized as a winter holiday destination, Himachal Pradesh’s sublime summer season is also one of a kind bringing in a new sort of liveliness in the surroundings followed by clement weather. To say the least, it is such an action-packed place that can be best explored in summer that too by hiking and trekking. Ah! Honestly there can’t be anything better than being an adventurer and traversing the fresh streams, high altitude lakes, shimmering waterfalls, lush meadows, and valleys in the months of June to September in Himachal when they all become surreal. And if we really give it a thought then there will actually be a never-ending list of summer treks in Himachal Pradesh. But in this blog, we ease off the pain and chalk out the top 5 trekking places for you to enjoy in the summer season. It doesn’t matter whether you are a beginner or a seasoned trekker or someone on his first trek, this North Indian state is perfect to prepare you for more upcoming adventures and challenges. So, hold your cliched ideas to vacation in the same-old tourist places and pick from the five best treks for summers we have shortlisted for you.",
+        "description": "<p>If adventure and freedom run like a storm in your soul, then consider the evergreen state of Himachal Pradesh as your summer trekking destination in 2020. Mostly romanticized as a winter holiday destination, Himachal Pradesh’s sublime summer season is also one of a kind bringing in a new sort of liveliness in the surroundings followed by clement weather.</p> <p>To say the least, it is such an action-packed place that can be best explored in summer that too by hiking and trekking. Ah! Honestly there can’t be anything better than being an adventurer and traversing the fresh streams, high altitude lakes, shimmering waterfalls, lush meadows, and valleys in the months of June to September in Himachal when they all become surreal. And if we really give it a thought then there will actually be a never-ending list of summer treks in Himachal Pradesh.</p> <p>But in this blog, we ease off the pain and chalk out the top 5 trekking places for you to enjoy in the summer season. It doesn’t matter whether you are a beginner or a seasoned trekker or someone on his first trek, this North Indian state is perfect to prepare you for more upcoming adventures and challenges. So, hold your cliched ideas to vacation in the same-old tourist places and pick from the five best treks for summers we have shortlisted for you.</p>",
         "imageURL": [
             "https://k6u8v6y8.stackpathcdn.com/blog/wp-content/uploads/2021/06/Best-Summer-Treks-in-Himachal.jpg",
             "https://k6u8v6y8.stackpathcdn.com/blog/wp-content/uploads/2021/06/Indrahar-Pass-Trek-Himachal.jpg",
@@ -13,11 +13,11 @@
             "https://k6u8v6y8.stackpathcdn.com/blog/wp-content/uploads/2021/06/Friendship-Peak-Trek-Himachal.jpg"
         ],
         "videoURL": "https://www.youtube.com/watch?v=QpyzVINRLFM",
-        "country": {
+        "country": [{
             "name": "India",
             "description": "India, the world’s 7th biggest country by area, and one of the oldest civilizations in the world, has lots to offer to the travellers around the world. Explore the diversity of incredible India with our India tour packages that let you explore the magnificence of nature; thrill of adventure; rich heritage; soul-soothing spirituality and vibrant culture. Come and explore the best of India with our Indian holiday packages.",
             "banner": "http://goflighthotel.com/wp-content/uploads/2018/08/india-best-places-to-visit-rajasthan.jpg"
-        },
+        }],
         "place": [
             {
                 "name": "Shimla",
@@ -69,9 +69,9 @@
         "downvote": 2 
     },
     {
-        "id": 2,
+        "id": "2",
         "title": "15 Best High-Altitude Trekking Tours in India Himalayas",
-        "description": "For all the adventure buffs, there’s nothing as exciting, intriguing, fascinating, pulsating as trekking. And it’s fun ultimately doubles when there are some high-altitude treks to conquer. Most of them featuring picturesque meadows, the high- altitude treks give an opportunity to see fascinating sceneries in the world. No doubt, there are many hilly ranges in the world where you can expect such similar features, but it’s the Indian Himalayan Region where most of the trekking lovers find comfort. Home to some sky touching snow-capped glaciated peaks with a vibrant mosaic of peoples, and cultures, Indian Himalayan Region is the crowning apex of nature’s grandeur offering the range of high-altitude trekking trails. Some of which even are even 5960 m. For sure, you will be thinking somewhere in the back of your mind – isn’t it 5960 m way too high for trekking? Yes, it is, but who says that beauty comes easily after all. So, without further ado, here’s guide to high altitude trekking trails in India.",
+        "description": "<p>For all the adventure buffs, there’s nothing as exciting, intriguing, fascinating, pulsating as trekking. And it’s fun ultimately doubles when there are some high-altitude treks to conquer. Most of them featuring picturesque meadows, the high- altitude treks give an opportunity to see fascinating sceneries in the world. No doubt, there are many hilly ranges in the world where you can expect such similar features, but it’s the Indian Himalayan Region where most of the trekking lovers find comfort.</p> <p>Home to some sky touching snow-capped glaciated peaks with a vibrant mosaic of peoples, and cultures, Indian Himalayan Region is the crowning apex of nature’s grandeur offering the range of high-altitude trekking trails. Some of which even are even 5960 m. For sure, you will be thinking somewhere in the back of your mind – isn’t it 5960 m way too high for trekking? Yes, it is, but who says that beauty comes easily after all. So, without further ado, here’s guide to high altitude trekking trails in India.</p>",
         "imageURL": [
             "https://cdn-cdmoj.nitrocdn.com/aMXvDVbOTxUQVHZUrOLYcprbySihZhas/assets/static/source/blog/wp-content/uploads/2021/06/af09c34ee9911fe2dc99594759c76b7d.Best-High-Altitude-Trekking-Destinations-in-India-Himalayas.jpg",
             "https://cdn-cdmoj.nitrocdn.com/aMXvDVbOTxUQVHZUrOLYcprbySihZhas/assets/static/source/blog/wp-content/uploads/2021/06/15e226dfdafb826eb2accd9ab4aecf75.Chadar-Trek-Ladakh.jpg",
@@ -85,11 +85,11 @@
             "https://cdn-cdmoj.nitrocdn.com/aMXvDVbOTxUQVHZUrOLYcprbySihZhas/assets/static/source/blog/wp-content/uploads/2021/06/9e9e0bc8a3a9678b66c2d52c7da9742f.Pin-Parvati-Pass-Trek.jpg"
         ],
         "videoURL": "https://www.youtube.com/watch?v=ooHpBv7oDrc",
-        "country": {
+        "country": [{
             "name": "India",
             "description": "India, the world’s 7th biggest country by area, and one of the oldest civilizations in the world, has lots to offer to the travellers around the world. Explore the diversity of incredible India with our India tour packages that let you explore the magnificence of nature; thrill of adventure; rich heritage; soul-soothing spirituality and vibrant culture. Come and explore the best of India with our Indian holiday packages.",
             "banner": "http://goflighthotel.com/wp-content/uploads/2018/08/india-best-places-to-visit-rajasthan.jpg"
-        },
+        }],
         "place": [
             {
                 "name": "Shimla",
