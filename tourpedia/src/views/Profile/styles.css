@@ -22,6 +22,7 @@
 }
 
 .profile-about-container {
+    margin-top: 10px;
     font-weight: 20px;
 }
 
@@ -89,6 +90,7 @@
     }
     
     .profile-about-container {
+        text-align: center;
         margin-left: 10%;
         margin-right: 10%;
     }
