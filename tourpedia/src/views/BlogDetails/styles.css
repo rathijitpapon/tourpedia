@@ -1,0 +1,27 @@
+.blog-details-image-carousel {
+    width: 100%;
+    height: 350px;
+    cursor: pointer;
+}
+
+.blog-details-title {
+    font-family: "Patrick Hand";
+    color: rgb(26, 3, 82);
+    text-align: center;
+    line-height: 40px;
+    font-weight: 600;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.blog-details-description-container {
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.blog-details-category {
+    line-height: 45px;
+    text-align: center;
+    margin-bottom: 25px;
+}
