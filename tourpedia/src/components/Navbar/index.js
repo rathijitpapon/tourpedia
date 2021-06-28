@@ -44,6 +44,7 @@ const NavBar = (props) => {
 
   const handleLogout = async () => {
     const data = await userAuthService.signout();
+    history.push("/enter");
 
     if (data.status < 300) {
       setIsAuthenticated(false);
