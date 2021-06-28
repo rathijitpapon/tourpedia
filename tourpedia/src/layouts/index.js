@@ -15,8 +15,8 @@ import Blog from "../views/Blog";
 import BlogDetails from "../views/BlogDetails";
 import Event from "../views/Event";
 import EventDetails from "../views/EventDetails";
-import Forum from "../views/Forum";
-import Post from "../views/Post";
+// import Forum from "../views/Forum";
+// import Post from "../views/Post";
 import TourPlan from "../views/TourPlan";
 
 const MainLayout = () => {
@@ -24,8 +24,8 @@ const MainLayout = () => {
     <div>
       <Switch>
         <Route exact path="/tourplan/:tourplanName" component={TourPlan} ></Route>
-        <Route exact path="/forum/:username/:postTitle" component={Post} ></Route>
-        <Route exact path="/forum" component={Forum} ></Route>
+        {/* <Route exact path="/forum/:username/:postTitle" component={Post} ></Route> */}
+        {/* <Route exact path="/forum" component={Forum} ></Route> */}
         <Route exact path="/event/:agencyName/:eventName" component={EventDetails} ></Route>
         <Route exact path="/event" component={Event} ></Route>
         <Route exact path="/blog/:blogName" component={BlogDetails} ></Route>
