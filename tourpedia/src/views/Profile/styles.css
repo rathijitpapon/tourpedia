@@ -1,3 +1,7 @@
+.profile-main-wrapper {
+    padding: auto 20px;
+}
+
 .profile-main-container {
     display: flex;
     flex-direction: row;
@@ -19,6 +23,54 @@
 
 .profile-about-container {
     font-weight: 20px;
+}
+
+.profile-edit-name {
+    margin-top: 50px;
+    height: 40px;
+    font-size: 25px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    padding: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-edit-about {
+    font-weight: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 5px;
+    height: 100px;
+    width: 100%;
+    resize: none;
+}
+
+.profile-button {
+    font-size: 20px;
+    height: 45px;
+    width: 100px;
+}
+
+.profile-my-items {
+    font-size: 35px;
+    font-weight: 650;
+    font-family: Ubuntu Mono;
+    color: rgb(3, 2, 73);
+    text-align: center;
+    margin-top: 5px;
+}
+
+.profile-sort-container {
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: Ubuntu Mono;
+    padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media (max-width: 600px) {
