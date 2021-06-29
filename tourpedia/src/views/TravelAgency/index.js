@@ -40,6 +40,7 @@ const TravelAgency = (props) => {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);

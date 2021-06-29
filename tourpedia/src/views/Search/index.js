@@ -111,6 +111,7 @@ const Search = (props) => {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         loadData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
