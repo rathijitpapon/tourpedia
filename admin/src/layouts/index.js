@@ -7,7 +7,7 @@ import Event from "../views/Event";
 import PendingEvent from "../views/PendingEvent";
 import EventDetails from "../views/EventDetails";
 import Blog from "../views/Blog";
-import PendingBlog from "../views/PendingBlog";
+import EditBlog from "../views/EditBlog";
 import BlogDetails from "../views/BlogDetails";
 import UserList from "../views/UserList";
 import Pedia from "../views/Pedia";
@@ -26,8 +26,8 @@ const MainLayout = () => {
         <Route exact path="/pedia/:placeName" component={PediaDetails} ></Route>
         <Route exact path="/pedia" component={Pedia} ></Route>
         <Route exact path="/user" component={UserList} ></Route>
-        <Route exact path="/blog/:blogName" component={BlogDetails} ></Route>
-        <Route exact path="/pending/blog" component={PendingBlog} ></Route>
+        <Route exact path="/blog" component={BlogDetails} ></Route>
+        <Route exact path="/blog/edit/:blogName" component={EditBlog} ></Route>
         <Route exact path="/blog" component={Blog} ></Route>
         <Route exact path="/event/:eventName" component={EventDetails} ></Route>
         <Route exact path="/pending/event" component={PendingEvent} ></Route>
