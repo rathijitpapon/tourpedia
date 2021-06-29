@@ -24,9 +24,9 @@
 	Route: /blog
 	Content: Approved Blogs, Blog Filtering & Sorting Option
 
-### 7. Pending Blogs
-	Route: /pending/blog
-	Content: Pending Blogs
+### 7. Edit Blog
+	Route: /blog/edit/blogName
+	Content: Edit/Add Blog
 	
 ### 8. Blogs Details
 	Route: /blog/blogName
