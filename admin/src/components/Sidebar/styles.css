@@ -30,7 +30,7 @@
     position: sticky!important;
     top: 0;
 }
-::-webkit-scrollbar {
+.sidebar-main-container ::-webkit-scrollbar {
     width: 0;
 }
 
