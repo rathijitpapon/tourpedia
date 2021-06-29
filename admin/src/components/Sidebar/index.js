@@ -12,7 +12,8 @@ import {ImCross, ImHome, ImBook, ImBlog} from 'react-icons/im';
 import {GiHamburgerMenu, GiUncertainty, GiWorld} from 'react-icons/gi';
 import {MdCreate, MdEvent} from 'react-icons/md';
 import {CgProfile, CgLogOut} from 'react-icons/cg';
-import {BsPeopleFill, BsFillQuestionOctagonFill} from 'react-icons/bs';
+import {BsPeopleFill} from 'react-icons/bs';
+import {FaEdit} from 'react-icons/fa';
 
 import userAuthService from '../../services/userAuthService';
 
@@ -153,12 +154,12 @@ const SideNavBar = (props) => {
                         )
                     }
                     <MenuItem 
-                        icon={<BsFillQuestionOctagonFill className="sidebar-link-icon" />}>
+                        icon={<FaEdit className="sidebar-link-icon" />}>
                         <Link 
                             className="sidebar-link-item" 
-                            to="/pending/blog"
+                            to="/blog/edit/new"
                         >
-                            Pending Blogs
+                            Edit Blog
                         </Link>
                     </MenuItem>
                     
