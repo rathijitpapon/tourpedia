@@ -13,7 +13,7 @@ const customStyles = {
         backgroundColor: '#f7efef',
         borderColor: '#821616',
         borderWidth: '2px',
-        height: '40px',
+        minHeight: '40px',
     }),
     menu: provided => ({
         ...provided, 
