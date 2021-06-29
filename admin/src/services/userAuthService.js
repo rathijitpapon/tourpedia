@@ -77,8 +77,8 @@ const signout = () => {
     const url = `${baseURL}/signout`;
 
     httpService.setJWT(authService.getJWT());
+    authService.uiLogout();
     const response = httpService.get(url, {}).then(res => {
-        authService.uiLogout();
         return {
             status: res.status,
         };
