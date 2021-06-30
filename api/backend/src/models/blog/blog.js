@@ -17,12 +17,13 @@ const blogSchema = new mongoose.Schema(
         videoURL: {
             type: String,
         },
-        country: [{
+        country: {
             _id: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Country",
+                required: true,
             }
-        }],
+        },
         place: [{
             _id: {
                 type: mongoose.Schema.Types.ObjectId,
