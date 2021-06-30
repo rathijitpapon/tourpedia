@@ -3,6 +3,10 @@ const uniqueValidator = require('mongoose-unique-validator');
 
 const blogSchema = new mongoose.Schema(
     {
+        date: {
+            type: Date,
+            required: true,
+        },
         title: {
             type: String,
             required: true,
