@@ -56,10 +56,14 @@ const Event = () => {
         setSortOption(newValue);
     };
 
-    const handleCountryOptionChange = (newValue, actionMeta) => {
+    const handleCountryOptionChange = (newValue, actionMeta, hasData, givenData) => {
         setCountryOption(newValue);
         const placeOptions = [{ value: 'All Place', label: 'All Place' }];
-        for (const data of allCountryPlaceData) {
+        let cpData = allCountryPlaceData;
+        if (hasData) {
+            cpData = givenData;
+        }
+        for (const data of cpData) {
             if (data.name === newValue.value) {
                 for (const placeData of data.place) {
                     placeOptions.push({
@@ -93,16 +97,16 @@ const Event = () => {
         setCountry(placeOptions);
         setCountryOption(placeOptions[0]);
 
-        if (location.state) {
-            setCountryOption({
-                value: location.state.country,
-                label: location.state.country
-            });
-            setCurrentDate(new Date(location.state.minDate));
-        }
-
         setPlace([{ value: 'All Place', label: 'All Place' }]);
         setPlaceOption({ value: 'All Place', label: 'All Place' });
+
+        if (location.state) {
+            handleCountryOptionChange({
+                value: location.state.country,
+                label: location.state.country
+            }, '', true, countryData);
+            setCurrentDate(new Date(location.state.minDate));
+        }
 
         const data = []
         for (let i = 0; i < 10; i++) {
