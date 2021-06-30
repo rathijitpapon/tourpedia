@@ -34,23 +34,14 @@ const dayPlanSchema = new mongoose.Schema(
         },
         otherCost: {
             type: Number,
+            required: true,
         },
-        activity: [{
-            type: String,
-        }],
-        place: [{
+        timePlan: [{
             _id: {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: "Place"
+                ref: "TimePlan"
             }
-        }],
-        event: {
-            _id: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "Event",
-                required: true,
-            }
-        }
+        }]
     },
     {
         timestamps: true,
