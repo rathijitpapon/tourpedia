@@ -9,10 +9,10 @@ placeRouter.post('/create', adminAuth, placeController.createPlace);
 
 placeRouter.post('/update', adminAuth, placeController.updatePlace);
 
-placeRouter.delete('/remove', adminAuth, placeController.deletePlace);
-
 placeRouter.get('/', placeController.getPlaceByName);
 
 placeRouter.get('/all', placeController.getAllPlace);
+
+placeRouter.get('/country', placeController.getAllPlaceByCountry);
 
 module.exports = placeRouter;

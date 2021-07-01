@@ -28,30 +28,15 @@ const createPlace = async (req, res) => {
         }
         let body = convertValidBody(req.body, fields);
 
-        const country = await Country.findOne({
-            name: body.country
-        });
-
+        const country = await Country.findById(body.country);
         const category = [];
         for (const cat of body.category) {
-            const curCat = await Category.findOne({
-                name: cat,
-            });
-            if (!curCat) {
-                throw new Error("Category Not Found");
-            }
+            const curCat = await Category.findById(cat);
             category.push(curCat);
         }
 
-        if (!country) {
-            throw new Error("Country Not Found");
-        }
-
-        delete body.country;
-        delete body.category;
         body.country = {};
         body.country._id = country._id;
-
         body.category = [];
         for (const cat of category) {
             body.category.push({
@@ -67,7 +52,6 @@ const createPlace = async (req, res) => {
             _id: place._id,
         });
         await country.save();
-
         for (const cat of category) {
             cat.place.push({
                 _id: place._id,
@@ -152,23 +136,11 @@ const getAllPlace = async (req, res) => {
     }
 }
 
-const deletePlace = async (req, res) => {
-    const fields = ["name"];
-
+const getAllPlaceByCountry = async (req, res) => {
     try {
-        const isValid = checkValidBody(req.query, fields);
-        if (!isValid) {
-            throw new Error("Invalid Fields");
-        }
-        const body = convertValidBody(req.query, fields);
+        const places = await Place.find({'country._id': req.query.id}).populate('country._id').populate('category._id').exec();
 
-        await Place.findOneAndDelete({
-            name: body.name
-        });
-
-        res.status(200).send({
-            message: "successfully deleted",
-        });
+        res.status(200).send(places);
     } catch (error) {
         res.status(400).send({
             message: error.message,
@@ -181,7 +153,7 @@ const placeController = {
     updatePlace,
     getPlaceByName,
     getAllPlace,
-    deletePlace,
+    getAllPlaceByCountry,
 };
 
 module.exports = placeController;
