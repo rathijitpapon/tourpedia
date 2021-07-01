@@ -181,7 +181,7 @@ const Home = () => {
                         className="btn btn-secondary home-header-plan-button"
                         onClick={() => handlePlanModal(true)}
                     >
-                        Plan My Modal
+                        Plan My Holiday
                     </div>
 
                     <div className="home-header-search-options">
