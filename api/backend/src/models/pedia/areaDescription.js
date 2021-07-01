@@ -3,13 +3,6 @@ const uniqueValidator = require('mongoose-unique-validator');
 
 const areaSchema = new mongoose.Schema(
     {
-        pedia: {
-            _id: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "Pedia",
-                required: true,
-            }
-        },
         name: {
             type: String,
             required: true,
