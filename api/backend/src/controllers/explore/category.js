@@ -104,36 +104,11 @@ const getAllCategory = async (req, res) => {
     }
 }
 
-const deleteCategory = async (req, res) => {
-    const fields = ["name"];
-
-    try {
-        const isValid = checkValidBody(req.query, fields);
-        if (!isValid) {
-            throw new Error("Invalid Fields");
-        }
-        const body = convertValidBody(req.query, fields);
-
-        await Category.findOneAndDelete({
-            name: body.name
-        });
-
-        res.status(200).send({
-            message: "successfully deleted",
-        });
-    } catch (error) {
-        res.status(400).send({
-            message: error.message,
-        });
-    }
-}
-
 const categoryController = {
     createCategory,
     updateCategory,
     getCategoryByName,
     getAllCategory,
-    deleteCategory,
 };
 
 module.exports = categoryController;
