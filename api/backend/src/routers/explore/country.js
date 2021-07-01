@@ -9,8 +9,6 @@ countryRouter.post('/create', adminAuth, countryController.createCountry);
 
 countryRouter.post('/update', adminAuth, countryController.updateCountry);
 
-countryRouter.delete('/remove', adminAuth, countryController.deleteCountry);
-
 countryRouter.get('/', countryController.getCountryByName);
 
 countryRouter.get('/all', countryController.getAllCountry);

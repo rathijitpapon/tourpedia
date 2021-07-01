@@ -104,36 +104,11 @@ const getAllCountry = async (req, res) => {
     }
 }
 
-const deleteCountry = async (req, res) => {
-    const fields = ["name"];
-
-    try {
-        const isValid = checkValidBody(req.query, fields);
-        if (!isValid) {
-            throw new Error("Invalid Fields");
-        }
-        const body = convertValidBody(req.query, fields);
-
-        await Country.findOneAndDelete({
-            name: body.name
-        });
-
-        res.status(200).send({
-            message: "successfully deleted",
-        });
-    } catch (error) {
-        res.status(400).send({
-            message: error.message,
-        });
-    }
-}
-
 const countryController = {
     createCountry,
     updateCountry,
     getCountryByName,
     getAllCountry,
-    deleteCountry,
 };
 
 module.exports = countryController;
