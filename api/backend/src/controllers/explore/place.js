@@ -136,9 +136,12 @@ const getAllPlace = async (req, res) => {
     }
 }
 
-const getAllPlaceByCountry = async (req, res) => {
+const getManyPlacesByFilter = async (req, res) => {
     try {
-        const places = await Place.find({'country._id': req.query.id}).populate('country._id').populate('category._id').exec();
+        const places = await Place.find({
+            'category._id': {$in: req.query.category},
+            'country._id': {$in: req.query.country},
+        }).populate('country._id').populate('category._id').exec();
 
         res.status(200).send(places);
     } catch (error) {
@@ -153,7 +156,7 @@ const placeController = {
     updatePlace,
     getPlaceByName,
     getAllPlace,
-    getAllPlaceByCountry,
+    getManyPlacesByFilter,
 };
 
 module.exports = placeController;

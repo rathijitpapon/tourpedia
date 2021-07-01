@@ -13,6 +13,6 @@ placeRouter.get('/', placeController.getPlaceByName);
 
 placeRouter.get('/all', placeController.getAllPlace);
 
-placeRouter.get('/country', placeController.getAllPlaceByCountry);
+placeRouter.get('/many', placeController.getManyPlacesByFilter);
 
 module.exports = placeRouter;
