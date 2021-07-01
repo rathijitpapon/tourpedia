@@ -23,12 +23,6 @@ const pediaSchema = new mongoose.Schema(
         videoURL: {
             type: String,
         },
-        category: [{
-            _id: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "Category"
-            }
-        }],
         area: [{
             _id: {
                 type: mongoose.Schema.Types.ObjectId,
@@ -39,12 +33,6 @@ const pediaSchema = new mongoose.Schema(
             _id: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Food"
-            }
-        }],
-        tourPlan: [{
-            _id: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "TourPlan"
             }
         }],
         rating: {
