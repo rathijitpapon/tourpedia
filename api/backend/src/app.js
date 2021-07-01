@@ -5,6 +5,7 @@ const initDB = require("./db/mongoose");
 
 const user = require("./routers/user");
 const explore = require("./routers/explore");
+const blog = require("./routers/blog");
 
 var corsOptions = {
     origin: "*",
@@ -24,5 +25,6 @@ app.use(cors(corsOptions));
 
 app.use("/user", user);
 app.use("/explore", explore);
+app.use("/blog", blog);
 
 module.exports = app;
