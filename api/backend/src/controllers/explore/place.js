@@ -46,7 +46,7 @@ const createPlace = async (req, res) => {
         
         let place = new Place(body);
         await place.save();
-        place = await Place.findById(place._id).populate('country._id').populate('category._id').exec();
+        place = await Place.findById(place._id).populate('country._id').populate('category._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
 
         country.place.push({
             _id: place._id,
@@ -77,7 +77,7 @@ const updatePlace = async (req, res) => {
         }
         const body = convertValidBody(req.body, fields);
 
-        const place = await Place.findById(req.query.id).populate('country._id').populate('category._id').exec();
+        const place = await Place.findById(req.query.id).populate('country._id').populate('category._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
         if (!place) {
             throw new Error("Place Not Found");
         }
@@ -111,7 +111,7 @@ const getPlaceByName = async (req, res) => {
 
         const place = await Place.findOne({
             name: body.name
-        }).populate('country._id').populate('category._id').exec();
+        }).populate('country._id').populate('category._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
         if (!place) {
             throw new Error("Place Not Found");
         }
@@ -126,7 +126,7 @@ const getPlaceByName = async (req, res) => {
 
 const getAllPlace = async (req, res) => {
     try {
-        const places = await Place.find().populate('country._id').populate('category._id').exec();
+        const places = await Place.find().populate('country._id').populate('category._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
 
         res.status(200).send(places);
     } catch (error) {
@@ -141,7 +141,7 @@ const getManyPlacesByFilter = async (req, res) => {
         const places = await Place.find({
             'category._id': {$in: req.query.category},
             'country._id': {$in: req.query.country},
-        }).populate('country._id').populate('category._id').exec();
+        }).populate('country._id').populate('category._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
 
         res.status(200).send(places);
     } catch (error) {

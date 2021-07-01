@@ -49,7 +49,7 @@ const updateCountry = async (req, res) => {
         }
         const body = convertValidBody(req.body, fields);
 
-        const country = await Country.findById(req.query.id).populate('place._id').exec();
+        const country = await Country.findById(req.query.id).populate('place._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
         if (!country) {
             throw new Error("Country Not Found");
         }
@@ -79,7 +79,7 @@ const getCountryByName = async (req, res) => {
 
         const country = await Country.findOne({
             name: body.name
-        }).populate('place._id').exec();
+        }).populate('place._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
         if (!country) {
             throw new Error("Country Not Found");
         }
@@ -94,7 +94,7 @@ const getCountryByName = async (req, res) => {
 
 const getAllCountry = async (req, res) => {
     try {
-        const countries = await Country.find().populate('place._id').exec();
+        const countries = await Country.find().populate('place._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
 
         res.status(200).send(countries);
     } catch (error) {
