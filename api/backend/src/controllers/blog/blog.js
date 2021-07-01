@@ -272,7 +272,7 @@ const unsaveBlog = async (req, res) => {
     }
 }
 
-const placeController = {
+const blogController = {
     createBlog,
     updateBlog,
     getBlogById,
@@ -284,4 +284,4 @@ const placeController = {
     unsaveBlog,
 };
 
-module.exports = placeController;
+module.exports = blogController;
