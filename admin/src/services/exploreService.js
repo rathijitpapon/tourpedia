@@ -65,30 +65,6 @@ const updateExplore = (name, description, banner, explore, id) => {
     return response;
 };
 
-const deleteExplore = (name, explore) => {
-    const url = `${baseURL}/${explore}/remove?name=${name}`;
-
-    httpService.setJWT(authService.getJWT());
-    const response = httpService.delete(url, {}).then(res => {
-        return {
-            status: res.status,
-        };
-    }).catch(error => {
-        if(error.response && error.response.status <= 500) {
-            return {
-                status: error.response.status,
-                message: "Authentication Error",
-            };
-        }
-        return {
-            status: 500,
-            message: "Unexpected server error",
-        };
-    });
-
-    return response;
-};
-
 const getExploreByName = (name, explore) => {
     const url = `${baseURL}/${explore}?name=${name}`;
 
@@ -140,7 +116,6 @@ const getAllExplore = (explore) => {
 const userAuthService = {
     uploadExplore,
     updateExplore,
-    deleteExplore,
     getExploreByName,
     getAllExplore,
 };

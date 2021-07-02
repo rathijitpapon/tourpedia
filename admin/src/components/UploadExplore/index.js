@@ -133,10 +133,10 @@ const UploadReport = (props) => {
 
         let data;
         if (!isUpdate && uploadType === 'place') {
-            const selectedCountry = countryOption.value;
+            const selectedCountry = countryOption.id;
             const selectedCategory = [];
             for (const cat of categoryOption) {
-                selectedCategory.push(cat.value);
+                selectedCategory.push(cat.id);
             }
 
             data = await exploreService.uploadExplore(name, description, url, uploadType, selectedCountry, selectedCategory);
