@@ -11,10 +11,6 @@ blogRouter.post("/update", adminAuth, blogController.updateBlog);
 
 blogRouter.delete("/remove", adminAuth, blogController.deleteBlog);
 
-blogRouter.get("/:id", blogController.getBlogById);
-
-blogRouter.get("/many", blogController.getManyBlog);
-
 blogRouter.get("/upvote", userAuth, blogController.upvoteBlog);
 
 blogRouter.get("/downvote", userAuth, blogController.downvoteBlog);
@@ -22,5 +18,9 @@ blogRouter.get("/downvote", userAuth, blogController.downvoteBlog);
 blogRouter.get("/save", userAuth, blogController.saveBlog);
 
 blogRouter.get("/unsave", userAuth, blogController.unsaveBlog);
+
+blogRouter.get("/many", blogController.getManyBlog);
+
+blogRouter.get("/:id", blogController.getBlogById);
 
 module.exports = blogRouter;

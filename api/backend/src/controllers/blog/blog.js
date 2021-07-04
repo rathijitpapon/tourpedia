@@ -53,11 +53,11 @@ const createBlog = async (req, res) => {
             body.place.push({_id: plc._id});
         }
         
-        blog.date = new Date();
-        blog.upvote = 0;
-        blog.downvote = 0;
-        blog.isApproved = true;
-        blog.isBanned = false;
+        body.date = new Date();
+        body.upvote = 0;
+        body.downvote = 0;
+        body.isApproved = true;
+        body.isBanned = false;
 
         let blog = new Blog(body);
         await blog.save();
@@ -121,7 +121,7 @@ const updateBlog = async (req, res) => {
 
 const getBlogById = async (req, res) => {
     try {
-        const blog = await Blog.findById(req.query.id).populate('country._id').populate('category._id').populate('place._id').exec();
+        const blog = await Blog.findById(req.params.id).populate('country._id').populate('category._id').populate('place._id').exec();
         if (!blog) {
             throw new Error("Blog Not Found");
         }
@@ -137,16 +137,14 @@ const getBlogById = async (req, res) => {
 const getManyBlog = async (req, res) => {
     try {
         const options = {
-            skip: req.query.skip,
-            limit: req.query.limit,
-            upvote: req.query.upvote,
-            date: req.query.date,
+            upvote: +req.query.upvote,
+            date: +req.query.date,
         }
 
         const blogs = await Blog.find({
             'category._id': {$in: req.query.category},
             'country._id': {$in: req.query.country},
-        }, options).populate('country._id').populate('category._id').populate('place._id').exec();
+        }).sort(options).skip(+req.query.skip).limit(+req.query.limit).populate('country._id').populate('category._id').populate('place._id').exec();
 
         res.status(200).send(blogs);
     } catch (error) {
