@@ -1,0 +1,14 @@
+.blog-main-container {
+    padding: 3%;
+    min-height: 100vh;
+}
+
+.blog-refresh-btn {
+    height: 46px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
