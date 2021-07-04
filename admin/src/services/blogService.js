@@ -113,7 +113,7 @@ const getManyBlogs = (category, country) => {
         if(error.response && error.response.status <= 500) {
             return {
                 status: error.response.status,
-                message: "Unauthorized",
+                message: "No Blog Found",
             };
         }
         return {
@@ -137,7 +137,7 @@ const getBlogById = (id) => {
         if(error.response && error.response.status <= 500) {
             return {
                 status: error.response.status,
-                message: "Unauthorized",
+                message: "Blog Not Found",
             };
         }
         return {
