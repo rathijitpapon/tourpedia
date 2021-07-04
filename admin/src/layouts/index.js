@@ -26,9 +26,9 @@ const MainLayout = () => {
         <Route exact path="/pedia/:placeName" component={PediaDetails} ></Route>
         <Route exact path="/pedia" component={Pedia} ></Route>
         <Route exact path="/user" component={UserList} ></Route>
-        <Route exact path="/blog" component={BlogDetails} ></Route>
-        <Route exact path="/blog/edit/:blogName" component={EditBlog} ></Route>
+        <Route exact path="/blog/edit/:blogId" component={EditBlog} ></Route>
         <Route exact path="/blog" component={Blog} ></Route>
+        <Route exact path="/blog/:blogId" component={BlogDetails} ></Route>
         <Route exact path="/event/:eventName" component={EventDetails} ></Route>
         <Route exact path="/pending/event" component={PendingEvent} ></Route>
         <Route exact path="/event" component={Event} ></Route>
