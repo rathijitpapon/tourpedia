@@ -35,7 +35,7 @@ const BlogDetails = (props) => {
                 draggable: true,
                 progress: undefined,
             });
-            setLoading(true);
+            setLoading(false);
             setNotFound(true);
             return;
         }
