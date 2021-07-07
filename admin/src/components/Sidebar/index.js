@@ -159,7 +159,7 @@ const SideNavBar = (props) => {
                             className="sidebar-link-item" 
                             to="/blog/edit/new"
                         >
-                            Edit Blog
+                            Create New Blog
                         </Link>
                     </MenuItem>
                     
