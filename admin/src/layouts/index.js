@@ -11,7 +11,6 @@ import EditBlog from "../views/EditBlog";
 import BlogDetails from "../views/BlogDetails";
 import UserList from "../views/UserList";
 import Pedia from "../views/Pedia";
-import PediaDetails from "../views/PediaDetails";
 import EditPedia from "../views/EditPedia";
 import Explore from "../views/Explore";
 import Profile from "../views/Profile";
@@ -23,7 +22,6 @@ const MainLayout = () => {
         <Route exact path="/profile" component={Profile} ></Route>
         <Route exact path="/explore" component={Explore} ></Route>
         <Route exact path="/pedia/edit/:pediaId" component={EditPedia} ></Route>
-        <Route exact path="/pedia/:placeName" component={PediaDetails} ></Route>
         <Route exact path="/pedia" component={Pedia} ></Route>
         <Route exact path="/user" component={UserList} ></Route>
         <Route exact path="/blog/edit/:blogId" component={EditBlog} ></Route>
