@@ -1,8 +1,101 @@
 .edit-pedia-main-container {
     padding: 3%;
+    min-height: 100vh;
 }
 
-.edit-pedia-editor-container {
+.edit-pedia-button-container {
+    background-color: white;
+    position: fixed;
+    z-index: 1000;
+    padding: 5px 3%;
+    bottom: 0px;
+    left: 0;
+    right: 0;
     width: 100%;
-    height: 500!important;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.edit-pedia-button-wrapper {
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.edit-pedia-save-button {
+    height: 50px;
+    font-size: 23px;
+    width: 200px;
+    margin-left: 20px;
+}
+
+.edit-pedia-video {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 17px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.edit-pedia-section-heading {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: rgb(1, 1, 85);
+}
+
+.edit-pedia-section-card {
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    box-shadow: 0px 6px 8px 1px rgba(6,2,43,0.2);
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.edit-pedia-section-card .edit-pedia-section-icon{
+    position: absolute;
+    right: 15px;
+    top: 57px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.edit-pedia-section-name {
+    width: 500px;
+    height: 40px;
+    font-size: 18px;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.edit-pedia-section-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: rgb(1, 1, 85);
+}
+
+.edit-pedia-section-description {
+    width: 100%;
+    height: 120px;
+    font-size: 17px;
+    padding: 5px;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+.edit-pedia-section-image {
+    height: 250px;
+    width: 500px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
