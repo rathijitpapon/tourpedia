@@ -31,6 +31,9 @@ const createPedia = async (req, res) => {
 
         const country = await Country.findById(body.country);
         const place = await Place.findById(body.place);
+        if ((country.pedia && place.pedia._id) || (place.pedia && place.pedia._id)) {
+            throw new Error("Pedia Already Exists");
+        }
         const areas = [];
         const foods = [];
 
@@ -49,11 +52,11 @@ const createPedia = async (req, res) => {
         body.place = {_id: place.id};
         body.area = areas;
         body.food = foods;
-        pedia.rating = 0;
+        body.rating = 0;
 
         let pedia = new Pedia(body);
         await pedia.save();
-        pedia = await Pedia.findById(pedia._id).populate('area._id').populate('food._id').exec();
+        pedia = await Pedia.findById(pedia._id).populate('area._id').populate('food._id').populate('country._id').populate('place._id').exec();
 
         place.pedia = {_id: pedia._id};
         await place.save();
@@ -76,7 +79,7 @@ const updatePedia = async (req, res) => {
         }
         const body = convertValidBody(req.body, fields);
 
-        const pedia = await Pedia.findById(req.query.id).populate('area._id').populate('food._id').exec();
+        const pedia = await Pedia.findById(req.query.id).populate('area._id').populate('food._id').populate('country._id').populate('place._id').exec();
         if (!pedia) {
             throw new Error("Pedia Not Found");
         }
@@ -85,7 +88,7 @@ const updatePedia = async (req, res) => {
         const foods = [];
 
         for (const data of body.area) {
-            if (Object.keys(data).includes('_id')) {
+            if (data._id) {
                 const area = await Area.findById(data._id);
                 area.name = data.name;
                 area.imageURL = data.imageURL;
@@ -101,7 +104,7 @@ const updatePedia = async (req, res) => {
             }
         }
         for (const data of body.food) {
-            if (Object.keys(data).includes('_id')) {
+            if (data._id) {
                 const food = await Food.findById(data._id);
                 food.name = data.name;
                 food.imageURL = data.imageURL;
@@ -134,7 +137,7 @@ const updatePedia = async (req, res) => {
 
 const getPediaById = async (req, res) => {
     try {
-        const pedia = await Pedia.findById(req.query.id).populate('area._id').populate('food._id').exec();
+        const pedia = await Pedia.findById(req.params.id).populate('area._id').populate('food._id').populate('country._id').populate('place._id').exec();
         if (!pedia) {
             throw new Error("Pedia Not Found");
         }
@@ -149,12 +152,7 @@ const getPediaById = async (req, res) => {
 
 const getManyPedia = async (req, res) => {
     try {
-        const options = {
-            skip: req.query.skip,
-            limit: req.query.limit,
-        }
-
-        const pedias = await Pedia.find(options).populate('area._id').populate('food._id').exec();
+        const pedias = await Pedia.find().skip(+req.query.skip).limit(+req.query.limit).populate('area._id').populate('food._id').populate('country._id').populate('place._id').exec();
 
         res.status(200).send(pedias);
     } catch (error) {

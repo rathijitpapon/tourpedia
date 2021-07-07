@@ -9,8 +9,8 @@ pediaRouter.post("/create", adminAuth, pediaController.createPedia);
 
 pediaRouter.post("/update", adminAuth, pediaController.updatePedia);
 
-pediaRouter.get("/:id", pediaController.getPediaById);
-
 pediaRouter.get("/many", pediaController.getManyPedia);
+
+pediaRouter.get("/:id", pediaController.getPediaById);
 
 module.exports = pediaRouter;
