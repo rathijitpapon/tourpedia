@@ -111,7 +111,7 @@ const getProfile = async (req, res) => {
     try {
         const user = await User.findOne({
             username: req.params.username,
-        });
+        }).populate('savedPedia._id').populate('savedBlog._id').populate('upvotedBlog._id').populate('downvotedBlog._id').populate('savedEvent._id').populate('enrolledEvent._id').exec();
 
         if (!user) {
             throw new Error("");
@@ -221,6 +221,44 @@ const forgetPassword = async (req, res) => {
     }
 }
 
+const changeBannedStatus = async (req, res) => {
+    const fields = ["isBanned"];
+
+    try {
+        const isValid = checkValidBody(req.body, fields);
+        if (!isValid) {
+            throw new Error("Invalid Fields");
+        }
+        const body = convertValidBody(req.body, fields);
+        
+        const user = await User.findById(req.query.id);
+        fields.forEach((field) => {
+            user[field] = body[field];
+        });
+    
+        await user.save();
+
+        res.status(200).send(user);
+
+    } catch (error) {
+        res.status(404).send({
+            message: error.message,
+        });
+    }
+};
+
+const getAllProfile = async (req, res) => {
+    try {
+        const users = await User.find();
+
+        res.status(200).send(users);
+    } catch (error) {
+        res.status(404).send({
+            message: "Profile isn't found.",
+        });
+    }
+};
+
 const userController = {
     signup,
     signin,
@@ -231,6 +269,8 @@ const userController = {
     editProfile,
     editPassword,
     forgetPassword,
+    changeBannedStatus,
+    getAllProfile,
 };
 
 module.exports = userController;

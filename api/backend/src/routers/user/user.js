@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { userAuth } = require("../../middlewares/auth");
+const { adminAuth, userAuth } = require("../../middlewares/auth");
 const { userController } = require("../../controllers/user");
 
 const userRouter = express.Router();
@@ -22,5 +22,9 @@ userRouter.post("/profile", userAuth, userController.editProfile);
 userRouter.post("/password", userAuth, userController.editPassword);
 
 userRouter.get("/forget", userController.forgetPassword);
+
+userRouter.post("/ban/update", adminAuth, userController.changeBannedStatus);
+
+userRouter.get("/all", adminAuth, userController.getAllProfile);
 
 module.exports = userRouter;
