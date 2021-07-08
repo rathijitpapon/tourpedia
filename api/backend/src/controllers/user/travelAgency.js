@@ -111,7 +111,7 @@ const getProfile = async (req, res) => {
     try {
         const travelAgency = await TravelAgency.findOne({
             username: req.params.username,
-        });
+        }).populate('event._id').populate('guide._id').populate('category._id').exec();
 
         if (!travelAgency) {
             throw new Error("");
@@ -221,6 +221,44 @@ const forgetPassword = async (req, res) => {
     }
 }
 
+const changeBannedStatus = async (req, res) => {
+    const fields = ["isBanned"];
+
+    try {
+        const isValid = checkValidBody(req.body, fields);
+        if (!isValid) {
+            throw new Error("Invalid Fields");
+        }
+        const body = convertValidBody(req.body, fields);
+
+        const travelagency = await TravelAgency.findById(req.query.id);
+        fields.forEach((field) => {
+            travelagency[field] = body[field];
+        });
+    
+        await travelagency.save();
+
+        res.status(200).send(travelagency);
+
+    } catch (error) {
+        res.status(404).send({
+            message: error.message,
+        });
+    }
+};
+
+const getAllProfile = async (req, res) => {
+    try {
+        const travelagencies = await TravelAgency.find();
+
+        res.status(200).send(travelagencies);
+    } catch (error) {
+        res.status(404).send({
+            message: "Profile isn't found.",
+        });
+    }
+};
+
 const travelAgencyController = {
     signup,
     signin,
@@ -231,6 +269,8 @@ const travelAgencyController = {
     editProfile,
     editPassword,
     forgetPassword,
+    changeBannedStatus,
+    getAllProfile,
 };
 
 module.exports = travelAgencyController;

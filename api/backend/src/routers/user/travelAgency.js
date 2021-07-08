@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { travelAgencyAuth } = require("../../middlewares/auth");
+const { adminAuth, travelAgencyAuth } = require("../../middlewares/auth");
 const { travelAgencyController } = require("../../controllers/user");
 
 const travelAgencyRouter = express.Router();
@@ -22,5 +22,9 @@ travelAgencyRouter.post("/profile", travelAgencyAuth, travelAgencyController.edi
 travelAgencyRouter.post("/password", travelAgencyAuth, travelAgencyController.editPassword);
 
 travelAgencyRouter.get("/forget", travelAgencyController.forgetPassword);
+
+travelAgencyRouter.post("/ban/update", adminAuth, travelAgencyController.changeBannedStatus);
+
+travelAgencyRouter.get("/all", adminAuth, travelAgencyController.getAllProfile);
 
 module.exports = travelAgencyRouter;
