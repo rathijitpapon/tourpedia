@@ -13,13 +13,11 @@ import UserList from "../views/UserList";
 import Pedia from "../views/Pedia";
 import EditPedia from "../views/EditPedia";
 import Explore from "../views/Explore";
-import Profile from "../views/Profile";
 
 const MainLayout = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/profile" component={Profile} ></Route>
         <Route exact path="/explore" component={Explore} ></Route>
         <Route exact path="/pedia/edit/:pediaId" component={EditPedia} ></Route>
         <Route exact path="/pedia" component={Pedia} ></Route>
