@@ -61,6 +61,10 @@ const guideSchema = new mongoose.Schema(
             type: Boolean,
             required: true,
         },
+        isRemoved: {
+            type: Boolean,
+            required: true,
+        },
         guidedEvent: [{
             _id: {
                 type: mongoose.Schema.Types.ObjectId,
@@ -121,7 +125,6 @@ guideSchema.methods.toJSON = function () {
     delete guideObject.email
     delete guideObject.password;
     delete guideObject.tokens;
-    delete guideObject.guidedEvent;
 
     return guideObject;
 };

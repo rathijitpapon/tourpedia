@@ -126,9 +126,6 @@ travelAgencySchema.methods.toJSON = function () {
     delete travelAgencyObject.email;
     delete travelAgencyObject.password;
     delete travelAgencyObject.tokens;
-    delete travelAgencyObject.event;
-    delete travelAgencyObject.guide;
-    delete travelAgencyObject.category;
 
     return travelAgencyObject;
 };
