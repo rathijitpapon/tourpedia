@@ -11,7 +11,7 @@ import {
 import {ImCross, ImHome, ImBook, ImBlog} from 'react-icons/im';
 import {GiHamburgerMenu, GiUncertainty, GiWorld} from 'react-icons/gi';
 import {MdCreate, MdEvent} from 'react-icons/md';
-import {CgProfile, CgLogOut} from 'react-icons/cg';
+import {CgLogOut} from 'react-icons/cg';
 import {BsPeopleFill} from 'react-icons/bs';
 import {FaEdit} from 'react-icons/fa';
 
@@ -215,15 +215,6 @@ const SideNavBar = (props) => {
                             </MenuItem>
                         )
                     }
-                    <MenuItem 
-                        icon={<CgProfile className="sidebar-link-icon" />}>
-                        <Link 
-                            className="sidebar-link-item" 
-                            to="/profile"
-                        >
-                            Profile
-                        </Link>
-                    </MenuItem>
                     
                     <MenuItem 
                         icon={<CgLogOut className="sidebar-link-icon" onClick={handleLogout} />}

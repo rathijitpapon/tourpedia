@@ -32,11 +32,11 @@ const NavBar = (props) => {
                         <div className="nav-link-container">Tour Pedia</div>
                     </Navbar.Brand>
                     
-                    <Link to="/profile" className="nav-profile-container">
+                    <div className="nav-profile-container">
                         <div className="nav-item-link-container">
                             <div className="nav-name-container">{name}</div>
                         </div>
-                    </Link>
+                    </div>
                 </Navbar>
             ) : null
         }
