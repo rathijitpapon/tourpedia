@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { guideAuth, travelAgencyAuth } = require("../../middlewares/auth");
+const { adminAuth, guideAuth, travelAgencyAuth } = require("../../middlewares/auth");
 const { guideController } = require("../../controllers/user");
 
 const guideRouter = express.Router();
@@ -22,5 +22,11 @@ guideRouter.post("/profile", guideAuth, guideController.editProfile);
 guideRouter.post("/password", guideAuth, guideController.editPassword);
 
 guideRouter.get("/forget", guideController.forgetPassword);
+
+guideRouter.post("/ban/update", adminAuth, guideController.changeBannedStatus);
+
+guideRouter.get("/all", adminAuth, guideController.getAllProfile);
+
+guideRouter.get("/remove", travelAgencyAuth, guideController.removeGuide);
 
 module.exports = guideRouter;

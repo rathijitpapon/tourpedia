@@ -35,22 +35,19 @@ const signup = async (req, res) => {
 
         body.profileImage = defaultProfileImage;
         body.isBanned = false;
+        body.isRemoved = false;
         body.about = "";
-        body.travelAgency = req.user._id;
+        body.travelAgency = {_id: req.user._id};
         const guide = new Guide(body);
 
         await guide.save();
-        const token = await guide.generateAuthToken();
         await mailService.sendWelcomeMail(guide.email, guide.fullname);
 
-        await guide.populate([{
-            path: 'travelAgency._id',
-            select: ["username", "fullname"],
-        }]);
+        req.user.guide.push({_id: guide._id});
+        await req.user.save();
 
         res.status(200).send({
             guide,
-            token,
         });
 
     } catch (error) {
@@ -74,12 +71,10 @@ const signin = async (req, res) => {
             body.email,
             body.password,
         );
+        if (guide.isRemoved) {
+            throw new Error("No User Found");
+        }
         const token = await guide.generateAuthToken();
-
-        await guide.populate([{
-            path: 'travelAgency._id',
-            select: ["username", "fullname"],
-        }]);
 
         res.status(200).send({
             guide,
@@ -110,10 +105,6 @@ const signout = async (req, res) => {
 
 const auth = async (req, res) => {
     try {
-        await req.user.populate([{
-            path: 'travelAgency._id',
-            select: ["username", "fullname"],
-        }]);
         res.status(200).send(req.user);
     } catch (error) {
         res.status(400).send({
@@ -126,16 +117,11 @@ const getProfile = async (req, res) => {
     try {
         const guide = await Guide.findOne({
             username: req.params.username,
-        });
+        }).populate('guidedEvent._id').populate('travelAgency._id').exec();
 
         if (!guide) {
             throw new Error("");
         }
-
-        await guide.populate([{
-            path: 'travelAgency._id',
-            select: ["username", "fullname"],
-        }]);
 
         res.status(200).send(guide)
     } catch (error) {
@@ -166,11 +152,6 @@ const editProfile = async (req, res) => {
         });
     
         await req.user.save();
-
-        await req.user.populate([{
-            path: 'travelAgency._id',
-            select: ["username", "fullname"],
-        }]);
 
         res.status(200).send(req.user);
 
@@ -246,6 +227,64 @@ const forgetPassword = async (req, res) => {
     }
 }
 
+const changeBannedStatus = async (req, res) => {
+    const fields = ["isBanned"];
+
+    try {
+        const isValid = checkValidBody(req.body, fields);
+        if (!isValid) {
+            throw new Error("Invalid Fields");
+        }
+        const body = convertValidBody(req.body, fields);
+
+        const guide = await Guide.findById(req.query.id);
+        fields.forEach((field) => {
+            guide[field] = body[field];
+        });
+    
+        await guide.save();
+
+        res.status(200).send(guide);
+
+    } catch (error) {
+        res.status(404).send({
+            message: error.message,
+        });
+    }
+};
+
+const getAllProfile = async (req, res) => {
+    try {
+        const guides = await Guide.find();
+
+        res.status(200).send(guides);
+    } catch (error) {
+        res.status(404).send({
+            message: "Profile isn't found.",
+        });
+    }
+};
+
+const removeGuide = async (req, res) => {
+    try {
+        const guide = await Guide.findById(req.query.id);
+
+        const index = req.user.guide.indexOf({_id: guide._id});
+        req.user.guide.splice(index, 1);
+        await req.user.save();
+        
+        guide.isRemoved = true;
+        await guide.save();
+
+        res.status(200).send(req.user);
+
+    } catch (error) {
+        res.status(404).send({
+            message: error.message,
+        });
+    }
+};
+
 const guideController = {
     signup,
     signin,
@@ -256,6 +295,9 @@ const guideController = {
     editProfile,
     editPassword,
     forgetPassword,
+    changeBannedStatus,
+    getAllProfile,
+    removeGuide,
 };
 
 module.exports = guideController;
