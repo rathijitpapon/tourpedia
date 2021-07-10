@@ -13,7 +13,6 @@ import {GiHamburgerMenu} from 'react-icons/gi';
 import {MdCreate, MdEvent} from 'react-icons/md';
 import {CgProfile, CgLogOut} from 'react-icons/cg';
 import {BsPeopleFill} from 'react-icons/bs';
-import {FaUserEdit} from 'react-icons/fa';
 
 import userAuthService from '../../services/userAuthService';
 
@@ -122,15 +121,6 @@ const SideNavBar = (props) => {
                             </MenuItem>
                         )
                     }
-                    <MenuItem 
-                        icon={<FaUserEdit className="sidebar-link-icon" />}>
-                        <Link 
-                            className="sidebar-link-item" 
-                            to="/guide/edit/new"
-                        >
-                            Add Guide
-                        </Link>
-                    </MenuItem>
                     
                     <MenuItem 
                         icon={<BsPeopleFill className="sidebar-link-icon" />}>
