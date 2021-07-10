@@ -1,0 +1,62 @@
+.guide-main-container {
+    padding: 3%;
+    min-height: 100vh;
+}
+
+.guide-list-table {
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 80%;
+}
+
+.guide-text {
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(1, 1, 92);
+}
+
+.guide-add-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 45p;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.guide-modal-body {
+    position: absolute;
+    top: 15%;
+    bottom: 15%;
+    left: 15%;
+    right: 15%;
+    background: rgb(248, 248, 250);
+    padding: 30px 40px;
+    overflow: auto;
+    border-radius: 20px;
+}
+
+.guide-add-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: rgb(3, 3, 54);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.guide-section-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(2, 2, 66);
+    margin-bottom: 10px;
+}
+
+.guide-text-input {
+    font-size: 18px;
+    padding: 5px;
+    width: 95%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
