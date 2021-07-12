@@ -113,11 +113,11 @@ const getAllExplore = (explore) => {
     return response;
 };
 
-const userAuthService = {
+const exploreService = {
     uploadExplore,
     updateExplore,
     getExploreByName,
     getAllExplore,
 };
 
-export default userAuthService;
+export default exploreService;

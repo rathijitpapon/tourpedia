@@ -52,9 +52,9 @@ const getAllExplore = (explore) => {
     return response;
 };
 
-const userAuthService = {
+const exploreService = {
     getExploreByName,
     getAllExplore,
 };
 
-export default userAuthService;
+export default exploreService;
