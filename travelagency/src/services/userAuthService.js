@@ -199,6 +199,37 @@ const removeGuide = (guideId) => {
     return response;
 };
 
+const updateProfile = (fullname, about, profileImage, category, isAgency) => {
+    let url = isAgency === 'agency' ? tarvelAgencyBaseURL : guideBaseURL;
+    url = `${url}/profile`;
+
+    httpService.setJWT(authService.getJWT());
+    const response = httpService.post(url, {
+        fullname,
+        about,
+        profileImage,
+        category,
+    }).then(res => {
+        return {
+            status: res.status,
+            data: res.data,
+        };
+    }).catch(error => {
+        if(error.response && error.response.status <= 500) {
+            return {
+                status: error.response.status,
+                message: 'Unauthorized',
+            };
+        }
+        return {
+            status: 500,
+            message: "Unexpected server error",
+        };
+    });
+
+    return response;
+};
+
 const userAuthService = {
     getSavedAuthInfo,
     getAuth,
@@ -207,6 +238,7 @@ const userAuthService = {
     signout,
     getProfile,
     removeGuide,
+    updateProfile,
 };
 
 export default userAuthService;
