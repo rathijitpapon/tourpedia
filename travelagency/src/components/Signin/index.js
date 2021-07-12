@@ -142,8 +142,8 @@ const Signin = (props) => {
                         type="radio" 
                         id="agency"  
                         name="isAgency"   
-                        value={isAgency}
-                        checked
+                        value="agency"
+                        checked={isAgency === 'agency' ? true : false}
                         onChange={() => {handleIsAgency('agency')}} 
                     /> Travel Agency
                 </label>
@@ -153,7 +153,8 @@ const Signin = (props) => {
                         type="radio" 
                         id="guide"  
                         name="isAgency"   
-                        value={isAgency}
+                        value="guide"
+                        checked={isAgency === 'guide' ? true : false}
                         onChange={() => {handleIsAgency('guide')}} 
                     /> Guide
                 </label>
