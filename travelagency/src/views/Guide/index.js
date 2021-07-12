@@ -83,7 +83,7 @@ const Guide = () => {
             setLoading(false);
             return;
         }
-        if (!travelagency.isAgency) {
+        if (travelagency.isAgency === 'guide') {
             toast.error('You are not allowed to view this page', {
                 position: "top-right",
                 autoClose: 5000,
@@ -164,7 +164,7 @@ const Guide = () => {
             return;
         }
 
-        if (!travelagency.isAgency) {
+        if (travelagency.isAgency === 'guide') {
             toast.error('You are not allowed to view this page', {
                 position: "top-right",
                 autoClose: 5000,
