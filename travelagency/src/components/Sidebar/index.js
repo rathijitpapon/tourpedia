@@ -23,6 +23,7 @@ import "./styles.scss";
 const SideNavBar = (props) => {
 
     const [collapsed, setCollapsed] = useState(true);
+    const [isAgency, setIsAgency] = useState(false);
 
     const handleCollapsed = () => {
         setCollapsed(!collapsed);
@@ -39,7 +40,16 @@ const SideNavBar = (props) => {
         }
     }
 
+    const fetchData = async () => {
+        const data = userAuthService.getSavedAuthInfo();
+        if (data.isAgency === 'agency') {
+            setIsAgency(true);
+        }
+    }
+
     useEffect(() => {
+        fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
@@ -90,7 +100,9 @@ const SideNavBar = (props) => {
                         )
                     }
                     <MenuItem 
-                        icon={<MdCreate className="sidebar-link-icon" />}>
+                        icon={<MdCreate className="sidebar-link-icon" />}
+                        hidden={!isAgency}
+                    >
                         <Link 
                             className="sidebar-link-item" 
                             to="/event/edit/new"
@@ -111,7 +123,7 @@ const SideNavBar = (props) => {
                     </MenuItem>
                 </Menu>
 
-                <Menu iconShape="circle">
+                <Menu iconShape="circle" hidden={!isAgency}>
                     {
                         collapsed ? null : (
                             <MenuItem>
