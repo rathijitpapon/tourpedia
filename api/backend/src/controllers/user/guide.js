@@ -269,7 +269,12 @@ const removeGuide = async (req, res) => {
     try {
         const guide = await Guide.findById(req.query.id);
 
-        const index = req.user.guide.indexOf({_id: guide._id});
+        let index = -1;
+        for (let i = 0; i < req.user.guide.length; i++) {
+            if (req.user.guide[i]._id.toString() === guide._id.toString()) {
+                index = i;
+            }
+        }
         req.user.guide.splice(index, 1);
         await req.user.save();
         

@@ -146,7 +146,12 @@ const editProfile = async (req, res) => {
         for (const ctg of req.user.category) {
             if (!body.category.includes(ctg._id)) {
                 const category = await Category.findById(ctg._id);
-                const index = category.travelAgency.indexOf({_id: req.user._id});
+                let index = -1;
+                for (let i = 0; i < category.travelAgency.length; i++) {
+                    if (category.travelAgency[i]._id.toString() === req.user._id.toString()) {
+                        index = i;
+                    }
+                }
                 category.travelAgency.splice(index, 1);
                 await category.save();
                 deletable.push(ctg);
@@ -154,7 +159,12 @@ const editProfile = async (req, res) => {
         }
 
         for (const ctg of deletable) {
-            const index = req.user.category.indexOf(ctg);
+            let index = -1;
+            for (let i = 0; i < req.user.category.length; i++) {
+                if (req.user.category[i]._id.toString() === ctg.toString()) {
+                    index = i;
+                }
+            }
             req.user.category.splice(index, 1);
         }
 

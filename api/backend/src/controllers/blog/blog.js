@@ -163,19 +163,34 @@ const deleteBlog = async (req, res) => {
 
         for (const cat of blog.category) {
             const data = await Category.findById(cat._id);
-            const index = data.blog.indexOf({_id: blog._id});
+            let index = -1;
+            for (let i = 0; i < data.blog.length; i++) {
+                if (data.blog[i]._id.toString() === blog._id.toString()) {
+                    index = i;
+                }
+            }
             data.blog.splice(index, 1);
             await data.save();
         }
 
         const data = await Country.findById(blog.country._id);
-        const index = data.blog.indexOf({_id: blog._id});
+        let index = -1;
+        for (let i = 0; i < data.blog.length; i++) {
+            if (data.blog[i]._id.toString() === blog._id.toString()) {
+                index = i;
+            }
+        }
         data.blog.splice(index, 1);
         await data.save();
 
         for (const plc of blog.place) {
             const data = await Place.findById(plc._id);
-            const index = data.blog.indexOf({_id: blog._id});
+            let index = -1;
+            for (let i = 0; i < data.blog.length; i++) {
+                if (data.blog[i]._id.toString() === blog._id.toString()) {
+                    index = i;
+                }
+            }
             data.blog.splice(index, 1);
             await data.save();
         }
@@ -219,7 +234,12 @@ const downvoteBlog = async (req, res) => {
             throw new Error("Blog Not Found");
         }
 
-        const index = req.user.upvotedBlog.indexOf({_id: blog._id});
+        let index = -1;
+        for (let i = 0; i < req.user.upvotedBlog.length; i++) {
+            if (req.user.upvotedBlog[i]._id.toString() === blog._id.toString()) {
+                index = i;
+            }
+        }
         req.user.upvotedBlog.splice(index, 1);
         await req.user.save();
         blog.upvote--;
@@ -258,7 +278,12 @@ const unsaveBlog = async (req, res) => {
             throw new Error("Blog Not Found");
         }
 
-        const index = req.user.savedBlog.indexOf({_id: blog._id});
+        let index = -1;
+        for (let i = 0; i < req.user.savedBlog.length; i++) {
+            if (req.user.savedBlog[i]._id.toString() === blog._id.toString()) {
+                index = i;
+            }
+        }
         req.user.savedBlog.splice(index, 1);
         await req.user.save();
 
