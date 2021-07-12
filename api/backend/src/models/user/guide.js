@@ -91,7 +91,7 @@ const guideSchema = new mongoose.Schema(
 );
 
 guideSchema.statics.findByCredentials = async (email, password) => {
-    const guide = await guide.findOne({
+    const guide = await Guide.findOne({
         email,
     });
 
