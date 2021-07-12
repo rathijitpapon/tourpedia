@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 
 const { TravelAgency } = require("../../models/user");
+const { Category } = require("../../models/explore");
 const mailService = require('../../services/mailService');
 
 const defaultProfileImage = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
@@ -132,7 +133,7 @@ const getEmail = async (req, res) => {
 };
 
 const editProfile = async (req, res) => {
-    const fields = ["fullname", "about", "profileImage"];
+    const fields = ["fullname", "about", "profileImage", "category"];
 
     try {
         const isValid = checkValidBody(req.body, fields);
@@ -141,11 +142,37 @@ const editProfile = async (req, res) => {
         }
         const body = convertValidBody(req.body, fields);
 
-        fields.forEach((field) => {
-            req.user[field] = body[field];
-        });
+        const deletable = [];
+        for (const ctg of req.user.category) {
+            if (!body.category.includes(ctg._id)) {
+                const category = await Category.findById(ctg._id);
+                const index = category.travelAgency.indexOf({_id: req.user._id});
+                category.travelAgency.splice(index, 1);
+                await category.save();
+                deletable.push(ctg);
+            }
+        }
+
+        for (const ctg of deletable) {
+            const index = req.user.category.indexOf(ctg);
+            req.user.category.splice(index, 1);
+        }
+
+        for (const ctg of body.category) {
+            if (!req.user.category.includes({_id: ctg})) {
+                const category = await Category.findById(ctg);
+                category.travelAgency.push({_id: req.user._id});
+                await category.save();
+                req.user.category.push({_id: ctg});
+            }
+        }
+
+        req.user.fullname = body.fullname;
+        req.user.about = body.about;
+        req.user.profileImage = body.profileImage;
     
         await req.user.save();
+        await req.user.populate('event._id').populate('guide._id').populate('category._id').execPopulate();
 
         res.status(200).send(req.user);
 
