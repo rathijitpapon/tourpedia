@@ -94,7 +94,15 @@ const getCountryByName = async (req, res) => {
 
 const getAllCountry = async (req, res) => {
     try {
-        const countries = await Country.find().populate('place._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
+        const countries = await Country.find().populate({
+            path: 'place._id',
+            populate: {
+                path: 'pedia._id',
+                populate: {
+                    path: 'area._id',
+                }
+            }
+        }).populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
 
         res.status(200).send(countries);
     } catch (error) {
