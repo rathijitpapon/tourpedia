@@ -9,11 +9,12 @@ import {
     SidebarContent,
 } from 'react-pro-sidebar';
 import {ImCross, ImHome, ImBook, ImBlog} from 'react-icons/im';
-import {GiHamburgerMenu, GiUncertainty, GiWorld} from 'react-icons/gi';
-import {MdCreate, MdEvent} from 'react-icons/md';
+import {GiHamburgerMenu, GiWorld} from 'react-icons/gi';
+import {MdCreate, MdEvent, MdEdit} from 'react-icons/md';
 import {CgLogOut} from 'react-icons/cg';
 import {BsPeopleFill} from 'react-icons/bs';
 import {FaEdit} from 'react-icons/fa';
+import {FcPlanner} from 'react-icons/fc';
 
 import userAuthService from '../../services/userAuthService';
 
@@ -116,21 +117,32 @@ const SideNavBar = (props) => {
                         collapsed ? null : (
                             <MenuItem>
                                 <div className="sidebar-menu-title">
-                                    Event
+                                    Event & Tour Plan
                                 </div>
                             </MenuItem>
                         )
                     }
                     <MenuItem 
-                        icon={<GiUncertainty className="sidebar-link-icon" />}>
+                        icon={<MdEdit className="sidebar-link-icon" />}>
                         <Link 
                             className="sidebar-link-item" 
-                            to="/pending/event"
+                            to="/plan/edit/new"
                         >
-                            Pending Events
+                            Create New Tour Plan
                         </Link>
                     </MenuItem>
 
+                    <MenuItem 
+                        icon={<FcPlanner className="sidebar-link-icon" />}
+                    >
+                        <Link 
+                            className="sidebar-link-item" 
+                            to="/plan"
+                        >
+                            All Tour Plans
+                        </Link>
+                    </MenuItem>
+                    
                     <MenuItem 
                         icon={<MdEvent className="sidebar-link-icon" />}
                     >
