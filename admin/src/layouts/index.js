@@ -4,8 +4,8 @@ import {Switch, Route, Redirect} from "react-router-dom";
 import Enter from "../views/Enter";
 import Home from "../views/Home";
 import Event from "../views/Event";
-import PendingEvent from "../views/PendingEvent";
-import EventDetails from "../views/EventDetails";
+import TourPlan from "../views/TourPlan";
+import EditTourPlan from "../views/EditTourPlan";
 import Blog from "../views/Blog";
 import EditBlog from "../views/EditBlog";
 import BlogDetails from "../views/BlogDetails";
@@ -25,9 +25,9 @@ const MainLayout = () => {
         <Route exact path="/blog/edit/:blogId" component={EditBlog} ></Route>
         <Route exact path="/blog" component={Blog} ></Route>
         <Route exact path="/blog/:blogId" component={BlogDetails} ></Route>
-        <Route exact path="/event/:eventName" component={EventDetails} ></Route>
-        <Route exact path="/pending/event" component={PendingEvent} ></Route>
+        <Route exact path="/plan/edit/:tourPlanId" component={EditTourPlan} ></Route>
         <Route exact path="/event" component={Event} ></Route>
+        <Route exact path="/plan" component={TourPlan} ></Route>
         <Route exact path="/home" component={Home} ></Route>
         <Route exact path="/" component={Enter} ></Route>
         <Redirect path="*" to ="/home" />
