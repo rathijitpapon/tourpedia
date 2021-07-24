@@ -1,0 +1,58 @@
+{
+    "groupOption": [
+        "Group",
+        "Honeymoon",
+        "Family",
+        "Solo"
+    ],
+    "inclusion": [
+        "Breakfast",
+        "Meals",
+        "Sightseeing",
+        "Private Cabs",
+        "Airport Pickup",
+        "Flights",
+        "Private Boats"
+    ],
+    "physicalRating": [
+        "Relaxing",
+        "Easy",
+        "Moderate",
+        "Serious",
+        "Heart Pumping"
+    ],
+    "accomodationOption": [
+        "Hotel",
+        "Motel",
+        "Resort",
+        "Hostel",
+        "Apartment",
+        "Home Stay",
+        "Camping",
+        "Sleeper Bus / Train / Boat"
+    ],
+    "activity": [
+        "Sightseeing",
+        "Paragliding",
+        "Zip Lining",
+        "Scuba Diving",
+        "Sky Diving",
+        "Bungee Jumping",
+        "Waterfall Rappelling",
+        "Rafting",
+        "Kayaking",
+        "Mountain Climbing",
+        "Trekking",
+        "Hiking",
+        "Biking",
+        "Skiing",
+        "Swimming",
+        "Fishing",
+        "Hunting",
+        "Camping",
+        "BBQ",
+        "Sleeping",
+        "Horse Riding",
+        "Relaxing"
+    ]
+}
