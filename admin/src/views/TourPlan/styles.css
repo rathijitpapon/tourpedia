@@ -1,0 +1,20 @@
+.plan-main-container {
+    padding: 3%;
+    min-height: 100vh;
+}
+
+.plan-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: Ubuntu Mono;
+    text-align: center;
+    color: #020c44;
+}
+
+.plan-text {
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(1, 1, 92);
+}
