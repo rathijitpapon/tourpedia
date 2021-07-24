@@ -1048,6 +1048,7 @@ const EditEvent = (props) => {
                 dayPlanData.push(dayData);
             }
             setDayPlan(dayPlanData);
+            setCurStep(0);
         }
         setLoading(false);
     }
