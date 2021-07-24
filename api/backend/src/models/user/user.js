@@ -85,6 +85,12 @@ const userSchema = new mongoose.Schema(
                 ref: "Blog"
             }
         }],
+        savedTourPlan: [{
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "TourPlan"
+            }
+        }],
         savedEvent: [{
             _id: {
                 type: mongoose.Schema.Types.ObjectId,
