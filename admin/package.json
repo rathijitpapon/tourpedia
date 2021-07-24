@@ -18,8 +18,10 @@
     "node-sass": "^5.0.0",
     "prop-type": "^0.0.1",
     "raven-js": "^3.27.2",
+    "rc-slider": "^9.7.2",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
+    "react-collapsible": "^2.8.3",
     "react-datepicker": "^3.8.0",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
@@ -31,6 +33,7 @@
     "react-select": "^4.3.1",
     "react-spinners": "^0.11.0",
     "react-toastify": "^7.0.3",
+    "rsuite": "^4.10.2",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
