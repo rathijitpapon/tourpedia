@@ -118,11 +118,11 @@ const eventSchema = new mongoose.Schema(
         },
         planFileURL: {
             type: String,
-            required: true,
+            // required: true,
         },
         agreementFileURL: {
             type: String,
-            required: true,
+            // required: true,
         }
     },
     {
