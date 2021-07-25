@@ -113,7 +113,9 @@ const Event = () => {
                             <th>Start Date</th>
                             <th>Duration</th>
                             <th>Current Users</th>
-                            <th></th>
+                            <th>Approval Status</th>
+                            <th>Ban Status</th>
+                            <th hidden={isGuide}>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -124,6 +126,8 @@ const Event = () => {
                                 <td>{(new Date(event.dayPlan[0]._id.date)).getDate() + "," + monthNames[(new Date(event.dayPlan[0]._id.date)).getMonth()] + " " + (new Date(event.dayPlan[0]._id.date)).getFullYear()}</td>
                                 <td>{event.duration}</td>
                                 <td>{event.enrolledUser.length}</td>
+                                <td>{event.isApproved ? "Approved" : "Pending"}</td>
+                                <td>{event.isBaned ? "Banned" : "Not Banned"}</td>
                                 <td hidden={isGuide}>
                                     <Link to={"/event/edit/" + event._id}>
                                         <button 
