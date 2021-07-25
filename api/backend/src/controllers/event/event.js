@@ -406,18 +406,25 @@ const getMyEventsEvent = async (req, res) => {
 
 const getManyEvent = async (req, res) => {
     const fields = [
-        // "groupOption",
-        // "inclusion",
-        // "childAllowed",
-        // "physicalRating",
-        // "accomodationOption",
-        // "participantLimit",
-        // "duration",
-        // "age",
-        // 'cost',
-        // "category",
-        // "country",
-        // "place",
+        "durationSort",
+        "costSort",
+        "participantSort",
+        "date",
+        "roomSize",
+        "accomodationQuality",
+        "groupOption",
+        "inclusion",
+        "childAllowed",
+        "physicalRating",
+        "accomodationOption",
+        'date',
+        "participantLimit",
+        "duration",
+        "age",
+        'cost',
+        "category",
+        "country",
+        "place",
         "limit",
         "skip",
     ];
@@ -427,10 +434,34 @@ const getManyEvent = async (req, res) => {
         if (!isValid) {
             throw new Error("Invalid Fields");
         }
-        const body = convertValidBody(req.query, fields);
 
-        const events = await Event.find().skip(body.skip).limit(body.limit).populate("travelAgency._id").populate("category._id").populate("place._id").populate("guide._id").populate("country._id").populate({
+        const options = {
+            participantLimit: +req.query.participantSort,
+            totalCost: +req.query.costSort,
+            duration: +req.query.durationSort,
+        }
+    
+        const events = await Event.find({
+            'category._id': {$in: req.query.category},
+            'country._id': {$in: req.query.country},
+            'place._id': {$in: req.query.place},
+            'groupOption': {$in: req.query.groupOption},
+            'inclusion': {$in: req.query.inclusion},
+            'physicalRating': {$in: req.query.physicalRating},
+            'accomodationOption': {$in: req.query.accomodationOption},
+            'childAllowed': req.query.childAllowed,
+            minimumAge: { $gte: +req.query.age[0], $lte: +req.query.age[1] },
+            maximumAge: { $gte: +req.query.age[0], $lte: +req.query.age[1] },
+            duration: { $gte: +req.query.duration[0], $lte: +req.query.duration[1] },
+            participantLimit: { $gte: +req.query.participantLimit[0], $lte: +req.query.participantLimit[1] },
+            totalCost: { $gte: +req.query.cost[0], $lte: +req.query.cost[1] },
+        }).sort(options).skip(+req.query.skip).limit(+req.query.limit).populate("travelAgency._id").populate("category._id").populate("place._id").populate("guide._id").populate("country._id").populate({
             path: "dayPlan._id",
+            match: {
+                date: { $gte: new Date(req.query.date[0]), $lte: new Date(req.query.date[1]) },
+                roomSize: { $gte: +req.query.roomSize[0], $lte: +req.query.roomSize[1] },
+                accomodationQuality: { $gte: +req.query.accomodationQuality[0], $lte: +req.query.accomodationQuality[1] },
+            },
             populate: {
                 path: "timePlan._id",
                 populate: {
