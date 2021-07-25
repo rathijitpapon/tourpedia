@@ -18,3 +18,9 @@
     font-weight: bold;
     color: rgb(1, 1, 92);
 }
+
+.plan-list-table {
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 80%;
+}

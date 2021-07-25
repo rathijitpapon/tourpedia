@@ -79,7 +79,7 @@ const TourPlan = () => {
                 className="plan-main-container"
             >
                 <div className="plan-title">All Tour Plans</div>
-                <Table striped responsive className="guide-list-table">
+                <Table striped responsive className="plan-list-table">
                     <thead>
                         <tr>
                             <th>Tour Plan Name</th>
