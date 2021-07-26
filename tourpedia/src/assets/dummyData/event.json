@@ -54,16 +54,216 @@
                 "transport": "Private Cab",
                 "transportCost": 10,
                 "otherCost": 10,
-                "activity": [
-                    "Sightseeing",
-                    "Paragliding",
-                    "Kayaking"
-                ],
-                "place": [
+                "timePlan": [
                     {
-                        "name": "Delhi",
-                        "description": "Delhi, India’s capital territory, is a massive metropolitan area in the country’s north. In Old Delhi, a neighborhood dating to the 1600s, stands the imposing Mughal-era Red Fort, a symbol of India, and the sprawling Jama Masjid mosque, whose courtyard accommodates 25,000 people. Nearby is Chandni Chowk, a vibrant bazaar filled with food carts, sweets shops and spice stalls.",
-                        "banner": "https://www.airvistara.com/content/dam/airvistara/global/english/plan-travel/destinations/images/delhi-30%20Apr.jpg"
+                        "startTime": "7.00 AM",
+                        "endTime": "9.00 AM",
+                        "activity": [
+                            "Sightseeing",
+                            "Paragliding",
+                            "Kayaking"
+                        ],
+                        "cost": 50,
+                        "area": [
+                            {
+                                "name": "Solang Valley",
+                                "description": "When heading to Manali for a vacation, two absolutely essential destinations in the itinerary are Rohtang and Solang Valley. 14 kilometres to the north west of the main town of Manali, Solang Valley is one of the most popular tourist destinations in Himachal Pradesh. Situated on the way to Rohtang from Manali, every year the valley welcomes tourists in huge numbers. A favourite for adventure enthusiasts, parachuting to paragliding, horse riding to driving mini-open jeeps specially available for tourists of all age groups, Solang Valley has it all. During winters, Solang valley is covered with snow, making skiing is a popular sport here, with training institutes and trainers located in the valley to supervise skiers and train beginners. As the snow melts, skiing is taken over by zorbing. Another popular attraction of Solang valley, taking advantage of the slopes of the valley, you are likely to spot a huge transparent ball with mostly two people inside it rolling down the slope during summers. Yes, Zorbing is as much fun as it looks like. One of the most vibrant and enjoyable places in Manali, there is no way one can possibly miss this amazing valley, while here.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_633164246_20190904103856_20190904103926.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_291.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_352.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/4709.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Hidimba Temple",
+                                "description": "Located amidst the snow-covered hills of Manali, the Hadimba Temple is a unique shrine dedicated to Hidimba Devi, who was the wife of Bhima and mother of Ghatothkach. Surrounded by gorgeous cedar forests, this beautiful shrine is built on a rock which is believed to be in the image of goddess Hidimba herself. Locally known as Dhungari Temple, the construction style of the Hidimba Devi temple is entirely different from that of any of the other temples, with its wooden doorways, walls, and cone-shaped roof. This temple is a fitting dedication to its presiding deity Hadimba.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/attr_1888_20190308172811.jpg",
+                                    "https://www.holidify.com/images/compressed/494.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/640px-Hadimba_temple_manali_20170514151827.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Old Manali",
+                                "description": "Located 6589 feet above sea level and 3 km uphill from Manali, Himachal Pradesh, lies the town of Old Manali, a quiet settlement that lays beneath a valley with a vast coverage of apple orchards. Manali is divided into Old Manali and New Manali by the Manalsu River. Old Manali is led by a bridge over the river. In comparison to New Manali, it is cleaner and less crowded, thereby inducing a lot of travellers to visit this place more often than New Manali. The serenity of Old Manali is perhaps unique. The swaying eucalyptus, gently winding roads, gushing waters of the Kullu river and beautiful hills of this destination make it the perfect natural retreat. Indulge in some delicious continental food at low prices here, and shop for knick-knacks from the local markets here. The sunrise and sunsets here are intoxicating, and you will surely love the energy of this place. Old Manali is most famous for its Hidimba temple. Tucked away in the lap of quiet nature, this destination is the perfect place to experience the pure beauty of Himachal Pradesh.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/1334px-Old_manali_lazy_dog_lounge_20170514152444.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Manali-Himalayas-Malana-Mountaineerz-1143552_20170514152503.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Rohtang Pass",
+                                "description": "Located at a distance of just 51 kilometres from Manali, Rohtang Pass can be reached only by road. The pass is located at a massive height of 3978 metres on Manali- Keylong road. When planning a trip to Manali, a day off to the vista point of Rohtang Pass is the ultimate and almost essential attraction of the itinerary. Owing to its splendid natural beauty, Rohtang Pass is a favourite among the community of film directors. Many blockbusters ranging from 'Jab We Met' to 'Yeh Jawani Hai Deewani' have been shot here. A peculiar fact behind the name of the place is that it was named so because a number of people working in CBRE died whilst trying to cross this treacherous stretch. An experience of the snow can never be complete without a sledge ride, which involves sliding through the snow in a wooden toboggan. Another thrilling activity that can be pursued at Rohtang Pass would be mountain biking where you ride your mountain bikes off the regular course and into the lesser taken routes. It can get a bit rough, so you must take care in case you are planning on pursuing this activity. You can try your hand at skiing and tyre drop at the Rohtang Pass as well, where again you slide down a slope of snow whilst using the appropriate equipment. Gear for all of these activities is available for reasonable rent, so do not miss out on this opportunity.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/490_20190308180742.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_286.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_412.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_966.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1084899533_20191219125919.png",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/DashirLake_20200226155945.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Vashisht Baths",
+                                "description": "Located inside the very famous Vashisht Temple in Manali, Vashisht Baths is a hot water spring, believed to possess medicinal values. Also known as Vashisht Springs, it is visited by a lot of tourists, many of whom take a dip in the holy water to rid themselves of skin diseases and infections. Situated 6 km away from Manali, the Vashisht Baths are accompanied by beautiful sandstone temples. The government has made arrangements for separate bathing areas for men and women. The area around the Vashisht Spring is surrounded by hundreds of small shops where you can buy souvenirs and religious merchandise.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/497_20190325225438.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Jogini Waterfall",
+                                "description": "Jogini Waterfall is located in the beautiful Valley of Manali, about 3 kilometres away from the bustling town and around 2 kilometres away from the famous Vashisht Temple. What makes it a popular tourist spot is the trek from Vashisht Temple, through pine trees and orchards, to the mesmerising Jogini Waterfalls cascading from a height of 160 feet. The trekkers are enchanted as they cross several smaller streams with a dazzling view of River Beas and the snow-dusted peaks of Rohtang. A complete treat for nature lovers and adventure seekers, the Jogini Waterfall must be visited when exploring the breathtaking valley of Manali. It takes about 3 hours to climb to the Jogini Waterfall, so make sure to carry a camera to capture the mind stirring beauty of the location. If you want to take a pit stop, there are restaurants on the route serving local snacks with a piping hot cup of Chai. The captivating waterfall is considered as one of the most romantic attractions in Manali, thronged by couples. However, the region is also famous for adventure and recreational activities and is a favourite picnic spot among tourists. Just pack your essentials, wear your trekking gear and get going!",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Jogini_falls_20180430173032.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogni-waterfall-trek-details_20191219101850.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-8_20191219133123.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-10_20191219133352.jpg"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "startTime": "9.00 AM",
+                        "endTime": "12.00 PM",
+                        "activity": [
+                            "Sightseeing",
+                            "Paragliding",
+                            "Kayaking"
+                        ],
+                        "cost": 50,
+                        "area": [
+                            {
+                                "name": "Solang Valley",
+                                "description": "When heading to Manali for a vacation, two absolutely essential destinations in the itinerary are Rohtang and Solang Valley. 14 kilometres to the north west of the main town of Manali, Solang Valley is one of the most popular tourist destinations in Himachal Pradesh. Situated on the way to Rohtang from Manali, every year the valley welcomes tourists in huge numbers. A favourite for adventure enthusiasts, parachuting to paragliding, horse riding to driving mini-open jeeps specially available for tourists of all age groups, Solang Valley has it all. During winters, Solang valley is covered with snow, making skiing is a popular sport here, with training institutes and trainers located in the valley to supervise skiers and train beginners. As the snow melts, skiing is taken over by zorbing. Another popular attraction of Solang valley, taking advantage of the slopes of the valley, you are likely to spot a huge transparent ball with mostly two people inside it rolling down the slope during summers. Yes, Zorbing is as much fun as it looks like. One of the most vibrant and enjoyable places in Manali, there is no way one can possibly miss this amazing valley, while here.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_633164246_20190904103856_20190904103926.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_291.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_352.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/4709.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Hidimba Temple",
+                                "description": "Located amidst the snow-covered hills of Manali, the Hadimba Temple is a unique shrine dedicated to Hidimba Devi, who was the wife of Bhima and mother of Ghatothkach. Surrounded by gorgeous cedar forests, this beautiful shrine is built on a rock which is believed to be in the image of goddess Hidimba herself. Locally known as Dhungari Temple, the construction style of the Hidimba Devi temple is entirely different from that of any of the other temples, with its wooden doorways, walls, and cone-shaped roof. This temple is a fitting dedication to its presiding deity Hadimba.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/attr_1888_20190308172811.jpg",
+                                    "https://www.holidify.com/images/compressed/494.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/640px-Hadimba_temple_manali_20170514151827.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Old Manali",
+                                "description": "Located 6589 feet above sea level and 3 km uphill from Manali, Himachal Pradesh, lies the town of Old Manali, a quiet settlement that lays beneath a valley with a vast coverage of apple orchards. Manali is divided into Old Manali and New Manali by the Manalsu River. Old Manali is led by a bridge over the river. In comparison to New Manali, it is cleaner and less crowded, thereby inducing a lot of travellers to visit this place more often than New Manali. The serenity of Old Manali is perhaps unique. The swaying eucalyptus, gently winding roads, gushing waters of the Kullu river and beautiful hills of this destination make it the perfect natural retreat. Indulge in some delicious continental food at low prices here, and shop for knick-knacks from the local markets here. The sunrise and sunsets here are intoxicating, and you will surely love the energy of this place. Old Manali is most famous for its Hidimba temple. Tucked away in the lap of quiet nature, this destination is the perfect place to experience the pure beauty of Himachal Pradesh.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/1334px-Old_manali_lazy_dog_lounge_20170514152444.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Manali-Himalayas-Malana-Mountaineerz-1143552_20170514152503.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Rohtang Pass",
+                                "description": "Located at a distance of just 51 kilometres from Manali, Rohtang Pass can be reached only by road. The pass is located at a massive height of 3978 metres on Manali- Keylong road. When planning a trip to Manali, a day off to the vista point of Rohtang Pass is the ultimate and almost essential attraction of the itinerary. Owing to its splendid natural beauty, Rohtang Pass is a favourite among the community of film directors. Many blockbusters ranging from 'Jab We Met' to 'Yeh Jawani Hai Deewani' have been shot here. A peculiar fact behind the name of the place is that it was named so because a number of people working in CBRE died whilst trying to cross this treacherous stretch. An experience of the snow can never be complete without a sledge ride, which involves sliding through the snow in a wooden toboggan. Another thrilling activity that can be pursued at Rohtang Pass would be mountain biking where you ride your mountain bikes off the regular course and into the lesser taken routes. It can get a bit rough, so you must take care in case you are planning on pursuing this activity. You can try your hand at skiing and tyre drop at the Rohtang Pass as well, where again you slide down a slope of snow whilst using the appropriate equipment. Gear for all of these activities is available for reasonable rent, so do not miss out on this opportunity.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/490_20190308180742.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_286.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_412.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_966.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1084899533_20191219125919.png",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/DashirLake_20200226155945.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Vashisht Baths",
+                                "description": "Located inside the very famous Vashisht Temple in Manali, Vashisht Baths is a hot water spring, believed to possess medicinal values. Also known as Vashisht Springs, it is visited by a lot of tourists, many of whom take a dip in the holy water to rid themselves of skin diseases and infections. Situated 6 km away from Manali, the Vashisht Baths are accompanied by beautiful sandstone temples. The government has made arrangements for separate bathing areas for men and women. The area around the Vashisht Spring is surrounded by hundreds of small shops where you can buy souvenirs and religious merchandise.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/497_20190325225438.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Jogini Waterfall",
+                                "description": "Jogini Waterfall is located in the beautiful Valley of Manali, about 3 kilometres away from the bustling town and around 2 kilometres away from the famous Vashisht Temple. What makes it a popular tourist spot is the trek from Vashisht Temple, through pine trees and orchards, to the mesmerising Jogini Waterfalls cascading from a height of 160 feet. The trekkers are enchanted as they cross several smaller streams with a dazzling view of River Beas and the snow-dusted peaks of Rohtang. A complete treat for nature lovers and adventure seekers, the Jogini Waterfall must be visited when exploring the breathtaking valley of Manali. It takes about 3 hours to climb to the Jogini Waterfall, so make sure to carry a camera to capture the mind stirring beauty of the location. If you want to take a pit stop, there are restaurants on the route serving local snacks with a piping hot cup of Chai. The captivating waterfall is considered as one of the most romantic attractions in Manali, thronged by couples. However, the region is also famous for adventure and recreational activities and is a favourite picnic spot among tourists. Just pack your essentials, wear your trekking gear and get going!",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Jogini_falls_20180430173032.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogni-waterfall-trek-details_20191219101850.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-8_20191219133123.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-10_20191219133352.jpg"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "startTime": "12.00 AM",
+                        "endTime": "3.00 PM",
+                        "activity": [
+                            "Sightseeing",
+                            "Paragliding",
+                            "Kayaking"
+                        ],
+                        "cost": 50,
+                        "area": [
+                            {
+                                "name": "Solang Valley",
+                                "description": "When heading to Manali for a vacation, two absolutely essential destinations in the itinerary are Rohtang and Solang Valley. 14 kilometres to the north west of the main town of Manali, Solang Valley is one of the most popular tourist destinations in Himachal Pradesh. Situated on the way to Rohtang from Manali, every year the valley welcomes tourists in huge numbers. A favourite for adventure enthusiasts, parachuting to paragliding, horse riding to driving mini-open jeeps specially available for tourists of all age groups, Solang Valley has it all. During winters, Solang valley is covered with snow, making skiing is a popular sport here, with training institutes and trainers located in the valley to supervise skiers and train beginners. As the snow melts, skiing is taken over by zorbing. Another popular attraction of Solang valley, taking advantage of the slopes of the valley, you are likely to spot a huge transparent ball with mostly two people inside it rolling down the slope during summers. Yes, Zorbing is as much fun as it looks like. One of the most vibrant and enjoyable places in Manali, there is no way one can possibly miss this amazing valley, while here.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_633164246_20190904103856_20190904103926.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_291.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_352.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/4709.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Hidimba Temple",
+                                "description": "Located amidst the snow-covered hills of Manali, the Hadimba Temple is a unique shrine dedicated to Hidimba Devi, who was the wife of Bhima and mother of Ghatothkach. Surrounded by gorgeous cedar forests, this beautiful shrine is built on a rock which is believed to be in the image of goddess Hidimba herself. Locally known as Dhungari Temple, the construction style of the Hidimba Devi temple is entirely different from that of any of the other temples, with its wooden doorways, walls, and cone-shaped roof. This temple is a fitting dedication to its presiding deity Hadimba.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/attr_1888_20190308172811.jpg",
+                                    "https://www.holidify.com/images/compressed/494.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/640px-Hadimba_temple_manali_20170514151827.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Old Manali",
+                                "description": "Located 6589 feet above sea level and 3 km uphill from Manali, Himachal Pradesh, lies the town of Old Manali, a quiet settlement that lays beneath a valley with a vast coverage of apple orchards. Manali is divided into Old Manali and New Manali by the Manalsu River. Old Manali is led by a bridge over the river. In comparison to New Manali, it is cleaner and less crowded, thereby inducing a lot of travellers to visit this place more often than New Manali. The serenity of Old Manali is perhaps unique. The swaying eucalyptus, gently winding roads, gushing waters of the Kullu river and beautiful hills of this destination make it the perfect natural retreat. Indulge in some delicious continental food at low prices here, and shop for knick-knacks from the local markets here. The sunrise and sunsets here are intoxicating, and you will surely love the energy of this place. Old Manali is most famous for its Hidimba temple. Tucked away in the lap of quiet nature, this destination is the perfect place to experience the pure beauty of Himachal Pradesh.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/1334px-Old_manali_lazy_dog_lounge_20170514152444.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Manali-Himalayas-Malana-Mountaineerz-1143552_20170514152503.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Rohtang Pass",
+                                "description": "Located at a distance of just 51 kilometres from Manali, Rohtang Pass can be reached only by road. The pass is located at a massive height of 3978 metres on Manali- Keylong road. When planning a trip to Manali, a day off to the vista point of Rohtang Pass is the ultimate and almost essential attraction of the itinerary. Owing to its splendid natural beauty, Rohtang Pass is a favourite among the community of film directors. Many blockbusters ranging from 'Jab We Met' to 'Yeh Jawani Hai Deewani' have been shot here. A peculiar fact behind the name of the place is that it was named so because a number of people working in CBRE died whilst trying to cross this treacherous stretch. An experience of the snow can never be complete without a sledge ride, which involves sliding through the snow in a wooden toboggan. Another thrilling activity that can be pursued at Rohtang Pass would be mountain biking where you ride your mountain bikes off the regular course and into the lesser taken routes. It can get a bit rough, so you must take care in case you are planning on pursuing this activity. You can try your hand at skiing and tyre drop at the Rohtang Pass as well, where again you slide down a slope of snow whilst using the appropriate equipment. Gear for all of these activities is available for reasonable rent, so do not miss out on this opportunity.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/490_20190308180742.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_286.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_412.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_966.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1084899533_20191219125919.png",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/DashirLake_20200226155945.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Vashisht Baths",
+                                "description": "Located inside the very famous Vashisht Temple in Manali, Vashisht Baths is a hot water spring, believed to possess medicinal values. Also known as Vashisht Springs, it is visited by a lot of tourists, many of whom take a dip in the holy water to rid themselves of skin diseases and infections. Situated 6 km away from Manali, the Vashisht Baths are accompanied by beautiful sandstone temples. The government has made arrangements for separate bathing areas for men and women. The area around the Vashisht Spring is surrounded by hundreds of small shops where you can buy souvenirs and religious merchandise.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/497_20190325225438.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Jogini Waterfall",
+                                "description": "Jogini Waterfall is located in the beautiful Valley of Manali, about 3 kilometres away from the bustling town and around 2 kilometres away from the famous Vashisht Temple. What makes it a popular tourist spot is the trek from Vashisht Temple, through pine trees and orchards, to the mesmerising Jogini Waterfalls cascading from a height of 160 feet. The trekkers are enchanted as they cross several smaller streams with a dazzling view of River Beas and the snow-dusted peaks of Rohtang. A complete treat for nature lovers and adventure seekers, the Jogini Waterfall must be visited when exploring the breathtaking valley of Manali. It takes about 3 hours to climb to the Jogini Waterfall, so make sure to carry a camera to capture the mind stirring beauty of the location. If you want to take a pit stop, there are restaurants on the route serving local snacks with a piping hot cup of Chai. The captivating waterfall is considered as one of the most romantic attractions in Manali, thronged by couples. However, the region is also famous for adventure and recreational activities and is a favourite picnic spot among tourists. Just pack your essentials, wear your trekking gear and get going!",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Jogini_falls_20180430173032.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogni-waterfall-trek-details_20191219101850.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-8_20191219133123.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-10_20191219133352.jpg"
+                                ]
+                            }
+                        ]
                     }
                 ]
             },
@@ -78,16 +278,216 @@
                 "transport": "Private Cab",
                 "transportCost": 10,
                 "otherCost": 10,
-                "activity": [
-                    "Sightseeing",
-                    "Paragliding",
-                    "Kayaking"
-                ],
-                "place": [
+                "timePlan": [
                     {
-                        "name": "Delhi",
-                        "description": "Delhi, India’s capital territory, is a massive metropolitan area in the country’s north. In Old Delhi, a neighborhood dating to the 1600s, stands the imposing Mughal-era Red Fort, a symbol of India, and the sprawling Jama Masjid mosque, whose courtyard accommodates 25,000 people. Nearby is Chandni Chowk, a vibrant bazaar filled with food carts, sweets shops and spice stalls.",
-                        "banner": "https://www.airvistara.com/content/dam/airvistara/global/english/plan-travel/destinations/images/delhi-30%20Apr.jpg"
+                        "startTime": "7.00 AM",
+                        "endTime": "9.00 AM",
+                        "activity": [
+                            "Sightseeing",
+                            "Paragliding",
+                            "Kayaking"
+                        ],
+                        "cost": 50,
+                        "area": [
+                            {
+                                "name": "Solang Valley",
+                                "description": "When heading to Manali for a vacation, two absolutely essential destinations in the itinerary are Rohtang and Solang Valley. 14 kilometres to the north west of the main town of Manali, Solang Valley is one of the most popular tourist destinations in Himachal Pradesh. Situated on the way to Rohtang from Manali, every year the valley welcomes tourists in huge numbers. A favourite for adventure enthusiasts, parachuting to paragliding, horse riding to driving mini-open jeeps specially available for tourists of all age groups, Solang Valley has it all. During winters, Solang valley is covered with snow, making skiing is a popular sport here, with training institutes and trainers located in the valley to supervise skiers and train beginners. As the snow melts, skiing is taken over by zorbing. Another popular attraction of Solang valley, taking advantage of the slopes of the valley, you are likely to spot a huge transparent ball with mostly two people inside it rolling down the slope during summers. Yes, Zorbing is as much fun as it looks like. One of the most vibrant and enjoyable places in Manali, there is no way one can possibly miss this amazing valley, while here.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_633164246_20190904103856_20190904103926.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_291.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_352.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/4709.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Hidimba Temple",
+                                "description": "Located amidst the snow-covered hills of Manali, the Hadimba Temple is a unique shrine dedicated to Hidimba Devi, who was the wife of Bhima and mother of Ghatothkach. Surrounded by gorgeous cedar forests, this beautiful shrine is built on a rock which is believed to be in the image of goddess Hidimba herself. Locally known as Dhungari Temple, the construction style of the Hidimba Devi temple is entirely different from that of any of the other temples, with its wooden doorways, walls, and cone-shaped roof. This temple is a fitting dedication to its presiding deity Hadimba.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/attr_1888_20190308172811.jpg",
+                                    "https://www.holidify.com/images/compressed/494.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/640px-Hadimba_temple_manali_20170514151827.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Old Manali",
+                                "description": "Located 6589 feet above sea level and 3 km uphill from Manali, Himachal Pradesh, lies the town of Old Manali, a quiet settlement that lays beneath a valley with a vast coverage of apple orchards. Manali is divided into Old Manali and New Manali by the Manalsu River. Old Manali is led by a bridge over the river. In comparison to New Manali, it is cleaner and less crowded, thereby inducing a lot of travellers to visit this place more often than New Manali. The serenity of Old Manali is perhaps unique. The swaying eucalyptus, gently winding roads, gushing waters of the Kullu river and beautiful hills of this destination make it the perfect natural retreat. Indulge in some delicious continental food at low prices here, and shop for knick-knacks from the local markets here. The sunrise and sunsets here are intoxicating, and you will surely love the energy of this place. Old Manali is most famous for its Hidimba temple. Tucked away in the lap of quiet nature, this destination is the perfect place to experience the pure beauty of Himachal Pradesh.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/1334px-Old_manali_lazy_dog_lounge_20170514152444.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Manali-Himalayas-Malana-Mountaineerz-1143552_20170514152503.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Rohtang Pass",
+                                "description": "Located at a distance of just 51 kilometres from Manali, Rohtang Pass can be reached only by road. The pass is located at a massive height of 3978 metres on Manali- Keylong road. When planning a trip to Manali, a day off to the vista point of Rohtang Pass is the ultimate and almost essential attraction of the itinerary. Owing to its splendid natural beauty, Rohtang Pass is a favourite among the community of film directors. Many blockbusters ranging from 'Jab We Met' to 'Yeh Jawani Hai Deewani' have been shot here. A peculiar fact behind the name of the place is that it was named so because a number of people working in CBRE died whilst trying to cross this treacherous stretch. An experience of the snow can never be complete without a sledge ride, which involves sliding through the snow in a wooden toboggan. Another thrilling activity that can be pursued at Rohtang Pass would be mountain biking where you ride your mountain bikes off the regular course and into the lesser taken routes. It can get a bit rough, so you must take care in case you are planning on pursuing this activity. You can try your hand at skiing and tyre drop at the Rohtang Pass as well, where again you slide down a slope of snow whilst using the appropriate equipment. Gear for all of these activities is available for reasonable rent, so do not miss out on this opportunity.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/490_20190308180742.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_286.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_412.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_966.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1084899533_20191219125919.png",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/DashirLake_20200226155945.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Vashisht Baths",
+                                "description": "Located inside the very famous Vashisht Temple in Manali, Vashisht Baths is a hot water spring, believed to possess medicinal values. Also known as Vashisht Springs, it is visited by a lot of tourists, many of whom take a dip in the holy water to rid themselves of skin diseases and infections. Situated 6 km away from Manali, the Vashisht Baths are accompanied by beautiful sandstone temples. The government has made arrangements for separate bathing areas for men and women. The area around the Vashisht Spring is surrounded by hundreds of small shops where you can buy souvenirs and religious merchandise.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/497_20190325225438.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Jogini Waterfall",
+                                "description": "Jogini Waterfall is located in the beautiful Valley of Manali, about 3 kilometres away from the bustling town and around 2 kilometres away from the famous Vashisht Temple. What makes it a popular tourist spot is the trek from Vashisht Temple, through pine trees and orchards, to the mesmerising Jogini Waterfalls cascading from a height of 160 feet. The trekkers are enchanted as they cross several smaller streams with a dazzling view of River Beas and the snow-dusted peaks of Rohtang. A complete treat for nature lovers and adventure seekers, the Jogini Waterfall must be visited when exploring the breathtaking valley of Manali. It takes about 3 hours to climb to the Jogini Waterfall, so make sure to carry a camera to capture the mind stirring beauty of the location. If you want to take a pit stop, there are restaurants on the route serving local snacks with a piping hot cup of Chai. The captivating waterfall is considered as one of the most romantic attractions in Manali, thronged by couples. However, the region is also famous for adventure and recreational activities and is a favourite picnic spot among tourists. Just pack your essentials, wear your trekking gear and get going!",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Jogini_falls_20180430173032.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogni-waterfall-trek-details_20191219101850.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-8_20191219133123.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-10_20191219133352.jpg"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "startTime": "9.00 AM",
+                        "endTime": "12.00 PM",
+                        "activity": [
+                            "Sightseeing",
+                            "Paragliding",
+                            "Kayaking"
+                        ],
+                        "cost": 50,
+                        "area": [
+                            {
+                                "name": "Solang Valley",
+                                "description": "When heading to Manali for a vacation, two absolutely essential destinations in the itinerary are Rohtang and Solang Valley. 14 kilometres to the north west of the main town of Manali, Solang Valley is one of the most popular tourist destinations in Himachal Pradesh. Situated on the way to Rohtang from Manali, every year the valley welcomes tourists in huge numbers. A favourite for adventure enthusiasts, parachuting to paragliding, horse riding to driving mini-open jeeps specially available for tourists of all age groups, Solang Valley has it all. During winters, Solang valley is covered with snow, making skiing is a popular sport here, with training institutes and trainers located in the valley to supervise skiers and train beginners. As the snow melts, skiing is taken over by zorbing. Another popular attraction of Solang valley, taking advantage of the slopes of the valley, you are likely to spot a huge transparent ball with mostly two people inside it rolling down the slope during summers. Yes, Zorbing is as much fun as it looks like. One of the most vibrant and enjoyable places in Manali, there is no way one can possibly miss this amazing valley, while here.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_633164246_20190904103856_20190904103926.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_291.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_352.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/4709.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Hidimba Temple",
+                                "description": "Located amidst the snow-covered hills of Manali, the Hadimba Temple is a unique shrine dedicated to Hidimba Devi, who was the wife of Bhima and mother of Ghatothkach. Surrounded by gorgeous cedar forests, this beautiful shrine is built on a rock which is believed to be in the image of goddess Hidimba herself. Locally known as Dhungari Temple, the construction style of the Hidimba Devi temple is entirely different from that of any of the other temples, with its wooden doorways, walls, and cone-shaped roof. This temple is a fitting dedication to its presiding deity Hadimba.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/attr_1888_20190308172811.jpg",
+                                    "https://www.holidify.com/images/compressed/494.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/640px-Hadimba_temple_manali_20170514151827.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Old Manali",
+                                "description": "Located 6589 feet above sea level and 3 km uphill from Manali, Himachal Pradesh, lies the town of Old Manali, a quiet settlement that lays beneath a valley with a vast coverage of apple orchards. Manali is divided into Old Manali and New Manali by the Manalsu River. Old Manali is led by a bridge over the river. In comparison to New Manali, it is cleaner and less crowded, thereby inducing a lot of travellers to visit this place more often than New Manali. The serenity of Old Manali is perhaps unique. The swaying eucalyptus, gently winding roads, gushing waters of the Kullu river and beautiful hills of this destination make it the perfect natural retreat. Indulge in some delicious continental food at low prices here, and shop for knick-knacks from the local markets here. The sunrise and sunsets here are intoxicating, and you will surely love the energy of this place. Old Manali is most famous for its Hidimba temple. Tucked away in the lap of quiet nature, this destination is the perfect place to experience the pure beauty of Himachal Pradesh.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/1334px-Old_manali_lazy_dog_lounge_20170514152444.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Manali-Himalayas-Malana-Mountaineerz-1143552_20170514152503.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Rohtang Pass",
+                                "description": "Located at a distance of just 51 kilometres from Manali, Rohtang Pass can be reached only by road. The pass is located at a massive height of 3978 metres on Manali- Keylong road. When planning a trip to Manali, a day off to the vista point of Rohtang Pass is the ultimate and almost essential attraction of the itinerary. Owing to its splendid natural beauty, Rohtang Pass is a favourite among the community of film directors. Many blockbusters ranging from 'Jab We Met' to 'Yeh Jawani Hai Deewani' have been shot here. A peculiar fact behind the name of the place is that it was named so because a number of people working in CBRE died whilst trying to cross this treacherous stretch. An experience of the snow can never be complete without a sledge ride, which involves sliding through the snow in a wooden toboggan. Another thrilling activity that can be pursued at Rohtang Pass would be mountain biking where you ride your mountain bikes off the regular course and into the lesser taken routes. It can get a bit rough, so you must take care in case you are planning on pursuing this activity. You can try your hand at skiing and tyre drop at the Rohtang Pass as well, where again you slide down a slope of snow whilst using the appropriate equipment. Gear for all of these activities is available for reasonable rent, so do not miss out on this opportunity.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/490_20190308180742.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_286.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_412.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_966.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1084899533_20191219125919.png",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/DashirLake_20200226155945.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Vashisht Baths",
+                                "description": "Located inside the very famous Vashisht Temple in Manali, Vashisht Baths is a hot water spring, believed to possess medicinal values. Also known as Vashisht Springs, it is visited by a lot of tourists, many of whom take a dip in the holy water to rid themselves of skin diseases and infections. Situated 6 km away from Manali, the Vashisht Baths are accompanied by beautiful sandstone temples. The government has made arrangements for separate bathing areas for men and women. The area around the Vashisht Spring is surrounded by hundreds of small shops where you can buy souvenirs and religious merchandise.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/497_20190325225438.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Jogini Waterfall",
+                                "description": "Jogini Waterfall is located in the beautiful Valley of Manali, about 3 kilometres away from the bustling town and around 2 kilometres away from the famous Vashisht Temple. What makes it a popular tourist spot is the trek from Vashisht Temple, through pine trees and orchards, to the mesmerising Jogini Waterfalls cascading from a height of 160 feet. The trekkers are enchanted as they cross several smaller streams with a dazzling view of River Beas and the snow-dusted peaks of Rohtang. A complete treat for nature lovers and adventure seekers, the Jogini Waterfall must be visited when exploring the breathtaking valley of Manali. It takes about 3 hours to climb to the Jogini Waterfall, so make sure to carry a camera to capture the mind stirring beauty of the location. If you want to take a pit stop, there are restaurants on the route serving local snacks with a piping hot cup of Chai. The captivating waterfall is considered as one of the most romantic attractions in Manali, thronged by couples. However, the region is also famous for adventure and recreational activities and is a favourite picnic spot among tourists. Just pack your essentials, wear your trekking gear and get going!",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Jogini_falls_20180430173032.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogni-waterfall-trek-details_20191219101850.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-8_20191219133123.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-10_20191219133352.jpg"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "startTime": "12.00 AM",
+                        "endTime": "3.00 PM",
+                        "activity": [
+                            "Sightseeing",
+                            "Paragliding",
+                            "Kayaking"
+                        ],
+                        "cost": 50,
+                        "area": [
+                            {
+                                "name": "Solang Valley",
+                                "description": "When heading to Manali for a vacation, two absolutely essential destinations in the itinerary are Rohtang and Solang Valley. 14 kilometres to the north west of the main town of Manali, Solang Valley is one of the most popular tourist destinations in Himachal Pradesh. Situated on the way to Rohtang from Manali, every year the valley welcomes tourists in huge numbers. A favourite for adventure enthusiasts, parachuting to paragliding, horse riding to driving mini-open jeeps specially available for tourists of all age groups, Solang Valley has it all. During winters, Solang valley is covered with snow, making skiing is a popular sport here, with training institutes and trainers located in the valley to supervise skiers and train beginners. As the snow melts, skiing is taken over by zorbing. Another popular attraction of Solang valley, taking advantage of the slopes of the valley, you are likely to spot a huge transparent ball with mostly two people inside it rolling down the slope during summers. Yes, Zorbing is as much fun as it looks like. One of the most vibrant and enjoyable places in Manali, there is no way one can possibly miss this amazing valley, while here.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_633164246_20190904103856_20190904103926.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_291.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_352.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/4709.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Hidimba Temple",
+                                "description": "Located amidst the snow-covered hills of Manali, the Hadimba Temple is a unique shrine dedicated to Hidimba Devi, who was the wife of Bhima and mother of Ghatothkach. Surrounded by gorgeous cedar forests, this beautiful shrine is built on a rock which is believed to be in the image of goddess Hidimba herself. Locally known as Dhungari Temple, the construction style of the Hidimba Devi temple is entirely different from that of any of the other temples, with its wooden doorways, walls, and cone-shaped roof. This temple is a fitting dedication to its presiding deity Hadimba.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/attr_1888_20190308172811.jpg",
+                                    "https://www.holidify.com/images/compressed/494.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/640px-Hadimba_temple_manali_20170514151827.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Old Manali",
+                                "description": "Located 6589 feet above sea level and 3 km uphill from Manali, Himachal Pradesh, lies the town of Old Manali, a quiet settlement that lays beneath a valley with a vast coverage of apple orchards. Manali is divided into Old Manali and New Manali by the Manalsu River. Old Manali is led by a bridge over the river. In comparison to New Manali, it is cleaner and less crowded, thereby inducing a lot of travellers to visit this place more often than New Manali. The serenity of Old Manali is perhaps unique. The swaying eucalyptus, gently winding roads, gushing waters of the Kullu river and beautiful hills of this destination make it the perfect natural retreat. Indulge in some delicious continental food at low prices here, and shop for knick-knacks from the local markets here. The sunrise and sunsets here are intoxicating, and you will surely love the energy of this place. Old Manali is most famous for its Hidimba temple. Tucked away in the lap of quiet nature, this destination is the perfect place to experience the pure beauty of Himachal Pradesh.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/1334px-Old_manali_lazy_dog_lounge_20170514152444.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Manali-Himalayas-Malana-Mountaineerz-1143552_20170514152503.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Rohtang Pass",
+                                "description": "Located at a distance of just 51 kilometres from Manali, Rohtang Pass can be reached only by road. The pass is located at a massive height of 3978 metres on Manali- Keylong road. When planning a trip to Manali, a day off to the vista point of Rohtang Pass is the ultimate and almost essential attraction of the itinerary. Owing to its splendid natural beauty, Rohtang Pass is a favourite among the community of film directors. Many blockbusters ranging from 'Jab We Met' to 'Yeh Jawani Hai Deewani' have been shot here. A peculiar fact behind the name of the place is that it was named so because a number of people working in CBRE died whilst trying to cross this treacherous stretch. An experience of the snow can never be complete without a sledge ride, which involves sliding through the snow in a wooden toboggan. Another thrilling activity that can be pursued at Rohtang Pass would be mountain biking where you ride your mountain bikes off the regular course and into the lesser taken routes. It can get a bit rough, so you must take care in case you are planning on pursuing this activity. You can try your hand at skiing and tyre drop at the Rohtang Pass as well, where again you slide down a slope of snow whilst using the appropriate equipment. Gear for all of these activities is available for reasonable rent, so do not miss out on this opportunity.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/490_20190308180742.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_286.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_412.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_966.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1084899533_20191219125919.png",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/DashirLake_20200226155945.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Vashisht Baths",
+                                "description": "Located inside the very famous Vashisht Temple in Manali, Vashisht Baths is a hot water spring, believed to possess medicinal values. Also known as Vashisht Springs, it is visited by a lot of tourists, many of whom take a dip in the holy water to rid themselves of skin diseases and infections. Situated 6 km away from Manali, the Vashisht Baths are accompanied by beautiful sandstone temples. The government has made arrangements for separate bathing areas for men and women. The area around the Vashisht Spring is surrounded by hundreds of small shops where you can buy souvenirs and religious merchandise.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/497_20190325225438.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Jogini Waterfall",
+                                "description": "Jogini Waterfall is located in the beautiful Valley of Manali, about 3 kilometres away from the bustling town and around 2 kilometres away from the famous Vashisht Temple. What makes it a popular tourist spot is the trek from Vashisht Temple, through pine trees and orchards, to the mesmerising Jogini Waterfalls cascading from a height of 160 feet. The trekkers are enchanted as they cross several smaller streams with a dazzling view of River Beas and the snow-dusted peaks of Rohtang. A complete treat for nature lovers and adventure seekers, the Jogini Waterfall must be visited when exploring the breathtaking valley of Manali. It takes about 3 hours to climb to the Jogini Waterfall, so make sure to carry a camera to capture the mind stirring beauty of the location. If you want to take a pit stop, there are restaurants on the route serving local snacks with a piping hot cup of Chai. The captivating waterfall is considered as one of the most romantic attractions in Manali, thronged by couples. However, the region is also famous for adventure and recreational activities and is a favourite picnic spot among tourists. Just pack your essentials, wear your trekking gear and get going!",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Jogini_falls_20180430173032.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogni-waterfall-trek-details_20191219101850.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-8_20191219133123.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-10_20191219133352.jpg"
+                                ]
+                            }
+                        ]
                     }
                 ]
             },
@@ -102,16 +502,216 @@
                 "transport": "Private Cab",
                 "transportCost": 10,
                 "otherCost": 10,
-                "activity": [
-                    "Sightseeing",
-                    "Paragliding",
-                    "Kayaking"
-                ],
-                "place": [
+                "timePlan": [
                     {
-                        "name": "Delhi",
-                        "description": "Delhi, India’s capital territory, is a massive metropolitan area in the country’s north. In Old Delhi, a neighborhood dating to the 1600s, stands the imposing Mughal-era Red Fort, a symbol of India, and the sprawling Jama Masjid mosque, whose courtyard accommodates 25,000 people. Nearby is Chandni Chowk, a vibrant bazaar filled with food carts, sweets shops and spice stalls.",
-                        "banner": "https://www.airvistara.com/content/dam/airvistara/global/english/plan-travel/destinations/images/delhi-30%20Apr.jpg"
+                        "startTime": "7.00 AM",
+                        "endTime": "9.00 AM",
+                        "activity": [
+                            "Sightseeing",
+                            "Paragliding",
+                            "Kayaking"
+                        ],
+                        "cost": 50,
+                        "area": [
+                            {
+                                "name": "Solang Valley",
+                                "description": "When heading to Manali for a vacation, two absolutely essential destinations in the itinerary are Rohtang and Solang Valley. 14 kilometres to the north west of the main town of Manali, Solang Valley is one of the most popular tourist destinations in Himachal Pradesh. Situated on the way to Rohtang from Manali, every year the valley welcomes tourists in huge numbers. A favourite for adventure enthusiasts, parachuting to paragliding, horse riding to driving mini-open jeeps specially available for tourists of all age groups, Solang Valley has it all. During winters, Solang valley is covered with snow, making skiing is a popular sport here, with training institutes and trainers located in the valley to supervise skiers and train beginners. As the snow melts, skiing is taken over by zorbing. Another popular attraction of Solang valley, taking advantage of the slopes of the valley, you are likely to spot a huge transparent ball with mostly two people inside it rolling down the slope during summers. Yes, Zorbing is as much fun as it looks like. One of the most vibrant and enjoyable places in Manali, there is no way one can possibly miss this amazing valley, while here.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_633164246_20190904103856_20190904103926.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_291.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_352.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/4709.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Hidimba Temple",
+                                "description": "Located amidst the snow-covered hills of Manali, the Hadimba Temple is a unique shrine dedicated to Hidimba Devi, who was the wife of Bhima and mother of Ghatothkach. Surrounded by gorgeous cedar forests, this beautiful shrine is built on a rock which is believed to be in the image of goddess Hidimba herself. Locally known as Dhungari Temple, the construction style of the Hidimba Devi temple is entirely different from that of any of the other temples, with its wooden doorways, walls, and cone-shaped roof. This temple is a fitting dedication to its presiding deity Hadimba.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/attr_1888_20190308172811.jpg",
+                                    "https://www.holidify.com/images/compressed/494.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/640px-Hadimba_temple_manali_20170514151827.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Old Manali",
+                                "description": "Located 6589 feet above sea level and 3 km uphill from Manali, Himachal Pradesh, lies the town of Old Manali, a quiet settlement that lays beneath a valley with a vast coverage of apple orchards. Manali is divided into Old Manali and New Manali by the Manalsu River. Old Manali is led by a bridge over the river. In comparison to New Manali, it is cleaner and less crowded, thereby inducing a lot of travellers to visit this place more often than New Manali. The serenity of Old Manali is perhaps unique. The swaying eucalyptus, gently winding roads, gushing waters of the Kullu river and beautiful hills of this destination make it the perfect natural retreat. Indulge in some delicious continental food at low prices here, and shop for knick-knacks from the local markets here. The sunrise and sunsets here are intoxicating, and you will surely love the energy of this place. Old Manali is most famous for its Hidimba temple. Tucked away in the lap of quiet nature, this destination is the perfect place to experience the pure beauty of Himachal Pradesh.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/1334px-Old_manali_lazy_dog_lounge_20170514152444.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Manali-Himalayas-Malana-Mountaineerz-1143552_20170514152503.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Rohtang Pass",
+                                "description": "Located at a distance of just 51 kilometres from Manali, Rohtang Pass can be reached only by road. The pass is located at a massive height of 3978 metres on Manali- Keylong road. When planning a trip to Manali, a day off to the vista point of Rohtang Pass is the ultimate and almost essential attraction of the itinerary. Owing to its splendid natural beauty, Rohtang Pass is a favourite among the community of film directors. Many blockbusters ranging from 'Jab We Met' to 'Yeh Jawani Hai Deewani' have been shot here. A peculiar fact behind the name of the place is that it was named so because a number of people working in CBRE died whilst trying to cross this treacherous stretch. An experience of the snow can never be complete without a sledge ride, which involves sliding through the snow in a wooden toboggan. Another thrilling activity that can be pursued at Rohtang Pass would be mountain biking where you ride your mountain bikes off the regular course and into the lesser taken routes. It can get a bit rough, so you must take care in case you are planning on pursuing this activity. You can try your hand at skiing and tyre drop at the Rohtang Pass as well, where again you slide down a slope of snow whilst using the appropriate equipment. Gear for all of these activities is available for reasonable rent, so do not miss out on this opportunity.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/490_20190308180742.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_286.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_412.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_966.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1084899533_20191219125919.png",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/DashirLake_20200226155945.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Vashisht Baths",
+                                "description": "Located inside the very famous Vashisht Temple in Manali, Vashisht Baths is a hot water spring, believed to possess medicinal values. Also known as Vashisht Springs, it is visited by a lot of tourists, many of whom take a dip in the holy water to rid themselves of skin diseases and infections. Situated 6 km away from Manali, the Vashisht Baths are accompanied by beautiful sandstone temples. The government has made arrangements for separate bathing areas for men and women. The area around the Vashisht Spring is surrounded by hundreds of small shops where you can buy souvenirs and religious merchandise.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/497_20190325225438.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Jogini Waterfall",
+                                "description": "Jogini Waterfall is located in the beautiful Valley of Manali, about 3 kilometres away from the bustling town and around 2 kilometres away from the famous Vashisht Temple. What makes it a popular tourist spot is the trek from Vashisht Temple, through pine trees and orchards, to the mesmerising Jogini Waterfalls cascading from a height of 160 feet. The trekkers are enchanted as they cross several smaller streams with a dazzling view of River Beas and the snow-dusted peaks of Rohtang. A complete treat for nature lovers and adventure seekers, the Jogini Waterfall must be visited when exploring the breathtaking valley of Manali. It takes about 3 hours to climb to the Jogini Waterfall, so make sure to carry a camera to capture the mind stirring beauty of the location. If you want to take a pit stop, there are restaurants on the route serving local snacks with a piping hot cup of Chai. The captivating waterfall is considered as one of the most romantic attractions in Manali, thronged by couples. However, the region is also famous for adventure and recreational activities and is a favourite picnic spot among tourists. Just pack your essentials, wear your trekking gear and get going!",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Jogini_falls_20180430173032.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogni-waterfall-trek-details_20191219101850.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-8_20191219133123.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-10_20191219133352.jpg"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "startTime": "9.00 AM",
+                        "endTime": "12.00 PM",
+                        "activity": [
+                            "Sightseeing",
+                            "Paragliding",
+                            "Kayaking"
+                        ],
+                        "cost": 50,
+                        "area": [
+                            {
+                                "name": "Solang Valley",
+                                "description": "When heading to Manali for a vacation, two absolutely essential destinations in the itinerary are Rohtang and Solang Valley. 14 kilometres to the north west of the main town of Manali, Solang Valley is one of the most popular tourist destinations in Himachal Pradesh. Situated on the way to Rohtang from Manali, every year the valley welcomes tourists in huge numbers. A favourite for adventure enthusiasts, parachuting to paragliding, horse riding to driving mini-open jeeps specially available for tourists of all age groups, Solang Valley has it all. During winters, Solang valley is covered with snow, making skiing is a popular sport here, with training institutes and trainers located in the valley to supervise skiers and train beginners. As the snow melts, skiing is taken over by zorbing. Another popular attraction of Solang valley, taking advantage of the slopes of the valley, you are likely to spot a huge transparent ball with mostly two people inside it rolling down the slope during summers. Yes, Zorbing is as much fun as it looks like. One of the most vibrant and enjoyable places in Manali, there is no way one can possibly miss this amazing valley, while here.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_633164246_20190904103856_20190904103926.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_291.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_352.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/4709.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Hidimba Temple",
+                                "description": "Located amidst the snow-covered hills of Manali, the Hadimba Temple is a unique shrine dedicated to Hidimba Devi, who was the wife of Bhima and mother of Ghatothkach. Surrounded by gorgeous cedar forests, this beautiful shrine is built on a rock which is believed to be in the image of goddess Hidimba herself. Locally known as Dhungari Temple, the construction style of the Hidimba Devi temple is entirely different from that of any of the other temples, with its wooden doorways, walls, and cone-shaped roof. This temple is a fitting dedication to its presiding deity Hadimba.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/attr_1888_20190308172811.jpg",
+                                    "https://www.holidify.com/images/compressed/494.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/640px-Hadimba_temple_manali_20170514151827.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Old Manali",
+                                "description": "Located 6589 feet above sea level and 3 km uphill from Manali, Himachal Pradesh, lies the town of Old Manali, a quiet settlement that lays beneath a valley with a vast coverage of apple orchards. Manali is divided into Old Manali and New Manali by the Manalsu River. Old Manali is led by a bridge over the river. In comparison to New Manali, it is cleaner and less crowded, thereby inducing a lot of travellers to visit this place more often than New Manali. The serenity of Old Manali is perhaps unique. The swaying eucalyptus, gently winding roads, gushing waters of the Kullu river and beautiful hills of this destination make it the perfect natural retreat. Indulge in some delicious continental food at low prices here, and shop for knick-knacks from the local markets here. The sunrise and sunsets here are intoxicating, and you will surely love the energy of this place. Old Manali is most famous for its Hidimba temple. Tucked away in the lap of quiet nature, this destination is the perfect place to experience the pure beauty of Himachal Pradesh.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/1334px-Old_manali_lazy_dog_lounge_20170514152444.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Manali-Himalayas-Malana-Mountaineerz-1143552_20170514152503.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Rohtang Pass",
+                                "description": "Located at a distance of just 51 kilometres from Manali, Rohtang Pass can be reached only by road. The pass is located at a massive height of 3978 metres on Manali- Keylong road. When planning a trip to Manali, a day off to the vista point of Rohtang Pass is the ultimate and almost essential attraction of the itinerary. Owing to its splendid natural beauty, Rohtang Pass is a favourite among the community of film directors. Many blockbusters ranging from 'Jab We Met' to 'Yeh Jawani Hai Deewani' have been shot here. A peculiar fact behind the name of the place is that it was named so because a number of people working in CBRE died whilst trying to cross this treacherous stretch. An experience of the snow can never be complete without a sledge ride, which involves sliding through the snow in a wooden toboggan. Another thrilling activity that can be pursued at Rohtang Pass would be mountain biking where you ride your mountain bikes off the regular course and into the lesser taken routes. It can get a bit rough, so you must take care in case you are planning on pursuing this activity. You can try your hand at skiing and tyre drop at the Rohtang Pass as well, where again you slide down a slope of snow whilst using the appropriate equipment. Gear for all of these activities is available for reasonable rent, so do not miss out on this opportunity.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/490_20190308180742.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_286.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_412.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_966.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1084899533_20191219125919.png",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/DashirLake_20200226155945.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Vashisht Baths",
+                                "description": "Located inside the very famous Vashisht Temple in Manali, Vashisht Baths is a hot water spring, believed to possess medicinal values. Also known as Vashisht Springs, it is visited by a lot of tourists, many of whom take a dip in the holy water to rid themselves of skin diseases and infections. Situated 6 km away from Manali, the Vashisht Baths are accompanied by beautiful sandstone temples. The government has made arrangements for separate bathing areas for men and women. The area around the Vashisht Spring is surrounded by hundreds of small shops where you can buy souvenirs and religious merchandise.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/497_20190325225438.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Jogini Waterfall",
+                                "description": "Jogini Waterfall is located in the beautiful Valley of Manali, about 3 kilometres away from the bustling town and around 2 kilometres away from the famous Vashisht Temple. What makes it a popular tourist spot is the trek from Vashisht Temple, through pine trees and orchards, to the mesmerising Jogini Waterfalls cascading from a height of 160 feet. The trekkers are enchanted as they cross several smaller streams with a dazzling view of River Beas and the snow-dusted peaks of Rohtang. A complete treat for nature lovers and adventure seekers, the Jogini Waterfall must be visited when exploring the breathtaking valley of Manali. It takes about 3 hours to climb to the Jogini Waterfall, so make sure to carry a camera to capture the mind stirring beauty of the location. If you want to take a pit stop, there are restaurants on the route serving local snacks with a piping hot cup of Chai. The captivating waterfall is considered as one of the most romantic attractions in Manali, thronged by couples. However, the region is also famous for adventure and recreational activities and is a favourite picnic spot among tourists. Just pack your essentials, wear your trekking gear and get going!",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Jogini_falls_20180430173032.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogni-waterfall-trek-details_20191219101850.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-8_20191219133123.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-10_20191219133352.jpg"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "startTime": "12.00 AM",
+                        "endTime": "3.00 PM",
+                        "activity": [
+                            "Sightseeing",
+                            "Paragliding",
+                            "Kayaking"
+                        ],
+                        "cost": 50,
+                        "area": [
+                            {
+                                "name": "Solang Valley",
+                                "description": "When heading to Manali for a vacation, two absolutely essential destinations in the itinerary are Rohtang and Solang Valley. 14 kilometres to the north west of the main town of Manali, Solang Valley is one of the most popular tourist destinations in Himachal Pradesh. Situated on the way to Rohtang from Manali, every year the valley welcomes tourists in huge numbers. A favourite for adventure enthusiasts, parachuting to paragliding, horse riding to driving mini-open jeeps specially available for tourists of all age groups, Solang Valley has it all. During winters, Solang valley is covered with snow, making skiing is a popular sport here, with training institutes and trainers located in the valley to supervise skiers and train beginners. As the snow melts, skiing is taken over by zorbing. Another popular attraction of Solang valley, taking advantage of the slopes of the valley, you are likely to spot a huge transparent ball with mostly two people inside it rolling down the slope during summers. Yes, Zorbing is as much fun as it looks like. One of the most vibrant and enjoyable places in Manali, there is no way one can possibly miss this amazing valley, while here.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_633164246_20190904103856_20190904103926.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_291.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_352.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/4709.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Hidimba Temple",
+                                "description": "Located amidst the snow-covered hills of Manali, the Hadimba Temple is a unique shrine dedicated to Hidimba Devi, who was the wife of Bhima and mother of Ghatothkach. Surrounded by gorgeous cedar forests, this beautiful shrine is built on a rock which is believed to be in the image of goddess Hidimba herself. Locally known as Dhungari Temple, the construction style of the Hidimba Devi temple is entirely different from that of any of the other temples, with its wooden doorways, walls, and cone-shaped roof. This temple is a fitting dedication to its presiding deity Hadimba.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/attr_1888_20190308172811.jpg",
+                                    "https://www.holidify.com/images/compressed/494.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/640px-Hadimba_temple_manali_20170514151827.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Old Manali",
+                                "description": "Located 6589 feet above sea level and 3 km uphill from Manali, Himachal Pradesh, lies the town of Old Manali, a quiet settlement that lays beneath a valley with a vast coverage of apple orchards. Manali is divided into Old Manali and New Manali by the Manalsu River. Old Manali is led by a bridge over the river. In comparison to New Manali, it is cleaner and less crowded, thereby inducing a lot of travellers to visit this place more often than New Manali. The serenity of Old Manali is perhaps unique. The swaying eucalyptus, gently winding roads, gushing waters of the Kullu river and beautiful hills of this destination make it the perfect natural retreat. Indulge in some delicious continental food at low prices here, and shop for knick-knacks from the local markets here. The sunrise and sunsets here are intoxicating, and you will surely love the energy of this place. Old Manali is most famous for its Hidimba temple. Tucked away in the lap of quiet nature, this destination is the perfect place to experience the pure beauty of Himachal Pradesh.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/1334px-Old_manali_lazy_dog_lounge_20170514152444.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Manali-Himalayas-Malana-Mountaineerz-1143552_20170514152503.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Rohtang Pass",
+                                "description": "Located at a distance of just 51 kilometres from Manali, Rohtang Pass can be reached only by road. The pass is located at a massive height of 3978 metres on Manali- Keylong road. When planning a trip to Manali, a day off to the vista point of Rohtang Pass is the ultimate and almost essential attraction of the itinerary. Owing to its splendid natural beauty, Rohtang Pass is a favourite among the community of film directors. Many blockbusters ranging from 'Jab We Met' to 'Yeh Jawani Hai Deewani' have been shot here. A peculiar fact behind the name of the place is that it was named so because a number of people working in CBRE died whilst trying to cross this treacherous stretch. An experience of the snow can never be complete without a sledge ride, which involves sliding through the snow in a wooden toboggan. Another thrilling activity that can be pursued at Rohtang Pass would be mountain biking where you ride your mountain bikes off the regular course and into the lesser taken routes. It can get a bit rough, so you must take care in case you are planning on pursuing this activity. You can try your hand at skiing and tyre drop at the Rohtang Pass as well, where again you slide down a slope of snow whilst using the appropriate equipment. Gear for all of these activities is available for reasonable rent, so do not miss out on this opportunity.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/490_20190308180742.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_286.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_412.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_966.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1084899533_20191219125919.png",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/DashirLake_20200226155945.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Vashisht Baths",
+                                "description": "Located inside the very famous Vashisht Temple in Manali, Vashisht Baths is a hot water spring, believed to possess medicinal values. Also known as Vashisht Springs, it is visited by a lot of tourists, many of whom take a dip in the holy water to rid themselves of skin diseases and infections. Situated 6 km away from Manali, the Vashisht Baths are accompanied by beautiful sandstone temples. The government has made arrangements for separate bathing areas for men and women. The area around the Vashisht Spring is surrounded by hundreds of small shops where you can buy souvenirs and religious merchandise.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/497_20190325225438.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Jogini Waterfall",
+                                "description": "Jogini Waterfall is located in the beautiful Valley of Manali, about 3 kilometres away from the bustling town and around 2 kilometres away from the famous Vashisht Temple. What makes it a popular tourist spot is the trek from Vashisht Temple, through pine trees and orchards, to the mesmerising Jogini Waterfalls cascading from a height of 160 feet. The trekkers are enchanted as they cross several smaller streams with a dazzling view of River Beas and the snow-dusted peaks of Rohtang. A complete treat for nature lovers and adventure seekers, the Jogini Waterfall must be visited when exploring the breathtaking valley of Manali. It takes about 3 hours to climb to the Jogini Waterfall, so make sure to carry a camera to capture the mind stirring beauty of the location. If you want to take a pit stop, there are restaurants on the route serving local snacks with a piping hot cup of Chai. The captivating waterfall is considered as one of the most romantic attractions in Manali, thronged by couples. However, the region is also famous for adventure and recreational activities and is a favourite picnic spot among tourists. Just pack your essentials, wear your trekking gear and get going!",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Jogini_falls_20180430173032.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogni-waterfall-trek-details_20191219101850.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-8_20191219133123.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-10_20191219133352.jpg"
+                                ]
+                            }
+                        ]
                     }
                 ]
             },
@@ -126,16 +726,216 @@
                 "transport": "Private Cab",
                 "transportCost": 10,
                 "otherCost": 10,
-                "activity": [
-                    "Sightseeing",
-                    "Paragliding",
-                    "Kayaking"
-                ],
-                "place": [
+                "timePlan": [
                     {
-                        "name": "Delhi",
-                        "description": "Delhi, India’s capital territory, is a massive metropolitan area in the country’s north. In Old Delhi, a neighborhood dating to the 1600s, stands the imposing Mughal-era Red Fort, a symbol of India, and the sprawling Jama Masjid mosque, whose courtyard accommodates 25,000 people. Nearby is Chandni Chowk, a vibrant bazaar filled with food carts, sweets shops and spice stalls.",
-                        "banner": "https://www.airvistara.com/content/dam/airvistara/global/english/plan-travel/destinations/images/delhi-30%20Apr.jpg"
+                        "startTime": "7.00 AM",
+                        "endTime": "9.00 AM",
+                        "activity": [
+                            "Sightseeing",
+                            "Paragliding",
+                            "Kayaking"
+                        ],
+                        "cost": 50,
+                        "area": [
+                            {
+                                "name": "Solang Valley",
+                                "description": "When heading to Manali for a vacation, two absolutely essential destinations in the itinerary are Rohtang and Solang Valley. 14 kilometres to the north west of the main town of Manali, Solang Valley is one of the most popular tourist destinations in Himachal Pradesh. Situated on the way to Rohtang from Manali, every year the valley welcomes tourists in huge numbers. A favourite for adventure enthusiasts, parachuting to paragliding, horse riding to driving mini-open jeeps specially available for tourists of all age groups, Solang Valley has it all. During winters, Solang valley is covered with snow, making skiing is a popular sport here, with training institutes and trainers located in the valley to supervise skiers and train beginners. As the snow melts, skiing is taken over by zorbing. Another popular attraction of Solang valley, taking advantage of the slopes of the valley, you are likely to spot a huge transparent ball with mostly two people inside it rolling down the slope during summers. Yes, Zorbing is as much fun as it looks like. One of the most vibrant and enjoyable places in Manali, there is no way one can possibly miss this amazing valley, while here.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_633164246_20190904103856_20190904103926.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_291.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_352.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/4709.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Hidimba Temple",
+                                "description": "Located amidst the snow-covered hills of Manali, the Hadimba Temple is a unique shrine dedicated to Hidimba Devi, who was the wife of Bhima and mother of Ghatothkach. Surrounded by gorgeous cedar forests, this beautiful shrine is built on a rock which is believed to be in the image of goddess Hidimba herself. Locally known as Dhungari Temple, the construction style of the Hidimba Devi temple is entirely different from that of any of the other temples, with its wooden doorways, walls, and cone-shaped roof. This temple is a fitting dedication to its presiding deity Hadimba.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/attr_1888_20190308172811.jpg",
+                                    "https://www.holidify.com/images/compressed/494.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/640px-Hadimba_temple_manali_20170514151827.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Old Manali",
+                                "description": "Located 6589 feet above sea level and 3 km uphill from Manali, Himachal Pradesh, lies the town of Old Manali, a quiet settlement that lays beneath a valley with a vast coverage of apple orchards. Manali is divided into Old Manali and New Manali by the Manalsu River. Old Manali is led by a bridge over the river. In comparison to New Manali, it is cleaner and less crowded, thereby inducing a lot of travellers to visit this place more often than New Manali. The serenity of Old Manali is perhaps unique. The swaying eucalyptus, gently winding roads, gushing waters of the Kullu river and beautiful hills of this destination make it the perfect natural retreat. Indulge in some delicious continental food at low prices here, and shop for knick-knacks from the local markets here. The sunrise and sunsets here are intoxicating, and you will surely love the energy of this place. Old Manali is most famous for its Hidimba temple. Tucked away in the lap of quiet nature, this destination is the perfect place to experience the pure beauty of Himachal Pradesh.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/1334px-Old_manali_lazy_dog_lounge_20170514152444.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Manali-Himalayas-Malana-Mountaineerz-1143552_20170514152503.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Rohtang Pass",
+                                "description": "Located at a distance of just 51 kilometres from Manali, Rohtang Pass can be reached only by road. The pass is located at a massive height of 3978 metres on Manali- Keylong road. When planning a trip to Manali, a day off to the vista point of Rohtang Pass is the ultimate and almost essential attraction of the itinerary. Owing to its splendid natural beauty, Rohtang Pass is a favourite among the community of film directors. Many blockbusters ranging from 'Jab We Met' to 'Yeh Jawani Hai Deewani' have been shot here. A peculiar fact behind the name of the place is that it was named so because a number of people working in CBRE died whilst trying to cross this treacherous stretch. An experience of the snow can never be complete without a sledge ride, which involves sliding through the snow in a wooden toboggan. Another thrilling activity that can be pursued at Rohtang Pass would be mountain biking where you ride your mountain bikes off the regular course and into the lesser taken routes. It can get a bit rough, so you must take care in case you are planning on pursuing this activity. You can try your hand at skiing and tyre drop at the Rohtang Pass as well, where again you slide down a slope of snow whilst using the appropriate equipment. Gear for all of these activities is available for reasonable rent, so do not miss out on this opportunity.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/490_20190308180742.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_286.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_412.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_966.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1084899533_20191219125919.png",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/DashirLake_20200226155945.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Vashisht Baths",
+                                "description": "Located inside the very famous Vashisht Temple in Manali, Vashisht Baths is a hot water spring, believed to possess medicinal values. Also known as Vashisht Springs, it is visited by a lot of tourists, many of whom take a dip in the holy water to rid themselves of skin diseases and infections. Situated 6 km away from Manali, the Vashisht Baths are accompanied by beautiful sandstone temples. The government has made arrangements for separate bathing areas for men and women. The area around the Vashisht Spring is surrounded by hundreds of small shops where you can buy souvenirs and religious merchandise.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/497_20190325225438.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Jogini Waterfall",
+                                "description": "Jogini Waterfall is located in the beautiful Valley of Manali, about 3 kilometres away from the bustling town and around 2 kilometres away from the famous Vashisht Temple. What makes it a popular tourist spot is the trek from Vashisht Temple, through pine trees and orchards, to the mesmerising Jogini Waterfalls cascading from a height of 160 feet. The trekkers are enchanted as they cross several smaller streams with a dazzling view of River Beas and the snow-dusted peaks of Rohtang. A complete treat for nature lovers and adventure seekers, the Jogini Waterfall must be visited when exploring the breathtaking valley of Manali. It takes about 3 hours to climb to the Jogini Waterfall, so make sure to carry a camera to capture the mind stirring beauty of the location. If you want to take a pit stop, there are restaurants on the route serving local snacks with a piping hot cup of Chai. The captivating waterfall is considered as one of the most romantic attractions in Manali, thronged by couples. However, the region is also famous for adventure and recreational activities and is a favourite picnic spot among tourists. Just pack your essentials, wear your trekking gear and get going!",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Jogini_falls_20180430173032.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogni-waterfall-trek-details_20191219101850.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-8_20191219133123.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-10_20191219133352.jpg"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "startTime": "9.00 AM",
+                        "endTime": "12.00 PM",
+                        "activity": [
+                            "Sightseeing",
+                            "Paragliding",
+                            "Kayaking"
+                        ],
+                        "cost": 50,
+                        "area": [
+                            {
+                                "name": "Solang Valley",
+                                "description": "When heading to Manali for a vacation, two absolutely essential destinations in the itinerary are Rohtang and Solang Valley. 14 kilometres to the north west of the main town of Manali, Solang Valley is one of the most popular tourist destinations in Himachal Pradesh. Situated on the way to Rohtang from Manali, every year the valley welcomes tourists in huge numbers. A favourite for adventure enthusiasts, parachuting to paragliding, horse riding to driving mini-open jeeps specially available for tourists of all age groups, Solang Valley has it all. During winters, Solang valley is covered with snow, making skiing is a popular sport here, with training institutes and trainers located in the valley to supervise skiers and train beginners. As the snow melts, skiing is taken over by zorbing. Another popular attraction of Solang valley, taking advantage of the slopes of the valley, you are likely to spot a huge transparent ball with mostly two people inside it rolling down the slope during summers. Yes, Zorbing is as much fun as it looks like. One of the most vibrant and enjoyable places in Manali, there is no way one can possibly miss this amazing valley, while here.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_633164246_20190904103856_20190904103926.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_291.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_352.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/4709.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Hidimba Temple",
+                                "description": "Located amidst the snow-covered hills of Manali, the Hadimba Temple is a unique shrine dedicated to Hidimba Devi, who was the wife of Bhima and mother of Ghatothkach. Surrounded by gorgeous cedar forests, this beautiful shrine is built on a rock which is believed to be in the image of goddess Hidimba herself. Locally known as Dhungari Temple, the construction style of the Hidimba Devi temple is entirely different from that of any of the other temples, with its wooden doorways, walls, and cone-shaped roof. This temple is a fitting dedication to its presiding deity Hadimba.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/attr_1888_20190308172811.jpg",
+                                    "https://www.holidify.com/images/compressed/494.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/640px-Hadimba_temple_manali_20170514151827.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Old Manali",
+                                "description": "Located 6589 feet above sea level and 3 km uphill from Manali, Himachal Pradesh, lies the town of Old Manali, a quiet settlement that lays beneath a valley with a vast coverage of apple orchards. Manali is divided into Old Manali and New Manali by the Manalsu River. Old Manali is led by a bridge over the river. In comparison to New Manali, it is cleaner and less crowded, thereby inducing a lot of travellers to visit this place more often than New Manali. The serenity of Old Manali is perhaps unique. The swaying eucalyptus, gently winding roads, gushing waters of the Kullu river and beautiful hills of this destination make it the perfect natural retreat. Indulge in some delicious continental food at low prices here, and shop for knick-knacks from the local markets here. The sunrise and sunsets here are intoxicating, and you will surely love the energy of this place. Old Manali is most famous for its Hidimba temple. Tucked away in the lap of quiet nature, this destination is the perfect place to experience the pure beauty of Himachal Pradesh.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/1334px-Old_manali_lazy_dog_lounge_20170514152444.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Manali-Himalayas-Malana-Mountaineerz-1143552_20170514152503.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Rohtang Pass",
+                                "description": "Located at a distance of just 51 kilometres from Manali, Rohtang Pass can be reached only by road. The pass is located at a massive height of 3978 metres on Manali- Keylong road. When planning a trip to Manali, a day off to the vista point of Rohtang Pass is the ultimate and almost essential attraction of the itinerary. Owing to its splendid natural beauty, Rohtang Pass is a favourite among the community of film directors. Many blockbusters ranging from 'Jab We Met' to 'Yeh Jawani Hai Deewani' have been shot here. A peculiar fact behind the name of the place is that it was named so because a number of people working in CBRE died whilst trying to cross this treacherous stretch. An experience of the snow can never be complete without a sledge ride, which involves sliding through the snow in a wooden toboggan. Another thrilling activity that can be pursued at Rohtang Pass would be mountain biking where you ride your mountain bikes off the regular course and into the lesser taken routes. It can get a bit rough, so you must take care in case you are planning on pursuing this activity. You can try your hand at skiing and tyre drop at the Rohtang Pass as well, where again you slide down a slope of snow whilst using the appropriate equipment. Gear for all of these activities is available for reasonable rent, so do not miss out on this opportunity.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/490_20190308180742.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_286.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_412.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_966.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1084899533_20191219125919.png",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/DashirLake_20200226155945.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Vashisht Baths",
+                                "description": "Located inside the very famous Vashisht Temple in Manali, Vashisht Baths is a hot water spring, believed to possess medicinal values. Also known as Vashisht Springs, it is visited by a lot of tourists, many of whom take a dip in the holy water to rid themselves of skin diseases and infections. Situated 6 km away from Manali, the Vashisht Baths are accompanied by beautiful sandstone temples. The government has made arrangements for separate bathing areas for men and women. The area around the Vashisht Spring is surrounded by hundreds of small shops where you can buy souvenirs and religious merchandise.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/497_20190325225438.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Jogini Waterfall",
+                                "description": "Jogini Waterfall is located in the beautiful Valley of Manali, about 3 kilometres away from the bustling town and around 2 kilometres away from the famous Vashisht Temple. What makes it a popular tourist spot is the trek from Vashisht Temple, through pine trees and orchards, to the mesmerising Jogini Waterfalls cascading from a height of 160 feet. The trekkers are enchanted as they cross several smaller streams with a dazzling view of River Beas and the snow-dusted peaks of Rohtang. A complete treat for nature lovers and adventure seekers, the Jogini Waterfall must be visited when exploring the breathtaking valley of Manali. It takes about 3 hours to climb to the Jogini Waterfall, so make sure to carry a camera to capture the mind stirring beauty of the location. If you want to take a pit stop, there are restaurants on the route serving local snacks with a piping hot cup of Chai. The captivating waterfall is considered as one of the most romantic attractions in Manali, thronged by couples. However, the region is also famous for adventure and recreational activities and is a favourite picnic spot among tourists. Just pack your essentials, wear your trekking gear and get going!",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Jogini_falls_20180430173032.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogni-waterfall-trek-details_20191219101850.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-8_20191219133123.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-10_20191219133352.jpg"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "startTime": "12.00 AM",
+                        "endTime": "3.00 PM",
+                        "activity": [
+                            "Sightseeing",
+                            "Paragliding",
+                            "Kayaking"
+                        ],
+                        "cost": 50,
+                        "area": [
+                            {
+                                "name": "Solang Valley",
+                                "description": "When heading to Manali for a vacation, two absolutely essential destinations in the itinerary are Rohtang and Solang Valley. 14 kilometres to the north west of the main town of Manali, Solang Valley is one of the most popular tourist destinations in Himachal Pradesh. Situated on the way to Rohtang from Manali, every year the valley welcomes tourists in huge numbers. A favourite for adventure enthusiasts, parachuting to paragliding, horse riding to driving mini-open jeeps specially available for tourists of all age groups, Solang Valley has it all. During winters, Solang valley is covered with snow, making skiing is a popular sport here, with training institutes and trainers located in the valley to supervise skiers and train beginners. As the snow melts, skiing is taken over by zorbing. Another popular attraction of Solang valley, taking advantage of the slopes of the valley, you are likely to spot a huge transparent ball with mostly two people inside it rolling down the slope during summers. Yes, Zorbing is as much fun as it looks like. One of the most vibrant and enjoyable places in Manali, there is no way one can possibly miss this amazing valley, while here.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_633164246_20190904103856_20190904103926.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_291.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_352.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/4709.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Hidimba Temple",
+                                "description": "Located amidst the snow-covered hills of Manali, the Hadimba Temple is a unique shrine dedicated to Hidimba Devi, who was the wife of Bhima and mother of Ghatothkach. Surrounded by gorgeous cedar forests, this beautiful shrine is built on a rock which is believed to be in the image of goddess Hidimba herself. Locally known as Dhungari Temple, the construction style of the Hidimba Devi temple is entirely different from that of any of the other temples, with its wooden doorways, walls, and cone-shaped roof. This temple is a fitting dedication to its presiding deity Hadimba.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/attr_1888_20190308172811.jpg",
+                                    "https://www.holidify.com/images/compressed/494.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/640px-Hadimba_temple_manali_20170514151827.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Old Manali",
+                                "description": "Located 6589 feet above sea level and 3 km uphill from Manali, Himachal Pradesh, lies the town of Old Manali, a quiet settlement that lays beneath a valley with a vast coverage of apple orchards. Manali is divided into Old Manali and New Manali by the Manalsu River. Old Manali is led by a bridge over the river. In comparison to New Manali, it is cleaner and less crowded, thereby inducing a lot of travellers to visit this place more often than New Manali. The serenity of Old Manali is perhaps unique. The swaying eucalyptus, gently winding roads, gushing waters of the Kullu river and beautiful hills of this destination make it the perfect natural retreat. Indulge in some delicious continental food at low prices here, and shop for knick-knacks from the local markets here. The sunrise and sunsets here are intoxicating, and you will surely love the energy of this place. Old Manali is most famous for its Hidimba temple. Tucked away in the lap of quiet nature, this destination is the perfect place to experience the pure beauty of Himachal Pradesh.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/1334px-Old_manali_lazy_dog_lounge_20170514152444.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Manali-Himalayas-Malana-Mountaineerz-1143552_20170514152503.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Rohtang Pass",
+                                "description": "Located at a distance of just 51 kilometres from Manali, Rohtang Pass can be reached only by road. The pass is located at a massive height of 3978 metres on Manali- Keylong road. When planning a trip to Manali, a day off to the vista point of Rohtang Pass is the ultimate and almost essential attraction of the itinerary. Owing to its splendid natural beauty, Rohtang Pass is a favourite among the community of film directors. Many blockbusters ranging from 'Jab We Met' to 'Yeh Jawani Hai Deewani' have been shot here. A peculiar fact behind the name of the place is that it was named so because a number of people working in CBRE died whilst trying to cross this treacherous stretch. An experience of the snow can never be complete without a sledge ride, which involves sliding through the snow in a wooden toboggan. Another thrilling activity that can be pursued at Rohtang Pass would be mountain biking where you ride your mountain bikes off the regular course and into the lesser taken routes. It can get a bit rough, so you must take care in case you are planning on pursuing this activity. You can try your hand at skiing and tyre drop at the Rohtang Pass as well, where again you slide down a slope of snow whilst using the appropriate equipment. Gear for all of these activities is available for reasonable rent, so do not miss out on this opportunity.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/490_20190308180742.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_286.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_412.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_966.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1084899533_20191219125919.png",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/DashirLake_20200226155945.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Vashisht Baths",
+                                "description": "Located inside the very famous Vashisht Temple in Manali, Vashisht Baths is a hot water spring, believed to possess medicinal values. Also known as Vashisht Springs, it is visited by a lot of tourists, many of whom take a dip in the holy water to rid themselves of skin diseases and infections. Situated 6 km away from Manali, the Vashisht Baths are accompanied by beautiful sandstone temples. The government has made arrangements for separate bathing areas for men and women. The area around the Vashisht Spring is surrounded by hundreds of small shops where you can buy souvenirs and religious merchandise.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/497_20190325225438.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Jogini Waterfall",
+                                "description": "Jogini Waterfall is located in the beautiful Valley of Manali, about 3 kilometres away from the bustling town and around 2 kilometres away from the famous Vashisht Temple. What makes it a popular tourist spot is the trek from Vashisht Temple, through pine trees and orchards, to the mesmerising Jogini Waterfalls cascading from a height of 160 feet. The trekkers are enchanted as they cross several smaller streams with a dazzling view of River Beas and the snow-dusted peaks of Rohtang. A complete treat for nature lovers and adventure seekers, the Jogini Waterfall must be visited when exploring the breathtaking valley of Manali. It takes about 3 hours to climb to the Jogini Waterfall, so make sure to carry a camera to capture the mind stirring beauty of the location. If you want to take a pit stop, there are restaurants on the route serving local snacks with a piping hot cup of Chai. The captivating waterfall is considered as one of the most romantic attractions in Manali, thronged by couples. However, the region is also famous for adventure and recreational activities and is a favourite picnic spot among tourists. Just pack your essentials, wear your trekking gear and get going!",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Jogini_falls_20180430173032.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogni-waterfall-trek-details_20191219101850.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-8_20191219133123.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-10_20191219133352.jpg"
+                                ]
+                            }
+                        ]
                     }
                 ]
             },
@@ -150,16 +950,216 @@
                 "transport": "Private Cab",
                 "transportCost": 10,
                 "otherCost": 10,
-                "activity": [
-                    "Sightseeing",
-                    "Paragliding",
-                    "Kayaking"
-                ],
-                "place": [
+                "timePlan": [
                     {
-                        "name": "Delhi",
-                        "description": "Delhi, India’s capital territory, is a massive metropolitan area in the country’s north. In Old Delhi, a neighborhood dating to the 1600s, stands the imposing Mughal-era Red Fort, a symbol of India, and the sprawling Jama Masjid mosque, whose courtyard accommodates 25,000 people. Nearby is Chandni Chowk, a vibrant bazaar filled with food carts, sweets shops and spice stalls.",
-                        "banner": "https://www.airvistara.com/content/dam/airvistara/global/english/plan-travel/destinations/images/delhi-30%20Apr.jpg"
+                        "startTime": "7.00 AM",
+                        "endTime": "9.00 AM",
+                        "activity": [
+                            "Sightseeing",
+                            "Paragliding",
+                            "Kayaking"
+                        ],
+                        "cost": 50,
+                        "area": [
+                            {
+                                "name": "Solang Valley",
+                                "description": "When heading to Manali for a vacation, two absolutely essential destinations in the itinerary are Rohtang and Solang Valley. 14 kilometres to the north west of the main town of Manali, Solang Valley is one of the most popular tourist destinations in Himachal Pradesh. Situated on the way to Rohtang from Manali, every year the valley welcomes tourists in huge numbers. A favourite for adventure enthusiasts, parachuting to paragliding, horse riding to driving mini-open jeeps specially available for tourists of all age groups, Solang Valley has it all. During winters, Solang valley is covered with snow, making skiing is a popular sport here, with training institutes and trainers located in the valley to supervise skiers and train beginners. As the snow melts, skiing is taken over by zorbing. Another popular attraction of Solang valley, taking advantage of the slopes of the valley, you are likely to spot a huge transparent ball with mostly two people inside it rolling down the slope during summers. Yes, Zorbing is as much fun as it looks like. One of the most vibrant and enjoyable places in Manali, there is no way one can possibly miss this amazing valley, while here.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_633164246_20190904103856_20190904103926.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_291.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_352.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/4709.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Hidimba Temple",
+                                "description": "Located amidst the snow-covered hills of Manali, the Hadimba Temple is a unique shrine dedicated to Hidimba Devi, who was the wife of Bhima and mother of Ghatothkach. Surrounded by gorgeous cedar forests, this beautiful shrine is built on a rock which is believed to be in the image of goddess Hidimba herself. Locally known as Dhungari Temple, the construction style of the Hidimba Devi temple is entirely different from that of any of the other temples, with its wooden doorways, walls, and cone-shaped roof. This temple is a fitting dedication to its presiding deity Hadimba.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/attr_1888_20190308172811.jpg",
+                                    "https://www.holidify.com/images/compressed/494.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/640px-Hadimba_temple_manali_20170514151827.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Old Manali",
+                                "description": "Located 6589 feet above sea level and 3 km uphill from Manali, Himachal Pradesh, lies the town of Old Manali, a quiet settlement that lays beneath a valley with a vast coverage of apple orchards. Manali is divided into Old Manali and New Manali by the Manalsu River. Old Manali is led by a bridge over the river. In comparison to New Manali, it is cleaner and less crowded, thereby inducing a lot of travellers to visit this place more often than New Manali. The serenity of Old Manali is perhaps unique. The swaying eucalyptus, gently winding roads, gushing waters of the Kullu river and beautiful hills of this destination make it the perfect natural retreat. Indulge in some delicious continental food at low prices here, and shop for knick-knacks from the local markets here. The sunrise and sunsets here are intoxicating, and you will surely love the energy of this place. Old Manali is most famous for its Hidimba temple. Tucked away in the lap of quiet nature, this destination is the perfect place to experience the pure beauty of Himachal Pradesh.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/1334px-Old_manali_lazy_dog_lounge_20170514152444.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Manali-Himalayas-Malana-Mountaineerz-1143552_20170514152503.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Rohtang Pass",
+                                "description": "Located at a distance of just 51 kilometres from Manali, Rohtang Pass can be reached only by road. The pass is located at a massive height of 3978 metres on Manali- Keylong road. When planning a trip to Manali, a day off to the vista point of Rohtang Pass is the ultimate and almost essential attraction of the itinerary. Owing to its splendid natural beauty, Rohtang Pass is a favourite among the community of film directors. Many blockbusters ranging from 'Jab We Met' to 'Yeh Jawani Hai Deewani' have been shot here. A peculiar fact behind the name of the place is that it was named so because a number of people working in CBRE died whilst trying to cross this treacherous stretch. An experience of the snow can never be complete without a sledge ride, which involves sliding through the snow in a wooden toboggan. Another thrilling activity that can be pursued at Rohtang Pass would be mountain biking where you ride your mountain bikes off the regular course and into the lesser taken routes. It can get a bit rough, so you must take care in case you are planning on pursuing this activity. You can try your hand at skiing and tyre drop at the Rohtang Pass as well, where again you slide down a slope of snow whilst using the appropriate equipment. Gear for all of these activities is available for reasonable rent, so do not miss out on this opportunity.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/490_20190308180742.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_286.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_412.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_966.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1084899533_20191219125919.png",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/DashirLake_20200226155945.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Vashisht Baths",
+                                "description": "Located inside the very famous Vashisht Temple in Manali, Vashisht Baths is a hot water spring, believed to possess medicinal values. Also known as Vashisht Springs, it is visited by a lot of tourists, many of whom take a dip in the holy water to rid themselves of skin diseases and infections. Situated 6 km away from Manali, the Vashisht Baths are accompanied by beautiful sandstone temples. The government has made arrangements for separate bathing areas for men and women. The area around the Vashisht Spring is surrounded by hundreds of small shops where you can buy souvenirs and religious merchandise.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/497_20190325225438.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Jogini Waterfall",
+                                "description": "Jogini Waterfall is located in the beautiful Valley of Manali, about 3 kilometres away from the bustling town and around 2 kilometres away from the famous Vashisht Temple. What makes it a popular tourist spot is the trek from Vashisht Temple, through pine trees and orchards, to the mesmerising Jogini Waterfalls cascading from a height of 160 feet. The trekkers are enchanted as they cross several smaller streams with a dazzling view of River Beas and the snow-dusted peaks of Rohtang. A complete treat for nature lovers and adventure seekers, the Jogini Waterfall must be visited when exploring the breathtaking valley of Manali. It takes about 3 hours to climb to the Jogini Waterfall, so make sure to carry a camera to capture the mind stirring beauty of the location. If you want to take a pit stop, there are restaurants on the route serving local snacks with a piping hot cup of Chai. The captivating waterfall is considered as one of the most romantic attractions in Manali, thronged by couples. However, the region is also famous for adventure and recreational activities and is a favourite picnic spot among tourists. Just pack your essentials, wear your trekking gear and get going!",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Jogini_falls_20180430173032.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogni-waterfall-trek-details_20191219101850.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-8_20191219133123.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-10_20191219133352.jpg"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "startTime": "9.00 AM",
+                        "endTime": "12.00 PM",
+                        "activity": [
+                            "Sightseeing",
+                            "Paragliding",
+                            "Kayaking"
+                        ],
+                        "cost": 50,
+                        "area": [
+                            {
+                                "name": "Solang Valley",
+                                "description": "When heading to Manali for a vacation, two absolutely essential destinations in the itinerary are Rohtang and Solang Valley. 14 kilometres to the north west of the main town of Manali, Solang Valley is one of the most popular tourist destinations in Himachal Pradesh. Situated on the way to Rohtang from Manali, every year the valley welcomes tourists in huge numbers. A favourite for adventure enthusiasts, parachuting to paragliding, horse riding to driving mini-open jeeps specially available for tourists of all age groups, Solang Valley has it all. During winters, Solang valley is covered with snow, making skiing is a popular sport here, with training institutes and trainers located in the valley to supervise skiers and train beginners. As the snow melts, skiing is taken over by zorbing. Another popular attraction of Solang valley, taking advantage of the slopes of the valley, you are likely to spot a huge transparent ball with mostly two people inside it rolling down the slope during summers. Yes, Zorbing is as much fun as it looks like. One of the most vibrant and enjoyable places in Manali, there is no way one can possibly miss this amazing valley, while here.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_633164246_20190904103856_20190904103926.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_291.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_352.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/4709.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Hidimba Temple",
+                                "description": "Located amidst the snow-covered hills of Manali, the Hadimba Temple is a unique shrine dedicated to Hidimba Devi, who was the wife of Bhima and mother of Ghatothkach. Surrounded by gorgeous cedar forests, this beautiful shrine is built on a rock which is believed to be in the image of goddess Hidimba herself. Locally known as Dhungari Temple, the construction style of the Hidimba Devi temple is entirely different from that of any of the other temples, with its wooden doorways, walls, and cone-shaped roof. This temple is a fitting dedication to its presiding deity Hadimba.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/attr_1888_20190308172811.jpg",
+                                    "https://www.holidify.com/images/compressed/494.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/640px-Hadimba_temple_manali_20170514151827.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Old Manali",
+                                "description": "Located 6589 feet above sea level and 3 km uphill from Manali, Himachal Pradesh, lies the town of Old Manali, a quiet settlement that lays beneath a valley with a vast coverage of apple orchards. Manali is divided into Old Manali and New Manali by the Manalsu River. Old Manali is led by a bridge over the river. In comparison to New Manali, it is cleaner and less crowded, thereby inducing a lot of travellers to visit this place more often than New Manali. The serenity of Old Manali is perhaps unique. The swaying eucalyptus, gently winding roads, gushing waters of the Kullu river and beautiful hills of this destination make it the perfect natural retreat. Indulge in some delicious continental food at low prices here, and shop for knick-knacks from the local markets here. The sunrise and sunsets here are intoxicating, and you will surely love the energy of this place. Old Manali is most famous for its Hidimba temple. Tucked away in the lap of quiet nature, this destination is the perfect place to experience the pure beauty of Himachal Pradesh.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/1334px-Old_manali_lazy_dog_lounge_20170514152444.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Manali-Himalayas-Malana-Mountaineerz-1143552_20170514152503.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Rohtang Pass",
+                                "description": "Located at a distance of just 51 kilometres from Manali, Rohtang Pass can be reached only by road. The pass is located at a massive height of 3978 metres on Manali- Keylong road. When planning a trip to Manali, a day off to the vista point of Rohtang Pass is the ultimate and almost essential attraction of the itinerary. Owing to its splendid natural beauty, Rohtang Pass is a favourite among the community of film directors. Many blockbusters ranging from 'Jab We Met' to 'Yeh Jawani Hai Deewani' have been shot here. A peculiar fact behind the name of the place is that it was named so because a number of people working in CBRE died whilst trying to cross this treacherous stretch. An experience of the snow can never be complete without a sledge ride, which involves sliding through the snow in a wooden toboggan. Another thrilling activity that can be pursued at Rohtang Pass would be mountain biking where you ride your mountain bikes off the regular course and into the lesser taken routes. It can get a bit rough, so you must take care in case you are planning on pursuing this activity. You can try your hand at skiing and tyre drop at the Rohtang Pass as well, where again you slide down a slope of snow whilst using the appropriate equipment. Gear for all of these activities is available for reasonable rent, so do not miss out on this opportunity.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/490_20190308180742.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_286.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_412.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_966.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1084899533_20191219125919.png",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/DashirLake_20200226155945.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Vashisht Baths",
+                                "description": "Located inside the very famous Vashisht Temple in Manali, Vashisht Baths is a hot water spring, believed to possess medicinal values. Also known as Vashisht Springs, it is visited by a lot of tourists, many of whom take a dip in the holy water to rid themselves of skin diseases and infections. Situated 6 km away from Manali, the Vashisht Baths are accompanied by beautiful sandstone temples. The government has made arrangements for separate bathing areas for men and women. The area around the Vashisht Spring is surrounded by hundreds of small shops where you can buy souvenirs and religious merchandise.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/497_20190325225438.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Jogini Waterfall",
+                                "description": "Jogini Waterfall is located in the beautiful Valley of Manali, about 3 kilometres away from the bustling town and around 2 kilometres away from the famous Vashisht Temple. What makes it a popular tourist spot is the trek from Vashisht Temple, through pine trees and orchards, to the mesmerising Jogini Waterfalls cascading from a height of 160 feet. The trekkers are enchanted as they cross several smaller streams with a dazzling view of River Beas and the snow-dusted peaks of Rohtang. A complete treat for nature lovers and adventure seekers, the Jogini Waterfall must be visited when exploring the breathtaking valley of Manali. It takes about 3 hours to climb to the Jogini Waterfall, so make sure to carry a camera to capture the mind stirring beauty of the location. If you want to take a pit stop, there are restaurants on the route serving local snacks with a piping hot cup of Chai. The captivating waterfall is considered as one of the most romantic attractions in Manali, thronged by couples. However, the region is also famous for adventure and recreational activities and is a favourite picnic spot among tourists. Just pack your essentials, wear your trekking gear and get going!",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Jogini_falls_20180430173032.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogni-waterfall-trek-details_20191219101850.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-8_20191219133123.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-10_20191219133352.jpg"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "startTime": "12.00 AM",
+                        "endTime": "3.00 PM",
+                        "activity": [
+                            "Sightseeing",
+                            "Paragliding",
+                            "Kayaking"
+                        ],
+                        "cost": 50,
+                        "area": [
+                            {
+                                "name": "Solang Valley",
+                                "description": "When heading to Manali for a vacation, two absolutely essential destinations in the itinerary are Rohtang and Solang Valley. 14 kilometres to the north west of the main town of Manali, Solang Valley is one of the most popular tourist destinations in Himachal Pradesh. Situated on the way to Rohtang from Manali, every year the valley welcomes tourists in huge numbers. A favourite for adventure enthusiasts, parachuting to paragliding, horse riding to driving mini-open jeeps specially available for tourists of all age groups, Solang Valley has it all. During winters, Solang valley is covered with snow, making skiing is a popular sport here, with training institutes and trainers located in the valley to supervise skiers and train beginners. As the snow melts, skiing is taken over by zorbing. Another popular attraction of Solang valley, taking advantage of the slopes of the valley, you are likely to spot a huge transparent ball with mostly two people inside it rolling down the slope during summers. Yes, Zorbing is as much fun as it looks like. One of the most vibrant and enjoyable places in Manali, there is no way one can possibly miss this amazing valley, while here.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_633164246_20190904103856_20190904103926.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_291.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_352.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/4709.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Hidimba Temple",
+                                "description": "Located amidst the snow-covered hills of Manali, the Hadimba Temple is a unique shrine dedicated to Hidimba Devi, who was the wife of Bhima and mother of Ghatothkach. Surrounded by gorgeous cedar forests, this beautiful shrine is built on a rock which is believed to be in the image of goddess Hidimba herself. Locally known as Dhungari Temple, the construction style of the Hidimba Devi temple is entirely different from that of any of the other temples, with its wooden doorways, walls, and cone-shaped roof. This temple is a fitting dedication to its presiding deity Hadimba.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/attr_1888_20190308172811.jpg",
+                                    "https://www.holidify.com/images/compressed/494.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/640px-Hadimba_temple_manali_20170514151827.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Old Manali",
+                                "description": "Located 6589 feet above sea level and 3 km uphill from Manali, Himachal Pradesh, lies the town of Old Manali, a quiet settlement that lays beneath a valley with a vast coverage of apple orchards. Manali is divided into Old Manali and New Manali by the Manalsu River. Old Manali is led by a bridge over the river. In comparison to New Manali, it is cleaner and less crowded, thereby inducing a lot of travellers to visit this place more often than New Manali. The serenity of Old Manali is perhaps unique. The swaying eucalyptus, gently winding roads, gushing waters of the Kullu river and beautiful hills of this destination make it the perfect natural retreat. Indulge in some delicious continental food at low prices here, and shop for knick-knacks from the local markets here. The sunrise and sunsets here are intoxicating, and you will surely love the energy of this place. Old Manali is most famous for its Hidimba temple. Tucked away in the lap of quiet nature, this destination is the perfect place to experience the pure beauty of Himachal Pradesh.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/1334px-Old_manali_lazy_dog_lounge_20170514152444.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Manali-Himalayas-Malana-Mountaineerz-1143552_20170514152503.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/4708_20190501151400.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Rohtang Pass",
+                                "description": "Located at a distance of just 51 kilometres from Manali, Rohtang Pass can be reached only by road. The pass is located at a massive height of 3978 metres on Manali- Keylong road. When planning a trip to Manali, a day off to the vista point of Rohtang Pass is the ultimate and almost essential attraction of the itinerary. Owing to its splendid natural beauty, Rohtang Pass is a favourite among the community of film directors. Many blockbusters ranging from 'Jab We Met' to 'Yeh Jawani Hai Deewani' have been shot here. A peculiar fact behind the name of the place is that it was named so because a number of people working in CBRE died whilst trying to cross this treacherous stretch. An experience of the snow can never be complete without a sledge ride, which involves sliding through the snow in a wooden toboggan. Another thrilling activity that can be pursued at Rohtang Pass would be mountain biking where you ride your mountain bikes off the regular course and into the lesser taken routes. It can get a bit rough, so you must take care in case you are planning on pursuing this activity. You can try your hand at skiing and tyre drop at the Rohtang Pass as well, where again you slide down a slope of snow whilst using the appropriate equipment. Gear for all of these activities is available for reasonable rent, so do not miss out on this opportunity.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/490_20190308180742.jpg",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_286.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_412.jpg?v=1.1",
+                                    "https://www.holidify.com/images/compressed/attractions/attr_966.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1084899533_20191219125919.png",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/DashirLake_20200226155945.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Vashisht Baths",
+                                "description": "Located inside the very famous Vashisht Temple in Manali, Vashisht Baths is a hot water spring, believed to possess medicinal values. Also known as Vashisht Springs, it is visited by a lot of tourists, many of whom take a dip in the holy water to rid themselves of skin diseases and infections. Situated 6 km away from Manali, the Vashisht Baths are accompanied by beautiful sandstone temples. The government has made arrangements for separate bathing areas for men and women. The area around the Vashisht Spring is surrounded by hundreds of small shops where you can buy souvenirs and religious merchandise.",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/497_20190325225438.jpg"
+                                ]
+                            },
+                            {
+                                "name": "Jogini Waterfall",
+                                "description": "Jogini Waterfall is located in the beautiful Valley of Manali, about 3 kilometres away from the bustling town and around 2 kilometres away from the famous Vashisht Temple. What makes it a popular tourist spot is the trek from Vashisht Temple, through pine trees and orchards, to the mesmerising Jogini Waterfalls cascading from a height of 160 feet. The trekkers are enchanted as they cross several smaller streams with a dazzling view of River Beas and the snow-dusted peaks of Rohtang. A complete treat for nature lovers and adventure seekers, the Jogini Waterfall must be visited when exploring the breathtaking valley of Manali. It takes about 3 hours to climb to the Jogini Waterfall, so make sure to carry a camera to capture the mind stirring beauty of the location. If you want to take a pit stop, there are restaurants on the route serving local snacks with a piping hot cup of Chai. The captivating waterfall is considered as one of the most romantic attractions in Manali, thronged by couples. However, the region is also famous for adventure and recreational activities and is a favourite picnic spot among tourists. Just pack your essentials, wear your trekking gear and get going!",
+                                "imageURL": [
+                                    "https://www.holidify.com/images/cmsuploads/compressed/Jogini_falls_20180430173032.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogni-waterfall-trek-details_20191219101850.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-8_20191219133123.jpg",
+                                    "https://www.holidify.com/images/cmsuploads/compressed/jogini-waterfall-trek-details-10_20191219133352.jpg"
+                                ]
+                            }
+                        ]
                     }
                 ]
             }
