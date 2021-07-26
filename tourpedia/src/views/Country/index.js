@@ -12,7 +12,6 @@ const Country = () => {
 
     const fetchData = async () => {
         const data = [];
-        console.log("Pushed");
 
         for (let i = 0; i < countryData.length; i++) {
             data.push(countryData[i]);

@@ -71,7 +71,6 @@ const getManyEvents = (queryMatcher) => {
         };
     }).catch(error => {
         if(error.response && error.response.status <= 500) {
-            console.log(error.response);
             return {
                 status: error.response.status,
                 message: "No Event Found",

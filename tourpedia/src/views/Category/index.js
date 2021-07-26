@@ -12,7 +12,6 @@ const Category = () => {
 
     const fetchData = async () => {
         const data = [];
-        console.log("Pushed");
 
         for (let i = 0; i < categoryData.length; i++) {
             data.push(categoryData[i]);
