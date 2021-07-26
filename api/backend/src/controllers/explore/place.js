@@ -138,10 +138,15 @@ const getAllPlace = async (req, res) => {
 
 const getManyPlacesByFilter = async (req, res) => {
     try {
-        const places = await Place.find({
-            'category._id': {$in: req.query.category},
-            'country._id': {$in: req.query.country},
-        }).populate('country._id').populate('category._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
+        const queryMatcher = {};
+        if (Object.keys(req.query).includes("category") && req.query.category.length > 0) {
+            queryMatcher['category._id'] = {$in: req.query.category};
+        }
+        if (Object.keys(req.query).includes("country") && req.query.country.length > 0) {
+            queryMatcher['country._id'] = {$in: req.query.country};
+        }
+
+        const places = await Place.find(queryMatcher).populate('country._id').populate('category._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
 
         res.status(200).send(places);
     } catch (error) {
