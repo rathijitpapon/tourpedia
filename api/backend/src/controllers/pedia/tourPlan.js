@@ -318,19 +318,18 @@ const getManyTourPlan = async (req, res) => {
         "accomodationQuality",
         "groupOption",
         "accomodationOption",
-        'date',
         "participantLimit",
         "duration",
         'cost',
-        "category",
-        "country",
-        "place",
+        // "category",
+        // "country",
+        // "place",
         "limit",
         "skip",
     ];
 
     try {
-        const isValid = checkValidBody(req.body, fields);
+        const isValid = checkValidBody(req.query, fields);
         if (!isValid) {
             throw new Error("Invalid Fields");
         }
@@ -348,13 +347,13 @@ const getManyTourPlan = async (req, res) => {
             minimuParticipantLimit: { $gte: +req.query.participantLimit[0], $lte: +req.query.participantLimit[1] },
             totalCost: { $gte: +req.query.cost[0], $lte: +req.query.cost[1] },
         };
-        if (req.query.category.length > 0) {
+        if (Object.keys(req.query).includes("category") && req.query.category.length > 0) {
             queryMatcher['category._id'] = {$in: req.query.category};
         }
-        if (req.query.country.length > 0) {
+        if (Object.keys(req.query).includes("country") && req.query.country.length > 0) {
             queryMatcher['country._id'] = {$in: req.query.country};
         }
-        if (req.query.place.length > 0) {
+        if (Object.keys(req.query).includes("place") && req.query.place.length > 0) {
             queryMatcher['place._id'] = {$in: req.query.place};
         }
     

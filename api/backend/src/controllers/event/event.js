@@ -417,20 +417,19 @@ const getManyEvent = async (req, res) => {
         "childAllowed",
         "physicalRating",
         "accomodationOption",
-        'date',
         "participantLimit",
         "duration",
         "age",
         'cost',
-        "category",
-        "country",
-        "place",
+        // "category",
+        // "country",
+        // "place",
         "limit",
         "skip",
     ];
 
     try {
-        const isValid = checkValidBody(req.body, fields);
+        const isValid = checkValidBody(req.query, fields);
         if (!isValid) {
             throw new Error("Invalid Fields");
         }
@@ -446,21 +445,23 @@ const getManyEvent = async (req, res) => {
             'inclusion': {$in: req.query.inclusion},
             'physicalRating': {$in: req.query.physicalRating},
             'accomodationOption': {$in: req.query.accomodationOption},
-            'childAllowed': req.query.childAllowed,
             minimumAge: { $gte: +req.query.age[0], $lte: +req.query.age[1] },
             maximumAge: { $gte: +req.query.age[0], $lte: +req.query.age[1] },
             duration: { $gte: +req.query.duration[0], $lte: +req.query.duration[1] },
             participantLimit: { $gte: +req.query.participantLimit[0], $lte: +req.query.participantLimit[1] },
             totalCost: { $gte: +req.query.cost[0], $lte: +req.query.cost[1] },
         };
-        if (req.query.category.length > 0) {
+        if (Object.keys(req.query).includes("category") && req.query.category.length > 0) {
             queryMatcher['category._id'] = {$in: req.query.category};
         }
-        if (req.query.country.length > 0) {
+        if (Object.keys(req.query).includes("country") && req.query.country.length > 0) {
             queryMatcher['country._id'] = {$in: req.query.country};
         }
-        if (req.query.place.length > 0) {
+        if (Object.keys(req.query).includes("place") && req.query.place.length > 0) {
             queryMatcher['place._id'] = {$in: req.query.place};
+        }
+        if (req.query.childAllowed === 'true') {
+            queryMatcher['childAllowed'] = true;
         }
     
         const events = await Event.find(queryMatcher).sort(options).skip(+req.query.skip).limit(+req.query.limit).populate("travelAgency._id").populate("category._id").populate("place._id").populate("guide._id").populate("country._id").populate({
