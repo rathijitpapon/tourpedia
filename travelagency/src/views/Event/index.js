@@ -127,7 +127,7 @@ const Event = () => {
                                 <td>{event.duration}</td>
                                 <td>{event.enrolledUser.length}</td>
                                 <td>{event.isApproved ? "Approved" : "Pending"}</td>
-                                <td>{event.isBaned ? "Banned" : "Not Banned"}</td>
+                                <td>{event.isBanned ? "Banned" : "Not Banned"}</td>
                                 <td hidden={isGuide}>
                                     <Link to={"/event/edit/" + event._id}>
                                         <button 
