@@ -340,17 +340,25 @@ const getManyTourPlan = async (req, res) => {
             totalCost: +req.query.costSort,
             duration: +req.query.durationSort,
         }
-    
-        const tourPlans = await TourPlan.find({
-            'category._id': {$in: req.query.category},
-            'country._id': {$in: req.query.country},
-            'place._id': {$in: req.query.place},
+
+        const queryMatcher = {
             'groupOption': {$in: req.query.groupOption},
             'accomodationOption': {$in: req.query.accomodationOption},
             duration: { $gte: +req.query.duration[0], $lte: +req.query.duration[1] },
             minimuParticipantLimit: { $gte: +req.query.participantLimit[0], $lte: +req.query.participantLimit[1] },
             totalCost: { $gte: +req.query.cost[0], $lte: +req.query.cost[1] },
-        }).sort(options).skip(+req.query.skip).limit(+req.query.limit).populate("travelAgency._id").populate("category._id").populate("place._id").populate("guide._id").populate("country._id").populate({
+        };
+        if (req.query.category.length > 0) {
+            queryMatcher['category._id'] = {$in: req.query.category};
+        }
+        if (req.query.country.length > 0) {
+            queryMatcher['country._id'] = {$in: req.query.country};
+        }
+        if (req.query.place.length > 0) {
+            queryMatcher['place._id'] = {$in: req.query.place};
+        }
+    
+        const tourPlans = await TourPlan.find().sort(options).skip(+req.query.skip).limit(+req.query.limit).populate("travelAgency._id").populate("category._id").populate("place._id").populate("guide._id").populate("country._id").populate({
             path: "dayPlan._id",
             match: {
                 date: { $gte: new Date(req.query.date[0]), $lte: new Date(req.query.date[1]) },
