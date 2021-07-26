@@ -112,7 +112,20 @@ const getProfile = async (req, res) => {
     try {
         const travelAgency = await TravelAgency.findOne({
             username: req.params.username,
-        }).populate('event._id').populate('guide._id').populate('category._id').exec();
+        }).populate({
+            path: "event._id",
+            populate: [
+                {
+                    path: "category._id",
+                },
+                {
+                    path: "country._id",
+                },
+                {
+                    path: "place._id",
+                }
+            ]
+        }).populate('guide._id').populate('category._id').exec();
 
         if (!travelAgency) {
             throw new Error("");
@@ -296,6 +309,23 @@ const getAllProfile = async (req, res) => {
     }
 };
 
+const getManyProfileByFiltering = async (req, res) => {
+    try {
+        const queryMatcher = {};
+        if (Object.keys(req.query).includes("category") && req.query.category.length > 0) {
+            queryMatcher['category._id'] = {$in: req.query.category};
+        }
+
+        const travelagencies = await TravelAgency.find(queryMatcher).populate('category._id');
+
+        res.status(200).send(travelagencies);
+    } catch (error) {
+        res.status(404).send({
+            message: "Profile isn't found.",
+        });
+    }
+};
+
 const travelAgencyController = {
     signup,
     signin,
@@ -308,6 +338,7 @@ const travelAgencyController = {
     forgetPassword,
     changeBannedStatus,
     getAllProfile,
+    getManyProfileByFiltering,
 };
 
 module.exports = travelAgencyController;

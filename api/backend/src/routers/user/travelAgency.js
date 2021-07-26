@@ -27,4 +27,6 @@ travelAgencyRouter.post("/ban/update", adminAuth, travelAgencyController.changeB
 
 travelAgencyRouter.get("/all", adminAuth, travelAgencyController.getAllProfile);
 
+travelAgencyRouter.get("/many", travelAgencyController.getManyProfileByFiltering);
+
 module.exports = travelAgencyRouter;
