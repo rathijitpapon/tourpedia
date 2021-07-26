@@ -1,0 +1,13 @@
+.event-main-container {
+    padding: 3%;
+    min-height: 100vh;
+}
+
+.event-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: Ubuntu Mono;
+    text-align: center;
+    color: #020c44;
+}
