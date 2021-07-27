@@ -9,7 +9,7 @@ const BlogCard = (props) => {
 
     return ( 
         <Link
-            to={"/blog/" + blog.title + '-' + blog.id}
+            to={"/blog/" + blog._id}
             className="blog-card-main"
         >
             <Image
