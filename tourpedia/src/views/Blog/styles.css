@@ -64,6 +64,19 @@
     border-radius: 5px;
 }
 
+.blog-no-blog {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Ubuntu Mono;
+    text-align: center;
+    margin-top: 50px;
+    color: rgb(26, 2, 92);
+}
+
+.loading-height {
+    min-height: 100vh;
+}
+
 @media (max-width: 780px) {
     .blog-top-icon {
         visibility: hidden;

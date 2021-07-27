@@ -3,13 +3,16 @@ import {Image, Carousel} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import {GrNext, GrPrevious} from 'react-icons/gr';
 import Select from 'react-select';
+import ClipLoader from "react-spinners/ClipLoader";
+import LoadingOverlay from 'react-loading-overlay';
+import { toast } from 'react-toastify';
 
 import BlogCard from "../../components/BlogCard";
 import LayoutWrapper from "../../layouts/LayoutWrapper";
 import "./styles.css";
 
-import blogData from "../../assets/dummyData/blog.json";
-import countryData from "../../assets/dummyData/country.json";
+import exploreService from '../../services/exploreService';
+import blogService from "../../services/blogService";
 
 const customStyles = {
     control: base => ({
@@ -23,6 +26,9 @@ const customStyles = {
 };
 
 const Blog = () => {
+
+    const [loading, setLoading] = useState(false);
+    const color = "#ffffff";
 
     const [blogs, setBlogs] = useState([]);
     const options = [
@@ -38,42 +44,106 @@ const Blog = () => {
         setSearchValue(val);
     }
 
-    const handleSortOptionChange = (newValue, actionMeta) => {
+    const handleSortOptionChange = async (newValue, actionMeta) => {
         setSortOption(newValue);
+        const dateOption = sortOption.value === 'Latest' ? -1 : 1;
+        const upvoteOption = sortOption.value === 'Most Popular' ? -1 : 1;
+        await getBlogs(
+            [],
+            (countryOption.id === "-1" ? [] : [countryOption.id]),
+            dateOption,
+            upvoteOption,
+        );
     };
 
-    const handleCountryOptionChange = (newValue, actionMeta) => {
+    const handleCountryOptionChange = async (newValue, actionMeta) => {
         setCountryOption(newValue);
+        const dateOption = sortOption.value === 'Latest' ? -1 : 1;
+        const upvoteOption = sortOption.value === 'Most Popular' ? -1 : 1;
+        await getBlogs(
+            [],
+            (newValue.id === "-1" ? [] : [newValue.id]),
+            dateOption,
+            upvoteOption,
+        );
+    }
+
+    const getBlogs = async (category, country, date, upvote) => {
+        setLoading(true);
+        const data = await blogService.getManyBlogs(category, country, date, upvote);
+
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+        setBlogs(data.data);
+        setLoading(false);
     }
 
     const fetchData = async () => {
-        let data = [
-            { value: 'All Country', label: 'All Country' }
+        let formattedData = [
+            { value: 'All Country', label: 'All Country', id: "-1" }
         ];
-        for (const value of countryData) {
-            data.push({
-                value: value.name,
-                label: value.name
+
+        setLoading(true);
+
+        let data = await exploreService.getAllExplore("country");
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+        data = data.data;
+        for (const coun of data) {
+            formattedData.push({
+                value: coun.name,
+                label: coun.name,
+                name: coun.name,
+                description: coun.description,
+                banner: coun.banner,
+                id: coun._id,
             });
         }
-        setCountry(data);
-        setCountryOption(data[0]);
+        setCountry(formattedData);
+        setCountryOption(formattedData[0]);
 
-        data = [];
-        for (let i = 0; i < 10; i++) {
-            data = [...data, ...blogData];
-        }
-        setBlogs(data);
+        await getBlogs([], [], 1, 1);
+        setLoading(false);
     }
 
     useEffect(() => {
         window.scrollTo(0, 0);
         fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return ( 
         <LayoutWrapper>
-            <div className="blog-top-carousel">
+            <LoadingOverlay
+                active={loading}
+                spinner={
+                    <ClipLoader color={color} loading={loading} size={50} />
+                }
+                className="loading-height"
+            >
+            <div className="blog-top-carousel" hidden={blogs.length === 0}>
             <Carousel fade prevIcon={<GrPrevious className="blog-top-icon"/>} nextIcon={<GrNext className="blog-top-icon"/>}>
                 {
                     blogs.map((blog, index) => (
@@ -81,7 +151,7 @@ const Blog = () => {
                             interval={5000} 
                             key={index}
                         >
-                            <Link to={"/blog/" + blog.title + '-' + blog.id}>
+                            <Link to={"/blog/" + blog._id}>
                                 <Image
                                     className="blog-top-image"
                                     src={blog.imageURL[0]}
@@ -140,7 +210,10 @@ const Blog = () => {
                 }
             </div>
 
+            <div className="blog-no-blog">No Blogs Found</div>
+
             <br /><br />
+            </LoadingOverlay>
         </LayoutWrapper>
      );
 }
