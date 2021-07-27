@@ -219,6 +219,8 @@ const EditPedia = (props) => {
                 return;
             }
         }
+
+        setLoading(true);
         
         const imageData = [];
         for (const file of images) {
@@ -234,6 +236,7 @@ const EditPedia = (props) => {
                         draggable: true,
                         progress: undefined,
                     });
+                    setLoading(false);
                     return;
                 }
                 imageData.push(data.data.secure_url);
@@ -267,6 +270,7 @@ const EditPedia = (props) => {
                         draggable: true,
                         progress: undefined,
                     });
+                    setLoading(false);
                     return;
                 }
                 temp.imageURL = [data.data.secure_url];
@@ -298,6 +302,7 @@ const EditPedia = (props) => {
                         draggable: true,
                         progress: undefined,
                     });
+                    setLoading(false);
                     return;
                 }
                 temp.imageURL = [data.data.secure_url];
@@ -320,6 +325,7 @@ const EditPedia = (props) => {
                     draggable: true,
                     progress: undefined,
                 });
+                setLoading(false);
                 return;
             }
             history.push('/pedia');
@@ -338,8 +344,10 @@ const EditPedia = (props) => {
                 draggable: true,
                 progress: undefined,
             });
+            setLoading(false);
             return;
         }
+        setLoading(false);
         history.push('/pedia');
     }
 
@@ -357,6 +365,7 @@ const EditPedia = (props) => {
                 draggable: true,
                 progress: undefined,
             });
+            setLoading(false);
             return;
         }
         data = data.data;
