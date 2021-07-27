@@ -1,21 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import Carousel from "react-multi-carousel";
 import {Image} from 'react-bootstrap';
+import ClipLoader from "react-spinners/ClipLoader";
+import LoadingOverlay from 'react-loading-overlay';
 
 import PlaceCard from '../../components/PlaceCard';
 import TravelAgencyCard from '../../components/TravelAgencyCard';
 import BlogCard from '../../components/BlogCard';
 import EventCard from '../../components/EventCard';
+import TourPlanCard from "../../components/TourPlanCard";
 import LayoutWrapper from "../../layouts/LayoutWrapper";
 
 import "react-multi-carousel/lib/styles.css";
 import "./styles.css";
 
-import categoryData from "../../assets/dummyData/category.json";
-import placeData from "../../assets/dummyData/place.json";
-import eventData from "../../assets/dummyData/event.json";
-import travelAgencyData from "../../assets/dummyData/travelagency.json";
-import blogData from "../../assets/dummyData/blog.json";
+import exploreService from "../../services/exploreService";
 
 const responsive = {
     desktop: {
@@ -39,6 +38,9 @@ const responsive = {
 const CategoryDetails = (props) => {
     const param = props.match.params.categoryName ? props.match.params.categoryName : "";
 
+    const [loading, setLoading] = useState(false);
+    const color = "#ffffff";
+
     const [isFound, setIsFound] = useState(true);
     const [category, setCategory] = useState(param);
     const [description, setDescription] = useState("");
@@ -48,35 +50,52 @@ const CategoryDetails = (props) => {
     const [blogs, setBlogs] = useState([]);
     const [events, setEvents] = useState([]);
     const [travelagencies, setTravelagencies] = useState([]);
+    const [tourplans, setTourplans] = useState([]);
 
     const fetchData = async () => {
+        setLoading(true);
+        let data = await exploreService.getExploreByName(param, 'category');
+        if (data.status >= 300) {
+            setIsFound(false);
+        } else {
+            setIsFound(true);
 
-        let valid = false;
-
-        for (const ctg of categoryData) {
-            if (param && param.toLowerCase() === ctg.name.toLowerCase()) {
-                valid = true;
-                setCategory(ctg.name);
-                setDescription(ctg.description);
-                setBanner(ctg.banner);
+            let formattedData = [];
+            for (let i = 0; i < data.data.place.length; i++) {
+                formattedData.push(data.data.place[i]._id);
             }
-        }
-        setIsFound(valid);
+            setPlaces(formattedData);
 
-        setPlaces(placeData);
-        setTravelagencies(travelAgencyData);
+            formattedData = [];
+            for (let i = 0; i < data.data.blog.length; i++)  {
+                formattedData.push(data.data.blog[i]._id);
+            }
+            setBlogs(formattedData);
 
-        let data = [];
-        for (let i = 0; i < 10; i++) {
-            data.push(eventData[0]);
-        }
-        setEvents(data);
+            formattedData = [];
+            for (let i = 0; i < data.data.event.length; i++)  {
+                formattedData.push(data.data.event[i]._id);
+            }
+            setEvents(formattedData);
 
-        data = [];
-        for (let i = 0; i < 10; i++) {
-            data = [...data, ...blogData];
+            formattedData = [];
+            for (let i = 0; i < data.data.travelAgency.length; i++)  {
+                formattedData.push(data.data.travelAgency[i]._id);
+            }
+            setTravelagencies(formattedData);
+
+            formattedData = [];
+            for (let i = 0; i < data.data.tourPlan.length; i++)  {
+                formattedData.push(data.data.tourPlan[i]._id);
+            }
+            setTourplans(formattedData);
+
+            setCategory(data.data.name);
+            setDescription(data.data.description);
+            setBanner(data.data.banner);
         }
-        setBlogs(data);
+
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -87,6 +106,13 @@ const CategoryDetails = (props) => {
 
     return ( 
         <LayoutWrapper>
+            <LoadingOverlay
+                active={loading}
+                spinner={
+                    <ClipLoader color={color} loading={loading} size={50} />
+                }
+                className="loading-height"
+            >
             {
                 isFound ? (
                 <>
@@ -117,7 +143,9 @@ const CategoryDetails = (props) => {
                 </div>
                 <br />
 
-                <div className="category-details-section-title">
+                <div
+                    hidden={places.length === 0}
+                    className="category-details-section-title">
                     Popular Places For {category ? category : ""}
                 </div>
                 <Carousel
@@ -135,7 +163,9 @@ const CategoryDetails = (props) => {
 
                 <br />
 
-                <div className="category-details-section-title">
+                <div
+                    hidden={events.length === 0} 
+                    className="category-details-section-title">
                     Top Tour Events For {category ? category : ""}
                 </div>
                 <Carousel
@@ -151,9 +181,29 @@ const CategoryDetails = (props) => {
                 }
                 </Carousel>
 
+                <div
+                    hidden={tourplans.length === 0}   
+                    className="country-details-section-title">
+                    Top Tour Plans For {category ? category : ""}
+                </div>
+                <Carousel
+                    responsive={responsive}
+                >
+                {
+                    tourplans.map((event, index) => (
+                        <TourPlanCard 
+                            key={index}
+                            event={event}
+                        />
+                    ))
+                }
+                </Carousel>
+
                 <br />
 
-                <div className="category-details-section-title">
+                <div
+                    hidden={travelagencies.length === 0}  
+                    className="category-details-section-title">
                     Travel Agencies
                 </div>
                 <Carousel
@@ -171,7 +221,9 @@ const CategoryDetails = (props) => {
 
                 <br />
 
-                <div className="category-details-section-title">
+                <div 
+                    hidden={blogs.length === 0}  
+                    className="category-details-section-title">
                     Popular Blogs About {category ? category : ""}
                 </div>
                 <Carousel
@@ -201,6 +253,7 @@ const CategoryDetails = (props) => {
                     No Such Category Found
                 </div>
             )}
+            </LoadingOverlay>
         </LayoutWrapper>
      );
 }
