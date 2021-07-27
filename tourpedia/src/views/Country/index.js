@@ -1,22 +1,41 @@
 import React, {useState, useEffect} from 'react';
+import ClipLoader from "react-spinners/ClipLoader";
+import LoadingOverlay from 'react-loading-overlay';
+import { toast } from 'react-toastify';
 
 import CountryCard from '../../components/CountryCard';
 import LayoutWrapper from "../../layouts/LayoutWrapper";
 import "./styles.css";
 
-import countryData from "../../assets/dummyData/country.json";
+import exploreService from '../../services/exploreService';
 
 const Country = () => {
 
-    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const color = "#ffffff";
+
+    const [countries, setCountries] = useState([]);
 
     const fetchData = async () => {
-        const data = [];
+        setLoading(true);
 
-        for (let i = 0; i < countryData.length; i++) {
-            data.push(countryData[i]);
+        let data = await exploreService.getAllExplore("country");
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
         }
-        setCategories(data);
+        data = data.data;
+        setCountries(data);
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -26,6 +45,13 @@ const Country = () => {
 
     return ( 
         <LayoutWrapper>
+            <LoadingOverlay
+                active={loading}
+                spinner={
+                    <ClipLoader color={color} loading={loading} size={50} />
+                }
+                className="loading-height"
+            >
             <div className="country-title">
                 Countries To Visit
             </div>
@@ -34,7 +60,7 @@ const Country = () => {
 
             <div className="row">
                 {
-                    categories.map((country, index) => (
+                    countries.map((country, index) => (
                         <div
                             key={index}
                             className="col-md-4 col-12"
@@ -49,7 +75,7 @@ const Country = () => {
             </div>
 
             <br />
-            
+            </LoadingOverlay>
         </LayoutWrapper>
      );
 }
