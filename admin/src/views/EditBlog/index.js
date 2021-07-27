@@ -92,6 +92,8 @@ const EditBlog = (props) => {
             });
             return;
         }
+
+        setLoading(true);
         
         const imageData = [];
         for (const file of images) {
@@ -107,6 +109,7 @@ const EditBlog = (props) => {
                         draggable: true,
                         progress: undefined,
                     });
+                    setLoading(false);
                     return;
                 }
                 imageData.push(data.data.secure_url);
@@ -128,6 +131,7 @@ const EditBlog = (props) => {
                     draggable: true,
                     progress: undefined,
                 });
+                setLoading(false);
                 return;
             }
             history.push('/blog');
@@ -155,8 +159,10 @@ const EditBlog = (props) => {
                 draggable: true,
                 progress: undefined,
             });
+            setLoading(false);
             return;
         }
+        setLoading(false);
         history.push('/blog');
     }
 
@@ -190,6 +196,7 @@ const EditBlog = (props) => {
                 draggable: true,
                 progress: undefined,
             });
+            setLoading(false);
             return;
         }
         data = data.data;
@@ -216,6 +223,7 @@ const EditBlog = (props) => {
                 draggable: true,
                 progress: undefined,
             });
+            setLoading(false);
             return;
         }
         data = data.data;
