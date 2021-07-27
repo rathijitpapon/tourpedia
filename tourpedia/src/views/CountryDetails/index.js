@@ -1,18 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import Carousel from "react-multi-carousel";
 import {Image} from 'react-bootstrap';
+import ClipLoader from "react-spinners/ClipLoader";
+import LoadingOverlay from 'react-loading-overlay';
 
 import PlaceCard from '../../components/PlaceCard';
-import TravelAgencyCard from '../../components/TravelAgencyCard';
+import BlogCard from '../../components/BlogCard';
 import EventCard from '../../components/EventCard';
+import TourPlanCard from "../../components/TourPlanCard";
 import LayoutWrapper from "../../layouts/LayoutWrapper";
 
 import "react-multi-carousel/lib/styles.css";
 import "./styles.css";
 
-import countryData from "../../assets/dummyData/country.json";
-import eventData from "../../assets/dummyData/event.json";
-import travelAgencyData from "../../assets/dummyData/travelagency.json";
+import exploreService from "../../services/exploreService";
 
 const responsive = {
     desktop: {
@@ -36,6 +37,9 @@ const responsive = {
 const CountryDetails = (props) => {
     const param = props.match.params.countryName ? props.match.params.countryName : "";
 
+    const [loading, setLoading] = useState(false);
+    const color = "#ffffff";
+
     const [isFound, setIsFound] = useState(true);
     const [country, setCountry] = useState(param);
     const [description, setDescription] = useState("");
@@ -43,32 +47,47 @@ const CountryDetails = (props) => {
 
     const [places, setPlaces] = useState([]);
     const [events, setEvents] = useState([]);
-    const [travelagencies, setTravelagencies] = useState([]);
+    const [blogs, setBlogs] = useState([]);
+    const [tourplans, setTourplans] = useState([]);
 
     const fetchData = async () => {
+        setLoading(true);
+        let data = await exploreService.getExploreByName(param, 'country');
+        if (data.status >= 300) {
+            setIsFound(false);
+        } else {
+            setIsFound(true);
 
-        let valid = false;
-        let data = [];
-
-        for (const ctg of countryData) {
-            if (param && param.toLowerCase() === ctg.name.toLowerCase()) {
-                valid = true;
-                setCountry(ctg.name);
-                setDescription(ctg.description);
-                setBanner(ctg.banner);
-                data = [...data, ...ctg.place];
+            let formattedData = [];
+            for (let i = 0; i < data.data.place.length; i++) {
+                formattedData.push(data.data.place[i]._id);
             }
-        }
-        setIsFound(valid);
-        setPlaces(data);
+            setPlaces(formattedData);
 
-        setTravelagencies(travelAgencyData);
+            formattedData = [];
+            for (let i = 0; i < data.data.blog.length; i++)  {
+                formattedData.push(data.data.blog[i]._id);
+            }
+            setBlogs(formattedData);
 
-        data = [];
-        for (let i = 0; i < 10; i++) {
-            data.push(eventData[0]);
+            formattedData = [];
+            for (let i = 0; i < data.data.event.length; i++)  {
+                formattedData.push(data.data.event[i]._id);
+            }
+            setEvents(formattedData);
+
+            formattedData = [];
+            for (let i = 0; i < data.data.tourPlan.length; i++)  {
+                formattedData.push(data.data.tourPlan[i]._id);
+            }
+            setTourplans(formattedData);
+
+            setCountry(data.data.name);
+            setDescription(data.data.description);
+            setBanner(data.data.banner);
         }
-        setEvents(data);
+
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -79,6 +98,13 @@ const CountryDetails = (props) => {
 
     return ( 
         <LayoutWrapper>
+            <LoadingOverlay
+                active={loading}
+                spinner={
+                    <ClipLoader color={color} loading={loading} size={50} />
+                }
+                className="loading-height"
+            >
             {
                 isFound ? (
                 <>
@@ -109,7 +135,9 @@ const CountryDetails = (props) => {
                 </div>
                 <br />
 
-                <div className="country-details-section-title">
+                <div 
+                    hidden={places.length === 0}  
+                    className="country-details-section-title">
                     Popular Places of {country ? country : ""}
                 </div>
                 <Carousel
@@ -127,7 +155,9 @@ const CountryDetails = (props) => {
 
                 <br />
 
-                <div className="country-details-section-title">
+                <div
+                    hidden={events.length === 0}   
+                    className="country-details-section-title">
                     Top Tour Events Happening in {country ? country : ""}
                 </div>
                 <Carousel
@@ -143,20 +173,43 @@ const CountryDetails = (props) => {
                 }
                 </Carousel>
 
-                <br />
-
-                <div className="country-details-section-title">
-                    Travel Agencies
+                <div
+                    hidden={tourplans.length === 0}   
+                    className="country-details-section-title">
+                    Top Tour Plans of {country ? country : ""}
                 </div>
                 <Carousel
                     responsive={responsive}
                 >
                 {
-                    travelagencies.map((travelagency, index) => (
-                        <TravelAgencyCard 
+                    tourplans.map((event, index) => (
+                        <TourPlanCard 
                             key={index}
-                            travelagency={travelagency}
+                            event={event}
                         />
+                    ))
+                }
+                </Carousel>
+
+                <br />
+
+                <div 
+                    hidden={blogs.length === 0}  
+                    className="category-details-section-title">
+                    Popular Blogs of {country ? country : ""}
+                </div>
+                <Carousel
+                    responsive={responsive}
+                >
+                {
+                    blogs.map((blog, index) => (
+                        <div
+                            key={index}
+                        >
+                            <BlogCard 
+                                blog={blog}
+                            />
+                        </div>
                     ))
                 }
                 </Carousel>
@@ -174,6 +227,7 @@ const CountryDetails = (props) => {
                     No Such Country Found
                 </div>
             )}
+            </LoadingOverlay>
         </LayoutWrapper>
      );
 }
