@@ -79,7 +79,7 @@ const getCategoryByName = async (req, res) => {
 
         const category = await Category.findOne({
             name: body.name
-        }).populate('place._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
+        }).populate('place._id').populate('blog._id').populate('tourPlan._id').populate('event._id').populate('travelAgency._id').exec();
         if (!category) {
             throw new Error("Category Not Found");
         }
@@ -94,7 +94,7 @@ const getCategoryByName = async (req, res) => {
 
 const getAllCategory = async (req, res) => {
     try {
-        const categories = await Category.find().populate('place._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
+        const categories = await Category.find().populate('place._id').populate('blog._id').populate('tourPlan._id').populate('event._id').populate('travelAgency._id').exec();
 
         res.status(200).send(categories);
     } catch (error) {
