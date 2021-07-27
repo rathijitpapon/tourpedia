@@ -31,6 +31,7 @@ const Blog = () => {
     const color = "#ffffff";
 
     const [blogs, setBlogs] = useState([]);
+    const [filteredBlogs, setFilteredBlogs] = useState([]);
     const options = [
         { value: 'Most Popular', label: 'Most Popular' },
         { value: 'Latest' , label: 'Latest'},
@@ -40,8 +41,15 @@ const Blog = () => {
     const [country, setCountry] = useState([]);
     const [searchValue, setSearchValue] = useState("");
 
-    const handleSearch = (val) => {
+    const handleSearch = (val, blogData) => {
         setSearchValue(val);
+        const data = [];
+        for (const blog of blogData) {
+            if (blog.title.toLowerCase().indexOf(val.toLowerCase()) !== -1) {
+                data.push(blog);
+            }
+        }
+        setFilteredBlogs(data);
     }
 
     const handleSortOptionChange = async (newValue, actionMeta) => {
@@ -86,6 +94,7 @@ const Blog = () => {
             return;
         }
         setBlogs(data.data);
+        handleSearch(searchValue, data.data);
         setLoading(false);
     }
 
@@ -191,7 +200,7 @@ const Blog = () => {
                         placeholder="Search..."
                         className="blog-search-container"
                         value={searchValue}
-                        onChange={(e) => handleSearch(e.target.value)}
+                        onChange={(e) => handleSearch(e.target.value, blogs)}
                     />
                 </div>
             </div>
@@ -200,7 +209,7 @@ const Blog = () => {
 
             <div className="row">
                 {
-                    blogs.map((blog, index) => (
+                    filteredBlogs.map((blog, index) => (
                         <div className="col-lg-4 col-md-6 col-12" key={index}>
                             <BlogCard
                                 blog={blog}
