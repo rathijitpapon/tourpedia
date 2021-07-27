@@ -190,10 +190,10 @@ const CategoryDetails = (props) => {
                     responsive={responsive}
                 >
                 {
-                    tourplans.map((event, index) => (
+                    tourplans.map((tourplan, index) => (
                         <TourPlanCard 
                             key={index}
-                            event={event}
+                            tourplan={tourplan}
                         />
                     ))
                 }
