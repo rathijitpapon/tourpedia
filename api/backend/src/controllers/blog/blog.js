@@ -141,10 +141,15 @@ const getManyBlog = async (req, res) => {
             date: +req.query.date,
         }
 
-        const blogs = await Blog.find({
-            'category._id': {$in: req.query.category},
-            'country._id': {$in: req.query.country},
-        }).sort(options).skip(+req.query.skip).limit(+req.query.limit).populate('country._id').populate('category._id').populate('place._id').exec();
+        const queryMatcher = {};
+        if (Object.keys(req.query).includes("category") && req.query.category.length > 0) {
+            queryMatcher['category._id'] = {$in: req.query.category};
+        }
+        if (Object.keys(req.query).includes("country") && req.query.country.length > 0) {
+            queryMatcher['country._id'] = {$in: req.query.country};
+        }
+
+        const blogs = await Blog.find(queryMatcher).sort(options).skip(+req.query.skip).limit(+req.query.limit).populate('country._id').populate('category._id').populate('place._id').exec();
 
         res.status(200).send(blogs);
     } catch (error) {
