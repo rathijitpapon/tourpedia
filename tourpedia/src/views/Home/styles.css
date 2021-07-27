@@ -82,9 +82,17 @@
     }
 }
 
-@media (max-width: 765px) {
+@media (max-width: 768px) {
     .home-header-search-options {
         flex-direction: column;
+    }
+
+    .home-header-plan-button {
+        width: 210px;
+    }
+    
+    .home-section-title {
+        margin-top: 100px;
     }
 }
 
@@ -92,6 +100,16 @@
     .home-header-title {
         left: 30%;
         right: 30%;
+    }
+}
+
+@media (max-width: 780px) {
+    .home-header-plan-button {
+        width: 210px;
+    }
+    
+    .home-section-title {
+        margin-top: 100px;
     }
 }
 
