@@ -3,6 +3,8 @@ import {Image} from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import {toast} from 'react-toastify';
 import Select from 'react-select';
+import ClipLoader from "react-spinners/ClipLoader";
+import LoadingOverlay from 'react-loading-overlay'
 
 import EventLongCard from "../../components/EventLongCard";
 import TourPlanLongCard from "../../components/TourPlanLongCard";
@@ -12,9 +14,6 @@ import "./styles.css";
 
 import userAuthService from "../../services/userAuthService";
 import fileService from "../../services/fileService";
-
-import eventData from "../../assets/dummyData/event.json";
-import tourplanData from "../../assets/dummyData/tourplan.json";
 
 const customStyles = {
     control: base => ({
@@ -36,12 +35,13 @@ const Profile = (props) => {
     const username = props.match.params.username;
     const history = useHistory();
 
-    const [isFetched, setIsFetched] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const color = "#ffffff";
+
     const [fullname, setFullname] = useState('');
     const [profileImage, setProfileImage] = useState('');
     const [isBanned, setIsBanned] = useState(false);
     const [about, setAbout] = useState('');
-    const [hasUser, setHasUser] = useState(false);
 
     const [tourplans, setTourplans] = useState([]);
     const [savedEvents, setSavedEvents] = useState([]);
@@ -77,10 +77,10 @@ const Profile = (props) => {
                 progress: undefined,
             });
         }
+        setLoading(true);
         const data = await userAuthService.getProfile(username);
 
         if (data.status >= 300) {
-            setHasUser(false);
             history.push("/");
             toast.error("User Profile is Private", {
                 position: "top-right",
@@ -91,24 +91,39 @@ const Profile = (props) => {
                 draggable: true,
                 progress: undefined,
             });
+            setLoading(false);
+            return;
         }
-        else {
-            setAbout(data.user.about);
-            setProfileImage(data.user.profileImage);
-            setFullname(data.user.fullname);
 
-            setCurFullname(data.user.fullname);
-            setCurProfileImage(data.user.profileImage);
-            setCurAbout(data.user.about);
+        setAbout(data.user.about);
+        setProfileImage(data.user.profileImage);
+        setFullname(data.user.fullname);
 
-            setIsBanned(data.user.isBanned);
-            setIsFetched(true);
-            setHasUser(true);
+        setCurFullname(data.user.fullname);
+        setCurProfileImage(data.user.profileImage);
+        setCurAbout(data.user.about);
 
-            setTourplans(tourplanData);
-            setEnrolledEvents(eventData);
-            setSavedEvents(eventData);
+        setIsBanned(data.user.isBanned);
+
+        let formattedData = [];
+        for (let i = 0; i < data.user.savedEvent.length; i++) {
+            formattedData.push(data.user.savedEvent[i]._id);
         }
+        setSavedEvents(formattedData);
+
+        formattedData = [];
+        for (let i = 0; i < data.user.enrolledEvent.length; i++) {
+            formattedData.push(data.user.enrolledEvent[i]._id);
+        }
+        setEnrolledEvents(formattedData);
+
+        formattedData = [];
+        for (let i = 0; i < data.user.savedTourPlan.length; i++) {
+            formattedData.push(data.user.savedTourPlan[i]._id);
+        }
+        setTourplans(formattedData);
+
+        setLoading(false);
     }
 
     const handleCancelEdit = () => {
@@ -178,167 +193,158 @@ const Profile = (props) => {
 
     return ( 
         <LayoutWrapper>
-            {
-                isFetched ? (
-                    <React.Fragment>
+            <LoadingOverlay
+                active={loading}
+                spinner={
+                    <ClipLoader color={color} loading={loading} size={50} />
+                }
+                className="loading-height"
+            >
+            <div className="profile-main-wrapper">
+                <div className="profile-main-container">
                     {
-                        hasUser ? (
-                            <div className="profile-main-wrapper">
-                            {
-                                !isBanned ? (
-                                    <div className="profile-main-container">
-                                        {
-                                            !isEdit ? (
-                                                <>
-                                                    <Image className="profile-image-container" src={profileImage} roundedCircle />
-                                                    <div>
-                                                        <div 
-                                                            className="profile-fullname-container"
-                                                        >{fullname}</div>
-                                                        <div 
-                                                            className="profile-about-container"
-                                                        >{about}</div>
-                                                        <br />
-                                                        <div style={{textAlign: "center",}}>
-                                                        <button
-                                                            style={{
-                                                                width: '150px',
-                                                            }}
-                                                            className="btn btn-primary profile-button"
-                                                            onClick={() => setIsEdit(true)}
-                                                        >Edit Profile</button></div>
-                                                    </div>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <div>
-                                                    <Image className="profile-image-container" src={(curProfileImage !== profileImage) ? URL.createObjectURL(curProfileImage) : curProfileImage} roundedCircle />
-                                                    <div>
-                                                        <input 
-                                                            type="file"
-                                                            onChange={(e) => {
-                                                                if (e.target.files[0]) {
-                                                                    setCurProfileImage(e.target.files[0])
-                                                                }
-                                                            }}
-                                                            placeholder="Report File"
-                                                            accept=".png, .jpg, .jpeg, .gif"
-                                                            style={{
-                                                                textAlign: 'center',
-                                                                display: 'block',
-                                                                marginLeft: 'auto',
-                                                                marginRight: 'auto',
-                                                                margin: "20px auto",
-                                                            }}
-                                                        />
-                                                    </div>
-                                                    </div>
-                                                    <div>
-                                                        <div>
-                                                        <input 
-                                                            className="profile-edit-name"
-                                                            type="text"
-                                                            value={curFullname}
-                                                            onChange={(e) => setCurFullname(e.target.value)}
-                                                        />
-                                                        </div>
-                                                        <div>
-                                                        <textarea
-                                                            className="profile-edit-about"
-                                                            type="text"
-                                                            value={curAbout}
-                                                            onChange={(e) => setCurAbout(e.target.value)}
-                                                        />
-                                                        </div>
-                                                        <div
-                                                            style={{
-                                                                textAlign: "center",
-                                                            }}
-                                                        >
-                                                        <button
-                                                            style={{
-                                                                marginRight: '10px'
-                                                            }} 
-                                                            className="btn btn-secondary profile-button"
-                                                            onClick={handleCancelEdit}
-                                                        >Cancel</button>
-                                                        <button 
-                                                            className="btn btn-primary profile-button"
-                                                            onClick={handleSaveProfile}
-                                                        >Save</button>
-                                                        </div>
-                                                    </div>
-                                                </>
-                                            )
-                                        }
-                                    </div>
-                                ) : (
-                                    <div className="profile-fullname-container" style={{ textAlign: 'center' }}>This user is banned</div>
-                                )
-                            }
-                            </div>
+                        !isEdit ? (
+                            <>
+                                <Image className="profile-image-container" src={profileImage} roundedCircle />
+                                <div>
+                                    <div 
+                                        className="profile-fullname-container"
+                                    >{fullname}</div>
+                                    <div 
+                                        className="profile-about-container"
+                                    >{about}</div>
+                                    <br />
+                                    <div style={{textAlign: "center",}}>
+                                    <button
+                                        style={{
+                                            width: '150px',
+                                        }}
+                                        className="btn btn-primary profile-button"
+                                        onClick={() => setIsEdit(true)}
+                                    >Edit Profile</button></div>
+                                </div>
+                            </>
                         ) : (
-                            <div className="profile-fullname-container" style={{ textAlign: 'center' }}>No user exists with this username</div>
+                            <>
+                                <div>
+                                <Image className="profile-image-container" src={(curProfileImage !== profileImage) ? URL.createObjectURL(curProfileImage) : curProfileImage} roundedCircle />
+                                <div>
+                                    <input 
+                                        type="file"
+                                        onChange={(e) => {
+                                            if (e.target.files[0]) {
+                                                setCurProfileImage(e.target.files[0])
+                                            }
+                                        }}
+                                        placeholder="Report File"
+                                        accept=".png, .jpg, .jpeg, .gif"
+                                        style={{
+                                            textAlign: 'center',
+                                            display: 'block',
+                                            marginLeft: 'auto',
+                                            marginRight: 'auto',
+                                            margin: "20px auto",
+                                        }}
+                                    />
+                                </div>
+                                </div>
+                                <div>
+                                    <div>
+                                    <input 
+                                        className="profile-edit-name"
+                                        type="text"
+                                        value={curFullname}
+                                        onChange={(e) => setCurFullname(e.target.value)}
+                                    />
+                                    </div>
+                                    <div>
+                                    <textarea
+                                        className="profile-edit-about"
+                                        type="text"
+                                        value={curAbout}
+                                        onChange={(e) => setCurAbout(e.target.value)}
+                                    />
+                                    </div>
+                                    <div
+                                        style={{
+                                            textAlign: "center",
+                                        }}
+                                    >
+                                    <button
+                                        style={{
+                                            marginRight: '10px'
+                                        }} 
+                                        className="btn btn-secondary profile-button"
+                                        onClick={handleCancelEdit}
+                                    >Cancel</button>
+                                    <button 
+                                        className="btn btn-primary profile-button"
+                                        onClick={handleSaveProfile}
+                                    >Save</button>
+                                    </div>
+                                </div>
+                            </>
                         )
                     }
+                </div>
 
-                    <br /><br />
-                    <div className="row">
-                        <div className="col-md-6 col-12 profile-my-items">
-                            My Items
-                        </div>
-                        <div style={{
-                                display: 'block',
-                                marginLeft: 'auto',
-                                marginRight: 'auto',
-                        }}>
-                            <Select
-                                styles={customStyles}
-                                className="col-md-6 col-12 profile-sort-container"
-                                onChange={handleSortOptionChange}
-                                options={options}
-                                value={sortOption}
-                            />
-                        </div>
+                <br /><br />
+                <div className="row">
+                    <div className="col-md-6 col-12 profile-my-items">
+                        My Items
                     </div>
-                    
-                    <br />
+                    <div style={{
+                            display: 'block',
+                            marginLeft: 'auto',
+                            marginRight: 'auto',
+                    }}>
+                        <Select
+                            styles={customStyles}
+                            className="col-md-6 col-12 profile-sort-container"
+                            onChange={handleSortOptionChange}
+                            options={options}
+                            value={sortOption}
+                        />
+                    </div>
+                </div>
+                
+                <br />
 
-                    {
-                        sortOption.value  === "Enrolled Events" ? (
-                            enrolledEvents.map((event, index) => (
-                                <EventLongCard
-                                    key={index}
-                                    event={event}
-                                />
-                            ))
-                        ) : null
-                    }
+                {
+                    sortOption.value  === "Enrolled Events" ? (
+                        enrolledEvents.map((event, index) => (
+                            <EventLongCard
+                                key={index}
+                                event={event}
+                            />
+                        ))
+                    ) : null
+                }
 
-                    {
-                        sortOption.value  === "Saved Events" ? (
-                            savedEvents.map((event, index) => (
-                                <EventLongCard
-                                    key={index}
-                                    event={event}
-                                />
-                            ))
-                        ) : null
-                    }
+                {
+                    sortOption.value  === "Saved Events" ? (
+                        savedEvents.map((event, index) => (
+                            <EventLongCard
+                                key={index}
+                                event={event}
+                            />
+                        ))
+                    ) : null
+                }
 
-                    {
-                        sortOption.value === "Saved Tour Plans" ? (
-                            tourplans.map((tourplan, index) => (
-                                <TourPlanLongCard
-                                    key={index}
-                                    tourplan={tourplan}
-                                />
-                            ))
-                        ) : null
-                    }  
-                    </React.Fragment>
-                ) : null
-            }
+                {
+                    sortOption.value === "Saved Tour Plans" ? (
+                        tourplans.map((tourplan, index) => (
+                            <TourPlanLongCard
+                                key={index}
+                                tourplan={tourplan}
+                            />
+                        ))
+                    ) : null
+                }
+                <div hidden={!isBanned} className="profile-fullname-container" style={{ textAlign: 'center' }}>This user is banned</div>
+            </div>
+            </LoadingOverlay>
         </LayoutWrapper>
      );
 }
