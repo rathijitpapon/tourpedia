@@ -111,7 +111,85 @@ const getProfile = async (req, res) => {
     try {
         const user = await User.findOne({
             username: req.params.username,
-        }).populate('savedPedia._id').populate('savedBlog._id').populate('upvotedBlog._id').populate('downvotedBlog._id').populate('savedEvent._id').populate('enrolledEvent._id').exec();
+        }).populate('savedPedia._id').populate('savedBlog._id').populate('upvotedBlog._id').populate('downvotedBlog._id').populate({
+            path: 'savedTourPlan._id',
+            populate: [
+                {
+                    path: 'place._id',
+                },
+                {
+                    path: 'category._id',
+                },
+                {
+                    path: 'country._id',
+                },
+                {
+                    path: "dayPlan._id",
+                    populate: {
+                        path: "timePlan._id",
+                        populate: {
+                            path: "area._id",
+                        }
+                    }
+                }
+            ],
+        }).populate({
+            path: 'savedEvent._id',
+            populate: [
+                {
+                    path: 'place._id',
+                },
+                {
+                    path: 'category._id',
+                },
+                {
+                    path: 'country._id',
+                },
+                {
+                    path: 'guide._id',
+                },
+                {
+                    path: 'travelAgency._id',
+                },
+                {
+                    path: "dayPlan._id",
+                    populate: {
+                        path: "timePlan._id",
+                        populate: {
+                            path: "area._id",
+                        }
+                    }
+                }
+            ],
+        }).populate({
+            path: 'enrolledEvent._id',
+            populate: [
+                {
+                    path: 'place._id',
+                },
+                {
+                    path: 'category._id',
+                },
+                {
+                    path: 'country._id',
+                },
+                {
+                    path: 'guide._id',
+                },
+                {
+                    path: 'travelAgency._id',
+                },
+                {
+                    path: "dayPlan._id",
+                    populate: {
+                        path: "timePlan._id",
+                        populate: {
+                            path: "area._id",
+                        }
+                    }
+                }
+            ],
+        }).exec();
 
         if (!user) {
             throw new Error("");
