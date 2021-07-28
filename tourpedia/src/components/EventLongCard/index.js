@@ -11,6 +11,7 @@ const EventLongCard = (props) => {
         <div
             className="event-long-card-main"
         >
+            <div className="event-long-card-main-child">
             <Link
                 to={"/event/" + event.travelAgency._id.username + "/" + event._id}
             >
@@ -96,6 +97,8 @@ const EventLongCard = (props) => {
                     </tbody>
                 </table>
             </div>
+            </div>
+            <div className="event-long-card-side-parent">
             <div className="event-long-card-side-main">
                 <div className="event-long-card-side-first">
                     <div className="event-long-card-side-text">
@@ -115,6 +118,7 @@ const EventLongCard = (props) => {
                         <button className="btn btn-secondary event-long-card-button">Save</button>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
      );

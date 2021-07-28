@@ -1,11 +1,17 @@
 .tour-plan-long-card-main {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     /* box-shadow: -10px 10px 10px -10px rgba(6, 2, 43, 0.2); */
     box-sizing: border-box;
     box-shadow: 0px 6px 8px 1px rgba(6,2,43,0.2);
     margin-bottom: 30px;
+}
+
+.tour-plan-long-card-main-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 .tour-plan-long-card-main:hover {
@@ -48,6 +54,12 @@
 
 .tour-plan-long-card-table th {
     padding-right: 30px;
+}
+
+.tour-plan-long-card-side-parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .tour-plan-long-card-side-main {

@@ -341,6 +341,8 @@ const Home = () => {
                     </div>
                 </div>
 
+                <div className="home-header-section-bottom" />
+
                 <br /><br />
 
                 <div

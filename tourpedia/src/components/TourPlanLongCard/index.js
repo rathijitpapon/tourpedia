@@ -11,6 +11,7 @@ const TourPlanLongCard = (props) => {
         <div
             className="tour-plan-long-card-main"
         >
+            <div className="tour-plan-long-card-main-child">
             <Link
                 to={"/tourplan/" + tourplan._id}
             >
@@ -88,6 +89,8 @@ const TourPlanLongCard = (props) => {
                     </tbody>
                 </table>
             </div>
+            </div>
+            <div className="tour-plan-long-card-side-parent">
             <div className="tour-plan-long-card-side-main">
                 <div className="tour-plan-long-card-side-first">
                     <div className="tour-plan-long-card-side-text">
@@ -104,6 +107,7 @@ const TourPlanLongCard = (props) => {
                         <button className="btn btn-secondary tour-plan-long-card-button">Download Plan</button>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
      );
