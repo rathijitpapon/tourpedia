@@ -116,15 +116,30 @@ const getProfile = async (req, res) => {
             path: "event._id",
             populate: [
                 {
-                    path: "category._id",
+                    path: 'place._id',
                 },
                 {
-                    path: "country._id",
+                    path: 'category._id',
                 },
                 {
-                    path: "place._id",
+                    path: 'country._id',
+                },
+                {
+                    path: 'guide._id',
+                },
+                {
+                    path: 'travelAgency._id',
+                },
+                {
+                    path: "dayPlan._id",
+                    populate: {
+                        path: "timePlan._id",
+                        populate: {
+                            path: "area._id",
+                        }
+                    }
                 }
-            ]
+            ],
         }).populate('guide._id').populate('category._id').exec();
 
         if (!travelAgency) {
