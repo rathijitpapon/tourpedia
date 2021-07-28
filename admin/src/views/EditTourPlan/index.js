@@ -252,8 +252,10 @@ const EditTourPlan = (props) => {
         tourPlan.agreementFileURL = "";
 
         tourPlan.dayPlan = [];
-        const date = new Date(startDate);
+        let dateId = 0;
         for (const day of dayPlanData) {
+            const date = new Date(startDate);
+            date.setDate(date.getDate() + dateId);
             const imageData = [];
             for (const file of day.images) {
                 if (!file.isURL) {
@@ -321,7 +323,7 @@ const EditTourPlan = (props) => {
                 imageURL: imageData,
                 timePlan: timePlanData,
             });
-            date.setDate(date.getDate() + 1);
+            dateId++;
         }
 
         if (tourPlanId.toLowerCase() !== 'new') {
