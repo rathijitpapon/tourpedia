@@ -3,6 +3,7 @@ import Select from 'react-select';
 import {ImCross} from 'react-icons/im';
 import {BsArrowLeft} from 'react-icons/bs';
 import { Range } from 'rc-slider';
+import { toast } from 'react-toastify';
 
 import TourPlanLongCard from "../../components/TourPlanLongCard";
 
@@ -10,9 +11,8 @@ import 'rc-slider/assets/index.css';
 import "./styles.css";
 
 import fixedFilters from "../../assets/fixedFilters.json";
-import categoryData from "../../assets/dummyData/category.json";
-import countryData from "../../assets/dummyData/country.json";
-import tourplanData from "../../assets/dummyData/tourplan.json";
+import exploreService from "../../services/exploreService";
+import tourplanService from "../../services/tourplanService";
 
 const customStyles = {
     control: base => ({
@@ -32,7 +32,6 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 const PlanMyHoliday = (props) => {
 
     const handlePlanModal = props.handlePlanModal;
-
     const dateRange = [];
     let timestamps = new Date();
     for (let i = 0; i < 24; i++) {
@@ -105,15 +104,6 @@ const PlanMyHoliday = (props) => {
         setTourStyle(data);
 
         data = [];
-        for (const item of categoryData) {
-            data.push({
-                value: item.name,
-                isSelected: false,
-            });
-        }
-        setCategory(data);
-
-        data = [];
         for (const item of fixedFilters.accomodationOption) {
             data.push({
                 value: item,
@@ -139,15 +129,16 @@ const PlanMyHoliday = (props) => {
             if (data.name === newValue.value) {
                 for (const placeData of data.place) {
                     placeOptions.push({
-                        value: placeData.name,
-                        label: placeData.name
-                    })
+                        value: placeData._id.name,
+                        label: placeData._id.name,
+                        id: placeData._id._id,
+                    });
                 }
                 break;
             }
         }
         setPlace(placeOptions);
-        setPlaceOption([placeOptions[0]]);
+        setPlaceOption(placeOptions[0]);
     }
 
     const handlePlaceOptionChange = (newValue, action) => {
@@ -155,40 +146,144 @@ const PlanMyHoliday = (props) => {
     }
 
     const handleFetchTourplans = async () => {
-        const data = [];
-        for (let i = 0; i < 10; i++) {
-            data.push(tourplanData[0]);
+
+        const countryData = countryOption.id === "-1" ? [] : [countryOption.id];
+        const categoryData = [];
+        for (const ctg of category) {
+            if (ctg.isSelected) {
+                categoryData.push(ctg.id); 
+            }
         }
+        const placeData = [];
+        for (const plc of placeOption) {
+            placeData.push(plc.id);
+        }
+
+        let tourStyleData = [];
+        for (const tst of tourStyle) {
+            if (tst.isSelected) {
+                tourStyleData.push(tst.value);
+            }
+        }
+        if (tourStyleData.length === 0) {
+            tourStyleData = fixedFilters.tourStyle;
+        }
+
+        let accomationData = [];
+        for (const acc of accomodation) {
+            if (acc.isSelected) {
+                accomationData.push(acc.value);
+            }
+        }
+        if (accomationData.length === 0) {
+            accomationData = fixedFilters.accomodationOption;
+        }
+
+        const queryMatcher = {
+            durationSort: duration,
+            costSort: 1,
+            participantSort: 1,
+            date: [new Date(minDateOption.value), new Date(maxDateOption.value)],
+            roomSize: [1, 100],
+            accomodationQuality: [1, 100],
+            groupOption: tourStyleData,
+            inclusion: fixedFilters.inclusion,
+            childAllowed: false,
+            physicalRating: fixedFilters.physicalRating,
+            accomodationOption: accomationData,
+            participantLimit: [1, 100000000],
+            duration: [1, 100000000],
+            age: [1, 1000],
+            cost: cost,
+            category: categoryData,
+            country: countryData,
+            place: placeData,
+            limit: 10000000000,
+            skip: 0,
+        };
+
+        let data = await tourplanService.getManyTourPlans(queryMatcher);
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            
+            return;
+        }
+        data = data.data;
+        
         setTourplans(data);
     }
 
     const fetchData = async () => {
         loadData();
-        setAllCountryPlaceData(countryData);
+        
 
-        const countryOptions = [];
-        const placeOptions = [];
-        let index = 0;
-        for (const data of countryData) {
-            countryOptions.push({
-                value: data.name,
-                label: data.name
+        let data = await exploreService.getAllExplore("country");
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
             });
-            if (index === 0) {
-                for (const place of data.place) {
-                    placeOptions.push({
-                        value: place.name,
-                        label: place.name
-                    });
-                }
-            }
-            index++;
+            
+            return;
         }
-        setCountry(countryOptions);
-        setCountryOption(countryOptions[0]);
+        data = data.data;
+        setAllCountryPlaceData(data);
 
-        setPlace(placeOptions);
-        setPlaceOption([placeOptions[0]]);
+        let formattedData = [
+            {
+                value: 'All Country',
+                label: 'All Country',
+                id: "-1",
+            }
+        ];
+        for (const country of data) {
+            formattedData.push({
+                value: country.name,
+                label: country.name,
+                id: country._id,
+            });
+        }
+        setCountry(formattedData);
+        setCountryOption(formattedData[0]);
+
+        data = await exploreService.getAllExplore("category");
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            
+            return;
+        }
+        data = data.data;
+        formattedData = [];
+        for (const ctg of data) {
+            formattedData.push({
+                value: ctg.name,
+                label: ctg.name,
+                id: ctg._id,
+                isSelected: false,
+            });
+        }
+        setCategory(formattedData);
     }
 
     useEffect(() => {
