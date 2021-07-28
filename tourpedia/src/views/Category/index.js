@@ -63,7 +63,7 @@ const Category = () => {
                     categories.map((category, index) => (
                         <div
                             key={index}
-                            className="col-md-4 col-12"
+                            className="col-md-4 col-12 all-small-card-height"
                         >
                             <CategoryCard 
                                 category={category}

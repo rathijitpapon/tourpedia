@@ -75,6 +75,10 @@
     margin-bottom: 15px;
 }
 
+.all-small-card-height {
+    height: 100%;
+}
+
 @media (max-width: 1000px) {
     .home-header-title {
         left: 35%;

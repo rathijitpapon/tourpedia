@@ -205,6 +205,7 @@ const CountryDetails = (props) => {
                     blogs.map((blog, index) => (
                         <div
                             key={index}
+                            className="all-small-card-height"
                         >
                             <BlogCard 
                                 blog={blog}

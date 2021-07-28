@@ -63,7 +63,7 @@ const Country = () => {
                     countries.map((country, index) => (
                         <div
                             key={index}
-                            className="col-md-4 col-12"
+                            className="col-md-4 col-12 all-small-card-height"
                         >
                             <CountryCard 
                                 country={country}

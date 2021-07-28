@@ -355,6 +355,7 @@ const Home = () => {
                     events.map((event, index) => (
                         <div
                             key={index}
+                            className="all-small-card-height"
                         >
                             <EventCard 
                                 event={event}    
@@ -378,6 +379,7 @@ const Home = () => {
                     tourplans.map((tourplan, index) => (
                         <div
                             key={index}
+                            className="all-small-card-height"
                         >
                             <TourPlanLongCard 
                                 tourplan={tourplan}    
@@ -401,6 +403,7 @@ const Home = () => {
                     places.map((place, index) => (
                         <div
                             key={index}
+                            className="all-small-card-height"
                         >
                             <PlaceCard 
                                 place={place}
@@ -424,6 +427,7 @@ const Home = () => {
                     categories.map((category, index) => (
                         <div
                             key={index}
+                            className="all-small-card-height"
                         >
                             <CategoryCard 
                                 category={category}
@@ -447,6 +451,7 @@ const Home = () => {
                     countries.map((country, index) => (
                         <div
                             key={index}
+                            className="all-small-card-height"
                         >
                             <CountryCard 
                                 country={country}
@@ -470,6 +475,7 @@ const Home = () => {
                     travelagencies.map((travelagency, index) => (
                         <div
                             key={index}
+                            className="all-small-card-height"
                         >
                             <TravelAgencyCard 
                                 travelagency={travelagency}
@@ -493,6 +499,7 @@ const Home = () => {
                     blogs.map((blog, index) => (
                         <div
                             key={index}
+                            className="all-small-card-height"
                         >
                             <BlogCard 
                                 blog={blog}
