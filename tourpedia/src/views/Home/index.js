@@ -4,10 +4,12 @@ import Select from 'react-select';
 import {Modal, Fade, Backdrop} from '@material-ui/core';
 import Carousel from "react-multi-carousel";
 import {useHistory} from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import PlaceCard from '../../components/PlaceCard';
 import CountryCard from '../../components/CountryCard';
 import TravelAgencyCard from '../../components/TravelAgencyCard';
+import TourPlanLongCard from '../../components/TourPlanCard';
 import EventCard from '../../components/EventCard';
 import CategoryCard from '../../components/CategoryCard';
 import BlogCard from '../../components/BlogCard';
@@ -16,12 +18,13 @@ import LayoutWrapper from "../../layouts/LayoutWrapper";
 
 import "./styles.css";
 
-import placeData from "../../assets/dummyData/place.json";
-import categoryData from "../../assets/dummyData/category.json";
-import eventData from "../../assets/dummyData/event.json";
-import travelAgencyData from "../../assets/dummyData/travelagency.json";
-import countryData from "../../assets/dummyData/country.json";
-import blogData from "../../assets/dummyData/blog.json";
+import fixedFilters from "../../assets/fixedFilters.json";
+
+import exploreService from "../../services/exploreService";
+import blogService from "../../services/blogService";
+import travelagencyService from "../../services/travelagencyService";
+import eventService from "../../services/eventService";
+import tourplanService from "../../services/tourplanService";
 
 const responsive = {
     desktop: {
@@ -83,6 +86,7 @@ const Home = () => {
     const [countries, setCountries] = useState([]);
     const [places, setPlaces] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [tourplans, setTourplans] = useState([]);
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -111,28 +115,156 @@ const Home = () => {
     const backgroundImage = "https://www.planetware.com/wpimages/2019/12/nepal-in-pictures-beautiful-places-to-photograph-annapurna-range.jpg";
 
     const fetchData = async () => {
-        let data = [];
 
-        for (let i = 0; i < countryData.length; i++) {
-            data.push({
-                value: countryData[i].name,
-                label: countryData[i].name,
+        let data = await exploreService.getAllExplore("country");
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return;
+        }
+        data = data.data;
+        setCountries(data);
+
+        const formattedData = [{
+            value: "All Country",
+            label: "All Country",
+            id: "-1"
+        }];
+        for (const country of data) {
+            formattedData.push({
+                value: country.name,
+                label: country.name,
+                id: country._id,
             });
         }
-        setCountryOptions(data);
-        setCountryOption(data[0]);
+        setCountryOptions(formattedData);
+        setCountryOption(formattedData[0]);
 
-        setPlaces(placeData);
-        setCountries(countryData);
-        setTravelagencies(travelAgencyData);
-        setEvents(eventData);
-        setCategories(categoryData);
-
-        data = [];
-        for (let i = 0; i < 10; i++) {
-            data = [...data, ...blogData];
+        data = await exploreService.getAllExplore("category");
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return;
         }
-        setBlogs(data);
+        data = data.data;
+        setCategories(data);
+
+        data = await exploreService.getAllExplore("place");
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return;
+        }
+        data = data.data;
+        setPlaces(data);
+
+        data = await travelagencyService.getManyTravelAgency([]);
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return;
+        }
+        data = data.data;
+        setTravelagencies(data);
+
+        const queryMatcher = {
+            durationSort: 1,
+            costSort: 1,
+            participantSort: 1,
+            date: [new Date('2000-01-01'), new Date('2100-01-01')],
+            roomSize: [1, 100],
+            accomodationQuality: [1, 100],
+            groupOption: fixedFilters.tourStyle,
+            inclusion: fixedFilters.inclusion,
+            childAllowed: false,
+            physicalRating: fixedFilters.physicalRating,
+            accomodationOption: fixedFilters.accomodationOption,
+            participantLimit: [1, 100000000],
+            duration: [1, 100000000],
+            age: [1, 1000],
+            cost: [1, 10000000000000],
+            category: [],
+            country: [],
+            place: [],
+            limit: 10000000000,
+            skip: 0,
+        };
+
+        data = await eventService.getManyEvents(queryMatcher);
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return;
+        }
+        data = data.data;
+        setEvents(data);
+
+        data = await tourplanService.getManyTourPlans(queryMatcher);
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return;
+        }
+        data = data.data;
+        setTourplans(data);
+
+        data = await blogService.getManyBlogs([], [], -1, -1);
+
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return;
+        }
+        setBlogs(data.data);
     }
 
     useEffect(() => {
@@ -209,8 +341,10 @@ const Home = () => {
                 </div>
 
                 <br /><br />
-                
-                <div className="home-section-title">
+
+                <div
+                    hidden={events.length === 0}
+                    className="home-section-title">
                     Top Events
                 </div>
                 <Carousel
@@ -231,7 +365,32 @@ const Home = () => {
 
                 <br />
 
-                <div className="home-section-title">
+                <div
+                    hidden={tourplans.length === 0}
+                    className="home-section-title">
+                    Top Tour Plans
+                </div>
+                <Carousel
+                    responsive={responsive}
+                >
+                {
+                    tourplans.map((tourplan, index) => (
+                        <div
+                            key={index}
+                        >
+                            <TourPlanLongCard 
+                                tourplan={tourplan}    
+                            />
+                        </div>
+                    ))
+                }
+                </Carousel>
+
+                <br />
+
+                <div
+                    hidden={places.length === 0}
+                    className="home-section-title">
                     Places To Visit
                 </div>
                 <Carousel
@@ -252,7 +411,9 @@ const Home = () => {
 
                 <br />
 
-                <div className="home-section-title">
+                <div
+                    hidden={categories.length === 0} 
+                    className="home-section-title">
                     Tour Categories
                 </div>
                 <Carousel
@@ -273,7 +434,9 @@ const Home = () => {
 
                 <br />
 
-                <div className="home-section-title">
+                <div
+                    hidden={countries.length === 0} 
+                    className="home-section-title">
                     Countries To Visit
                 </div>
                 <Carousel
@@ -294,7 +457,9 @@ const Home = () => {
 
                 <br />
 
-                <div className="home-section-title">
+                <div
+                    hidden={travelagencies.length === 0} 
+                    className="home-section-title">
                     Well Known Travel Agencies
                 </div>
                 <Carousel
@@ -315,7 +480,9 @@ const Home = () => {
 
                 <br />
 
-                <div className="home-section-title">
+                <div
+                    hidden={blogs.length === 0} 
+                    className="home-section-title">
                     Recent Tour Blogs
                 </div>
                 <Carousel
