@@ -357,7 +357,7 @@ const getManyTourPlan = async (req, res) => {
             queryMatcher['place._id'] = {$in: req.query.place};
         }
     
-        const tourPlans = await TourPlan.find().sort(options).skip(+req.query.skip).limit(+req.query.limit).populate("travelAgency._id").populate("category._id").populate("place._id").populate("guide._id").populate("country._id").populate({
+        const tourPlans = await TourPlan.find().sort(options).skip(+req.query.skip).limit(+req.query.limit).populate("category._id").populate("place._id").populate("country._id").populate({
             path: "dayPlan._id",
             match: {
                 date: { $gte: new Date(req.query.date[0]), $lte: new Date(req.query.date[1]) },
