@@ -111,7 +111,57 @@ const getPlaceByName = async (req, res) => {
 
         const place = await Place.findOne({
             name: body.name
-        }).populate('country._id').populate('category._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
+        }).populate('country._id').populate('category._id').populate('blog._id').populate({
+            path: 'tourPlan._id',
+            populate: [
+                {
+                    path: 'place._id',
+                },
+                {
+                    path: 'category._id',
+                },
+                {
+                    path: 'country._id',
+                },
+                {
+                    path: "dayPlan._id",
+                    populate: {
+                        path: "timePlan._id",
+                        populate: {
+                            path: "area._id",
+                        }
+                    }
+                }
+            ],
+        }).populate({
+            path: 'event._id',
+            populate: [
+                {
+                    path: 'place._id',
+                },
+                {
+                    path: 'category._id',
+                },
+                {
+                    path: 'country._id',
+                },
+                {
+                    path: 'guide._id',
+                },
+                {
+                    path: 'travelAgency._id',
+                },
+                {
+                    path: "dayPlan._id",
+                    populate: {
+                        path: "timePlan._id",
+                        populate: {
+                            path: "area._id",
+                        }
+                    }
+                }
+            ],
+        }).exec();
         if (!place) {
             throw new Error("Place Not Found");
         }
