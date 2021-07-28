@@ -108,6 +108,7 @@ const Home = () => {
             state: {
                 minDate: monthOption.value,
                 country: countryOption.value, 
+                id: countryOption.id,
             }
         })
     }
