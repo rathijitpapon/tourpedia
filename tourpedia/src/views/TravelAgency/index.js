@@ -1,18 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import {Image} from 'react-bootstrap';
+import ClipLoader from "react-spinners/ClipLoader";
+import LoadingOverlay from 'react-loading-overlay'
 
 import EventLongCard from "../../components/EventLongCard";
 import LayoutWrapper from "../../layouts/LayoutWrapper";
 
 import "./styles.css";
 
-import eventData from "../../assets/dummyData/event.json";
-import travelAgencyData from "../../assets/dummyData/travelagency.json";
+import travelagencyService from "../../services/travelagencyService";
 
 const TravelAgency = (props) => {
     const agencyName = props.match.params.agencyName;
 
-    const [isFetched, setIsFetched] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const color = "#ffffff";
+
     const [fullname, setFullname] = useState('');
     const [profileImage, setProfileImage] = useState('');
     const [isBanned, setIsBanned] = useState(false);
@@ -22,21 +25,28 @@ const TravelAgency = (props) => {
     const [events, setEvents] = useState([]);
 
     const fetchData = async () => {
-        for (const agency of travelAgencyData) {
-            if (agency.username === agencyName) {
-                setAbout(agency.about);
-                setProfileImage(agency.profileImage);
-                setFullname(agency.fullname);
-                setEvents(eventData);
-                setHasUser(true);
-                setIsFetched(true);
-                setIsBanned(false);
-                return;
-            }
+        setLoading(true);
+        let data = await travelagencyService.getProfile(agencyName, 'agency');
+        if (data.status >= 300) {
+            setHasUser(false);
         }
-        
-        setHasUser(false);
-        setIsFetched(true);
+        else if (data.user.isBanned) {
+            setIsBanned(true);
+            setHasUser(true);
+        }
+        else {
+            setAbout(data.user.about);
+            setProfileImage(data.user.profileImage);
+            setFullname(data.user.fullname);
+            let formattedData = [];
+            for (let i = 0; i < data.user.event.length; i++) {
+                formattedData.push(data.user.event[i]._id);
+            }
+            setEvents(formattedData);
+            setHasUser(true);
+            setIsBanned(false);
+        }
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -47,54 +57,56 @@ const TravelAgency = (props) => {
 
     return ( 
         <LayoutWrapper>
+            <LoadingOverlay
+                active={loading}
+                spinner={
+                    <ClipLoader color={color} loading={loading} size={50} />
+                }
+                className="loading-height"
+            >
             {
-                isFetched ? (
-                    <React.Fragment>
+                hasUser ? (
+                    <div className="profile-main-wrapper">
                     {
-                        hasUser ? (
-                            <div className="profile-main-wrapper">
-                            {
-                                !isBanned ? (
-                                    <>
-                                    <div className="profile-main-container">
-                                        <Image className="profile-image-container" src={profileImage} roundedCircle />
-                                        <div>
-                                            <div 
-                                                className="profile-fullname-container"
-                                            >{fullname}</div>
-                                            <div 
-                                                className="profile-about-container"
-                                            >{about}</div>
-                                        </div>
-                                    </div>
-                                    <br /><br />
-                                    <div className="profile-my-items">
-                                        Running Events
-                                    </div>
-                                    
-                                    <br />
-
-                                    {
-                                        events.map((event, index) => (
-                                            <EventLongCard
-                                                key={index}
-                                                event={event}
-                                            />
-                                        ))
-                                    }
-                                    </>
-                                ) : (
-                                    <div className="profile-fullname-container" style={{ textAlign: 'center' }}>This user is banned</div>
-                                )
-                            }
+                        !isBanned ? (
+                            <>
+                            <div className="profile-main-container">
+                                <Image className="profile-image-container" src={profileImage} roundedCircle />
+                                <div>
+                                    <div 
+                                        className="profile-fullname-container"
+                                    >{fullname}</div>
+                                    <div 
+                                        className="profile-about-container"
+                                    >{about}</div>
+                                </div>
                             </div>
+                            <br /><br />
+                            <div className="profile-my-items">
+                                Running Events
+                            </div>
+                            
+                            <br />
+
+                            {
+                                events.map((event, index) => (
+                                    <EventLongCard
+                                        key={index}
+                                        event={event}
+                                    />
+                                ))
+                            }
+                            </>
                         ) : (
-                            <div className="profile-fullname-container" style={{ textAlign: 'center' }}>No user exists with this username</div>
+                            <div className="profile-fullname-container" style={{ textAlign: 'center' }}>This user is banned</div>
                         )
                     }
-                    </React.Fragment>
-                ) : null
+                    </div>
+                ) : (
+                    <div className="profile-fullname-container" style={{ textAlign: 'center' }}>No user exists with this username</div>
+                )
             }
+            </LoadingOverlay>
         </LayoutWrapper>
      );
 }
