@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import Collapsible from 'react-collapsible';
 import Select from 'react-select';
 import {IoIosArrowDown, IoIosArrowUp} from 'react-icons/io';
+import {toast} from 'react-toastify';
+import ClipLoader from "react-spinners/ClipLoader";
+import LoadingOverlay from 'react-loading-overlay';
 
 import TravelAgencyLongCard from "../../components/TravelAgencyLongCard";
 import PlaceLongCard from "../../components/PlaceLongCard";
@@ -10,12 +13,12 @@ import EventLongCard from '../../components/EventLongCard';
 import LayoutWrapper from "../../layouts/LayoutWrapper";
 import "./styles.css";
 
-import categoryData from "../../assets/dummyData/category.json";
-import countryData from "../../assets/dummyData/country.json";
-import eventData from "../../assets/dummyData/event.json";
-import tourplanData from "../../assets/dummyData/tourplan.json";
-import placeData from "../../assets/dummyData/place.json";
-import travelAgencyData from "../../assets/dummyData/travelagency.json";
+import fixedFilters from "../../assets/fixedFilters.json";
+
+import exploreService from "../../services/exploreService";
+import eventService from "../../services/eventService";
+import tourplanService from "../../services/tourplanService";
+import travelagencyService from "../../services/travelagencyService";
 
 const customStyles = {
     control: base => ({
@@ -30,6 +33,9 @@ const customStyles = {
 
 const Search = (props) => {
 
+    const [loading, setLoading] = useState(false);
+    const color = "#ffffff";
+
     const searchKey = props.match.params.key;
 
     const [isFilterOpen, setIsFilterOpen] = useState(true);
@@ -39,15 +45,155 @@ const Search = (props) => {
     const [countryOption, setCountryOption] = useState("");
     const [category, setCategory] = useState([]);
 
-    const [hasMore, setHasMore] = useState(true);
+    const [hasMore, setHasMore] = useState(false);
     const [events, setEvents] = useState([]);
     const [tourplans, setTourplans] = useState([]);
     const [places, setPlaces] = useState([]);
     const [travelagencies, setTravelagencies] = useState([]);
 
+    const searchData = (placeData, planData,eventData, agencyData) => {
+        let filteredData = [];
+        for (const data of placeData) {
+            if (data.name.toLowerCase().includes(searchKey.toLowerCase())) {
+                filteredData.push(data);
+            }
+        }
+        setPlaces(filteredData);
+
+        filteredData = [];
+        for (const data of planData) {
+            if (data.name.toLowerCase().includes(searchKey.toLowerCase())) {
+                filteredData.push(data);
+            }
+        }
+        setTourplans(filteredData);
+
+        filteredData = [];
+        for (const data of eventData) {
+            if (data.name.toLowerCase().includes(searchKey.toLowerCase())) {
+                filteredData.push(data);
+            }
+        }
+        setEvents(filteredData);
+
+        filteredData = [];
+        for (const data of agencyData) {
+            if (data.fullname.toLowerCase().includes(searchKey.toLowerCase())) {
+                filteredData.push(data);
+            }
+        }
+        setTravelagencies(filteredData);
+    }
+
+    const getDataFromAPI = async (categoryData, countryData) => {
+        setLoading(true);
+        let data = await exploreService.getManyPlaces(categoryData, countryData);
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+        const placeData = data.data;
+
+        data = await travelagencyService.getManyTravelAgency(categoryData);
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+        const agencyData = data.data;
+
+        const queryMatcher = {
+            durationSort: 1,
+            costSort: 1,
+            participantSort: 1,
+            date: [new Date('2000-01-01'), new Date('2100-01-01')],
+            roomSize: [1, 100],
+            accomodationQuality: [1, 100],
+            groupOption: fixedFilters.tourStyle,
+            inclusion: fixedFilters.inclusion,
+            childAllowed: false,
+            physicalRating: fixedFilters.physicalRating,
+            accomodationOption: fixedFilters.accomodationOption,
+            participantLimit: [1, 100000000],
+            duration: [1, 100000000],
+            age: [1, 1000],
+            cost: [1, 10000000000000],
+            category: categoryData,
+            country: countryData,
+            place: [],
+            limit: 10000000000,
+            skip: 0,
+        };
+
+        data = await eventService.getManyEvents(queryMatcher);
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+        const eventData = data.data;
+
+        data = await tourplanService.getManyTourPlans(queryMatcher);
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+        const planData = data.data;
+
+        setLoading(false);
+        searchData(placeData, planData, eventData, agencyData);
+    }
+
     const handleCountryOptionChange = async (newValue, actionMeta) => {
         setCountryOption(newValue);
-        await fetchData("country", newValue.value);
+
+        const countryData = [];
+        if (newValue.id !== "-1") {
+            countryData.push(newValue.id);
+        }
+
+        const categoryData = [];
+        for (const ctg of category) {
+            if (ctg.isSelected) {
+                categoryData.push(ctg.id);
+            }
+        }
+
+        await getDataFromAPI(categoryData, countryData);
     }
 
     const handleCategory = async (index) => {
@@ -55,66 +201,93 @@ const Search = (props) => {
         data[index] = {...category[index]};
         data[index].isSelected = !data[index].isSelected;
         setCategory(data);
-        await fetchData("category", data);
-    }
 
-    const fetchData = async (dataType, inputData) => {
-        console.log(dataType, inputData);
+        const countryData = [];
+        if (countryOption.id !== "-1") {
+            countryData.push(countryOption.id);
+        }
+
+        const categoryData = [];
+        for (const ctg of data) {
+            if (ctg.isSelected) {
+                categoryData.push(ctg.id);
+            }
+        }
+
+        await getDataFromAPI(categoryData, countryData);
     }
 
     const loadData = async () => {
-        console.log(searchKey);
-        let data = [];
-        for (const item of categoryData) {
-            data.push({
-                value: item.name,
+        setLoading(true);
+        let data = await exploreService.getAllExplore('country');
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+        data = data.data;
+        let formattedData = [
+            { value: 'All Country', label: 'All Country', id: '-1' }
+        ];
+        for (const coun of data) {
+            formattedData.push({
+                value: coun.name,
+                label: coun.name,
+                name: coun.name,
+                description: coun.description,
+                banner: coun.banner,
+                id: coun._id,
+            });
+        }
+        setCountry(formattedData);
+        setCountryOption(formattedData[0]);
+
+        data = await exploreService.getAllExplore('category');
+        if (data.status >= 300) {
+            toast.error(data.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+        data = data.data;
+        formattedData = [];
+        for (const coun of data) {
+            formattedData.push({
+                value: coun.name,
+                label: coun.name,
+                name: coun.name,
+                description: coun.description,
+                banner: coun.banner,
+                id: coun._id,
                 isSelected: false,
             });
         }
-        setCategory(data);
+        setCategory(formattedData);
+        setLoading(false);
 
-        const countryOptions = [
-            { value: 'All Country', label: 'All Country' }
-        ];
-        for (const data of countryData) {
-            countryOptions.push({
-                value: data.name,
-                label: data.name
-            });
-        }
-        setCountry(countryOptions);
-        setCountryOption(countryOptions[0]);
-
-        data = []
-        for (let i = 0; i < 10; i++) {
-            data.push(eventData[0]);
-        }
-        setEvents(data);
-
-        data = [];
-        for (let i = 0; i < 10; i++) {
-            data.push(tourplanData[0]);
-        }
-        setTourplans(data);
-
-        data = [];
-        for (let i = 0; i < placeData.length; i++) {
-            data.push(placeData[i]);
-        }
-        setPlaces(data);
-
-        data = [];
-        for (let i = 0; i < travelAgencyData.length; i++) {
-            data.push(travelAgencyData[i]);
-        }
-        setTravelagencies(data);
+        getDataFromAPI([], []);
     }
 
     useEffect(() => {
         window.scrollTo(0, 0);
         loadData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [searchKey]);
 
     const handleLoadMore = () => {
         if (curSelection === "place") {
@@ -153,6 +326,13 @@ const Search = (props) => {
 
     return ( 
         <LayoutWrapper>
+            <LoadingOverlay
+                active={loading}
+                spinner={
+                    <ClipLoader color={color} loading={loading} size={50} />
+                }
+                className="loading-height"
+            >
             <br />
             <div className="row">
                 <div className="col-md-3 col-12">
@@ -222,28 +402,28 @@ const Search = (props) => {
                             className={"col-6 col-lg-3 search-section-title " + (curSelection === "place" ? "search-selected" : "")}
                             onClick={() => {
                                 setCurSelection("place");
-                                setHasMore(true);
+                                setHasMore(false);
                             }}
                         >Places</div>
                         <div 
                             className={"col-6 col-lg-3 search-section-title " + (curSelection === "event" ? "search-selected" : "")}
                             onClick={() => {
                                 setCurSelection("event");
-                                setHasMore(true);
+                                setHasMore(false);
                             }}
                         >Events</div>
                         <div 
                             className={"col-6 col-lg-3 search-section-title " + (curSelection === "tourplan" ? "search-selected" : "")}
                             onClick={() => {
                                 setCurSelection("tourplan");
-                                setHasMore(true);
+                                setHasMore(false);
                             }}
                         >Tour Plan</div>
                         <div 
                             className={"col-6 col-lg-3 search-section-title " + (curSelection === "agency" ? "search-selected" : "")}
                             onClick={() => {
                                 setCurSelection("agency");
-                                setHasMore(true);
+                                setHasMore(false);
                             }}
                         >Travel Agencies</div>
                     </div>
@@ -307,6 +487,7 @@ const Search = (props) => {
 
             <br />
             <br />
+            </LoadingOverlay>
         </LayoutWrapper>
      );
 }
