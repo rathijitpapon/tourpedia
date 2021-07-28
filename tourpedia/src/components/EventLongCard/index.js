@@ -12,7 +12,7 @@ const EventLongCard = (props) => {
             className="event-long-card-main"
         >
             <Link
-                to={"/event/" + event.travelAgency.username + "/" + event.name + "-" + event.id}
+                to={"/event/" + event.travelAgency._id.username + "/" + event._id}
             >
             <Image
                 className="event-long-card-image"
@@ -22,7 +22,7 @@ const EventLongCard = (props) => {
             </Link>
             <div className="event-long-card-middle">
                 <Link
-                    to={"/event/" + event.travelAgency.username + "/" + event.name + "-" + event.id}
+                    to={"/event/" + event.travelAgency._id.username + "/" + event._id}
                 >
                     <div className="event-long-card-title">
                         {event.name}
@@ -40,8 +40,8 @@ const EventLongCard = (props) => {
                                     style={{
                                         color: '#540750'
                                     }}
-                                    to={"/category/" + event.category[0].name}
-                                >{event.category[0].name}</Link>
+                                    to={"/category/" + event.category[0]._id.name}
+                                >{event.category[0]._id.name}</Link>
                                 {
                                     event.category.slice(1).map((category, index) => (
                                         <React.Fragment key={index}>
@@ -49,8 +49,8 @@ const EventLongCard = (props) => {
                                                 style={{
                                                     color: '#540750'
                                                 }}
-                                                to={"/category/" + category.name} 
-                                            >{category.name}
+                                                to={"/category/" + category._id.name} 
+                                            >{category._id.name}
                                             </Link>
                                         </React.Fragment>
                                     ))
@@ -64,8 +64,8 @@ const EventLongCard = (props) => {
                                     style={{
                                         color: '#540750'
                                     }}
-                                    to={"/place/" + event.place[0].name}
-                                >{event.place[0].name}</Link>
+                                    to={"/place/" + event.place[0]._id.name}
+                                >{event.place[0]._id.name}</Link>
                                 {
                                     event.place.slice(1).map((place, index) => (
                                         <React.Fragment key={index}>
@@ -73,8 +73,8 @@ const EventLongCard = (props) => {
                                                 style={{
                                                     color: '#540750'
                                                 }}
-                                                to={"/place/" + place.name} 
-                                            >{place.name}
+                                                to={"/place/" + place._id.name} 
+                                            >{place._id.name}
                                             </Link>
                                         </React.Fragment>
                                     ))
@@ -91,7 +91,7 @@ const EventLongCard = (props) => {
                         </tr>
                         <tr>
                             <th>Agency</th>
-                            <td>{event.travelAgency.fullname}</td>
+                            <td>{event.travelAgency._id.fullname}</td>
                         </tr>
                     </tbody>
                 </table>

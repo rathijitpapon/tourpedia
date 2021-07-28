@@ -40,8 +40,8 @@ const PlaceLongCard = (props) => {
                                     style={{
                                         color: '#540750'
                                     }}
-                                    to={"/category/" + place.category[0]}
-                                >{place.category[0]}</Link>
+                                    to={"/category/" + place.category[0]._id.name}
+                                >{place.category[0]._id.name}</Link>
                                 {
                                     place.category.slice(1).map((category, index) => (
                                         <React.Fragment key={index}>
@@ -49,8 +49,8 @@ const PlaceLongCard = (props) => {
                                                 style={{
                                                     color: '#540750'
                                                 }}
-                                                to={"/category/" + category} 
-                                            >{category}
+                                                to={"/category/" + category._id.name} 
+                                            >{category._id.name}
                                             </Link>
                                         </React.Fragment>
                                     ))

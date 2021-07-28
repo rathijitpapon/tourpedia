@@ -11,15 +11,15 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 const EventCard = (props) => {
     const event = props.event;
 
-    let startDate = new Date(event.dayPlan[0].date);
-    let endDate = new Date(event.dayPlan[event.dayPlan.length - 1].date);
+    let startDate = new Date(event.dayPlan[0]._id.date);
+    let endDate = new Date(event.dayPlan[event.dayPlan.length - 1]._id.date);
     
     startDate = startDate.getDate() + " " + monthNames[startDate.getMonth()] + ", " + startDate.getFullYear();
     endDate = endDate.getDate() + " " + monthNames[endDate.getMonth()] + ", " + endDate.getFullYear();
 
     return ( 
         <Link
-            to={"/event/" + event.travelAgency.username + "/" + event.name + "-" + event.id}
+            to={"/event/" + event.travelAgency._id.username + "/" + event._id}
             className="event-card-main"
         >
             <Image
@@ -38,7 +38,7 @@ const EventCard = (props) => {
                     <b>{startDate} - {endDate}</b>
                 </div>
                 <div className="event-card-info">
-                    <b>Agency:</b> {event.travelAgency.fullname}
+                    <b>Agency:</b> {event.travelAgency._id.fullname}
                 </div>
             </div>
         </Link>

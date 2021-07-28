@@ -12,7 +12,7 @@ const TourPlanLongCard = (props) => {
             className="tour-plan-long-card-main"
         >
             <Link
-                to={"/tourplan/" + tourplan.name + "-" + tourplan.id}
+                to={"/tourplan/" + tourplan._id}
             >
             <Image
                 className="tour-plan-long-card-image"
@@ -22,7 +22,7 @@ const TourPlanLongCard = (props) => {
             </Link>
             <div className="tour-plan-long-card-middle">
                 <Link
-                    to={"/tourplan/" + tourplan.name + "-" + tourplan.id}
+                    to={"/tourplan/" + tourplan._id}
                 >
                     <div className="tour-plan-long-card-title">
                         {tourplan.name}
@@ -40,8 +40,8 @@ const TourPlanLongCard = (props) => {
                                     style={{
                                         color: '#540750'
                                     }}
-                                    to={"/category/" + tourplan.category[0].name}
-                                >{tourplan.category[0].name}</Link>
+                                    to={"/category/" + tourplan.category[0]._id.name}
+                                >{tourplan.category[0]._id.name}</Link>
                                 {
                                     tourplan.category.slice(1).map((category, index) => (
                                         <React.Fragment key={index}>
@@ -49,8 +49,8 @@ const TourPlanLongCard = (props) => {
                                                 style={{
                                                     color: '#540750'
                                                 }}
-                                                to={"/category/" + category.name} 
-                                            >{category.name}
+                                                to={"/category/" + category._id.name} 
+                                            >{category._id.name}
                                             </Link>
                                         </React.Fragment>
                                     ))
@@ -64,8 +64,8 @@ const TourPlanLongCard = (props) => {
                                     style={{
                                         color: '#540750'
                                     }}
-                                    to={"/place/" + tourplan.place[0].name}
-                                >{tourplan.place[0].name}</Link>
+                                    to={"/place/" + tourplan.place[0]._id.name}
+                                >{tourplan.place[0]._id.name}</Link>
                                 {
                                     tourplan.place.slice(1).map((place, index) => (
                                         <React.Fragment key={index}>
@@ -73,8 +73,8 @@ const TourPlanLongCard = (props) => {
                                                 style={{
                                                     color: '#540750'
                                                 }}
-                                                to={"/place/" + place.name} 
-                                            >{place.name}
+                                                to={"/place/" + place._id.name} 
+                                            >{place._id.name}
                                             </Link>
                                         </React.Fragment>
                                     ))

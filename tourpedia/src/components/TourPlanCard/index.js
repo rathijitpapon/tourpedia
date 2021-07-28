@@ -9,7 +9,7 @@ const TourPlanCard = (props) => {
 
     return ( 
         <Link
-            to={"/tourplan/" + tourplan.name + "-" + tourplan.id}
+            to={"/tourplan/" + tourplan._id}
             className="tour-plan-card-main"
         >
             <Image

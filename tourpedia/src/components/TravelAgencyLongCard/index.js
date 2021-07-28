@@ -40,8 +40,8 @@ const TravelAgencyLongCard = (props) => {
                                     style={{
                                         color: '#540750'
                                     }}
-                                    to={"/category/" + travelagency.category[0]}
-                                >{travelagency.category[0]}</Link>
+                                    to={"/category/" + travelagency.category[0]._id.name}
+                                >{travelagency.category[0]._id.name}</Link>
                                 {
                                     travelagency.category.slice(1).map((category, index) => (
                                         <React.Fragment key={index}>
@@ -49,8 +49,8 @@ const TravelAgencyLongCard = (props) => {
                                                 style={{
                                                     color: '#540750'
                                                 }}
-                                                to={"/category/" + category} 
-                                            >{category}
+                                                to={"/category/" + category._id.name} 
+                                            >{category._id.name}
                                             </Link>
                                         </React.Fragment>
                                     ))
