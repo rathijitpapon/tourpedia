@@ -23,10 +23,10 @@ const MainLayout = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/tourplan/:tourplanName" component={TourPlan} ></Route>
+        <Route exact path="/tourplan/:tourplanId" component={TourPlan} ></Route>
         {/* <Route exact path="/forum/:username/:postTitle" component={Post} ></Route> */}
         {/* <Route exact path="/forum" component={Forum} ></Route> */}
-        <Route exact path="/event/:agencyName/:eventName" component={EventDetails} ></Route>
+        <Route exact path="/event/:agencyName/:eventId" component={EventDetails} ></Route>
         <Route exact path="/event" component={Event} ></Route>
         <Route exact path="/blog/:blogId" component={BlogDetails} ></Route>
         <Route exact path="/blog" component={Blog} ></Route>
