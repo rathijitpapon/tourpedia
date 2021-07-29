@@ -149,7 +149,7 @@ const getManyBlog = async (req, res) => {
             queryMatcher['country._id'] = {$in: req.query.country};
         }
 
-        const blogs = await Blog.find(queryMatcher).sort(options).skip(+req.query.skip).limit(+req.query.limit).populate('country._id').populate('category._id').populate('place._id').exec();
+        const blogs = await Blog.find(queryMatcher).sort(options).skip(+req.query.skip).limit(+req.query.limit).exec();
 
         res.status(200).send(blogs);
     } catch (error) {

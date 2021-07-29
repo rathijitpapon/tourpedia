@@ -103,6 +103,10 @@ const getCountryByName = async (req, res) => {
             ],
         }).populate({
             path: 'event._id',
+            match: {
+                isApproved: true,
+                isBanned: false,
+            },
             populate: [
                 {
                     path: 'place._id',
@@ -121,6 +125,9 @@ const getCountryByName = async (req, res) => {
                 },
                 {
                     path: "dayPlan._id",
+                    match: {
+                        date: { $gte: new Date()},
+                    },
                     populate: {
                         path: "timePlan._id",
                         populate: {
@@ -133,6 +140,14 @@ const getCountryByName = async (req, res) => {
         if (!country) {
             throw new Error("Country Not Found");
         }
+
+        const events = [];
+        for (let i = 0; i < country.event.length; i++) {
+            if (country.event[i]._id) {
+                events.push(country.event[i]);
+            }
+        }
+        country.event = events;
 
         res.status(200).send(country);
     } catch (error) {
@@ -152,7 +167,7 @@ const getAllCountry = async (req, res) => {
                     path: 'area._id',
                 }
             }
-        }).populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
+        }).exec();
 
         res.status(200).send(countries);
     } catch (error) {

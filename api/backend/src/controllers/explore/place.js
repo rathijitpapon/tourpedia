@@ -135,6 +135,10 @@ const getPlaceByName = async (req, res) => {
             ],
         }).populate({
             path: 'event._id',
+            match: {
+                isApproved: true,
+                isBanned: false,
+            },
             populate: [
                 {
                     path: 'place._id',
@@ -153,6 +157,9 @@ const getPlaceByName = async (req, res) => {
                 },
                 {
                     path: "dayPlan._id",
+                    match: {
+                        date: { $gte: new Date()},
+                    },
                     populate: {
                         path: "timePlan._id",
                         populate: {
@@ -166,6 +173,14 @@ const getPlaceByName = async (req, res) => {
             throw new Error("Place Not Found");
         }
 
+        const events = [];
+        for (let i = 0; i < place.event.length; i++) {
+            if (place.event[i]._id) {
+                events.push(place.event[i]);
+            }
+        }
+        place.event = events;
+
         res.status(200).send(place);
     } catch (error) {
         res.status(400).send({
@@ -176,7 +191,7 @@ const getPlaceByName = async (req, res) => {
 
 const getAllPlace = async (req, res) => {
     try {
-        const places = await Place.find().populate('country._id').populate('category._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
+        const places = await Place.find().populate('country._id').populate('category._id').exec();
 
         res.status(200).send(places);
     } catch (error) {
@@ -196,7 +211,7 @@ const getManyPlacesByFilter = async (req, res) => {
             queryMatcher['country._id'] = {$in: req.query.country};
         }
 
-        const places = await Place.find(queryMatcher).populate('country._id').populate('category._id').populate('blog._id').populate('tourPlan._id').populate('event._id').exec();
+        const places = await Place.find(queryMatcher).populate('country._id').populate('category._id').exec();
 
         res.status(200).send(places);
     } catch (error) {

@@ -103,6 +103,10 @@ const getCategoryByName = async (req, res) => {
             ],
         }).populate({
             path: 'event._id',
+            match: {
+                isApproved: true,
+                isBanned: false,
+            },
             populate: [
                 {
                     path: 'place._id',
@@ -121,6 +125,9 @@ const getCategoryByName = async (req, res) => {
                 },
                 {
                     path: "dayPlan._id",
+                    match: {
+                        date: { $gte: new Date()},
+                    },
                     populate: {
                         path: "timePlan._id",
                         populate: {
@@ -134,6 +141,14 @@ const getCategoryByName = async (req, res) => {
             throw new Error("Category Not Found");
         }
 
+        const events = [];
+        for (let i = 0; i < category.event.length; i++) {
+            if (category.event[i]._id) {
+                events.push(category.event[i]);
+            }
+        }
+        category.event = events;
+
         res.status(200).send(category);
     } catch (error) {
         res.status(400).send({
@@ -144,7 +159,7 @@ const getCategoryByName = async (req, res) => {
 
 const getAllCategory = async (req, res) => {
     try {
-        const categories = await Category.find().populate('place._id').populate('blog._id').populate('tourPlan._id').populate('event._id').populate('travelAgency._id').exec();
+        const categories = await Category.find().populate('place._id').exec();
 
         res.status(200).send(categories);
     } catch (error) {
