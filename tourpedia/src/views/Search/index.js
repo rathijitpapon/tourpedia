@@ -19,6 +19,8 @@ import exploreService from "../../services/exploreService";
 import eventService from "../../services/eventService";
 import tourplanService from "../../services/tourplanService";
 import travelagencyService from "../../services/travelagencyService";
+import authService from "../../services/authService";
+import userAuthService from "../../services/userAuthService";
 
 const customStyles = {
     control: base => ({
@@ -156,6 +158,35 @@ const Search = (props) => {
             setLoading(false);
             return;
         }
+        for (let i = 0; i < data.data.length; i++) {
+            const userId = authService.getUserId() ? authService.getUserId() : '';
+            if (userId) {
+                let user = await userAuthService.getProfile(authService.getUser());
+                user = user.user;
+                if (user.status >= 300) {
+                    data.data[i].isEnrolled = false;
+                    data.data[i].isSaved = false;
+                }
+                else {
+                    data.data[i].isEnrolled = false;
+                    for (const value of data.data[i].enrolledUser) {
+                        if (value._id.toString() === userId) {
+                            data.data[i].isEnrolled = true;
+                        }
+                    }
+                    data.data[i].isSaved = false;
+                    for (const value of user.savedEvent) {
+                        if (value._id._id.toString() === data.data[i]._id) {
+                            data.data[i].isSaved = true;
+                        }
+                    }
+                }
+            }
+            else {
+                data.data[i].isEnrolled = false;
+                data.data[i].isSaved = false;
+            }
+        }
         const eventData = data.data;
 
         data = await tourplanService.getManyTourPlans(queryMatcher);
@@ -215,6 +246,52 @@ const Search = (props) => {
         }
 
         await getDataFromAPI(categoryData, countryData);
+    }
+
+    const handleSaveEvent = async (index) => {
+        setLoading(true);
+        const data = await eventService.saveEvent(events[index]._id, !events[index].isSaved);
+        if (data.status >= 300) {
+            toast.error("You are not logged in. Please Login to save the event.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+
+        const eventData = events;
+        eventData[index].isSaved = !eventData[index].isSaved;
+        setEvents(eventData);
+        setLoading(false);
+    }
+
+    const handleEnrollEvent = async (index) => {
+        setLoading(true);
+        const data = await eventService.enrollEvent(events[index]._id, !events[index].isEnrolled);
+        if (data.status >= 300) {
+            toast.error("You are not logged in. Please Login to enroll in the event.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+
+        const eventData = events;
+        eventData[index].isEnrolled = !eventData[index].isEnrolled;
+        setEvents(eventData);
+        setLoading(false);
     }
 
     const loadData = async () => {
@@ -447,6 +524,9 @@ const Search = (props) => {
                                 <EventLongCard
                                     key={index}
                                     event={event}
+                                    index={index}
+                                    handleSaveEvent={handleSaveEvent}
+                                    handleEnrollEvent={handleEnrollEvent}
                                 />
                             ))
                         ) : null

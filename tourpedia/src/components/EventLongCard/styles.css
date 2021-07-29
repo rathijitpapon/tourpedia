@@ -90,6 +90,10 @@
         flex-direction: column;
     }
 
+    .event-long-card-main-child {
+        flex-direction: column;
+    }
+
     .event-long-card-image {
         display: block;
         margin-left: auto;

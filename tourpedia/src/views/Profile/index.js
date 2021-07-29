@@ -14,6 +14,7 @@ import "./styles.css";
 
 import userAuthService from "../../services/userAuthService";
 import fileService from "../../services/fileService";
+import eventService from "../../services/eventService";
 
 const customStyles = {
     control: base => ({
@@ -63,6 +64,80 @@ const Profile = (props) => {
     ];
     const [sortOption, setSortOption] = useState(options[0]);
 
+    const handleSaveEvent = async (index, actionFrom) => {
+        setLoading(true);
+        let data;
+        if (actionFrom === 'saved') {
+            data = await eventService.saveEvent(savedEvents[index]._id, !savedEvents[index].isSaved);
+        }
+        else if (actionFrom === 'enrolled') {
+            data = await eventService.saveEvent(enrolledEvents[index]._id, !enrolledEvents[index].isSaved);
+        }
+        if (data.status >= 300) {
+            toast.error("You are not logged in. Please Login to save the event.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+
+        if (actionFrom === 'saved') {
+            const eventData = savedEvents;
+            savedEvents[index].isSaved = !savedEvents[index].isSaved;
+            setSavedEvents(eventData);
+        }
+        else if (actionFrom === 'enrolled') {
+            const eventData = enrolledEvents;
+            enrolledEvents[index].isSaved = !enrolledEvents[index].isSaved;
+            setEnrolledEvents(eventData);
+        }
+        setLoading(false);
+        fetchData();
+    }
+
+    const handleEnrollEvent = async (index, actionFrom) => {
+        setLoading(true);
+        let data;
+        if (actionFrom === 'saved') {
+            data = await eventService.enrollEvent(savedEvents[index]._id, !savedEvents[index].isEnrolled);
+        }
+        else if (actionFrom === 'enrolled') {
+            data = await eventService.enrollEvent(enrolledEvents[index]._id, !enrolledEvents[index].isEnrolled);
+        }
+        if (data.status >= 300) {
+            toast.error("You are not logged in. Please Login to enroll in the event.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+
+        if (actionFrom === 'saved') {
+            const eventData = savedEvents;
+            savedEvents[index].isEnrolled = !savedEvents[index].isEnrolled;
+            setSavedEvents(eventData);
+        }
+        else if (actionFrom === 'enrolled') {
+            const eventData = enrolledEvents;
+            enrolledEvents[index].isEnrolled = !enrolledEvents[index].isEnrolled;
+            setEnrolledEvents(eventData);
+        }
+        setLoading(false);
+        fetchData();
+    }
+
     const fetchData = async () => {
         const user = await userAuthService.getSavedAuthInfo();
         if(!user) {
@@ -107,12 +182,28 @@ const Profile = (props) => {
 
         let formattedData = [];
         for (let i = 0; i < data.user.savedEvent.length; i++) {
+            data.user.savedEvent[i]._id.isSaved = true;
+            data.user.savedEvent[i]._id.isEnrolled = false;
+            
+            for (const value of data.user.enrolledEvent) {
+                if (value._id._id.toString() === data.user.savedEvent[i]._id._id.toString()) {
+                    data.user.savedEvent[i]._id.isEnrolled = true;
+                }
+            }
             formattedData.push(data.user.savedEvent[i]._id);
         }
         setSavedEvents(formattedData);
 
         formattedData = [];
         for (let i = 0; i < data.user.enrolledEvent.length; i++) {
+            data.user.enrolledEvent[i]._id.isSaved = false;
+            data.user.enrolledEvent[i]._id.isEnrolled = true;
+
+            for (const value of data.user.savedEvent) {
+                if (value._id._id.toString() === data.user.enrolledEvent[i]._id._id.toString()) {
+                    data.user.enrolledEvent[i]._id.isSaved = true;
+                }
+            }
             formattedData.push(data.user.enrolledEvent[i]._id);
         }
         setEnrolledEvents(formattedData);
@@ -312,34 +403,51 @@ const Profile = (props) => {
 
                 {
                     sortOption.value  === "Enrolled Events" ? (
-                        enrolledEvents.map((event, index) => (
+                        <React.Fragment>
+                        {enrolledEvents.map((event, index) => (
                             <EventLongCard
                                 key={index}
                                 event={event}
+                                index={index}
+                                handleSaveEvent={handleSaveEvent}
+                                handleEnrollEvent={handleEnrollEvent}
+                                actionFrom="enrolled"
                             />
-                        ))
+                        ))}
+                        <div className="profile-no-data-text" hidden={enrolledEvents.length > 0}>You Have No Enrolled Events</div>
+                        </React.Fragment>
                     ) : null
                 }
 
                 {
                     sortOption.value  === "Saved Events" ? (
-                        savedEvents.map((event, index) => (
+                        <React.Fragment>
+                        {savedEvents.map((event, index) => (
                             <EventLongCard
                                 key={index}
                                 event={event}
+                                index={index}
+                                handleSaveEvent={handleSaveEvent}
+                                handleEnrollEvent={handleEnrollEvent}
+                                actionFrom="saved"
                             />
-                        ))
+                        ))}
+                        <div className="profile-no-data-text" hidden={savedEvents.length > 0}>You Have No Saved Events</div>
+                        </React.Fragment>
                     ) : null
                 }
 
                 {
                     sortOption.value === "Saved Tour Plans" ? (
-                        tourplans.map((tourplan, index) => (
+                        <React.Fragment>
+                        {tourplans.map((tourplan, index) => (
                             <TourPlanLongCard
                                 key={index}
                                 tourplan={tourplan}
                             />
-                        ))
+                        ))}
+                        <div className="profile-no-data-text" hidden={tourplans.length > 0}>You Have No Saved Tour Plans</div>
+                        </React.Fragment>
                     ) : null
                 }
                 <div hidden={!isBanned} className="profile-fullname-container" style={{ textAlign: 'center' }}>This user is banned</div>

@@ -10,6 +10,7 @@ import {GiCancel} from 'react-icons/gi';
 import ReactPlayer from 'react-player';
 import {Modal, Fade, Backdrop} from '@material-ui/core';
 import LoadingOverlay from 'react-loading-overlay';
+import {toast} from 'react-toastify';
 
 import DayPlanCard from '../../components/DayPlanCard'
 import PlanMyHoliday from '../../components/PlanMyHoliday';
@@ -22,6 +23,8 @@ import "./styles.css";
 import fixedFilters from "../../assets/fixedFilters.json";
 
 import eventService from "../../services/eventService";
+import userAuthService from "../../services/userAuthService";
+import authService from "../../services/authService";
 
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
@@ -82,18 +85,55 @@ const EventDetails = (props) => {
     const [travelAgencyUserName, setTravelAgencyUserName] = useState('');
     const [travelAgencyFullname, setTravelAgencyFullname] = useState('');
 
+    const [isEnrolled, setIsEnrolled] = useState(false);
+    const [isSaved, setIsSaved] = useState(false);
+
     const [openPlanModal, setOpenPlanModal] = useState(false);
 
     const handlePlanModal = (val) => {
         setOpenPlanModal(val);
     }
 
-    const handleSaveEvent = () => {
+    const handleSaveEvent = async () => {
+        setLoading(true);
+        const data = await eventService.saveEvent(eventId, !isSaved);
+        if (data.status >= 300) {
+            toast.error("You are not logged in. Please Login to save the event.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
 
+        setIsSaved(!isSaved);
+        setLoading(false);
     }
 
-    const handleEnrollEvent = () => {
+    const handleEnrollEvent = async () => {
+        setLoading(true);
+        const data = await eventService.enrollEvent(eventId, !isEnrolled);
+        if (data.status >= 300) {
+            toast.error("You are not logged in. Please Login to enroll in the event.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
 
+        setIsEnrolled(!isEnrolled);
+        setLoading(false);
     }
 
     const fetchData = async () => {
@@ -146,6 +186,35 @@ const EventDetails = (props) => {
             setTravelAgencyFullname(data.data.travelAgency._id.fullname);
             setTravelAgencyUserName(data.data.travelAgency._id.username);
             setEnrolledUserCount(data.data.enrolledUser.length);
+
+            const userId = authService.getUserId() ? authService.getUserId() : '';
+            if (userId) {
+                let user = await userAuthService.getProfile(authService.getUser());
+                user = user.user;
+                if (user.status >= 300) {
+                    setIsEnrolled(false);
+                    setIsSaved(false);
+                }
+                else {
+                    setIsEnrolled(false);
+                    for (const value of data.data.enrolledUser) {
+                        if (value._id.toString() === userId) {
+                            setIsEnrolled(true);
+                        }
+                    }
+                    setIsSaved(false);
+                    for (const value of user.savedEvent) {
+                        if (value._id._id.toString() === eventId) {
+                            setIsSaved(true);
+                        }
+                    }
+                }
+            }
+            else {
+                setIsEnrolled(false);
+                setIsSaved(false);
+            }
+            
         }
 
         setLoading(false);
@@ -479,11 +548,11 @@ const EventDetails = (props) => {
                                     <button 
                                         className="event-details-save-button"
                                         onClick={handleSaveEvent}
-                                    >Save</button>
+                                    >{isSaved ? 'Unsave' : 'Save'}</button>
                                     <button 
                                         className="event-details-enroll-button"
                                         onClick={handleEnrollEvent}
-                                    >Enroll</button>
+                                    >{isEnrolled ? 'Leave' : 'Enroll'}</button>
                                 </div>
                             </div>
 

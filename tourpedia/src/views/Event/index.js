@@ -14,6 +14,8 @@ import "./styles.css";
 
 import exploreService from "../../services/exploreService";
 import eventService from "../../services/eventService";
+import authService from "../../services/authService";
+import userAuthService from "../../services/userAuthService";
 
 import fixedFilters from "../../assets/fixedFilters.json";
 
@@ -64,6 +66,52 @@ const Event = () => {
         setSortOption(newValue);
     };
 
+    const handleSaveEvent = async (index) => {
+        setLoading(true);
+        const data = await eventService.saveEvent(events[index]._id, !events[index].isSaved);
+        if (data.status >= 300) {
+            toast.error("You are not logged in. Please Login to save the event.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+
+        const eventData = events;
+        eventData[index].isSaved = !eventData[index].isSaved;
+        setEvents(eventData);
+        setLoading(false);
+    }
+
+    const handleEnrollEvent = async (index) => {
+        setLoading(true);
+        const data = await eventService.enrollEvent(events[index]._id, !events[index].isEnrolled);
+        if (data.status >= 300) {
+            toast.error("You are not logged in. Please Login to enroll in the event.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+
+        const eventData = events;
+        eventData[index].isEnrolled = !eventData[index].isEnrolled;
+        setEvents(eventData);
+        setLoading(false);
+    }
+
     const getDataFromAPI = async (country, place, category) => {
         setLoading(true);
         const queryMatcher = {
@@ -102,6 +150,35 @@ const Event = () => {
             });
             setLoading(false);
             return;
+        }
+        for (let i = 0; i < data.data.length; i++) {
+            const userId = authService.getUserId() ? authService.getUserId() : '';
+            if (userId) {
+                let user = await userAuthService.getProfile(authService.getUser());
+                user = user.user;
+                if (user.status >= 300) {
+                    data.data[i].isEnrolled = false;
+                    data.data[i].isSaved = false;
+                }
+                else {
+                    data.data[i].isEnrolled = false;
+                    for (const value of data.data[i].enrolledUser) {
+                        if (value._id.toString() === userId) {
+                            data.data[i].isEnrolled = true;
+                        }
+                    }
+                    data.data[i].isSaved = false;
+                    for (const value of user.savedEvent) {
+                        if (value._id._id.toString() === data.data[i]._id) {
+                            data.data[i].isSaved = true;
+                        }
+                    }
+                }
+            }
+            else {
+                data.data[i].isEnrolled = false;
+                data.data[i].isSaved = false;
+            }
         }
         data = data.data;
         setEvents(data);
@@ -220,6 +297,35 @@ const Event = () => {
                 });
                 setLoading(false);
                 return;
+            }
+            for (let i = 0; i < data.data.length; i++) {
+                const userId = authService.getUserId() ? authService.getUserId() : '';
+                if (userId) {
+                    let user = await userAuthService.getProfile(authService.getUser());
+                    user = user.user;
+                    if (user.status >= 300) {
+                        data.data[i].isEnrolled = false;
+                        data.data[i].isSaved = false;
+                    }
+                    else {
+                        data.data[i].isEnrolled = false;
+                        for (const value of data.data[i].enrolledUser) {
+                            if (value._id.toString() === userId) {
+                                data.data[i].isEnrolled = true;
+                            }
+                        }
+                        data.data[i].isSaved = false;
+                        for (const value of user.savedEvent) {
+                            if (value._id._id.toString() === data.data[i]._id) {
+                                data.data[i].isSaved = true;
+                            }
+                        }
+                    }
+                }
+                else {
+                    data.data[i].isEnrolled = false;
+                    data.data[i].isSaved = false;
+                }
             }
             data = data.data;
             setEvents(data);
@@ -340,6 +446,9 @@ const Event = () => {
                             <EventLongCard
                                 key={index}
                                 event={event}
+                                index={index}
+                                handleSaveEvent={handleSaveEvent}
+                                handleEnrollEvent={handleEnrollEvent}
                             />
                         ))
                     }

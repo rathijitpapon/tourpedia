@@ -6,6 +6,10 @@ import "./styles.css";
 
 const EventLongCard = (props) => {
     const event = props.event;
+    const index = props.index;
+    const actionFrom = props.actionFrom || "";
+    const handleSaveEvent = props.handleSaveEvent;
+    const handleEnrollEvent = props.handleEnrollEvent;
 
     return ( 
         <div
@@ -112,10 +116,20 @@ const EventLongCard = (props) => {
                 </div>
                 <div className="event-long-card-side-first">
                     <div>
-                        <button className="btn btn-primary event-long-card-button">Enroll</button>
+                        <button 
+                            className="btn btn-primary event-long-card-button"
+                            onClick={() => handleEnrollEvent(index, actionFrom)}
+                        >
+                            {event.isEnrolled ? "Leave" : "Enroll"}
+                        </button>
                     </div>
                     <div>
-                        <button className="btn btn-secondary event-long-card-button">Save</button>
+                        <button 
+                            className="btn btn-secondary event-long-card-button"
+                            onClick={() => handleSaveEvent(index, actionFrom)}
+                        >
+                            {event.isSaved ? "Unsave" : "Save"}
+                        </button>
                     </div>
                 </div>
             </div>

@@ -74,6 +74,15 @@
     margin-right: auto;
 }
 
+.profile-no-data-text {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Ubuntu Mono;
+    color: rgb(3, 2, 73);
+    text-align: center;
+    margin-top: 20px;
+}
+
 @media (max-width: 600px) {
     .profile-main-container {
         display: block;
