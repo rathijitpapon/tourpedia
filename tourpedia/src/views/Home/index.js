@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import PlaceCard from '../../components/PlaceCard';
 import CountryCard from '../../components/CountryCard';
 import TravelAgencyCard from '../../components/TravelAgencyCard';
-import TourPlanLongCard from '../../components/TourPlanCard';
+import TourPlanCard from '../../components/TourPlanCard';
 import EventCard from '../../components/EventCard';
 import CategoryCard from '../../components/CategoryCard';
 import BlogCard from '../../components/BlogCard';
@@ -383,7 +383,7 @@ const Home = () => {
                             key={index}
                             className="all-small-card-height"
                         >
-                            <TourPlanLongCard 
+                            <TourPlanCard 
                                 tourplan={tourplan}    
                             />
                         </div>
