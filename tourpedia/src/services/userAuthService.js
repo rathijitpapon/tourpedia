@@ -44,7 +44,7 @@ const signin = (email, password) => {
         email,
         password,
     }).then(res => {
-        authService.uiLogin(res.data.token, res.data.user.username);
+        authService.uiLogin(res.data.token, res.data.user.username, res.data.user._id);
         return {
             status: res.status,
             user: res.data.user,
@@ -74,7 +74,7 @@ const signup = (username, email, password, fullname) => {
         password,
         fullname,
     }).then(res => {
-        authService.uiLogin(res.data.token, res.data.user.username);
+        authService.uiLogin(res.data.token, res.data.user.username, res.data.user._id);
         return {
             status: res.status,
             user: res.data.user,
