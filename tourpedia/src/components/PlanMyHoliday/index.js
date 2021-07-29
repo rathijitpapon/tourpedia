@@ -13,6 +13,8 @@ import "./styles.css";
 import fixedFilters from "../../assets/fixedFilters.json";
 import exploreService from "../../services/exploreService";
 import tourplanService from "../../services/tourplanService";
+import authService from '../../services/authService';
+import userAuthService from '../../services/userAuthService';
 
 const customStyles = {
     control: base => ({
@@ -53,6 +55,26 @@ const PlanMyHoliday = (props) => {
     const [cost, setCost] = useState([1, 10000]);
 
     const [tourplans, setTourplans] = useState([]);
+
+    const handleSaveTourplan = async (index) => {
+        const data = await tourplanService.saveTourplan(tourplans[index]._id, !tourplans[index].isSaved);
+        if (data.status >= 300) {
+            toast.error("You are not logged in. Please Login to save the event.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return;
+        }
+
+        const tourplanData = tourplans;
+        tourplanData[index].isSaved = !tourplanData[index].isSaved;
+        setTourplans(tourplanData);
+    }
 
     const handleMaxDate = (newValue, actionMeta) => {
         setMaxDateOption(newValue);
@@ -215,6 +237,27 @@ const PlanMyHoliday = (props) => {
             });
             
             return;
+        }
+        for (let i = 0; i < data.data.length; i++) {
+            const userId = authService.getUserId() ? authService.getUserId() : '';
+            let user = await userAuthService.getProfile(authService.getUser());
+            user = user.user;
+            if (userId) {
+                if (user.status >= 300) {
+                    data.data[i].isSaved = false;
+                }
+                else {
+                    data.data[i].isSaved = false;
+                    for (const value of user.savedTourPlan) {
+                        if (value._id._id.toString() === data.data[i]._id) {
+                            data.data[i].isSaved = true;
+                        }
+                    }
+                }
+            }
+            else {
+                data.data[i].isSaved = false;
+            }
         }
         data = data.data;
         
@@ -514,6 +557,8 @@ const PlanMyHoliday = (props) => {
                                 <TourPlanLongCard
                                     key={index}
                                     tourplan={tourplan}
+                                    index={index}
+                                    handleSaveTourplan={handleSaveTourplan}
                                 />
                             ))
                         }

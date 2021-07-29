@@ -10,11 +10,14 @@ import DayPlanCard from '../../components/DayPlanCard';
 import PlaceCard from '../../components/PlaceCard';
 import LayoutWrapper from "../../layouts/LayoutWrapper";
 import LoadingOverlay from 'react-loading-overlay';
+import { toast } from 'react-toastify';
 
 import 'react-image-lightbox/style.css';
 import "./styles.css";
 
 import tourplanService from '../../services/tourplanService';
+import authService from '../../services/authService';
+import userAuthService from '../../services/userAuthService';
 
 const responsive = {
     desktop: {
@@ -61,8 +64,27 @@ const TourPlan = (props) => {
     const [totalCost, setTotalCost] = useState(0);
     const [duration, setDuration] = useState(0);
 
-    const handleSavePlan = () => {
+    const [isSaved, setIsSaved] = useState(false);
 
+    const handleSavePlan = async () => {
+        setLoading(true);
+        const data = await tourplanService.saveTourplan(tourplanId, !isSaved);
+        if (data.status >= 300) {
+            toast.error("You are not logged in. Please Login to save the event.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+
+        setIsSaved(!isSaved);
+        setLoading(false);
     }
 
     const handleDownloadPlan = () => {
@@ -108,6 +130,26 @@ const TourPlan = (props) => {
             setGroupOption(data.data.groupOption);
             setTotalCost(data.data.totalCost);
             setDuration(data.data.duration);
+
+            const userId = authService.getUserId() ? authService.getUserId() : '';
+            if (userId) {
+                let user = await userAuthService.getProfile(authService.getUser());
+                user = user.user;
+                if (user.status >= 300) {
+                    setIsSaved(false);
+                }
+                else {
+                    setIsSaved(false);
+                    for (const value of user.savedTourPlan) {
+                        if (value._id._id.toString() === tourplanId) {
+                            setIsSaved(true);
+                        }
+                    }
+                }
+            }
+            else {
+                setIsSaved(false);
+            }
         }
 
         setLoading(false);
@@ -352,7 +394,9 @@ const TourPlan = (props) => {
                                 <button 
                                     className="tourplan-save-button"
                                     onClick={handleSavePlan}
-                                >Save</button>
+                                >
+                                    {isSaved ? 'Unsave' : 'Save'}
+                                </button>
                                 <button 
                                     className="tourplan-enroll-button"
                                     onClick={handleDownloadPlan}

@@ -6,6 +6,8 @@ import "./styles.css";
 
 const TourPlanLongCard = (props) => {
     const tourplan = props.tourplan;
+    const index = props.index;
+    const handleSaveTourplan = props.handleSaveTourplan;
 
     return ( 
         <div
@@ -104,7 +106,12 @@ const TourPlanLongCard = (props) => {
                 </div>
                 <div className="tour-plan-long-card-side-first">
                     <div>
-                        <button className="btn btn-secondary tour-plan-long-card-button">Download Plan</button>
+                        <button 
+                            className="btn btn-secondary tour-plan-long-card-button"
+                            onClick={() => handleSaveTourplan(index)}
+                        >
+                            {tourplan.isSaved ? 'Unsave' : 'Save'}
+                        </button>
                     </div>
                 </div>
             </div>

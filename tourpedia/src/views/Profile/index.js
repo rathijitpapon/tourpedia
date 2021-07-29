@@ -15,6 +15,7 @@ import "./styles.css";
 import userAuthService from "../../services/userAuthService";
 import fileService from "../../services/fileService";
 import eventService from "../../services/eventService";
+import tourplanService from "../../services/tourplanService";
 
 const customStyles = {
     control: base => ({
@@ -63,6 +64,29 @@ const Profile = (props) => {
         { value: 'Saved Tour Plans' , label: 'Saved Tour Plans'},
     ];
     const [sortOption, setSortOption] = useState(options[0]);
+
+    const handleSaveTourplan = async (index) => {
+        setLoading(true);
+        const data = await tourplanService.saveTourplan(tourplans[index]._id, !tourplans[index].isSaved);
+        if (data.status >= 300) {
+            toast.error("You are not logged in. Please Login to save the event.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+
+        const tourplanData = tourplans;
+        tourplanData[index].isSaved = !tourplanData[index].isSaved;
+        setTourplans(tourplanData);
+        setLoading(false);
+    }
 
     const handleSaveEvent = async (index, actionFrom) => {
         setLoading(true);
@@ -210,6 +234,7 @@ const Profile = (props) => {
 
         formattedData = [];
         for (let i = 0; i < data.user.savedTourPlan.length; i++) {
+            data.user.savedTourPlan[i]._id.isSaved = true;
             formattedData.push(data.user.savedTourPlan[i]._id);
         }
         setTourplans(formattedData);
@@ -444,6 +469,8 @@ const Profile = (props) => {
                             <TourPlanLongCard
                                 key={index}
                                 tourplan={tourplan}
+                                index={index}
+                                handleSaveTourplan={handleSaveTourplan}
                             />
                         ))}
                         <div className="profile-no-data-text" hidden={tourplans.length > 0}>You Have No Saved Tour Plans</div>

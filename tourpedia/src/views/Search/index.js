@@ -158,11 +158,11 @@ const Search = (props) => {
             setLoading(false);
             return;
         }
+        let user = await userAuthService.getProfile(authService.getUser());
+        user = user.user;
         for (let i = 0; i < data.data.length; i++) {
             const userId = authService.getUserId() ? authService.getUserId() : '';
             if (userId) {
-                let user = await userAuthService.getProfile(authService.getUser());
-                user = user.user;
                 if (user.status >= 300) {
                     data.data[i].isEnrolled = false;
                     data.data[i].isSaved = false;
@@ -202,6 +202,25 @@ const Search = (props) => {
             });
             setLoading(false);
             return;
+        }
+        for (let i = 0; i < data.data.length; i++) {
+            const userId = authService.getUserId() ? authService.getUserId() : '';
+            if (userId) {
+                if (user.status >= 300) {
+                    data.data[i].isSaved = false;
+                }
+                else {
+                    data.data[i].isSaved = false;
+                    for (const value of user.savedTourPlan) {
+                        if (value._id._id.toString() === data.data[i]._id) {
+                            data.data[i].isSaved = true;
+                        }
+                    }
+                }
+            }
+            else {
+                data.data[i].isSaved = false;
+            }
         }
         const planData = data.data;
 
@@ -246,6 +265,29 @@ const Search = (props) => {
         }
 
         await getDataFromAPI(categoryData, countryData);
+    }
+
+    const handleSaveTourplan = async (index) => {
+        setLoading(true);
+        const data = await tourplanService.saveTourplan(tourplans[index]._id, !tourplans[index].isSaved);
+        if (data.status >= 300) {
+            toast.error("You are not logged in. Please Login to save the event.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false);
+            return;
+        }
+
+        const tourplanData = tourplans;
+        tourplanData[index].isSaved = !tourplanData[index].isSaved;
+        setTourplans(tourplanData);
+        setLoading(false);
     }
 
     const handleSaveEvent = async (index) => {
@@ -538,6 +580,8 @@ const Search = (props) => {
                                 <TourPlanLongCard
                                     key={index}
                                     tourplan={tourplan}
+                                    index={index}
+                                    handleSaveTourplan={handleSaveTourplan}
                                 />
                             ))
                         ) : null
