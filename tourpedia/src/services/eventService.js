@@ -14,8 +14,7 @@ const getManyEvents = (queryMatcher) => {
         const filteredData = res.data.filter(event => {
             return (
                 event.isApproved && 
-                !event.isBanned && 
-                (new Date(event.dayPlan[0]._id.date)) >= (new Date())
+                !event.isBanned
             );
         });
         return {

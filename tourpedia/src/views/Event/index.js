@@ -34,6 +34,29 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
+const defaultFilters = {
+    durationSort: -1,
+    costSort: -1,
+    participantSort: -1,
+    date: [new Date('2000-01-01'), new Date('2100-01-01')],
+    roomSize: [1, 100],
+    accomodationQuality: [1, 100],
+    groupOption: fixedFilters.tourStyle,
+    inclusion: fixedFilters.inclusion,
+    childAllowed: false,
+    physicalRating: fixedFilters.physicalRating,
+    accomodationOption: fixedFilters.accomodationOption,
+    participantLimit: [1, 100000000],
+    duration: [1, 100000000],
+    age: [1, 1000],
+    cost: [1, 10000000000000],
+    category: [],
+    country: [],
+    place: [],
+    limit: 10000000000,
+    skip: 0,
+}
+
 const Event = () => {
 
     const location = useLocation();
@@ -61,9 +84,29 @@ const Event = () => {
     const [hasMore, setHasMore] = useState(false);
 
     const [openPlanModal, setOpenPlanModal] = useState(false);
+    const [filters, setFilters] = useState(defaultFilters);
 
-    const handleSortOptionChange = (newValue, actionMeta) => {
+    const handleSortOptionChange = async (newValue, actionMeta) => {
         setSortOption(newValue);
+        const filterData = {...filters};
+
+        if (newValue.value === "Most Popular") {
+            filterData.participantSort = -1;
+        }
+        if (newValue.value === "Longest Duration") {
+            filterData.durationSort = -1;
+        }
+        if (newValue.value === "Shortest Duration") {
+            filterData.durationSort = 1;
+        }
+        if (newValue.value === "Highest Price") {
+            filterData.costSort = -1;
+        }
+        if (newValue.value === "Lowest Price") {
+            filterData.costSort = 1;
+        }
+
+        await getDataFromAPI(filterData);
     };
 
     const handleSaveEvent = async (index) => {
@@ -112,32 +155,11 @@ const Event = () => {
         setLoading(false);
     }
 
-    const getDataFromAPI = async (country, place, category) => {
+    const getDataFromAPI = async (filterData) => {
         setLoading(true);
-        const queryMatcher = {
-            durationSort: 1,
-            costSort: 1,
-            participantSort: 1,
-            date: [new Date('2000-01-01'), new Date('2100-01-01')],
-            roomSize: [1, 100],
-            accomodationQuality: [1, 100],
-            groupOption: fixedFilters.tourStyle,
-            inclusion: fixedFilters.inclusion,
-            childAllowed: false,
-            physicalRating: fixedFilters.physicalRating,
-            accomodationOption: fixedFilters.accomodationOption,
-            participantLimit: [1, 100000000],
-            duration: [1, 100000000],
-            age: [1, 1000],
-            cost: [1, 10000000000000],
-            category: category,
-            country: country,
-            place: place,
-            limit: 10000000000,
-            skip: 0,
-        };
+        setFilters(filterData);
 
-        let data = await eventService.getManyEvents(queryMatcher);
+        let data = await eventService.getManyEvents(filterData);
         if (data.status >= 300) {
             toast.error(data.message, {
                 position: "top-right",
@@ -207,12 +229,20 @@ const Event = () => {
         setPlace(placeOptions);
         setPlaceOption(placeOptions[0]);
 
-        await getDataFromAPI(newValue.id === '-1' ? [] : [newValue.id], [], []);
+        const filterData = {...filters};
+        filterData.country = newValue.id === '-1' ? [] : [newValue.id];
+        filterData.place = [];
+
+        await getDataFromAPI(filterData);
     }
 
     const handlePlaceOptionChange = async (newValue, action) => {
         setPlaceOption(newValue);
-        await getDataFromAPI([countryOption.id], newValue.id === '-1' ? [] : [newValue.id], []);
+
+        const filterData = {...filters};
+        filterData.place = [newValue.id];
+
+        await getDataFromAPI(filterData);
     }
 
     const fetchData = async () => {
@@ -252,29 +282,6 @@ const Event = () => {
         setPlace([{ value: 'All Place', label: 'All Place' }]);
         setPlaceOption({ value: 'All Place', label: 'All Place' });
 
-        const queryMatcher = {
-            durationSort: 1,
-            costSort: 1,
-            participantSort: 1,
-            date: [new Date('2000-01-01'), new Date('2100-01-01')],
-            roomSize: [1, 100],
-            accomodationQuality: [1, 100],
-            groupOption: fixedFilters.tourStyle,
-            inclusion: fixedFilters.inclusion,
-            childAllowed: false,
-            physicalRating: fixedFilters.physicalRating,
-            accomodationOption: fixedFilters.accomodationOption,
-            participantLimit: [1, 100000000],
-            duration: [1, 100000000],
-            age: [1, 1000],
-            cost: [1, 10000000000000],
-            category: [],
-            country: [],
-            place: [],
-            limit: 10000000000,
-            skip: 0,
-        };
-
         if (location.state) {
             handleCountryOptionChange({
                 value: location.state.country,
@@ -284,51 +291,7 @@ const Event = () => {
             setCurrentDate(new Date(location.state.minDate));
         }
         else {
-            data = await eventService.getManyEvents(queryMatcher);
-            if (data.status >= 300) {
-                toast.error(data.message, {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-                setLoading(false);
-                return;
-            }
-            for (let i = 0; i < data.data.length; i++) {
-                const userId = authService.getUserId() ? authService.getUserId() : '';
-                if (userId) {
-                    let user = await userAuthService.getProfile(authService.getUser());
-                    user = user.user;
-                    if (user.status >= 300) {
-                        data.data[i].isEnrolled = false;
-                        data.data[i].isSaved = false;
-                    }
-                    else {
-                        data.data[i].isEnrolled = false;
-                        for (const value of data.data[i].enrolledUser) {
-                            if (value._id.toString() === userId) {
-                                data.data[i].isEnrolled = true;
-                            }
-                        }
-                        data.data[i].isSaved = false;
-                        for (const value of user.savedEvent) {
-                            if (value._id._id.toString() === data.data[i]._id) {
-                                data.data[i].isSaved = true;
-                            }
-                        }
-                    }
-                }
-                else {
-                    data.data[i].isEnrolled = false;
-                    data.data[i].isSaved = false;
-                }
-            }
-            data = data.data;
-            setEvents(data);
+            await getDataFromAPI(defaultFilters);
             setLoading(false);
         }
     }
@@ -337,8 +300,28 @@ const Event = () => {
         setOpenPlanModal(val);
     }
 
-    const applyFilter = async (filters) => {
-        // console.log(filters);
+    const applyFilter = async (inputFilters) => {
+        const filterData = {...filters};
+        filterData.accomodationOption = inputFilters.accomodation.length > 0 ? inputFilters.accomodation : fixedFilters.accomodationOption;
+        filterData.inclusion = inputFilters.inclusion.length > 0 ? inputFilters.inclusion : fixedFilters.inclusion;
+        filterData.physicalRating = inputFilters.physical.length > 0 ? inputFilters.physical : fixedFilters.physicalRating;
+        filterData.groupOption = inputFilters.tourStyle.length > 0 ? inputFilters.tourStyle : fixedFilters.tourStyle;
+        filterData.age = [inputFilters.minAge, inputFilters.maxAge];
+        filterData.cost = [inputFilters.minCost, inputFilters.maxCost];
+        filterData.date = [new Date(inputFilters.minDate), new Date(inputFilters.maxDate)];
+        filterData.duration = [inputFilters.minDuration, inputFilters.maxDuration];
+        filterData.participantLimit = [inputFilters.minParticipants, inputFilters.maxParticipants];
+        filterData.roomSize = [inputFilters.minRoomSize, inputFilters.maxRoomSize];
+        filterData.childAllowed = inputFilters.childAllowed;
+
+        let minQuality = 1, maxQuality = 100;
+        for (const value of inputFilters.quality) {
+            minQuality = Math.min(minQuality, +value);
+            maxQuality = Math.max(maxQuality, +value);
+        }
+        filterData.accomodationQuality = [minQuality, maxQuality];
+
+        await getDataFromAPI(filterData);
     }
 
     const handleLoadMore = () => {
@@ -464,7 +447,8 @@ const Event = () => {
                 </div>
             </div>
 
-            <br />
+            <br /><br />
+            <br /><br />
             <br />
             </LoadingOverlay>
         </LayoutWrapper>

@@ -4,6 +4,8 @@ import {ImCross} from 'react-icons/im';
 import {BsArrowLeft} from 'react-icons/bs';
 import { Range } from 'rc-slider';
 import { toast } from 'react-toastify';
+import ClipLoader from "react-spinners/ClipLoader";
+import LoadingOverlay from 'react-loading-overlay'
 
 import TourPlanLongCard from "../../components/TourPlanLongCard";
 
@@ -32,6 +34,9 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 ];
 
 const PlanMyHoliday = (props) => {
+
+    const [loading, setLoading] = useState(false);
+    const color = "#ffffff";
 
     const handlePlanModal = props.handlePlanModal;
     const dateRange = [];
@@ -138,7 +143,7 @@ const PlanMyHoliday = (props) => {
     const[curPage, setCurPage] = useState(1);
 
     const [countryOption, setCountryOption] = useState("");
-    const [placeOption, setPlaceOption] = useState("");
+    const [placeOption, setPlaceOption] = useState([]);
 
     const [country, setCountry] = useState([]);
     const [place, setPlace] = useState([]);
@@ -160,7 +165,7 @@ const PlanMyHoliday = (props) => {
             }
         }
         setPlace(placeOptions);
-        setPlaceOption(placeOptions[0]);
+        setPlaceOption([placeOptions[0]]);
     }
 
     const handlePlaceOptionChange = (newValue, action) => {
@@ -214,7 +219,7 @@ const PlanMyHoliday = (props) => {
             physicalRating: fixedFilters.physicalRating,
             accomodationOption: accomationData,
             participantLimit: [1, 100000000],
-            duration: [1, 100000000],
+            duration: duration,
             age: [1, 1000],
             cost: cost,
             category: categoryData,
@@ -223,7 +228,12 @@ const PlanMyHoliday = (props) => {
             limit: 10000000000,
             skip: 0,
         };
+        queryMatcher.date[0].setDate(1);
+        queryMatcher.date[1].setMonth(queryMatcher.date[1].getMonth() + 1);
+        queryMatcher.date[1].setDate(1);
+        queryMatcher.date[1].setDate(queryMatcher.date[1].getDate() - 1);
 
+        setLoading(true);
         let data = await tourplanService.getManyTourPlans(queryMatcher);
         if (data.status >= 300) {
             toast.error(data.message, {
@@ -235,7 +245,7 @@ const PlanMyHoliday = (props) => {
                 draggable: true,
                 progress: undefined,
             });
-            
+            setLoading(false);
             return;
         }
         for (let i = 0; i < data.data.length; i++) {
@@ -260,6 +270,7 @@ const PlanMyHoliday = (props) => {
             }
         }
         data = data.data;
+        setLoading(false);
         
         setTourplans(data);
     }
@@ -551,7 +562,15 @@ const PlanMyHoliday = (props) => {
 
             {
                 curPage === 5 ? (
-                    <>
+                    <LoadingOverlay
+                        active={loading}
+                        spinner={
+                            <ClipLoader color={color} loading={loading} size={50} />
+                        }
+                        style={{
+                            minHeight: '80vh',
+                        }}
+                    >
                         {
                             tourplans.map((tourplan, index) => (
                                 <TourPlanLongCard
@@ -562,7 +581,8 @@ const PlanMyHoliday = (props) => {
                                 />
                             ))
                         }
-                    </>
+                        <div className="profile-no-data-text" hidden={tourplans.length > 0 || loading}>No Tour Plans Found</div>
+                    </LoadingOverlay>
                 ) : null
             }
 

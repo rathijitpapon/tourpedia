@@ -86,12 +86,10 @@ const EventFilter = (props) => {
             }
         }
         setMinDate(dateRange.slice(index));
-        await fetchData("maxDate", newValue.value);
     }
 
     const handleMinDate = async (newValue, actionMeta) => {
         setMinDateOption(newValue);
-        await fetchData("minDate", newValue.value);
     }
 
     const handleCategory = async (index) => {
@@ -99,7 +97,6 @@ const EventFilter = (props) => {
         data[index] = {...category[index]};
         data[index].isSelected = !data[index].isSelected;
         setCategory(data);
-        await fetchData("category", data);
     }
 
     const handleTourStyle = async (index) => {
@@ -107,7 +104,6 @@ const EventFilter = (props) => {
         data[index] = {...tourStyle[index]};
         data[index].isSelected = !data[index].isSelected;
         setTourStyle(data);
-        await fetchData("tourStyle", data);
     }
 
     const handleInclusion = async (index) => {
@@ -115,7 +111,6 @@ const EventFilter = (props) => {
         data[index] = {...inclusion[index]};
         data[index].isSelected = !data[index].isSelected;
         setInclusion(data);
-        await fetchData("inclusion", data);
     }
 
     const handleAccomodation = async (index) => {
@@ -123,7 +118,6 @@ const EventFilter = (props) => {
         data[index] = {...accomodation[index]};
         data[index].isSelected = !data[index].isSelected;
         setAccomodation(data);
-        await fetchData("accomodation", data);
     }
 
     const handlePhysical = async (index) => {
@@ -131,7 +125,6 @@ const EventFilter = (props) => {
         data[index] = {...physical[index]};
         data[index].isSelected = !data[index].isSelected;
         setPhysical(data);
-        await fetchData("physical", data);
     }
 
     const handleQuality = async (index) => {
@@ -139,7 +132,6 @@ const EventFilter = (props) => {
         data[index] = {...quality[index]};
         data[index].isSelected = !data[index].isSelected;
         setQuality(data);
-        await fetchData("quality", data);
     }
 
     const loadData = async () => {
@@ -288,6 +280,7 @@ const EventFilter = (props) => {
                 data.push(item.value);
         }
         filters['quality'] = data;
+        filters['childAllowed'] = childAllowed;
 
         applyFilter(filters);
     }
@@ -317,6 +310,17 @@ const EventFilter = (props) => {
                 </div>
             }
         >
+            <div className="event-filter-apply" hidden={!isFilterOpen}>
+            <button 
+                className="btn btn-primary event-filter-apply-button" 
+                onClick={() => fetchData()}
+            >
+                Apply Filter
+            </button>
+            </div>
+
+            <br />
+
             <div className="event-filter-section-header">
                 <div>
                     <b>Date</b>
@@ -393,7 +397,6 @@ const EventFilter = (props) => {
                     max={60}
                     value={duration}
                     onChange={value => setDuration(value)}
-                    onAfterChange={fetchData}
                 />
                 <br />
             </Collapsible>
@@ -456,7 +459,6 @@ const EventFilter = (props) => {
                     max={10000}
                     value={cost}
                     onChange={value => setCost(value)}
-                    onAfterChange={fetchData}
                 />
                 <br />
             </Collapsible>
@@ -642,7 +644,6 @@ const EventFilter = (props) => {
                     max={100}
                     value={age}
                     onChange={value => setAge(value)}
-                    onAfterChange={fetchData}
                 />
                 <br />
             </Collapsible>
@@ -655,7 +656,6 @@ const EventFilter = (props) => {
                     checked={childAllowed}
                     onChange={async () => {
                         setChildAllowed(!childAllowed)
-                        await fetchData();
                     }}
                 /> Child Allowance
             </div>
@@ -718,7 +718,6 @@ const EventFilter = (props) => {
                     max={100}
                     value={participant}
                     onChange={value => setParticipant(value)}
-                    onAfterChange={fetchData}
                 />
                 <br />
             </Collapsible>
@@ -904,7 +903,6 @@ const EventFilter = (props) => {
                     max={10}
                     value={roomSize}
                     onChange={value => setRoomSize(value)}
-                    onAfterChange={fetchData}
                 />
                 <br />
             </Collapsible>
