@@ -173,7 +173,7 @@ const createEvent = async (req, res) => {
         const {eventBody, category, place, guide, country} = await createEventProperty(body);
         eventBody.travelAgency = {_id: req.user._id};
         eventBody.isBanned = false;
-        eventBody.isApproved = false;
+        eventBody.isApproved = true;
 
         const event = new Event(eventBody);
         await event.save();
