@@ -1,10 +1,12 @@
+
 const nodemailer = require('nodemailer');
+const mailConfig = require('../../config/mailConfig.json');
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'tourpediaorg@gmail.com',
-        pass: 'tourpediadotcomAPROJECTOFSDLABCSEBUET'
+        user: mailConfig.email,
+        pass: mailConfig.password
     }
 });
 
