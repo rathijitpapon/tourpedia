@@ -1,4 +1,5 @@
 import httpService from "./httpService";
+import authService from "./authService";
 
 import config from "../config/config.json";
 
@@ -10,9 +11,16 @@ const getManyEvents = (queryMatcher) => {
     const response = httpService.get(url, {
         params: queryMatcher
     }).then(res => {
+        const filteredData = res.data.filter(event => {
+            return (
+                event.isApproved && 
+                !event.isBanned && 
+                (new Date(event.dayPlan[0]._id.date)) >= (new Date())
+            );
+        });
         return {
             status: res.status,
-            data: res.data,
+            data: filteredData,
         };
     }).catch(error => {
         if(error.response && error.response.status <= 500) {
@@ -54,9 +62,65 @@ const getEventById = (id) => {
     return response;
 };
 
+const saveEvent = (id, isSaved) => {
+    const url = `${baseURL}/save/?id=${id}`;
+    
+    httpService.setJWT(authService.getJWT());
+    const response = httpService.post(url, {
+        isSaved,
+    }).then(res => {
+        return {
+            status: res.status,
+            data: res.data,
+        };
+    }).catch(error => {
+        if(error.response && error.response.status <= 500) {
+            return {
+                status: error.response.status,
+                message: "Event Not Found",
+            };
+        }
+        return {
+            status: 500,
+            message: "Unexpected server error",
+        };
+    });
+
+    return response;
+};
+
+const enrollEvent = (id, isEnrolled) => {
+    const url = `${baseURL}/enroll/?id=${id}`;
+    
+    httpService.setJWT(authService.getJWT());
+    const response = httpService.post(url, {
+        isEnrolled,
+    }).then(res => {
+        return {
+            status: res.status,
+            data: res.data,
+        };
+    }).catch(error => {
+        if(error.response && error.response.status <= 500) {
+            return {
+                status: error.response.status,
+                message: "Event Not Found",
+            };
+        }
+        return {
+            status: 500,
+            message: "Unexpected server error",
+        };
+    });
+
+    return response;
+};
+
 const eventService = {
     getManyEvents,
     getEventById,
+    saveEvent,
+    enrollEvent,
 };
 
 export default eventService;
