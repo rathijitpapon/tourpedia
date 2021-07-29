@@ -91,6 +91,10 @@
         flex-direction: column;
     }
 
+    .tour-plan-long-card-main-child {
+        flex-direction: column;
+    }
+
     .tour-plan-long-card-image {
         display: block;
         margin-left: auto;
