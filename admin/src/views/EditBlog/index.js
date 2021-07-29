@@ -406,7 +406,7 @@ const EditBlog = (props) => {
                             addImages(data);
                         }
                     }}
-                    placeholder="Report File"
+                    placeholder="img file"
                     accept=".png, .jpg, .jpeg, .gif"
                     style={{
                         textAlign: 'center',

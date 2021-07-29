@@ -21,7 +21,7 @@ const customStyles = {
     })
 };
 
-const UploadReport = (props) => {
+const UploadExplore = (props) => {
 
     const uploadType = props.uploadType;
     const isUpdate = props.isUpdate;
@@ -62,7 +62,7 @@ const UploadReport = (props) => {
             });
         }
         setCategories(formattedData);
-        setCategoryOption(formattedData[0]);
+        setCategoryOption([formattedData[0]]);
 
         if (isUpdate && uploadType === 'place') {
             setCountryOption({
@@ -276,4 +276,4 @@ const UploadReport = (props) => {
     );
 }
  
-export default UploadReport;
+export default UploadExplore;
