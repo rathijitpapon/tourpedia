@@ -87,8 +87,7 @@ const TourPlan = (props) => {
         setLoading(false);
     }
 
-    const handleDownloadPlan = () => {
-
+    const handleDownloadPlan = async () => {
     }
 
     const fetchData = async () => {
@@ -169,6 +168,7 @@ const TourPlan = (props) => {
                     <ClipLoader color={color} loading={loading} size={50} />
                 }
                 className="loading-height"
+                id="content"
             >
             <>
                 {
@@ -392,7 +392,7 @@ const TourPlan = (props) => {
                                 className="tourplan-bottom"
                             >     
                                 <button 
-                                    className="tourplan-save-button"
+                                    className="tourplan-enroll-button"
                                     onClick={handleSavePlan}
                                 >
                                     {isSaved ? 'Unsave' : 'Save'}
@@ -400,6 +400,7 @@ const TourPlan = (props) => {
                                 <button 
                                     className="tourplan-enroll-button"
                                     onClick={handleDownloadPlan}
+                                    hidden
                                 >Download</button>           
                             </div>
 
