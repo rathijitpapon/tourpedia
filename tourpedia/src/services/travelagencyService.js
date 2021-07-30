@@ -1,9 +1,8 @@
 import httpService from "./httpService";
 
-import config from "../config/config.json";
 
-const tarvelAgencyBaseURL = config.apiBaseURL + "/user/travelagency";
-const guideBaseURL = config.apiBaseURL + "/user/guide";
+const tarvelAgencyBaseURL = process.env.REACT_APP_API_BASE_URL + "/user/travelagency";
+const guideBaseURL = process.env.REACT_APP_API_BASE_URL + "/user/guide";
 
 const getProfile = (username, isAgency) => {
     let url = isAgency === 'agency' ? tarvelAgencyBaseURL : guideBaseURL;

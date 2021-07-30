@@ -1,9 +1,7 @@
 import httpService from "./httpService";
 import authService from "./authService";
 
-import config from "../config/config.json";
-
-const baseURL = config.apiBaseURL + "/explore";
+const baseURL = process.env.REACT_APP_API_BASE_URL + "/explore";
 
 const uploadExplore = (name, description, banner, explore, country, category) => {
     const url = `${baseURL}/${explore}/create`;

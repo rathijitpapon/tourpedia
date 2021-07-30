@@ -1,8 +1,6 @@
 import httpService from "./httpService";
 
-import config from "../config/config.json";
-
-const baseURL = config.apiBaseURL + "/blog/blog";
+const baseURL = process.env.REACT_APP_API_BASE_URL + "/blog/blog";
 
 const getManyBlogs = (category, country, date, upvote) => {
     const url = `${baseURL}/many`;

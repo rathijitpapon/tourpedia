@@ -1,9 +1,7 @@
 import httpService from "./httpService";
 import authService from "./authService";
 
-import config from "../config/config.json";
-
-const baseURL = config.apiBaseURL + "/event/event";
+const baseURL = process.env.REACT_APP_API_BASE_URL + "/event/event";
 
 const changeApproveEvent = (eventId, isApproved) => {
     const url = `${baseURL}/approve?id=${eventId}`;

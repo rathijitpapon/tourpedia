@@ -1,8 +1,6 @@
 import httpService from "./httpService";
 
-import config from "../config/config.json";
-
-const baseURL = config.apiBaseURL + "/pedia/pedia";
+const baseURL = process.env.REACT_APP_API_BASE_URL + "/pedia/pedia";
 
 const getManyPedias = () => {
     const url = `${baseURL}/many`;

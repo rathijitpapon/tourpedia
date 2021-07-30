@@ -4,9 +4,7 @@ const uniqueValidator = require('mongoose-unique-validator');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const schemaConfig = require("../../../config/schemaConfig.json");
-
-const JWT_SECRET = schemaConfig.jwtSecret;
+const JWT_SECRET = process.env.jwtSecret;
 
 const userSchema = new mongoose.Schema(
     {

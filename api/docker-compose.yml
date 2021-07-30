@@ -1,14 +1,14 @@
-version: '3'
+version: "3"
 services:
   redis:
-    image: 'redis:latest'
+    image: "redis:latest"
   nginx:
     restart: always
     build:
       dockerfile: Dockerfile.dev
       context: ./nginx
     ports:
-      - '8000:80'
+      - "8000:80"
   backend:
     build:
       dockerfile: Dockerfile.dev
@@ -16,3 +16,7 @@ services:
     volumes:
       - /app/node_modules
       - ./backend:/app
+    env_file:
+      - ./config.env
+    environment:
+      - NODE_ENV=production

@@ -1,9 +1,7 @@
 import httpService from "./httpService";
 import authService from "./authService";
 
-import config from "../config/config.json";
-
-const baseURL = config.apiBaseURL + "/pedia/pedia";
+const baseURL = process.env.REACT_APP_API_BASE_URL + "/pedia/pedia";
 
 const createPedia = (imageURL, videoURL, area, food, country, place) => {
     const url = `${baseURL}/create`;

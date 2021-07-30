@@ -1,11 +1,10 @@
 const mongoose = require("mongoose");
-const dbConfig = require("../../config/dbConfig.json");
 
 const initDB = () => {
-  mongoose.connect(dbConfig.url, {
-    // dbName: dbConfig.url,
-    // user: dbConfig.username,
-    // pass: dbConfig.password,
+  mongoose.connect(process.env.db_url, {
+    // dbName: process.env.db_url,
+    // user: process.env.db_username,
+    // pass: process.env.db_password,
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
