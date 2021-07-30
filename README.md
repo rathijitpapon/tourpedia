@@ -6,6 +6,7 @@
 3. Travel agency web platform.
    
 <br />
+
 ## General User Platform
 Here general users can
 * View different categories, countries & places information.
