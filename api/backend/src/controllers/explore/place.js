@@ -176,7 +176,9 @@ const getPlaceByName = async (req, res) => {
         const events = [];
         for (let i = 0; i < place.event.length; i++) {
             if (place.event[i]._id) {
-                events.push(place.event[i]);
+                if (place.event[i]._id.dayPlan[0]._id) {
+                    events.push(place.event[i]);
+                }
             }
         }
         place.event = events;

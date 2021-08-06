@@ -463,11 +463,22 @@ const getManyEvent = async (req, res) => {
         if (req.query.childAllowed === 'true') {
             queryMatcher['childAllowed'] = true;
         }
+
+        let date1 = new Date(req.query.date[0]);
+        let date2 = new Date(req.query.date[1]);
+        if (date1.getTime() > date2.getTime()) {
+            req.query.date[0] = date2;
+            req.query.date[1] = date1;
+        }
+        else {
+            req.query.date[0] = date1;
+            req.query.date[1] = date2;
+        }
     
         const events = await Event.find(queryMatcher).sort(options).skip(+req.query.skip).limit(+req.query.limit).populate("travelAgency._id").populate("category._id").populate("place._id").populate("guide._id").populate("country._id").populate({
             path: "dayPlan._id",
             match: {
-                date: { $gte: new Date(req.query.date[0]), $lte: new Date(req.query.date[1]) },
+                date: { $gte: req.query.date[0], $lte: req.query.date[1] },
                 roomSize: { $gte: +req.query.roomSize[0], $lte: +req.query.roomSize[1] },
                 accomodationQuality: { $gte: +req.query.accomodationQuality[0], $lte: +req.query.accomodationQuality[1] },
             },
@@ -479,7 +490,14 @@ const getManyEvent = async (req, res) => {
             }
         });
 
-        res.status(200).send(events);
+        const filteredEvents = [];
+        for (let i = 0; i < events.length; i++) {
+            if (events[i].dayPlan[0]._id) {
+                filteredEvents.push(events[i]);
+            }
+        }
+
+        res.status(200).send(filteredEvents);
     } catch (error) {
         res.status(400).send({
             message: error.message,

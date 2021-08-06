@@ -144,7 +144,9 @@ const getCategoryByName = async (req, res) => {
         const events = [];
         for (let i = 0; i < category.event.length; i++) {
             if (category.event[i]._id) {
-                events.push(category.event[i]);
+                if (category.event[i]._id.dayPlan[0]._id) {
+                    events.push(category.event[i]);
+                }
             }
         }
         category.event = events;

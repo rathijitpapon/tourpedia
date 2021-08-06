@@ -144,7 +144,9 @@ const getCountryByName = async (req, res) => {
         const events = [];
         for (let i = 0; i < country.event.length; i++) {
             if (country.event[i]._id) {
-                events.push(country.event[i]);
+                if (country.event[i]._id.dayPlan[0]._id) {
+                    events.push(country.event[i]);
+                }
             }
         }
         country.event = events;
