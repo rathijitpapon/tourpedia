@@ -1,4 +1,4 @@
-# Tour Pedia
+# [Tour Pedia](https://tourpedia.vercel.app)
 
 ### This repository is a combination of 
 1. General user web platform
@@ -7,7 +7,7 @@
    
 <br />
 
-## General User Platform
+## [General User Platform](https://tourpedia.vercel.app)
 Here general users can
 * View different categories, countries & places information.
 * View different touist spots & popular food items of all places.
@@ -18,7 +18,7 @@ Here general users can
   
 <br />
 
-## Adminstrator Platform
+## [Adminstrator Platform](https://admintourpedia.vercel.app)
 Here administrators can
 * Manage, approve or ban tour events hosted by different travel agencies.
 * Manage travel agencies, users & guide account to ensure safety of the whole platform.
@@ -28,7 +28,7 @@ Here administrators can
 
 <br />
 
-## Travel Agency Platform
+## [Travel Agency Platform](https://travelagency.vercel.app)
 Here travel agencies can
 * Create & manage tour events from a user friendly interface.
 * Manage & maintain a user friendly travel agency profile.
