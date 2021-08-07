@@ -240,7 +240,12 @@ const Event = () => {
         setPlaceOption(newValue);
 
         const filterData = {...filters};
-        filterData.place = [newValue.id];
+        if (newValue.id === '-1') {
+            filterData.place = [];
+        }
+        else {
+            filterData.place = [newValue.id];
+        }
 
         await getDataFromAPI(filterData);
     }
